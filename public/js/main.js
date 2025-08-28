@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = window.pageYOffset || document.documentElement.scrollTop;
       const spaceOdyssey = document.querySelector('.space-odyssey');
       if (spaceOdyssey) {
-        spaceOdyssey.style.transform = 'translate3d(-50%, ' + parseInt(y / 1.5) + 'px, 0px)';
+        spaceOdyssey.style.transform = 'translateY(' + parseInt(y / 1.5) + 'px)';
       }
     }
     

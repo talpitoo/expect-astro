@@ -1,7 +1,8 @@
 body {
-  font-family: var(--font-family-sans-serif);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
+  @apply font-sans;
+  
+  font-size: 16px;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -9,7 +10,7 @@ body {
 .color-magenta:hover,
 .color-magenta:active,
 .color-magenta:focus {
-  color: var(--magenta);
+  @apply text-magenta;
 }
 
 .logo {
@@ -34,8 +35,8 @@ body {
 }
 
 header {
-  color: var(--white);
-  background-color: var(--gray);
+  @apply bg-gray text-white;
+  
   padding: 0 47px 100px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
   position: relative;
@@ -43,20 +44,7 @@ header {
 }
 
 header .space-odyssey {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate3d(-50%, 0, 0);
-  width: auto;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (min-width: 1500px) {
-  header .space-odyssey {
-    width: 100%;
-    height: auto;
-  }
+  @apply absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto;
 }
 
 header .linear-gradient {
@@ -70,7 +58,8 @@ header .linear-gradient {
 }
 
 header h1 {
-  font-family: var(--font-family-sans-serif);
+  @apply font-sans;
+  
   font-weight: bold;
   font-style: normal;
   font-size: 65px;
@@ -145,7 +134,7 @@ header .stripe {
 }
 
 .subtitle:before {
-  border-top: 2px solid var(--gray-base);
+  border-top: 2px solid black;
   content: ' ';
   display: block;
   margin: 35px auto;
@@ -186,19 +175,8 @@ main section h2 {
 }
 
 .alert {
-  border-radius: var(--border-radius-base);
+  border-radius: 0;
   margin: 0;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 
 .text-center {

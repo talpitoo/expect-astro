@@ -16,10 +16,8 @@
   height: 100%;
 
   figure {
-    display: block;
-    position: absolute;
-    /* TODO background-color: var(--magenta); */
-    background-color: rgba(153,0,102,.5);
+    @apply bg-magenta/50 block absolute;
+
     backface-visibility: hidden;
   }
 
@@ -89,7 +87,7 @@
     &:focus,
     &:hover {
       text-decoration: none;
-      color: var(--white);
+      color: white;
       outline: none;
     }
   }
@@ -100,7 +98,7 @@
   position: absolute;
   right: 100px;
   bottom: 50px;
-  color: var(--white);
+  color: white;
   font-size: inherit;
   transform: translateZ(0deg);
 
