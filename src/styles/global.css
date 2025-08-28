@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark-mode, .dark-mode *));
+
+@theme {
+  /* NOTE: this would be the v4 way @config './tailwind.config.js'; */
+  --font-frutiger: frutiger, sans-serif;
+  --font-overpass-mono: Overpass Mono, monospace;
+  --font-newsreader: Newsreader, Times New Roman, Times serif;
+
+  --color-cynkra-blue: #2162b7;
+  --color-cynkra-blue-2: #2981e5;
+  --color-cynkra-blue-3: #6ba0e6;
+  --color-cynkra-blue-4: #a8c6e5;
+  --color-cynkra-blue-5: #c9ddf2;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+@layer base {
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply text-[#333];
+  }
+}
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Alegreya Sans SC', 'Open Sans Variable', 'Segoe UI', 'Roboto', 'Droid Sans',
+    'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.btn-primary {
+  color: #906;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.btn-lg {
+  padding: 18px 50px;
+  font-size: 20px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+
+.animation-placeholder a,
+.animation-placeholder a:active,
+.animation-placeholder a:focus,
+.animation-placeholder a:hover {
+  color: white;
+}
+
+.list-inline {
+  margin-left: -5px;
+}
+
+.list-inline, .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+@import "./fonts.css";
+@import "./expecticons.css";
+@import "./custom-variables.css";
+@import "./above-the-fold.css";
+@import "./expect.css";
+@import "./animations.css";

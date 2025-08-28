@@ -1,0 +1,28 @@
+---
+// import { Image } from 'astro:assets';
+// import stanleyKubrick2001SpaceOdysseyLowQuality from '../assets/stanley-kubrick-2001-space-odyssey-low-quality.jpg';
+---	
+
+<header>
+  <!-- <Image src={stanleyKubrick2001SpaceOdysseyLowQuality} priority quality="mid" alt="2001: A Space Odyssey" class="space-odyssey" /> -->
+  <img
+    src="img/stanley-kubrick-2001-space-odyssey-low-quality.jpg?ver=28082025"
+    alt="2001: A Space Odyssey"
+    class="space-odyssey"
+    fetchpriority="high"
+  />
+  <div class="linear-gradient"></div>
+  <img
+    src="img/logo-expect.png?ver=28082025"
+    alt="Expect"
+    width="300"
+    height="150"
+    class="logo"
+  />
+  <div class="stripe">
+    <h1>Web development</h1>
+    <q cite="http://www.imdb.com/title/tt0062622/quotes"
+      >I'm sorry Dave, I'm afraid I can't do that</q
+    >
+  </div>
+</header>

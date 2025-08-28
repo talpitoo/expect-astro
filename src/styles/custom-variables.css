@@ -1,0 +1,42 @@
+/* custom variables */
+:root {
+  --magenta:                  #906;
+  --magenta-transparent:      rgba(153, 0, 102, .5);
+  --white:                    #fff;
+  --gray-base:                #000;
+  --gray-darker:              #333;
+  --gray-dark:                #393939;
+  --gray:                     #666;
+  --gray-light:               #ccc;
+  --gray-lighter:             #ececec;
+  --brand-primary:            var(--magenta);
+  --body-bg:                  var(--white);
+  --text-color:               var(--gray-darker);
+  --link-hover-color:         var(--brand-primary);
+  --font-family-sans-serif:   'Open Sans Variable', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serifs;
+  --font-size-base:           16px;
+  --font-size-h1:             46px; /* ~46px */
+  --font-size-h2:             24px; /* ~24px */
+  --line-height-base:         1.5; /* 24/16 */
+  --headings-font-family:     'Alegreya Sans SC', 'Open Sans Variable', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serifs;
+  --headings-font-weight:     300;
+  --padding-large-vertical:   18px;
+  --padding-large-horizontal: 50px;
+  --border-radius-base:       0;
+  --border-radius-large:      0;
+  --border-radius-small:      0;
+  --btn-default-color:        var(--white);
+  --btn-default-bg:           transparent;
+  --btn-default-border:       var(--white);
+  --btn-primary-color:        var(--magenta);
+  --btn-primary-bg:           var(--white);
+  --btn-primary-border:       var(--white);
+  /* copy-paste from Bootstrap defaults */
+  --screen-xs:                480px;
+  --screen-xs-min:            var(--screen-xs);
+  --screen-sm:                768px;
+  --screen-sm-min:            var(--screen-sm);
+  --screen-lg:                1200px;
+  --screen-lg-min:            var(--screen-lg);
+  --screen-xs-max:            calc(var(--screen-sm-min) - 1px);
+}

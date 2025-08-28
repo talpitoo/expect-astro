@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Meta from "../components/Meta.astro";
+import ScriptGA from "../components/ScriptGA.astro";
+import Footer from "../components/Footer.astro";
+import Awwwards from "../components/Awwwards.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns#">
+    <Meta />
+  </head>
+  <!-- TODO: check itemptype for other pages -->
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <noscript>
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> For a better experience, enable JavaScript in your
+        browser.
+      </div>
+    </noscript>
+    <!--[if lt IE 11]>
+        <div class="alert alert-warning">
+            <strong>Warning!</strong> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        </div>
+    <![endif]-->
+    <ScriptGA />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <Awwwards />
+
+    <!-- <script is:inline>
+      // load css async https://github.com/filamentgroup/loadCSS
+      var ss = window.document.createElement("link");
+      var ref = window.document.getElementsByTagName("noscript")[0];
+      ss.rel = "stylesheet";
+      ss.href = "css/main.css?ver=28082025";
+      ss.media = "only x";
+      ref.parentNode.insertBefore(ss, ref);
+      setTimeout(function () {
+        ss.media = "all";
+      });
+    </script> -->
+    
+    <script src="/js/main.js" is:inline async></script>
+  </body>
+</html>
