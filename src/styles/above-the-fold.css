@@ -127,20 +127,6 @@ header .stripe {
   }
 }
 
-.subtitle {
-  font-style: italic;
-  font-size: 18px; /* ~18px */
-  font-weight: 300;
-}
-
-.subtitle:before {
-  border-top: 2px solid black;
-  content: ' ';
-  display: block;
-  margin: 35px auto;
-  width: 150px;
-}
-
 main section {
   padding: 100px 0;
 }

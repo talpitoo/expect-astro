@@ -1,27 +1,19 @@
-<section class="beyond">
-  <h1 class="mb-3">Frontend <span class="color-magenta">& beyond</span></h1>
-  <p class="text-center subtitle font-normal! mb-3">
-    Show your PSD and we'll show you the future.
-  </p>
-  <div class="grid sm:grid-cols-12 gap-4">
-    <div class="sm:col-span-10 sm:col-start-2">
-      <div class="grid sm:grid-cols-12 gap-4">
-        <div class="sm:col-span-4 sm:px-10">
-          <i>astronaut</i>
-          <h2><del>PSD</del><ins>design</ins> 2 HTML</h2>
-          <p class="color-magenta">
-            Bring your unique design to life by making it interactive and
+---
+const services = [
+  {
+    icon: "astronaut",
+    title: '<del>PSD</del><ins>design</ins> 2 HTML',
+    description: `Bring your unique design to life by making it interactive and
             outstanding. Be it a parallax HTML5 website, responsive Wordpress
             theme or your custom
             <abbr title="Content management system">CMS</abbr> we make sure your
-            idea talks cross-browser on any device.
-          </p>
-        </div>
-        <div class="sm:col-span-4 sm:px-10">
-          <i>jetsons</i>
-          <h2>Accessibility</h2>
-          <p>
-            We<sup>1</sup> take care about users with disabilities by staying up
+            idea talks cross-browser on any device.`,
+    textColor: "text-magenta"
+  },
+  {
+    icon: "jetsons",
+    title: "Accessibility",
+    description: `We<sup>1</sup> take care about users with disabilities by staying up
             to date with the latest W3C standards as well as the
             <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.0, Section
             508,
@@ -29,18 +21,35 @@
             Schema.org. Following these rules from the start you get built in
             <abbr title="Search engine optimization">SEO</abbr>, good
             <abbr title="User experience">UX</abbr>, quality code and neat
-            <abbr title="User interface">UI</abbr> for free.
-          </p>
-        </div>
-        <div class="sm:col-span-4 sm:px-10">
-          <i>ufo</i>
-          <h2>Speed optimization</h2>
-          <p>
-            Don't allow your website to slow down making your visitors leave and
+            <abbr title="User interface">UI</abbr> for free.`,
+    textColor: ""
+  },
+  {
+    icon: "ufo",
+    title: "Speed optimization",
+    description: `Don't allow your website to slow down making your visitors leave and
             search engines to downrate your content. We are building it from the
-            beginning with performance in mind. Lazy loading, fast coding.
-          </p>
-        </div>
+            beginning with performance in mind. Lazy loading, fast coding.`,
+    textColor: ""
+  }
+];
+---
+
+<section class="beyond">
+  <h1 class="mb-3">Frontend <span class="text-magenta">& beyond</span></h1>
+  <p class="text-center text-lg italic mb-3 before:border-t-2 before:border-black before:block before:mx-auto before:my-[35px] before:w-[150px]">
+    Show your PSD and we'll show you the future.
+  </p>
+  <div class="grid sm:grid-cols-12 -mx-[15px]">
+    <div class="sm:col-span-10 sm:col-start-2 px-[15px]">
+      <div class="grid sm:grid-cols-12 -mx-[15px]">
+        {services.map((service) => (
+          <div class="sm:col-span-4 sm:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
+            <i>{service.icon}</i>
+            <h2 set:html={service.title}></h2>
+            <p class={service.textColor} set:html={service.description}></p>
+          </div>
+        ))}
       </div>
     </div>
   </div>

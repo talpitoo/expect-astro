@@ -337,9 +337,7 @@ main section h2 {
 }
 
 .start {
-  @apply bg-magenta;
-
-  background: url('../img/solar-system.png?ver=28082025') no-repeat top center;
+  background: var(--color-magenta) url('../img/solar-system.png?ver=28082025') no-repeat top center;
   background-size: 1600px 440px;
 }
 
@@ -589,7 +587,7 @@ h6 {
 }
 
 .container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply mx-auto px-10 md:w-[750px] md:px-[15px] min-[992px]:w-[970px] lg:w-[1170px];
 }
 
 .btn {
