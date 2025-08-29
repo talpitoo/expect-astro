@@ -29,7 +29,7 @@
   }
 
   body {
-    @apply text-gray-darker;
+    @apply text-gray-darker dark:text-white dark:bg-[#111];
   }
 }
 

@@ -13,9 +13,9 @@ const services = [
   {
     icon: "jetsons",
     title: "Accessibility",
-    description: `We<sup>1</sup> take care about users with disabilities by staying up
+    description: `We<sup><a href="#footnote">1</a></sup> take care about users with disabilities by staying up
             to date with the latest W3C standards as well as the
-            <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.0, Section
+            <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, Section
             508,
             <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> or
             Schema.org. Following these rules from the start you get built in
@@ -37,14 +37,14 @@ const services = [
 
 <section class="beyond">
   <h1 class="mb-3">Frontend <span class="text-magenta">& beyond</span></h1>
-  <p class="text-center text-lg italic mb-3 before:border-t-2 before:border-black before:block before:mx-auto before:my-[35px] before:w-[150px]">
+  <p class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]">
     Show your PSD and we'll show you the future.
   </p>
   <div class="grid sm:grid-cols-12 -mx-[15px]">
     <div class="sm:col-span-10 sm:col-start-2 px-[15px]">
       <div class="grid sm:grid-cols-12 -mx-[15px]">
         {services.map((service) => (
-          <div class="sm:col-span-4 sm:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
+          <div class="sm:col-span-4 px-[15px] sm:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
             <i>{service.icon}</i>
             <h2 set:html={service.title}></h2>
             <p class={service.textColor} set:html={service.description}></p>
