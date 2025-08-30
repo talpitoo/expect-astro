@@ -1,33 +1,27 @@
-<section class="featured dreamers" id="portfolio">
-  <div class="container-bootstrap">
-    <div class="grid md:grid-cols-12 -mx-[15px]">
-      <div class="md:col-span-10 md:col-start-2 px-[15px]">
-        <div class="grid md:grid-cols-12 -mx-[15px]">
-          <div class="md:col-span-4 px-[15px]">
-            <h1>Featured work</h1>
-            <ul class="list-unstyled portfolio-descriptions">
-              <li>
-                <h2>Dreamers Inc.</h2>
-                <blockquote>
+---
+const portfolioItems = [
+  {
+    title: "Dreamers Inc.",
+    content: `<blockquote>
                   <p>
-                    You may say that I’m a dreamer
-                    <br /> but I’m not the only one
-                    <br /> I hope someday you’ll join us
+                    You may say that I'm a dreamer
+                    <br /> but I'm not the only one
+                    <br /> I hope someday you'll join us
                     <br /> and the world will be as one.
                   </p>
                 </blockquote>
                 <p>The best client you can work with!</p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://thedreamers.us/'); return false;"
-                    href="http://thedreamers.us/"
+                    onclick="trackOutboundLink('https://thedreamers.us/'); return false;"
+                    href="https://thedreamers.us/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">thedreamers.us</a
                   >
-                </p>
-              </li>
-              <li>
-                <h2>Upwork Global Inc.</h2>
-                <p>oDesk is now Upwork.</p>
+                </p>`
+  },
+  {
+    title: "Upwork Global Inc.",
+    content: `<p>oDesk is now Upwork.</p>
                 <p>
                   Freelance marketplaces <em>Elance</em> and <em>oDesk</em> are now
                   rebranded and merged together under the new name - Upwork. It was
@@ -36,22 +30,20 @@
                 </p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://upwork.com/'); return false;"
-                    href="http://upwork.com/"
+                    onclick="trackOutboundLink('https://upwork.com/'); return false;"
+                    href="https://upwork.com/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">upwork.com</a
                   >
-                </p>
-              </li>
-              <li>
-                <h2>
-                  Responsive website<br />
-                  for an outsourcing company
-                </h2>
-                <p>
+                </p>`
+  },
+  {
+    title: `Responsive website<br />
+                  for an outsourcing company`,
+    content: `<p>
                   A website with SVG animations and highest accessibility
                   standards. PSD by <a
-                    onclick="trackOutboundLink('http://heavyform.com/'); return false;"
-                    href="http://heavyform.com/"
+                    onclick="trackOutboundLink('https://heavyform.com/'); return false;"
+                    href="https://heavyform.com/"
                     class="text-magenta dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
                   >. Optimized with handcrafted lazy loading, Google PageSpeed
                   Insights, YSlow, Web Developer Checklist and HTML CodeSniffer.
@@ -59,30 +51,30 @@
                 </p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://old.novalite.rs/'); return false;"
-                    href="http://old.novalite.rs/"
+                    onclick="trackOutboundLink('https://talpitoo.com/novalite/'); return false;"
+                    href="https://talpitoo.com/novalite/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">novalite.rs</a
                   >
-                </p>
-              </li>
-              <li>
-                <h2>A personal photography blog</h2>
-                <p>
+                </p>`
+  },
+  {
+    title: "A personal photography blog",
+    content: `<p>
                   Responsive Wordpress theme with preserved IPTC/EXIF data, SEO
                   friendly image names and a lot of small details. What
                   photographers actually want.
                 </p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://tothtamas.tt/'); return false;"
-                    href="http://tothtamas.tt/"
+                    onclick="trackOutboundLink('https://tothtamas.tt/'); return false;"
+                    href="https://tothtamas.tt/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">tothtamas.tt</a
                   >
-                </p>
-              </li>
-              <li>
-                <h2>A customized Tumblr theme</h2>
-                <p>
+                </p>`
+  },
+  {
+    title: "A customized Tumblr theme",
+    content: `<p>
                   Custom Tumblr theme based on <a
                     onclick="trackOutboundLink('https://www.tumblr.com/theme/37310'); return false;"
                     href="https://www.tumblr.com/theme/37310"
@@ -93,15 +85,15 @@
                 </p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/'); return false;"
-                    href="http://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/"
+                    onclick="trackOutboundLink('https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/'); return false;"
+                    href="https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">lapetitevackor.tumblr.com</a
                   >
-                </p>
-              </li>
-              <li>
-                <h2>Conference speech</h2>
-                <p>
+                </p>`
+  },
+  {
+    title: "Conference speech",
+    content: `<p>
                   I gave a talk at a conference for designers and front-end
                   developers about accessibility, user experience and
                   performance. If you are interested in <abbr
@@ -112,12 +104,29 @@
                 </p>
                 <p>
                   <a
-                    onclick="trackOutboundLink('http://dafed.org/'); return false;"
-                    href="http://dafed.org/"
+                    onclick="trackOutboundLink('https://dafed.org/'); return false;"
+                    href="https://dafed.org/"
                     class="text-magenta text-big dark:mix-blend-plus-lighter">dafed.org</a
                   >
-                </p>
-              </li>
+                </p>`
+  }
+];
+---
+
+<section class="featured dreamers" id="portfolio">
+  <div class="container-bootstrap">
+    <div class="grid md:grid-cols-12 -mx-[15px]">
+      <div class="md:col-span-10 md:col-start-2 px-[15px]">
+        <div class="grid md:grid-cols-12 -mx-[15px]">
+          <div class="md:col-span-4 px-[15px]">
+            <h1>Featured work</h1>
+            <ul class="list-unstyled portfolio-descriptions">
+              {portfolioItems.map((item) => (
+                <li>
+                  <h2 set:html={item.title}></h2>
+                  <div set:html={item.content}></div>
+                </li>
+              ))}
             </ul>
           </div>
           <div class="md:col-span-8 relative max-w-[calc(100vw-55px)] md:max-w-none">

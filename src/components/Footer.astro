@@ -1,3 +1,28 @@
+---
+const socialLinks = [
+  {
+    url: "https://talpitoo.com/",
+    icon: "tt",
+    classes: "text-magenta! animate-pulse"
+  },
+  {
+    url: "https://twitter.com/talpitoo",
+    icon: "twitter",
+    classes: ""
+  },
+  {
+    url: "https://instagram.com/talpitoo",
+    icon: "instagram", 
+    classes: ""
+  },
+  {
+    url: "https://github.com/talpitoo",
+    icon: "github",
+    classes: ""
+  }
+];
+---
+
 <footer>
   <div class="container-bootstrap">
     <div class="grid md:grid-cols-12 -mx-[15px]">
@@ -6,8 +31,8 @@
           <div class="lg:col-span-8 px-[15px]">
             <p>
               &copy; <a
-                onclick="trackOutboundLink('http://tothtamas.tt/'); return false;"
-                href="http://tothtamas.tt/"
+                onclick="trackOutboundLink('https://tothtamas.tt/'); return false;"
+                href="https://tothtamas.tt/"
                 class="text-gray-light">Tóth Tamás</a
               > 2014 - ∞
             </p>
@@ -27,15 +52,15 @@
             </p>
             <p>
               Infinity font by <a
-                onclick="trackOutboundLink('http://hungarumlaut.com/'); return false;"
-                href="http://hungarumlaut.com/"
+                onclick="trackOutboundLink('https://hungarumlaut.com/'); return false;"
+                href="https://hungarumlaut.com/"
                 class="text-gray-light">Katyi Ádám</a
               >
             </p>
             <p>
               Header image by <a
-                onclick="trackOutboundLink('http://en.wikipedia.org/wiki/Stanley_Kubrick_Archive'); return false;"
-                href="http://en.wikipedia.org/wiki/Stanley_Kubrick_Archive"
+                onclick="trackOutboundLink('https://en.wikipedia.org/wiki/Stanley_Kubrick_Archive'); return false;"
+                href="https://en.wikipedia.org/wiki/Stanley_Kubrick_Archive"
                 class="text-gray-light">Stanley Kubrick Archive</a
               >
             </p>
@@ -46,35 +71,17 @@
               <p class="text-center text-gray-light">Expect us.</p>
             </div>
             <ul class="list-unstyled list-inline list-social float-right">
-              <li>
-                <a
-                  onclick="trackOutboundLink('https://talpitoo.com/'); return false;"
-                  href="https://talpitoo.com/"
-                  class="text-magenta! animate-pulse"
-                  ><i>tt</i></a
-                >
-              </li>
-              <li>
-                <a
-                  onclick="trackOutboundLink('https://twitter.com/talpitoo'); return false;"
-                  href="https://twitter.com/talpitoo"
-                  ><i>twitter</i></a
-                >
-              </li>
-              <li>
-                <a
-                  onclick="trackOutboundLink('http://instagram.com/talpitoo'); return false;"
-                  href="http://instagram.com/talpitoo"
-                  ><i>instagram</i></a
-                >
-              </li>
-              <li>
-                <a
-                  onclick="trackOutboundLink('https://github.com/talpitoo'); return false;"
-                  href="https://github.com/talpitoo"
-                  ><i>github</i></a
-                >
-              </li>
+              {socialLinks.map((link) => (
+                <li>
+                  <a
+                    onclick={`trackOutboundLink('${link.url}'); return false;`}
+                    href={link.url}
+                    class={link.classes}
+                  >
+                    <i>{link.icon}</i>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
