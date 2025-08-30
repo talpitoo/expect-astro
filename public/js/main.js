@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let shownIntermission = false;
   const featured = document.querySelector('.featured');
   if (featured) {
-    featured.classList.remove('dreamers');
+    featured.classList.remove('dreamers-inc');
     featured.classList.add('blank');
   }
   
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (elementSmartphone && isScrolledIntoView(elementSmartphone) && !shownSmartphone) {
       const featured = document.querySelector('.featured');
       if (featured) {
-        featured.className = 'featured dreamers';
+        featured.className = 'featured dreamers-inc';
       }
       shownSmartphone = true;
     }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (elementIntermission && isScrolledIntoView(elementIntermission) && !shownIntermission) {
       const featured = document.querySelector('.featured');
       if (featured) {
-        featured.className = 'featured vackor';
+        featured.className = 'featured dafed';
       }
       shownIntermission = true;
     }
@@ -69,19 +69,37 @@ document.addEventListener('DOMContentLoaded', function() {
       const featured = document.querySelector('.featured');
       if (!featured) return;
       
-      if (featured.classList.contains('upwork')) {
-        featured.className = 'featured novalite';
-      } else if (featured.classList.contains('novalite')) {
-        featured.className = 'featured tt';
-      } else if (featured.classList.contains('tt')) {
-        featured.className = 'featured vackor';
-      } else if (featured.classList.contains('vackor')) {
-        featured.className = 'featured dafed';
-      } else if (featured.classList.contains('dafed')) {
-        featured.className = 'featured dreamers';
-      } else {
-        featured.className = 'featured upwork';
+      // Define the portfolio cycle order
+      const portfolioOrder = [
+        'dreamers-inc',
+        'upwork',
+        'novalite',
+        'tt',
+        'lapetitevackor',
+        'cynkra',
+        'dreamingsheep',
+        'hellmut-monz',
+        'itportal',
+        'seopal',
+        'tilt',
+        'dafed',
+      ];
+      
+      // Find current portfolio item
+      let currentIndex = -1;
+      for (let i = 0; i < portfolioOrder.length; i++) {
+        if (featured.classList.contains(portfolioOrder[i])) {
+          currentIndex = i;
+          break;
+        }
       }
+      
+      // Get next portfolio item (cycle back to start if at end)
+      const nextIndex = (currentIndex + 1) % portfolioOrder.length;
+      const nextItem = portfolioOrder[nextIndex];
+      
+      // Update the class
+      featured.className = `featured ${nextItem}`;
       
       if (typeof ga !== 'undefined' && ga.hasOwnProperty('loaded') && ga.loaded === true) {
         ga('send', 'event', 'button', 'click', 'devices');

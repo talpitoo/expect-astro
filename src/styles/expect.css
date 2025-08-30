@@ -147,7 +147,21 @@ main section h2 {
   transition: all 500ms ease 0s;
 }
 
-.dreamers .portfolio-tablet {
+/* PORTFOLIO ORDER, TODO
+'dreamers-inc',
+'upwork',
+'novalite',
+'tt',
+'lapetitevackor',
+'cynkra',
+'dreamingsheep',
+'hellmut-monz',
+'itportal',
+'seopal',
+'tilt',
+'dafed', */
+
+.dreamers-inc .portfolio-tablet {
   transform: translate3d(0, 0, 0);
 }
 
@@ -163,12 +177,36 @@ main section h2 {
   transform: translate3d(0, -1137px, 0);
 }
 
-.vackor .portfolio-tablet {
+.lapetitevackor .portfolio-tablet {
   transform: translate3d(0, -1516px, 0);
 }
 
-.dafed .portfolio-tablet {
+.cynkra .portfolio-tablet {
   transform: translate3d(0, -1895px, 0);
+}
+
+.dreamingsheep .portfolio-tablet {
+  transform: translate3d(0, -2274px, 0);
+}
+
+.hellmut-monz .portfolio-tablet {
+  transform: translate3d(0, -2653px, 0);
+}
+
+.itportal .portfolio-tablet {
+  transform: translate3d(0, -3032px, 0);
+}
+
+.seopal .portfolio-tablet {
+  transform: translate3d(0, -3411px, 0);
+}
+
+.tilt .portfolio-tablet {
+  transform: translate3d(0, -3790px, 0);
+}
+
+.dafed .portfolio-tablet {
+  transform: translate3d(0, -4169px, 0);
 }
 
 .screen-smartphone {
@@ -188,7 +226,21 @@ main section h2 {
   transition: all 500ms ease 0s;
 }
 
-.dreamers .portfolio-smartphone {
+/* PORTFOLIO ORDER, TODO
+'dreamers-inc',
+'upwork',
+'novalite',
+'tt',
+'lapetitevackor',
+'cynkra',
+'dreamingsheep',
+'hellmut-monz',
+'itportal',
+'seopal',
+'tilt',
+'dafed', */
+
+.dreamers-inc .portfolio-smartphone {
   transform: translate3d(0, 0, 0);
 }
 
@@ -204,12 +256,36 @@ main section h2 {
   transform: translate3d(-534px, 0, 0);
 }
 
-.vackor .portfolio-smartphone {
+.lapetitevackor .portfolio-smartphone {
   transform: translate3d(-712px, 0, 0);
 }
 
-.dafed .portfolio-smartphone {
+.cynkra .portfolio-smartphone {
   transform: translate3d(-890px, 0, 0);
+}
+
+.dreamingsheep .portfolio-smartphone {
+  transform: translate3d(-1068px, 0, 0);
+}
+
+.hellmut-monz .portfolio-smartphone {
+  transform: translate3d(-1246px, 0, 0);
+}
+
+.itportal .portfolio-smartphone {
+  transform: translate3d(-1424px, 0, 0);
+}
+
+.seopal .portfolio-smartphone {
+  transform: translate3d(-1602px, 0, 0);
+}
+
+.tilt .portfolio-smartphone {
+  transform: translate3d(-1780px, 0, 0);
+}
+
+.dafed .portfolio-smartphone {
+  transform: translate3d(-1958px, 0, 0);
 }
 
 .portfolio-descriptions li {
@@ -222,13 +298,33 @@ main section h2 {
   @apply max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px];
 }
 
+/* PORTFOLIO ORDER, TODO
+'dreamers-inc',
+'upwork',
+'novalite',
+'tt',
+'lapetitevackor',
+'cynkra',
+'dreamingsheep',
+'hellmut-monz',
+'itportal',
+'seopal',
+'tilt',
+'dafed', */
+
 .blank .portfolio-descriptions li:nth-child(1),
-.dreamers .portfolio-descriptions li:nth-child(1),
+.dreamers-inc .portfolio-descriptions li:nth-child(1),
 .upwork .portfolio-descriptions li:nth-child(2),
 .novalite .portfolio-descriptions li:nth-child(3),
 .tt .portfolio-descriptions li:nth-child(4),
-.vackor .portfolio-descriptions li:nth-child(5),
-.dafed .portfolio-descriptions li:nth-child(6) {
+.lapetitevackor .portfolio-descriptions li:nth-child(5),
+.cynkra .portfolio-descriptions li:nth-child(6),
+.dreamingsheep .portfolio-descriptions li:nth-child(7),
+.hellmut-monz .portfolio-descriptions li:nth-child(8),
+.itportal .portfolio-descriptions li:nth-child(9),
+.seopal .portfolio-descriptions li:nth-child(10),
+.tilt .portfolio-descriptions li:nth-child(11),
+.dafed .portfolio-descriptions li:nth-child(12) {
   display: block;
 }
 

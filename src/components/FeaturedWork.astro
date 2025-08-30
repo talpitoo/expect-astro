@@ -1,6 +1,7 @@
 ---
 const portfolioItems = [
   {
+    id: "dreamers-inc",
     title: "Dreamers Inc.",
     content: `<blockquote>
                   <p>
@@ -13,10 +14,11 @@ const portfolioItems = [
                 <p>The best client you can work with!</p>`,
     link: {
       url: "https://thedreamers.us/",
-      text: "thedreamers.us"
-    }
+      text: "thedreamers.us",
+    },
   },
   {
+    id: "upwork",
     title: "Upwork Global Inc.",
     content: `<p>oDesk is now Upwork.</p>
                 <p>
@@ -27,10 +29,11 @@ const portfolioItems = [
                 </p>`,
     link: {
       url: "https://upwork.com/",
-      text: "upwork.com"
-    }
+      text: "upwork.com",
+    },
   },
   {
+    id: "novalite",
     title: `Responsive website<br />
                   for an outsourcing company`,
     content: `<p>
@@ -45,10 +48,11 @@ const portfolioItems = [
                 </p>`,
     link: {
       url: "https://talpitoo.com/novalite/",
-      text: "novalite.rs"
-    }
+      text: "novalite.rs",
+    },
   },
   {
+    id: "tt",
     title: "A personal photography blog",
     content: `<p>
                   Responsive Wordpress theme with preserved IPTC/EXIF data, SEO
@@ -57,10 +61,11 @@ const portfolioItems = [
                 </p>`,
     link: {
       url: "https://tothtamas.tt/",
-      text: "tothtamas.tt"
-    }
+      text: "tothtamas.tt",
+    },
   },
   {
+    id: "lapetitevackor",
     title: "A customized Tumblr theme",
     content: `<p>
                   Custom Tumblr theme based on <a
@@ -73,10 +78,77 @@ const portfolioItems = [
                 </p>`,
     link: {
       url: "https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/",
-      text: "lapetitevackor.tumblr.com"
-    }
+      text: "lapetitevackor.tumblr.com",
+    },
   },
   {
+    id: "cynkra",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "dreamingsheep",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "hellmut-monz",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "itportal",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "seopal",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "tilt",
+    title: "TODO",
+    content: `<p>
+                  TODO
+                </p>`,
+    link: {
+      url: "https://todo/",
+      text: "todo",
+    },
+  },
+  {
+    id: "dafed",
     title: "Conference speech",
     content: `<p>
                   I gave a talk at a conference for designers and front-end
@@ -89,13 +161,13 @@ const portfolioItems = [
                 </p>`,
     link: {
       url: "https://dafed.org/",
-      text: "dafed.org"
-    }
-  }
+      text: "dafed.org",
+    },
+  },
 ];
 ---
 
-<section class="featured dreamers" id="portfolio">
+<section class="featured dreamers-inc" id="portfolio">
   <div class="container-bootstrap">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -103,39 +175,68 @@ const portfolioItems = [
           <div class="md:col-span-4 px-[15px]">
             <h1>Featured work</h1>
             <ul class="list-unstyled portfolio-descriptions">
-              {portfolioItems.map((item) => (
-                <li>
-                  <h2 set:html={item.title}></h2>
-                  <Fragment set:html={item.content} />
-                  <p>
-                    <a
-                      onclick={`trackOutboundLink('${item.link.url}'); return false;`}
-                      href={item.link.url}
-                      class="text-magenta text-big dark:mix-blend-plus-lighter">{item.link.text}</a>
-                  </p>
-                </li>
-              ))}
+              {
+                portfolioItems.map((item) => (
+                  <li>
+                    <h2 set:html={item.title} />
+                    <Fragment set:html={item.content} />
+                    <p>
+                      <a
+                        onclick={`trackOutboundLink('${item.link.url}'); return false;`}
+                        href={item.link.url}
+                        class="text-magenta text-big dark:mix-blend-plus-lighter"
+                      >
+                        {item.link.text}
+                      </a>
+                    </p>
+                  </li>
+                ))
+              }
             </ul>
           </div>
-          <div class="md:col-span-8 relative max-w-[calc(100vw-55px)] md:max-w-none">
+          <div
+            class="md:col-span-8 relative max-w-[calc(100vw-55px)] md:max-w-none"
+          >
             <!-- max-w-[calc(100vw-55px)] sm:max-w-none TODO -->
             <div class="nexus10 overflow-hidden">
               <div class="screen-tablet">
-                <img
+                <!-- <img
                   src="img/portfolio-tablet.jpg?ver=28082025"
                   srcset="img/portfolio-tablet@2x.jpg?ver=28082025 2x"
                   alt="Portfolio on a tablet"
                   class="portfolio-tablet"
-                />
+                /> -->
+                <div class="portfolio-tablet flex flex-col">
+                  {
+                    portfolioItems.map((item) => (
+                      <img
+                        src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
+                        alt={item.title}
+                        class=""
+                      />
+                    ))
+                  }
+                </div>
               </div>
               <div class="nexus5">
                 <div class="screen-smartphone">
-                  <img
+                  <!-- <img
                     src="img/portfolio-smartphone.jpg?ver=28082025"
                     srcset="img/portfolio-smartphone@2x.jpg?ver=28082025 2x"
                     alt="Portfolio on a smartphone"
                     class="portfolio-smartphone max-w-none"
-                  />
+                  /> -->
+                  <div class="portfolio-smartphone max-w-none flex">
+                    {
+                      portfolioItems.map((item) => (
+                        <img
+                          src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
+                          alt={item.title}
+                          class=""
+                        />
+                      ))
+                    }
+                  </div>
                 </div>
               </div>
             </div>
