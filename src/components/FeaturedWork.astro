@@ -10,14 +10,11 @@ const portfolioItems = [
                     <br /> and the world will be as one.
                   </p>
                 </blockquote>
-                <p>The best client you can work with!</p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://thedreamers.us/'); return false;"
-                    href="https://thedreamers.us/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">thedreamers.us</a
-                  >
-                </p>`
+                <p>The best client you can work with!</p>`,
+    link: {
+      url: "https://thedreamers.us/",
+      text: "thedreamers.us"
+    }
   },
   {
     title: "Upwork Global Inc.",
@@ -27,14 +24,11 @@ const portfolioItems = [
                   rebranded and merged together under the new name - Upwork. It was
                   (and still is) exciting experience to be a part of the team which
                   made it happen.
-                </p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://upwork.com/'); return false;"
-                    href="https://upwork.com/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">upwork.com</a
-                  >
-                </p>`
+                </p>`,
+    link: {
+      url: "https://upwork.com/",
+      text: "upwork.com"
+    }
   },
   {
     title: `Responsive website<br />
@@ -48,14 +42,11 @@ const portfolioItems = [
                   >. Optimized with handcrafted lazy loading, Google PageSpeed
                   Insights, YSlow, Web Developer Checklist and HTML CodeSniffer.
                   The website works even with javascript disabled!
-                </p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://talpitoo.com/novalite/'); return false;"
-                    href="https://talpitoo.com/novalite/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">novalite.rs</a
-                  >
-                </p>`
+                </p>`,
+    link: {
+      url: "https://talpitoo.com/novalite/",
+      text: "novalite.rs"
+    }
   },
   {
     title: "A personal photography blog",
@@ -63,14 +54,11 @@ const portfolioItems = [
                   Responsive Wordpress theme with preserved IPTC/EXIF data, SEO
                   friendly image names and a lot of small details. What
                   photographers actually want.
-                </p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://tothtamas.tt/'); return false;"
-                    href="https://tothtamas.tt/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">tothtamas.tt</a
-                  >
-                </p>`
+                </p>`,
+    link: {
+      url: "https://tothtamas.tt/",
+      text: "tothtamas.tt"
+    }
   },
   {
     title: "A customized Tumblr theme",
@@ -82,14 +70,11 @@ const portfolioItems = [
                   > by <em>Kristoffer.</em> with fine tuned social sharing rules.
                   But enough with the technical details already, here, Vackor is
                   the star!
-                </p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/'); return false;"
-                    href="https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">lapetitevackor.tumblr.com</a
-                  >
-                </p>`
+                </p>`,
+    link: {
+      url: "https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/",
+      text: "lapetitevackor.tumblr.com"
+    }
   },
   {
     title: "Conference speech",
@@ -101,14 +86,11 @@ const portfolioItems = [
                   > 2.0, <abbr title="Accessible Rich Internet Applications"
                     >WAI-ARIA</abbr
                   > or Schema.org, check out the slides and the video at
-                </p>
-                <p>
-                  <a
-                    onclick="trackOutboundLink('https://dafed.org/'); return false;"
-                    href="https://dafed.org/"
-                    class="text-magenta text-big dark:mix-blend-plus-lighter">dafed.org</a
-                  >
-                </p>`
+                </p>`,
+    link: {
+      url: "https://dafed.org/",
+      text: "dafed.org"
+    }
   }
 ];
 ---
@@ -124,7 +106,13 @@ const portfolioItems = [
               {portfolioItems.map((item) => (
                 <li>
                   <h2 set:html={item.title}></h2>
-                  <div set:html={item.content}></div>
+                  <Fragment set:html={item.content} />
+                  <p>
+                    <a
+                      onclick={`trackOutboundLink('${item.link.url}'); return false;`}
+                      href={item.link.url}
+                      class="text-magenta text-big dark:mix-blend-plus-lighter">{item.link.text}</a>
+                  </p>
                 </li>
               ))}
             </ul>

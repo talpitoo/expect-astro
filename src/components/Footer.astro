@@ -73,10 +73,10 @@ const socialLinks = [
             <ul class="list-unstyled list-inline list-social float-right">
               {socialLinks.map((link) => (
                 <li>
-                  <a
+                    <a
                     onclick={`trackOutboundLink('${link.url}'); return false;`}
                     href={link.url}
-                    class={link.classes}
+                    class={`${link.classes}`}
                   >
                     <i>{link.icon}</i>
                   </a>
