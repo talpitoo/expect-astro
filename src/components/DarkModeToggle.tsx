@@ -127,16 +127,16 @@ export default function DarkModeToggle() {
     <RadioGroup
       value={selected}
       onChange={handleChange}
-      className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-gray-950/5 p-0.5 text-gray-950 dark:bg-white/10 dark:text-white"
+      className="relative z-0 flex flex-col gap-0.5 rounded-full p-0.5 text-white bg-white/10"
     >
       {themes.map((theme) => (
         <Field key={theme.id} className="flex">
           <Radio
             value={theme.id}
             aria-label={theme.name}
-            className="rounded-full p-1.5 *:size-7 cursor-pointer transition-all sm:p-0 
-            data-checked:bg-white data-checked:ring data-checked:inset-ring-white/10 data-checked:ring-gray-950/10 
-            dark:data-checked:bg-gray-700 dark:data-checked:text-white dark:data-checked:ring-transparent"
+            className="rounded-full p-1.5 *:size-7 cursor-pointer transition-all 
+            focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2
+            data-checked:ring data-checked:inset-ring-white/10 data-checked:bg-magenta data-checked:text-white data-checked:ring-transparent"
           >
             {theme.icon}
           </Radio>

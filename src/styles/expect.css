@@ -236,17 +236,17 @@ main section h2 {
   color: transparent;
   border: none;
   background-color: transparent;
-  outline: none;
   float: right;
   margin: -70px 40px 0;
   width: 60px;
   height: 60px;
   line-height: 60px;
   position: relative;
+  outline: none;
 }
 
 .portfolio-next:before {
-  @apply text-magenta;
+  @apply text-magenta block size-[60px];
 
   opacity: 0.9;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);

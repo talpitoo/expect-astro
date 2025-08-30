@@ -1,4 +1,6 @@
 ---
+import DarkModeToggle from "./DarkModeToggle";
+
 // import { Image } from 'astro:assets';
 // import stanleyKubrick2001SpaceOdysseyLowQuality from '../assets/stanley-kubrick-2001-space-odyssey-low-quality.jpg';
 // <Image src={stanleyKubrick2001SpaceOdysseyLowQuality} priority quality="mid" alt="2001: A Space Odyssey" class="space-odyssey" />
@@ -24,5 +26,8 @@
     <q cite="http://www.imdb.com/title/tt0062622/quotes"
       >I'm sorry Dave, I'm afraid I can't do that</q
     >
+  </div>
+  <div class="absolute bottom-4 right-4 z-50">
+    <DarkModeToggle client:load />
   </div>
 </header>

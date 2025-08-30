@@ -86,9 +86,9 @@
     &:active,
     &:focus,
     &:hover {
-      text-decoration: none;
       color: white;
-      outline: none;
+      border-radius: 100%;
+      outline-offset: 10px;
     }
   }
 }
