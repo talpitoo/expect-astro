@@ -40,11 +40,11 @@ const services = [
   <p class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]">
     Show your PSD and we'll show you the future.
   </p>
-  <div class="grid sm:grid-cols-12 -mx-[15px]">
-    <div class="sm:col-span-10 sm:col-start-2 px-[15px]">
-      <div class="grid sm:grid-cols-12 -mx-[15px]">
+  <div class="grid md:grid-cols-12 -mx-[15px]">
+    <div class="md:col-span-10 md:col-start-2 px-[15px]">
+      <div class="grid md:grid-cols-12 -mx-[15px]">
         {services.map((service) => (
-          <div class="sm:col-span-4 px-[15px] sm:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
+          <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
             <i>{service.icon}</i>
             <h2 set:html={service.title}></h2>
             <p class={service.textColor} set:html={service.description}></p>

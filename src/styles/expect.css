@@ -23,7 +23,7 @@ header img {
 }
 
 .beyond i {
-  opacity: .5;
+  opacity: 0.5;
   margin: 50px auto 20px;
   display: block;
   font-size: 66px;
@@ -33,7 +33,7 @@ header img {
 
 .beyond h2 {
   @apply text-black dark:text-white;
-  
+
   font-size: 24px;
   margin: 0 0 30px;
 }
@@ -48,18 +48,14 @@ blockquote {
 /* sections */
 main section {
   padding: 100px 0;
+
+  @apply max-md:py-10 px-0;
 }
 
 main section h1,
 main section h2 {
   text-transform: uppercase;
   margin-top: 0;
-}
-
-@media (max-width: 479px) {
-  main section {
-    padding: 40px 0;
-  }
 }
 
 .featured {
@@ -78,13 +74,13 @@ main section h2 {
   margin-bottom: 30px;
 }
 
-.featured .container {
+.featured .container-bootstrap {
   position: relative;
   min-height: 500px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .featured .container {
+  .featured .container-bootstrap {
     min-height: 610px;
   }
 }
@@ -110,7 +106,7 @@ main section h2 {
 }
 
 .nexus10 {
-  background: url('../img/nexus10.png?ver=28082025') center center no-repeat;
+  background: url("../img/nexus10.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
   right: -300px;
   top: -40px;
@@ -122,7 +118,7 @@ main section h2 {
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .nexus10 {
     position: static;
     margin: 20px 0;
@@ -130,7 +126,7 @@ main section h2 {
 }
 
 .nexus5 {
-  background: url('../img/nexus5.png?ver=28082025') center center no-repeat;
+  background: url("../img/nexus5.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
 }
 
@@ -222,22 +218,8 @@ main section h2 {
   display: none;
 }
 
-@media (max-width: 479px) {
-  .portfolio-descriptions {
-    min-height: 220px;
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolio-descriptions {
-    min-height: 320px;
-  }
-}
-
-@media (max-width: 320px) {
-  .portfolio-descriptions {
-    min-height: 400px;
-  }
+.portfolio-descriptions {
+  @apply max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px];
 }
 
 .blank .portfolio-descriptions li:nth-child(1),
@@ -266,10 +248,10 @@ main section h2 {
 .portfolio-next:before {
   @apply text-magenta;
 
-  opacity: .9;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   transition: all 200ms ease 0s;
-  content: '»';
+  content: "»";
   font-size: 100px;
 }
 
@@ -285,7 +267,11 @@ main section h2 {
 
 @media (min-width: 768px) {
   .portfolio-next {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%);
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.5) 100%
+    );
     background-repeat: repeat-x;
     position: absolute;
     left: auto;
@@ -324,7 +310,7 @@ main section h2 {
 .intermission {
   background-color: black;
   overflow: hidden;
-  cursor: url('../img/eva-pod-cursor64x64.png?ver=28082025') 32 32, crosshair;
+  cursor: url("../img/eva-pod-cursor64x64.png?ver=28082025") 32 32, crosshair;
 }
 
 .intermission h1,
@@ -332,13 +318,16 @@ main section h2 {
   color: white;
 }
 
-.intermission .container {
+.intermission .container-bootstrap {
   position: relative;
   min-height: 300px;
 }
 
 .start {
-  background: var(--color-magenta) url('../img/solar-system.png?ver=28082025') no-repeat top center;
+  @apply max-md:py-20 px-0;
+  
+  background: var(--color-magenta) url("../img/solar-system.png?ver=28082025")
+    no-repeat top center;
   background-size: 1600px 440px;
 }
 
@@ -404,35 +393,20 @@ main section h2 {
   transform: scale(1.1);
 }
 
-@media (max-width: 479px) {
-  .start {
-    padding: 80px 0;
-  }
-}
-
 .stars {
-  background: url('../img/moon-surface.png?ver=28082025') bottom center no-repeat;
-  background-size: 100% auto;
+  background: url("../img/moon-surface.png?ver=28082025") bottom center
+    no-repeat;
+
+  @apply bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px];
 }
 
-.stars .container {
+.stars .container-bootstrap {
   position: relative;
 }
 
-@media (min-width: 1600px) {
-  .stars {
-    background-position: center 300px;
-  }
-}
-
-@media (max-width: 479px) {
-  .stars {
-    background-size: 140% auto;
-  }
-}
-
 .moonlanders {
-  background: transparent url('../img/moonlanders.png?ver=28082025') top left no-repeat;
+  background: transparent url("../img/moonlanders.png?ver=28082025") top left
+    no-repeat;
   width: 525px;
   height: 300px;
   background-size: 100% 100%;
@@ -453,7 +427,7 @@ main section h2 {
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .moonlanders {
     bottom: -40px;
     height: 200px;
@@ -532,7 +506,7 @@ footer p:nth-child(2) {
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .logo-footer {
     float: left !important;
     margin-top: 30px;
@@ -569,7 +543,7 @@ footer p:nth-child(2) {
   width: 40px;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .list-social {
     margin-top: 10px;
   }
@@ -581,8 +555,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Alegreya Sans SC', 'Open Sans Variable', 'Segoe UI', 'Roboto', 'Droid Sans',
-    'Helvetica Neue', 'Arial', sans-serif;
+  font-family: "Alegreya Sans SC", "Open Sans Variable", "Segoe UI", "Roboto",
+    "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.1;
   color: inherit;
@@ -597,12 +571,13 @@ blockquote {
   @apply mb-6;
 }
 
-.container {
-  @apply mx-auto px-10 md:w-[750px] md:px-[15px] min-[992px]:w-[970px] lg:w-[1170px];
+.container-bootstrap {
+  @apply mx-auto px-10 md:w-[750px] md:px-[15px] min-[992px]:w-[970px] xl:w-[1170px];
 }
 
 .btn {
   display: inline-flex;
+  justify-content: center;
   gap: 0.5rem;
   margin-bottom: 0;
   font-weight: 400;
@@ -658,7 +633,8 @@ blockquote {
   margin-left: -5px;
 }
 
-.list-inline, .list-unstyled {
+.list-inline,
+.list-unstyled {
   padding-left: 0;
   list-style: none;
 }
