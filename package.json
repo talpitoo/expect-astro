@@ -9,11 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@fontsource-variable/open-sans": "^5.2.6",
     "@fontsource/alegreya-sans-sc": "^5.2.6",
     "@fontsource/open-sans": "^5.2.6",
+    "@headlessui/react": "^2.2.7",
     "@tailwindcss/vite": "^4.1.12",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
     "astro": "^5.13.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.12"
   }
 }

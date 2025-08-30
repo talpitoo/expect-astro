@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* @custom-variant dark (&:where(.dark-mode, .dark-mode *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-magenta: #906;

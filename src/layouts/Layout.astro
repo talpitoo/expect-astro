@@ -5,6 +5,7 @@ import Meta from "../components/Meta.astro";
 import ScriptGA from "../components/ScriptGA.astro";
 import Footer from "../components/Footer.astro";
 import Awwwards from "../components/Awwwards.astro";
+import DarkModeToggle from "../components/DarkModeToggle.tsx";
 ---
 
 <!doctype html>
@@ -32,19 +33,9 @@ import Awwwards from "../components/Awwwards.astro";
     </main>
     <Footer />
     <Awwwards />
-
-    <!-- <script is:inline>
-      // load css async https://github.com/filamentgroup/loadCSS
-      var ss = window.document.createElement("link");
-      var ref = window.document.getElementsByTagName("noscript")[0];
-      ss.rel = "stylesheet";
-      ss.href = "css/main.css?ver=28082025";
-      ss.media = "only x";
-      ref.parentNode.insertBefore(ss, ref);
-      setTimeout(function () {
-        ss.media = "all";
-      });
-    </script> -->
+    <div class="fixed bottom-4 left-4 z-50">
+      <DarkModeToggle client:load />
+    </div>
     
     <script src="/js/main.js" is:inline async></script>
   </body>
