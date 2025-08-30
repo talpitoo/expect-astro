@@ -83,68 +83,109 @@ const portfolioItems = [
   },
   {
     id: "cynkra",
-    title: "TODO",
-    content: `<p>
-                  TODO
+    title:
+      "Website and custom blog for a team of data scientists",
+    content: `<p>Website redesign and technical migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
+                    onclick="trackOutboundLink('https://www.jonas.studio/'); return false;"
+                    href="https://www.jonas.studio/"
+                    class="text-magenta dark:mix-blend-plus-lighter">Jonas Goldstein</a>. Translated a Bauhaus- and ASCII-inspired design vision into a functional, minimalist, and visually refined site — significantly lighter, faster, and delivering a seamless user experience.
                 </p>`,
+    skills: [
+      { name: "Jekyll", url: "https://jekyllrb.com/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      { name: "<canvas>", url: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" },
+      { name: "GSAP", url: "https://greensock.com/gsap/" },
+      { name: "Swiper", url: "https://swiperjs.com/" },
+      { name: "WCAG", url: "https://www.w3.org/WAI/standards-guidelines/wcag/" },
+      { name: "SEO", url: "https://moz.com/beginners-guide-to-seo" },
+      { name: "i18n/l10n", url: "https://www.w3.org/International/questions/qa-i18n" },
+      { name: "LCP", url: "https://web.dev/articles/optimize-lcp" },
+    ],
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "https://cynkra.com/blog/2025-04-01-launch/",
+      text: "cynkra.com",
     },
   },
   {
     id: "dreamingsheep",
-    title: "TODO",
-    content: `<p>
-                  TODO
-                </p>`,
+    title: "An online journal for your dreams and beyond",
+    content: `<p>It is an online dream journal where you can log and analyze your dreams. Find connections in your dream patterns like mood, theme, recall, sleep cycle, repeating symbols and others.
+                </p>
+              <p class="sr-only">Tech stack:</p>`,
+    skills: [
+      { name: "MUI", url: "https://mui.com/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      { name: "BlitzJS", url: "https://blitzjs.com/" },
+      { name: "Prisma", url: "https://www.prisma.io/" },
+      { name: "Postgres", url: "https://www.postgresql.org/" },
+      { name: "AWS S3", url: "https://aws.amazon.com/s3/" },
+    ],
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "https://dreamingsheep.net/",
+      text: "dreamingsheep.net",
     },
   },
   {
     id: "hellmut-monz",
-    title: "TODO",
-    content: `<p>
-                  TODO
+    title:
+      "A static site generator and UI library",
+    content: `<p>Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
                 </p>`,
+    skills: [
+      { name: "Eleventy", url: "https://www.11ty.dev/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      { name: "Flowbite", url: "https://flowbite.com/" },
+      { name: "GSAP", url: "https://greensock.com/gsap/" },
+      { name: "Swiper", url: "https://swiperjs.com/" },
+    ],
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "http://keyphilosophy.com/",
+      text: "keyphilosophy.com",
     },
   },
   {
     id: "itportal",
-    title: "TODO",
+    title: "Theme adaptation for SaaS company",
     content: `<p>
-                  TODO
-                </p>`,
+            Reverse-engineering a purchased static theme into an Eleventy.js 
+            website with SEO and accessibility optimization, load speed 
+            improvements, and search widget API integration. Microanimations, 
+            adaptive dark/light-themed favicons and efficient font loading. 
+            The SVG animations were created in Adobe Animate by <a
+            onclick="trackOutboundLink('https://heavyform.com/'); return false;"
+            href="https://heavyform.com/"
+            class="text-magenta dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
+            >.
+          </p>`,
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "https://www.itportal.com/",
+      text: "itportal.com",
     },
   },
   {
     id: "seopal",
-    title: "TODO",
-    content: `<p>
-                  TODO
+    title: "SEOpal: Eleventy + TailwindCSS",
+    content: `<p>From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
                 </p>`,
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "https://seopal.io/",
+      text: "seopal.io",
     },
   },
   {
     id: "tilt",
-    title: "TODO",
-    content: `<p>
-                  TODO
+    title: "A dashboard with custom markdown rendering",
+    content: `<p>A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
                 </p>`,
+    skills: [
+      { name: "NextJS", url: "https://nextjs.org/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      { name: "shadcn/ui", url: "https://ui.shadcn.com/" },
+      { name: "Recharts", url: "https://recharts.org/" },
+    ],
     link: {
-      url: "https://todo/",
-      text: "todo",
+      url: "https://tilt-drab.vercel.app/",
+      text: "tilt-drab.vercel.app",
     },
   },
   {
@@ -180,6 +221,13 @@ const portfolioItems = [
                   <li>
                     <h2 set:html={item.title} />
                     <Fragment set:html={item.content} />
+                    {item.skills && item.skills.length > 0 && (
+                      <ul class="my-6 dark:opacity-50">
+                        {item.skills.map((skill) => (
+                          <li class="badge mb-1 mr-1">{skill.name}</li>
+                        ))}
+                      </ul>
+                    )}
                     <p>
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}

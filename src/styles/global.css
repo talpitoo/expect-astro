@@ -40,6 +40,12 @@
   }
 }
 
+@layer components {
+  .badge {
+    @apply inline-flex items-center rounded-full px-2 py-1 text-sm font-medium inset-ring inset-ring-gray-light mb-1;
+  }
+}
+
 @import "./fonts.css";
 @import "./expecticons.css";
 @import "./above-the-fold.css";

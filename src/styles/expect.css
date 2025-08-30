@@ -288,7 +288,7 @@ main section h2 {
   transform: translate3d(-1958px, 0, 0);
 }
 
-.portfolio-descriptions li {
+.portfolio-descriptions > li {
   transition: all 500ms ease 0s;
   float: left;
   display: none;
@@ -312,19 +312,19 @@ main section h2 {
 'tilt',
 'dafed', */
 
-.blank .portfolio-descriptions li:nth-child(1),
-.dreamers-inc .portfolio-descriptions li:nth-child(1),
-.upwork .portfolio-descriptions li:nth-child(2),
-.novalite .portfolio-descriptions li:nth-child(3),
-.tt .portfolio-descriptions li:nth-child(4),
-.lapetitevackor .portfolio-descriptions li:nth-child(5),
-.cynkra .portfolio-descriptions li:nth-child(6),
-.dreamingsheep .portfolio-descriptions li:nth-child(7),
-.hellmut-monz .portfolio-descriptions li:nth-child(8),
-.itportal .portfolio-descriptions li:nth-child(9),
-.seopal .portfolio-descriptions li:nth-child(10),
-.tilt .portfolio-descriptions li:nth-child(11),
-.dafed .portfolio-descriptions li:nth-child(12) {
+.blank .portfolio-descriptions > li:nth-child(1),
+.dreamers-inc .portfolio-descriptions > li:nth-child(1),
+.upwork .portfolio-descriptions > li:nth-child(2),
+.novalite .portfolio-descriptions > li:nth-child(3),
+.tt .portfolio-descriptions > li:nth-child(4),
+.lapetitevackor .portfolio-descriptions > li:nth-child(5),
+.cynkra .portfolio-descriptions > li:nth-child(6),
+.dreamingsheep .portfolio-descriptions > li:nth-child(7),
+.hellmut-monz .portfolio-descriptions > li:nth-child(8),
+.itportal .portfolio-descriptions > li:nth-child(9),
+.seopal .portfolio-descriptions > li:nth-child(10),
+.tilt .portfolio-descriptions > li:nth-child(11),
+.dafed .portfolio-descriptions > li:nth-child(12) {
   display: block;
 }
 
