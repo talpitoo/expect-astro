@@ -15,14 +15,16 @@ import Awwwards from "../components/Awwwards.astro";
   <!-- TODO: check itemptype for other pages -->
   <body itemscope itemtype="http://schema.org/WebPage">
     <noscript>
-      <div class="alert alert-warning">
-        <strong>Warning!</strong> For a better experience, enable JavaScript in your
-        browser.
+      <div
+        style="color: oklch(55.4% .135 66.442); background-color: oklch(98.7% .026 102.212); padding: 10px;"
+      >
+        ⚠️ <strong>Warning!</strong> For a better experience, enable JavaScript in
+        your browser.
       </div>
     </noscript>
     <!--[if lt IE 11]>
-        <div class="alert alert-warning">
-            <strong>Warning!</strong> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        <div style="color: oklch(55.4% .135 66.442); background-color: oklch(98.7% .026 102.212); padding: 10px;">
+          ⚠️ <strong>Warning!</strong> You are using an <strong style="text-decoration: underline;  text-underline-offset: 2px; text-decoration-thickness: 2px;">outdated</strong> browser. Please <strong><a href="http://browsehappy.com/">upgrade your browser</a></strong> to improve your experience.
         </div>
     <![endif]-->
     <ScriptGA />
@@ -32,7 +34,7 @@ import Awwwards from "../components/Awwwards.astro";
     </main>
     <Footer />
     <Awwwards />
-    
+
     <script src="/js/main.js" is:inline async></script>
   </body>
 </html>
