@@ -106,7 +106,7 @@ main section h2 {
 }
 
 .nexus10 {
-  background: url("../img/nexus10.png?ver=28082025") center center no-repeat;
+  background: url("/img/nexus10.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
   right: -300px;
   top: -40px;
@@ -126,7 +126,7 @@ main section h2 {
 }
 
 .nexus5 {
-  background: url("../img/nexus5.png?ver=28082025") center center no-repeat;
+  background: url("/img/nexus5.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
 }
 
@@ -310,7 +310,7 @@ main section h2 {
 .intermission {
   background-color: black;
   overflow: hidden;
-  cursor: url("../img/eva-pod-cursor64x64.png?ver=28082025") 32 32, crosshair;
+  cursor: url("/img/eva-pod-cursor64x64.png?ver=28082025") 32 32, crosshair;
 }
 
 .intermission h1,
@@ -325,8 +325,8 @@ main section h2 {
 
 .start {
   @apply max-md:py-20 px-0;
-  
-  background: var(--color-magenta) url("../img/solar-system.png?ver=28082025")
+
+  background: var(--color-magenta) url("/img/solar-system.png?ver=28082025")
     no-repeat top center;
   background-size: 1600px 440px;
 }
@@ -394,7 +394,7 @@ main section h2 {
 }
 
 .stars {
-  background: url("../img/moon-surface.png?ver=28082025") bottom center
+  background: url("/img/moon-surface.png?ver=28082025") bottom center
     no-repeat;
 
   @apply bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px];
@@ -405,7 +405,7 @@ main section h2 {
 }
 
 .moonlanders {
-  background: transparent url("../img/moonlanders.png?ver=28082025") top left
+  background: transparent url("/img/moonlanders.png?ver=28082025") top left
     no-repeat;
   width: 525px;
   height: 300px;
