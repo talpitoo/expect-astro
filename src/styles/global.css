@@ -12,8 +12,8 @@
   --color-gray-light: #ccc;
   --color-gray-lighter: #ececec;
 
-  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Alegreya Sans SC", "Open Sans Variable", "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
   /* --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
 
@@ -22,6 +22,12 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
+}
+
+:root {
+  --swiper-pagination-color: var(--color-primary);
+  --swiper-theme-color: var(--color-primary);
+  --swiper-navigation-color: var(--color-primary);
 }
 
 .accent {
@@ -40,7 +46,8 @@
 
   a:focus-visible,
   a:focus-visible figure,
-  .portfolio-next:focus-visible:before {
+  .portfolio-next:focus-visible:before,
+  .swiper-button:focus-visible {
     @apply outline-dashed outline-2 outline-offset-2;
   }
 }

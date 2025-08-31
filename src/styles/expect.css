@@ -128,6 +128,7 @@ main section h2 {
 .nexus5 {
   background: url("/img/nexus5.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
+  pointer-events: none;
 }
 
 .screen-tablet {
@@ -147,72 +148,6 @@ main section h2 {
   transition: all 500ms ease 0s;
 }
 
-/* PORTFOLIO ORDER, TODO
-'dreamers-inc',
-'upwork',
-'novalite',
-'tt',
-'lapetitevackor',
-'cynkra',
-'dreamingsheep',
-'hellmut-monz',
-'itportal',
-'seopal',
-'tilt',
-'dafed', */
-
-.dreamers-inc .portfolio-tablet {
-  transform: translate3d(0, 0, 0);
-}
-
-.upwork .portfolio-tablet {
-  transform: translate3d(0, -379px, 0);
-}
-
-.novalite .portfolio-tablet {
-  transform: translate3d(0, -758px, 0);
-}
-
-.tt .portfolio-tablet {
-  transform: translate3d(0, -1137px, 0);
-}
-
-.lapetitevackor .portfolio-tablet {
-  transform: translate3d(0, -1516px, 0);
-}
-
-.cynkra .portfolio-tablet {
-  transform: translate3d(0, -1895px, 0);
-}
-
-.dreamingsheep .portfolio-tablet {
-  transform: translate3d(0, -2274px, 0);
-}
-
-.hellmut-monz .portfolio-tablet {
-  transform: translate3d(0, -2653px, 0);
-}
-
-.itportal .portfolio-tablet {
-  transform: translate3d(0, -3032px, 0);
-}
-
-.seopal .portfolio-tablet {
-  transform: translate3d(0, -3411px, 0);
-}
-
-.tilt .portfolio-tablet {
-  transform: translate3d(0, -3790px, 0);
-}
-
-.szerencsedhogyoreganyadnakszolitottal .portfolio-tablet {
-  transform: translate3d(0, -4169px, 0);
-}
-
-.dafed .portfolio-tablet {
-  transform: translate3d(0, -4548px, 0);
-}
-
 .screen-smartphone {
   transform: rotateZ(0deg);
   position: absolute;
@@ -230,72 +165,6 @@ main section h2 {
   transition: all 500ms ease 0s;
 }
 
-/* PORTFOLIO ORDER, TODO
-'dreamers-inc',
-'upwork',
-'novalite',
-'tt',
-'lapetitevackor',
-'cynkra',
-'dreamingsheep',
-'hellmut-monz',
-'itportal',
-'seopal',
-'tilt',
-'dafed', */
-
-.dreamers-inc .portfolio-smartphone {
-  transform: translate3d(0, 0, 0);
-}
-
-.upwork .portfolio-smartphone {
-  transform: translate3d(-178px, 0, 0);
-}
-
-.novalite .portfolio-smartphone {
-  transform: translate3d(-356px, 0, 0);
-}
-
-.tt .portfolio-smartphone {
-  transform: translate3d(-534px, 0, 0);
-}
-
-.lapetitevackor .portfolio-smartphone {
-  transform: translate3d(-712px, 0, 0);
-}
-
-.cynkra .portfolio-smartphone {
-  transform: translate3d(-890px, 0, 0);
-}
-
-.dreamingsheep .portfolio-smartphone {
-  transform: translate3d(-1068px, 0, 0);
-}
-
-.hellmut-monz .portfolio-smartphone {
-  transform: translate3d(-1246px, 0, 0);
-}
-
-.itportal .portfolio-smartphone {
-  transform: translate3d(-1424px, 0, 0);
-}
-
-.seopal .portfolio-smartphone {
-  transform: translate3d(-1602px, 0, 0);
-}
-
-.tilt .portfolio-smartphone {
-  transform: translate3d(-1780px, 0, 0);
-}
-
-.szerencsedhogyoreganyadnakszolitottal .portfolio-smartphone {
-  transform: translate3d(-1958px, 0, 0);
-}
-
-.dafed .portfolio-smartphone {
-  transform: translate3d(-2136px, 0, 0);
-}
-
 .portfolio-descriptions > li {
   transition: all 500ms ease 0s;
   float: left;
@@ -304,37 +173,6 @@ main section h2 {
 
 .portfolio-descriptions {
   @apply max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px];
-}
-
-/* PORTFOLIO ORDER, TODO
-'dreamers-inc',
-'upwork',
-'novalite',
-'tt',
-'lapetitevackor',
-'cynkra',
-'dreamingsheep',
-'hellmut-monz',
-'itportal',
-'seopal',
-'tilt',
-'dafed', */
-
-.blank .portfolio-descriptions > li:nth-child(1),
-.dreamers-inc .portfolio-descriptions > li:nth-child(1),
-.upwork .portfolio-descriptions > li:nth-child(2),
-.novalite .portfolio-descriptions > li:nth-child(3),
-.tt .portfolio-descriptions > li:nth-child(4),
-.lapetitevackor .portfolio-descriptions > li:nth-child(5),
-.cynkra .portfolio-descriptions > li:nth-child(6),
-.dreamingsheep .portfolio-descriptions > li:nth-child(7),
-.hellmut-monz .portfolio-descriptions > li:nth-child(8),
-.itportal .portfolio-descriptions > li:nth-child(9),
-.seopal .portfolio-descriptions > li:nth-child(10),
-.tilt .portfolio-descriptions > li:nth-child(11),
-.szerencsedhogyoreganyadnakszolitottal .portfolio-descriptions > li:nth-child(12),
-.dafed .portfolio-descriptions > li:nth-child(13) {
-  display: block;
 }
 
 .portfolio-next {

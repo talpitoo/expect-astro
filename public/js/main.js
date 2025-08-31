@@ -42,95 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // portfolio
-  let shownSmartphone = false;
-  let shownIntermission = false;
-  const featured = document.querySelector(".featured");
-  if (featured) {
-    featured.classList.remove("dreamers-inc");
-    featured.classList.add("blank");
-  }
-
-  window.addEventListener("scroll", function () {
-    const elementSmartphone = document.querySelector(".portfolio-smartphone");
-    const elementIntermission = document.querySelector(".animation-spin");
-
-    if (
-      elementSmartphone &&
-      isScrolledIntoView(elementSmartphone) &&
-      !shownSmartphone
-    ) {
-      const featured = document.querySelector(".featured");
-      if (featured) {
-        featured.className = "featured dreamers-inc";
-      }
-      shownSmartphone = true;
-    }
-
-    if (
-      elementIntermission &&
-      isScrolledIntoView(elementIntermission) &&
-      !shownIntermission
-    ) {
-      const featured = document.querySelector(".featured");
-      if (featured) {
-        featured.className = "featured dafed";
-      }
-      shownIntermission = true;
-    }
-  });
-
-  const portfolioElements = document.querySelectorAll(
-    ".nexus5, .portfolio-next"
-  );
-  portfolioElements.forEach(function (element) {
-    element.addEventListener("click", function () {
-      const featured = document.querySelector(".featured");
-      if (!featured) return;
-
-      // Define the portfolio cycle order
-      const portfolioOrder = [
-        "dreamers-inc",
-        "upwork",
-        "novalite",
-        "tt",
-        "lapetitevackor",
-        "cynkra",
-        "dreamingsheep",
-        "hellmut-monz",
-        "itportal",
-        "seopal",
-        "tilt",
-        "szerencsedhogyoreganyadnakszolitottal",
-        "dafed",
-      ];
-
-      // Find current portfolio item
-      let currentIndex = -1;
-      for (let i = 0; i < portfolioOrder.length; i++) {
-        if (featured.classList.contains(portfolioOrder[i])) {
-          currentIndex = i;
-          break;
-        }
-      }
-
-      // Get next portfolio item (cycle back to start if at end)
-      const nextIndex = (currentIndex + 1) % portfolioOrder.length;
-      const nextItem = portfolioOrder[nextIndex];
-
-      // Update the class
-      featured.className = `featured ${nextItem}`;
-
-      if (
-        typeof ga !== "undefined" &&
-        ga.hasOwnProperty("loaded") &&
-        ga.loaded === true
-      ) {
-        ga("send", "event", "button", "click", "devices");
-      }
-    });
-  });
-
   // parallax header
   if (!isMobile()) {
     const spaceOdyssey = document.querySelector(".space-odyssey");
@@ -150,18 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", updateParallax);
     window.addEventListener("scroll", updateParallax);
   }
-});
 
-// replace low quality images after the page loads, TODO
-// window.addEventListener('load', function() {
-//   if (window.innerWidth >= 768) {
-//     const headerImage = new Image();
-//     headerImage.src = 'img/stanley-kubrick-2001-space-odyssey.jpg?ver=28082025';
-//     headerImage.addEventListener('load', function() {
-//       const spaceOdyssey = document.querySelector('.space-odyssey');
-//       if (spaceOdyssey) {
-//         spaceOdyssey.src = headerImage.src;
-//       }
-//     });
-//   }
-// });
+  // ex portfolio
+  // if (
+  //   typeof ga !== "undefined" &&
+  //   ga.hasOwnProperty("loaded") &&
+  //   ga.loaded === true
+  // ) {
+  //   ga("send", "event", "button", "click", "devices");
+  // }
+});

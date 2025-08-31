@@ -83,8 +83,7 @@ const portfolioItems = [
   },
   {
     id: "cynkra",
-    title:
-      "Website and custom blog for a team of data scientists",
+    title: "Website and custom blog for a team of data scientists",
     content: `<p>Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
                     onclick="trackOutboundLink('https://www.jonas.studio/'); return false;"
                     href="https://www.jonas.studio/"
@@ -93,12 +92,21 @@ const portfolioItems = [
     skills: [
       { name: "Jekyll", url: "https://jekyllrb.com/" },
       { name: "TailwindCSS", url: "https://tailwindcss.com/" },
-      { name: "<canvas>", url: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" },
+      {
+        name: "<canvas>",
+        url: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
+      },
       { name: "GSAP", url: "https://greensock.com/gsap/" },
       { name: "Swiper", url: "https://swiperjs.com/" },
-      { name: "WCAG", url: "https://www.w3.org/WAI/standards-guidelines/wcag/" },
+      {
+        name: "WCAG",
+        url: "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      },
       { name: "SEO", url: "https://moz.com/beginners-guide-to-seo" },
-      { name: "i18n", url: "https://www.w3.org/International/questions/qa-i18n" },
+      {
+        name: "i18n",
+        url: "https://www.w3.org/International/questions/qa-i18n",
+      },
       { name: "LCP", url: "https://web.dev/articles/optimize-lcp" },
     ],
     link: {
@@ -127,8 +135,7 @@ const portfolioItems = [
   },
   {
     id: "hellmut-monz",
-    title:
-      "A static site generator and UI library",
+    title: "A static site generator and UI library",
     content: `<p>Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
                 </p>`,
     skills: [
@@ -224,13 +231,41 @@ const portfolioItems = [
 ];
 ---
 
-<section class="featured dreamers-inc" id="portfolio">
+<!-- Import Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<section class="featured dreamers-inc pb-0!" id="portfolio">
+  <!-- Progress bar - using Swiper's built-in pagination -->
+  <div class="swiper-pagination absolute top-0 left-0 w-full h-1 z-10"></div>
+
   <div class="container-bootstrap">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
           <div class="md:col-span-4 px-[15px]">
-            <h1>Featured work</h1>
+            <div class="relative">
+              <h1 class="">Featured work</h1>
+              <!-- Navigation -->
+              <span class="swiper-navigation absolute top-0 -left-20 inline-flex items-center justify-center gap-4 font-serif text-[90px] leading-none">
+                <button
+                  class="swiper-button swiper-button-prev size-auto!"
+                  type="button"
+                  aria-label="Previous portfolio item"
+                >
+                  ‹
+                </button>
+                <button
+                  class="swiper-button swiper-button-next size-auto!"
+                  type="button"
+                  aria-label="Next portfolio item"
+                >
+                  ›
+                </button>
+              </span>
+            </div>
             <ul class="list-unstyled portfolio-descriptions">
               {
                 portfolioItems.map((item) => (
@@ -264,32 +299,40 @@ const portfolioItems = [
             <!-- max-w-[calc(100vw-55px)] sm:max-w-none TODO -->
             <div class="nexus10 overflow-hidden">
               <div class="screen-tablet">
-                <!-- TODO: vertical swiper https://swiperjs.com/demos#vertical -->
-                <div class="portfolio-tablet flex flex-col">
-                  {
-                    portfolioItems.map((item) => (
-                      <img
-                        src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
-                        alt={item.title}
-                        class=""
-                      />
-                    ))
-                  }
+                <!-- Vertical swiper for tablet -->
+                <div class="swiper portfolio-tablet-swiper">
+                  <div class="swiper-wrapper">
+                    {
+                      portfolioItems.map((item) => (
+                        <div class="swiper-slide">
+                          <img
+                            src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
+                            alt={item.title}
+                            class="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))
+                    }
+                  </div>
                 </div>
               </div>
               <div class="nexus5">
                 <div class="screen-smartphone">
-                  <!-- TODO: horizontal swiper thumbs-gallery https://swiperjs.com/demos#thumbs-gallery -->
-                  <div class="portfolio-smartphone max-w-none flex">
-                    {
-                      portfolioItems.map((item) => (
-                        <img
-                          src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
-                          alt={item.title}
-                          class=""
-                        />
-                      ))
-                    }
+                  <!-- Horizontal swiper for smartphone -->
+                  <div class="swiper portfolio-smartphone-swiper">
+                    <div class="swiper-wrapper">
+                      {
+                        portfolioItems.map((item) => (
+                          <div class="swiper-slide">
+                            <img
+                              src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
+                              alt={item.title}
+                              class="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
@@ -299,7 +342,180 @@ const portfolioItems = [
       </div>
     </div>
   </div>
-  <!-- TODO: swiper navigation here https://swiperjs.com/demos#navigation -->
-  <button class="portfolio-next" type="button">Next portfolio item</button>
-  <!-- TODO: common swiper pagination progress here https://swiperjs.com/demos#pagination-progress -->
+
+  <!-- Navigation -->
+  <!-- <span
+    class="swiper-navigation flex items-center justify-center gap-4 font-serif text-[90px] leading-none"
+  >
+    <button
+      class="swiper-button swiper-button-prev size-auto!"
+      type="button"
+      aria-label="Previous portfolio item"
+    >
+      ‹
+    </button>
+    <button
+      class="swiper-button swiper-button-next size-auto!"
+      type="button"
+      aria-label="Next portfolio item"
+    >
+      ›
+    </button>
+  </span> -->
+
+  <!-- Thumbs gallery -->
+  <div class="swiper portfolio-thumbs-swiper mt-20 w-full">
+    <div class="swiper-wrapper">
+      {
+        portfolioItems.map((item) => (
+          <div class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
+            <img
+              src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
+              alt={item.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </section>
+
+<!-- Import Swiper JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+  is:inline></script>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Update portfolio description visibility
+    function updatePortfolioDescription(index) {
+      const portfolioDescriptions = document.querySelectorAll(
+        ".portfolio-descriptions li"
+      );
+
+      // Update active portfolio description
+      portfolioDescriptions.forEach((item, i) => {
+        item.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    // Initialize thumbs swiper first
+    const thumbsSwiper = new Swiper(".portfolio-thumbs-swiper", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      breakpoints: {
+        480: {
+          slidesPerView: 4,
+        },
+        768: {
+          slidesPerView: 6,
+        },
+        992: {
+          slidesPerView: 8,
+        },
+        1200: {
+          slidesPerView: 8,
+        },
+        1600: {
+          slidesPerView: 12,
+        },
+      },
+      freeMode: true,
+      watchSlidesProgress: true,
+      loop: true,
+    });
+
+    // Initialize smartphone swiper (horizontal) FIRST
+    const smartphoneSwiper = new Swiper(".portfolio-smartphone-swiper", {
+      direction: "horizontal",
+      loop: true,
+      spaceBetween: 0,
+      thumbs: {
+        swiper: thumbsSwiper,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      on: {
+        slideChange: function () {
+          updatePortfolioDescription(this.realIndex);
+        },
+      },
+    });
+
+    // Initialize tablet swiper (vertical) SECOND - now smartphoneSwiper exists
+    const tabletSwiper = new Swiper(".portfolio-tablet-swiper", {
+      direction: "vertical",
+      loop: true,
+      spaceBetween: 0,
+      mousewheel: true, // Enable mouse wheel scrolling
+      touchEventsTarget: "container", // Enable touch events
+      thumbs: {
+        swiper: thumbsSwiper,
+      },
+    });
+
+    // Sync swipers using controller (simpler approach)
+    tabletSwiper.controller.control = smartphoneSwiper;
+    smartphoneSwiper.controller.control = tabletSwiper;
+
+    // Initialize
+    updatePortfolioDescription(0);
+
+    // Add keyboard navigation
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        smartphoneSwiper.slidePrev();
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        smartphoneSwiper.slideNext();
+      }
+    });
+  });
+</script>
+
+<style>
+  .portfolio-thumbs-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .portfolio-tablet-swiper,
+  .portfolio-smartphone-swiper {
+    height: 100%;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Custom navigation buttons */
+  .swiper-navigation .swiper-button-prev,
+  .swiper-navigation .swiper-button-next {
+    position: static;
+    margin: 0;
+    width: 48px;
+    height: 48px;
+  }
+
+  .swiper-navigation .swiper-button-prev:after,
+  .swiper-navigation .swiper-button-next:after {
+    display: none;
+  }
+
+  /* Style Swiper's built-in progress bar */
+  .swiper-pagination-progressbar {
+    background: rgba(156, 163, 175, 0.2); /* bg-gray-400/20 */
+  }
+
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--color-primary);
+  }
+</style>
