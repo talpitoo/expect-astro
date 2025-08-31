@@ -1,11 +1,11 @@
-header,
+/* header,
 header h1,
 header q,
 header .stripe,
 header .linear-gradient,
 header img {
   transform: translateZ(0deg);
-}
+} */
 
 .beyond .sm:col-span-4 {
   transition: all 200ms ease 0s;
@@ -31,13 +31,6 @@ header img {
   text-align: center;
 }
 
-.beyond h2 {
-  @apply text-black dark:text-white;
-
-  font-size: 24px;
-  margin: 0 0 30px;
-}
-
 blockquote {
   border: none;
   padding: 0;
@@ -52,26 +45,11 @@ main section {
   @apply max-md:py-10 px-0;
 }
 
-main section h1,
-main section h2 {
-  text-transform: uppercase;
-  margin-top: 0;
-}
-
 .featured {
   @apply bg-gray-lighter dark:bg-gray-dark;
 
   overflow: hidden;
   position: relative;
-}
-
-.featured h2 {
-  @apply font-sans;
-
-  font-size: 18px; /* ~18px */
-  font-weight: 300;
-  text-transform: none;
-  margin-bottom: 30px;
 }
 
 .featured .container-bootstrap {
@@ -255,11 +233,6 @@ main section h2 {
   cursor: url("/img/eva-pod-cursor64x64.png?ver=28082025") 32 32, crosshair;
 }
 
-.intermission h1,
-.intermission p {
-  color: white;
-}
-
 .intermission .container-bootstrap {
   position: relative;
   min-height: 300px;
@@ -268,18 +241,9 @@ main section h2 {
 .start {
   @apply max-md:py-20 px-0;
 
-  background: var(--color-primary) url("/img/solar-system-transparent.png?ver=28082025")
-    no-repeat top center;
+  background: var(--color-primary)
+    url("/img/solar-system-transparent.png?ver=28082025") no-repeat top center;
   background-size: 1600px 440px;
-}
-
-.start h1 {
-  @apply font-sans;
-
-  color: white;
-  text-transform: none;
-  font-weight: 300;
-  margin-bottom: 80px;
 }
 
 .start .btn {
@@ -336,8 +300,7 @@ main section h2 {
 }
 
 .stars {
-  background: url("/img/moon-surface.png?ver=28082025") bottom center
-    no-repeat;
+  background: url("/img/moon-surface.png?ver=28082025") bottom center no-repeat;
 
   @apply bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px];
 }
@@ -397,18 +360,6 @@ footer a:active,
 footer a:focus {
   @apply text-gray-light;
   transition: all 200ms ease 0s;
-}
-
-footer p {
-  margin-bottom: 0;
-}
-
-footer p:nth-child(1) {
-  margin-bottom: 30px;
-}
-
-footer p:nth-child(2) {
-  margin-bottom: 15px;
 }
 
 .logo-footer {
@@ -489,28 +440,6 @@ footer p:nth-child(2) {
   .list-social {
     margin-top: 10px;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Alegreya Sans SC", "Open Sans Variable", "Segoe UI", "Roboto",
-    "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
-  font-weight: 300;
-  line-height: 1.1;
-  color: inherit;
-  margin-bottom: 12px;
-}
-
-p {
-  @apply mb-3;
-}
-
-blockquote {
-  @apply mb-6;
 }
 
 .container-bootstrap {

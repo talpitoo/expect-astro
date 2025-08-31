@@ -1,17 +1,19 @@
 ---
+// import 'swiper/css'; // TODO debug specificity
+
 const portfolioItems = [
   {
     id: "dreamers-inc",
     title: "Dreamers Inc.",
-    content: `<blockquote>
-                  <p>
+    content: `<blockquote class="mb-6">
+                  <p class="mb-3">
                     You may say that I'm a dreamer
                     <br /> but I'm not the only one
                     <br /> I hope someday you'll join us
                     <br /> and the world will be as one.
                   </p>
                 </blockquote>
-                <p>The best client you can work with!</p>`,
+                <p class="mb-3">The best client you can work with!</p>`,
     link: {
       url: "https://thedreamers.us/",
       text: "thedreamers.us",
@@ -20,8 +22,8 @@ const portfolioItems = [
   {
     id: "upwork",
     title: "Upwork Global Inc.",
-    content: `<p>oDesk is now Upwork.</p>
-                <p>
+    content: `<p class="mb-3">oDesk is now Upwork.</p>
+                <p class="mb-3">
                   Freelance marketplaces <em>Elance</em> and <em>oDesk</em> are now
                   rebranded and merged together under the new name - Upwork. It was
                   (and still is) exciting experience to be a part of the team which
@@ -36,12 +38,12 @@ const portfolioItems = [
     id: "novalite",
     title: `Responsive website<br />
                   for an outsourcing company`,
-    content: `<p>
+    content: `<p class="mb-3">
                   A website with SVG animations and highest accessibility
                   standards. PSD by <a
                     onclick="trackOutboundLink('https://heavyform.com/'); return false;"
                     href="https://heavyform.com/"
-                    class="text-primary dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
+                    class="text-primary! dark:mix-blend-plus-lighter!">Heavyform&#174; Creative Agency</a
                   >. Optimized with handcrafted lazy loading, Google PageSpeed
                   Insights, YSlow, Web Developer Checklist and HTML CodeSniffer.
                   The website works even with javascript disabled!
@@ -54,7 +56,7 @@ const portfolioItems = [
   {
     id: "tt",
     title: "A personal photography blog",
-    content: `<p>
+    content: `<p class="mb-3">
                   Responsive Wordpress theme with preserved IPTC/EXIF data, SEO
                   friendly image names and a lot of small details. What
                   photographers actually want.
@@ -67,11 +69,11 @@ const portfolioItems = [
   {
     id: "lapetitevackor",
     title: "A customized Tumblr theme",
-    content: `<p>
+    content: `<p class="mb-3">
                   Custom Tumblr theme based on <a
                     onclick="trackOutboundLink('https://www.tumblr.com/theme/37310'); return false;"
                     href="https://www.tumblr.com/theme/37310"
-                    class="text-primary dark:mix-blend-plus-lighter">Optica</a
+                    class="text-primary! dark:mix-blend-plus-lighter!">Optica</a
                   > by <em>Kristoffer.</em> with fine tuned social sharing rules.
                   But enough with the technical details already, here, Vackor is
                   the star!
@@ -84,10 +86,10 @@ const portfolioItems = [
   {
     id: "cynkra",
     title: "Website and custom blog for a team of data scientists",
-    content: `<p>Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
+    content: `<p class="mb-3">Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
                     onclick="trackOutboundLink('https://www.jonas.studio/'); return false;"
                     href="https://www.jonas.studio/"
-                    class="text-primary dark:mix-blend-plus-lighter">Jonas Goldstein</a>. Translated a Bauhaus- and ASCII-inspired design vision into a functional, minimalist, and visually refined site — significantly lighter and faster.
+                    class="text-primary! dark:mix-blend-plus-lighter!">Jonas Goldstein</a>. Translated a Bauhaus- and ASCII-inspired design vision into a functional, minimalist, and visually refined site — significantly lighter and faster.
                 </p>`,
     skills: [
       { name: "Jekyll", url: "https://jekyllrb.com/" },
@@ -117,7 +119,7 @@ const portfolioItems = [
   {
     id: "dreamingsheep",
     title: "An online journal for your dreams and beyond",
-    content: `<p>It is an online dream journal where you can log and analyze your dreams. Find connections in your dream patterns like mood, theme, recall, sleep cycle, repeating symbols and others.
+    content: `<p class="mb-3">It is an online dream journal where you can log and analyze your dreams. Find connections in your dream patterns like mood, theme, recall, sleep cycle, repeating symbols and others.
                 </p>
               <p class="sr-only">Tech stack:</p>`,
     skills: [
@@ -136,7 +138,7 @@ const portfolioItems = [
   {
     id: "hellmut-monz",
     title: "A static site generator and UI library",
-    content: `<p>Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
+    content: `<p class="mb-3">Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
                 </p>`,
     skills: [
       { name: "Eleventy", url: "https://www.11ty.dev/" },
@@ -153,7 +155,7 @@ const portfolioItems = [
   {
     id: "itportal",
     title: "Theme adaptation for SaaS company",
-    content: `<p>
+    content: `<p class="mb-3">
             Reverse-engineering a purchased static theme into an Eleventy.js 
             website with SEO and accessibility optimization, load speed 
             improvements, and search widget API integration. Microanimations, 
@@ -161,7 +163,7 @@ const portfolioItems = [
             The SVG animations were created in Adobe Animate by <a
             onclick="trackOutboundLink('https://heavyform.com/'); return false;"
             href="https://heavyform.com/"
-            class="text-primary dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
+            class="text-primary! dark:mix-blend-plus-lighter!">Heavyform&#174; Creative Agency</a
             >.
           </p>`,
     link: {
@@ -172,7 +174,7 @@ const portfolioItems = [
   {
     id: "seopal",
     title: "SEOpal: Eleventy + TailwindCSS",
-    content: `<p>From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
+    content: `<p class="mb-3">From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
                 </p>`,
     link: {
       url: "https://seopal.io/",
@@ -182,7 +184,7 @@ const portfolioItems = [
   {
     id: "tilt",
     title: "A dashboard with custom markdown rendering",
-    content: `<p>A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
+    content: `<p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
                 </p>`,
     skills: [
       { name: "NextJS", url: "https://nextjs.org/" },
@@ -198,7 +200,7 @@ const portfolioItems = [
   {
     id: "szerencsedhogyoreganyadnakszolitottal",
     title: "An AI chatbot for fun",
-    content: `<p>A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
+    content: `<p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
                 </p>`,
     skills: [
       { name: "NextJS", url: "https://nextjs.org/" },
@@ -214,7 +216,7 @@ const portfolioItems = [
   {
     id: "cycls",
     title: "Landing page + chatbot",
-    content: `<p>
+    content: `<p class="mb-3">
                   TailwindCSS markup only, so that it can rely on <code><script src="https://cdn.tailwindcss.com"></script></code>
                 </p>`,
     link: {
@@ -225,7 +227,7 @@ const portfolioItems = [
   {
     id: "justplaysnake",
     title: "Snake!",
-    content: `<p>
+    content: `<p class="mb-3">
                   HTML5 game (React)
                 </p>`,
     link: {
@@ -236,7 +238,7 @@ const portfolioItems = [
   {
     id: "forexchurch",
     title: "Forex Church",
-    content: `<p>
+    content: `<p class="mb-3">
                   converting a React website into a static HTML website using 11ty/Bootstrap/Alpine.js/Axios
                 </p>`,
     link: {
@@ -247,7 +249,7 @@ const portfolioItems = [
   {
     id: "dafed",
     title: "Conference speech",
-    content: `<p>
+    content: `<p class="mb-3">
                   I gave a talk at a conference for designers and front-end
                   developers about accessibility, user experience and
                   performance. If you are interested in <abbr
@@ -280,9 +282,9 @@ const portfolioItems = [
         <div class="grid md:grid-cols-12 -mx-[15px]">
           <div class="md:col-span-4 px-[15px]">
             <div class="relative">
-              <h1 class="">Featured work</h1>
+              <h1 class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px]">Featured work</h1>
               <!-- Navigation -->
-              <span class="swiper-navigation absolute top-0 -left-20 inline-flex items-center justify-center gap-4 font-serif! text-[90px] leading-none">
+              <span class="swiper-navigation absolute top-0 right-0 md:right-auto md:-left-20 inline-flex items-center justify-center gap-4 font-serif! text-[90px] leading-none">
                 <button
                   class="swiper-button swiper-button-prev size-auto!"
                   type="button"
@@ -303,7 +305,7 @@ const portfolioItems = [
               {
                 portfolioItems.map((item) => (
                   <li data-id={item.id}>
-                    <h2 set:html={item.title} />
+                    <h2 class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case" set:html={item.title} />
                     <Fragment set:html={item.content} />
                     {item.skills && item.skills.length > 0 && (
                       <ul class="my-6 dark:opacity-50">
@@ -312,11 +314,11 @@ const portfolioItems = [
                         ))}
                       </ul>
                     )}
-                    <p>
+                    <p class="mb-3">
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}
                         href={item.link.url}
-                        class="text-primary text-big dark:mix-blend-plus-lighter"
+                        class="text-primary! text-big dark:mix-blend-plus-lighter!"
                       >
                         {item.link.text}
                       </a>
@@ -424,7 +426,7 @@ const portfolioItems = [
     // Show portfolio description by matching data-id (robust against loop/index quirks)
     function showDescriptionById(id) {
       if (!id) return;
-      const items = document.querySelectorAll('.portfolio-descriptions li');
+      const items = document.querySelectorAll('.portfolio-descriptions > li');
       items.forEach(li => {
         li.style.display = (li.dataset.id === id) ? 'block' : 'none';
       });
@@ -451,9 +453,9 @@ const portfolioItems = [
           slidesPerView: 12,
         },
       },
-      hashNavigation: {
-        watchState: true,
-      },
+      // hashNavigation: {
+      //   watchState: true,
+      // },
       freeMode: true,
       watchSlidesProgress: true,
       loop: true,
@@ -464,9 +466,9 @@ const portfolioItems = [
       direction: "horizontal",
       loop: true,
       spaceBetween: 0,
-      hashNavigation: {
-        watchState: true,
-      },
+      // hashNavigation: {
+      //   watchState: true,
+      // },
       thumbs: {
         swiper: thumbsSwiper,
       },
@@ -494,9 +496,9 @@ const portfolioItems = [
       spaceBetween: 0,
       mousewheel: true, // Enable mouse wheel scrolling
       touchEventsTarget: "container", // Enable touch events
-      hashNavigation: {
-        watchState: true,
-      },
+      // hashNavigation: {
+      //   watchState: true,
+      // },
       thumbs: {
         swiper: thumbsSwiper,
       },
@@ -563,6 +565,6 @@ const portfolioItems = [
   }
 
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: var(--color-primary);
+    background: var(--color-primary) !important;
   }
 </style>

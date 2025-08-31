@@ -1,4 +1,10 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
+/* NOTE: manual imports to disable Preflight https://tailwindcss.com/docs/preflight#disabling-preflight */
+/* @layer theme, base, components, utilities; */
+@import "tailwindcss/theme.css" layer(theme);
+/* @import "tailwindcss/preflight.css" layer(base); */
+@import "tailwindcss/utilities.css" layer(utilities) important;
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant accent (&:where(.accent, .accent *));
@@ -12,10 +18,10 @@
   --color-gray-light: #ccc;
   --color-gray-lighter: #ececec;
 
-  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Alegreya Sans SC", "Open Sans Variable", "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
-  /* --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Alegreya Sans SC", "Open Sans Variable", "Segoe UI", "Roboto",
+    "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
 
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
@@ -31,7 +37,7 @@
 }
 
 .accent {
-  --color-primary: #00809D;
+  --color-primary: #00809d;
 }
 
 @layer base {
@@ -48,7 +54,7 @@
   a:focus-visible figure,
   .portfolio-next:focus-visible:before,
   .swiper-button:focus-visible {
-    @apply outline-dashed outline-2 outline-offset-2;
+    @apply outline-dashed! outline-2 outline-offset-2;
   }
 }
 
