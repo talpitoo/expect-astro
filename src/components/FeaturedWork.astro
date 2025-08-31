@@ -304,7 +304,7 @@ const portfolioItems = [
                   <div class="swiper-wrapper">
                     {
                       portfolioItems.map((item) => (
-                        <div data-id={item.id} class="swiper-slide">
+                        <div data-id={item.id} data-hash={item.id} class="swiper-slide">
                           <img
                             src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
                             alt={item.title}
@@ -323,7 +323,7 @@ const portfolioItems = [
                     <div class="swiper-wrapper">
                       {
                         portfolioItems.map((item) => (
-                          <div data-id={item.id} class="swiper-slide">
+                          <div data-id={item.id} data-hash={item.id} class="swiper-slide">
                             <img
                               src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
                               alt={item.title}
@@ -431,6 +431,9 @@ const portfolioItems = [
       direction: "horizontal",
       loop: true,
       spaceBetween: 0,
+      hashNavigation: {
+        watchState: true,
+      },
       thumbs: {
         swiper: thumbsSwiper,
       },
@@ -458,6 +461,9 @@ const portfolioItems = [
       spaceBetween: 0,
       mousewheel: true, // Enable mouse wheel scrolling
       touchEventsTarget: "container", // Enable touch events
+      hashNavigation: {
+        watchState: true,
+      },
       thumbs: {
         swiper: thumbsSwiper,
       },
