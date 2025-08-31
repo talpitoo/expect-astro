@@ -189,6 +189,22 @@ const portfolioItems = [
     },
   },
   {
+    id: "szerencsedhogyoreganyadnakszolitottal",
+    title: "An AI chatbot for fun",
+    content: `<p>A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
+                </p>`,
+    skills: [
+      { name: "NextJS", url: "https://nextjs.org/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      { name: "shadcn/ui", url: "https://ui.shadcn.com/" },
+      { name: "Recharts", url: "https://recharts.org/" },
+    ],
+    link: {
+      url: "https://szerencsedhogyoreganyadnakszolitottal.hu/",
+      text: "szerencsedhogyoreganyadnakszolitottal.hu",
+    },
+  },
+  {
     id: "dafed",
     title: "Conference speech",
     content: `<p>
@@ -213,7 +229,7 @@ const portfolioItems = [
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
-          <div class="md:col-span-4 px-[15px]">
+          <div class="md:col-span-4 px-[15px] lg:pr-0">
             <h1>Featured work</h1>
             <ul class="list-unstyled portfolio-descriptions">
               {
@@ -224,7 +240,7 @@ const portfolioItems = [
                     {item.skills && item.skills.length > 0 && (
                       <ul class="my-6 dark:opacity-50">
                         {item.skills.map((skill) => (
-                          <li class="badge mb-1 mr-1">{skill.name}</li>
+                          <li class="badge mb-1.5 mr-1.5">{skill.name}</li>
                         ))}
                       </ul>
                     )}

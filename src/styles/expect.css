@@ -205,8 +205,12 @@ main section h2 {
   transform: translate3d(0, -3790px, 0);
 }
 
-.dafed .portfolio-tablet {
+.szerencsedhogyoreganyadnakszolitottal .portfolio-tablet {
   transform: translate3d(0, -4169px, 0);
+}
+
+.dafed .portfolio-tablet {
+  transform: translate3d(0, -4548px, 0);
 }
 
 .screen-smartphone {
@@ -284,8 +288,12 @@ main section h2 {
   transform: translate3d(-1780px, 0, 0);
 }
 
-.dafed .portfolio-smartphone {
+.szerencsedhogyoreganyadnakszolitottal .portfolio-smartphone {
   transform: translate3d(-1958px, 0, 0);
+}
+
+.dafed .portfolio-smartphone {
+  transform: translate3d(-2136px, 0, 0);
 }
 
 .portfolio-descriptions > li {
@@ -324,7 +332,8 @@ main section h2 {
 .itportal .portfolio-descriptions > li:nth-child(9),
 .seopal .portfolio-descriptions > li:nth-child(10),
 .tilt .portfolio-descriptions > li:nth-child(11),
-.dafed .portfolio-descriptions > li:nth-child(12) {
+.szerencsedhogyoreganyadnakszolitottal .portfolio-descriptions > li:nth-child(12),
+.dafed .portfolio-descriptions > li:nth-child(13) {
   display: block;
 }
 
