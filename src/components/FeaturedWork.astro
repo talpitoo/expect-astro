@@ -269,7 +269,7 @@ const portfolioItems = [
             <ul class="list-unstyled portfolio-descriptions">
               {
                 portfolioItems.map((item) => (
-                  <li>
+                  <li data-id={item.id}>
                     <h2 set:html={item.title} />
                     <Fragment set:html={item.content} />
                     {item.skills && item.skills.length > 0 && (
@@ -304,7 +304,7 @@ const portfolioItems = [
                   <div class="swiper-wrapper">
                     {
                       portfolioItems.map((item) => (
-                        <div class="swiper-slide">
+                        <div data-id={item.id} class="swiper-slide">
                           <img
                             src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
                             alt={item.title}
@@ -323,7 +323,7 @@ const portfolioItems = [
                     <div class="swiper-wrapper">
                       {
                         portfolioItems.map((item) => (
-                          <div class="swiper-slide">
+                          <div data-id={item.id} class="swiper-slide">
                             <img
                               src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
                               alt={item.title}
@@ -368,7 +368,7 @@ const portfolioItems = [
     <div class="swiper-wrapper">
       {
         portfolioItems.map((item) => (
-          <div data-hash={`${item.id}`} class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
+          <div data-id={item.id} data-hash={item.id} class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
             <img
               src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
               alt={item.title}
@@ -388,15 +388,12 @@ const portfolioItems = [
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", function () {
-    // Update portfolio description visibility
-    function updatePortfolioDescription(index) {
-      const portfolioDescriptions = document.querySelectorAll(
-        ".portfolio-descriptions li"
-      );
-
-      // Update active portfolio description
-      portfolioDescriptions.forEach((item, i) => {
-        item.style.display = i === index ? "block" : "none";
+    // Show portfolio description by matching data-id (robust against loop/index quirks)
+    function showDescriptionById(id) {
+      if (!id) return;
+      const items = document.querySelectorAll('.portfolio-descriptions li');
+      items.forEach(li => {
+        li.style.display = (li.dataset.id === id) ? 'block' : 'none';
       });
     }
 
@@ -447,7 +444,9 @@ const portfolioItems = [
       },
       on: {
         slideChange: function () {
-          updatePortfolioDescription(this.realIndex);
+          const active = this.slides[this.activeIndex];
+          const id = active && active.getAttribute('data-id');
+          showDescriptionById(id);
         },
       },
     });
@@ -468,8 +467,14 @@ const portfolioItems = [
     tabletSwiper.controller.control = smartphoneSwiper;
     smartphoneSwiper.controller.control = tabletSwiper;
 
-    // Initialize
-    updatePortfolioDescription(0);
+    // Initialize description (first item's id)
+    if (portfolioItems && portfolioItems.length) {
+      showDescriptionById(portfolioItems[0].id);
+    } else {
+      // Fallback: show first li if any
+      const firstLi = document.querySelector('.portfolio-descriptions li');
+      if (firstLi) firstLi.style.display = 'block';
+    }
 
     // Add keyboard navigation
     document.addEventListener("keydown", function (e) {

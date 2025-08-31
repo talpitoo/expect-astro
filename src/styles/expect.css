@@ -166,14 +166,13 @@ main section h2 {
 
 .portfolio-descriptions > li {
   transition: all 500ms ease 0s;
-  float: left;
-  display: none;
 }
 
 .portfolio-descriptions {
   @apply max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px];
 }
 
+/* TODO
 .portfolio-next {
   color: transparent;
   border: none;
@@ -248,6 +247,7 @@ main section h2 {
     transition: all 200ms ease 0s;
   }
 }
+*/
 
 .intermission {
   background-color: black;
