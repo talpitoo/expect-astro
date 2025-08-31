@@ -316,10 +316,10 @@ const portfolioItems = [
                   </div>
                 </div>
               </div>
-              <div class="nexus5">
+              <div class="nexus5 pointer-events-none">
                 <div class="screen-smartphone">
                   <!-- Horizontal swiper for smartphone -->
-                  <div class="swiper portfolio-smartphone-swiper">
+                  <div class="swiper portfolio-smartphone-swiper pointer-events-auto">
                     <div class="swiper-wrapper">
                       {
                         portfolioItems.map((item) => (
@@ -368,7 +368,7 @@ const portfolioItems = [
     <div class="swiper-wrapper">
       {
         portfolioItems.map((item) => (
-          <div class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
+          <div data-hash={`${item.id}`} class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
             <img
               src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
               alt={item.title}
@@ -420,6 +420,9 @@ const portfolioItems = [
         1600: {
           slidesPerView: 12,
         },
+      },
+      hashNavigation: {
+        watchState: true,
       },
       freeMode: true,
       watchSlidesProgress: true,

@@ -128,7 +128,6 @@ main section h2 {
 .nexus5 {
   background: url("/img/nexus5.png?ver=28082025") center center no-repeat;
   background-size: 100% 100%;
-  pointer-events: none;
 }
 
 .screen-tablet {
