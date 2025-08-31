@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant accent (&:where(.accent, .accent *));
 
 @theme {
-  --color-primary: #00809D;
-  /* #906; */
+  --color-primary: #906;
   --color-gray-base: #000;
   --color-gray-darker: #333;
   --color-gray-dark: #393939;
@@ -22,6 +22,10 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
+}
+
+.accent {
+  --color-primary: #00809D;
 }
 
 @layer base {

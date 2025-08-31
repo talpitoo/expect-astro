@@ -49,8 +49,8 @@ header .space-odyssey-mask {
 }
 
 header .linear-gradient {
-  /* @apply bg-gradient-to-r from-primary/50 to-transparent; */
-  @apply bg-gradient-to-r from-primary to-primary mix-blend-hue;
+  @apply bg-gradient-to-r from-black/50 to-transparent
+         accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue;
 
   position: absolute;
   top: 0;

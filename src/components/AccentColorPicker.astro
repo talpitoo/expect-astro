@@ -1,0 +1,32 @@
+<div class="size-11 flex items-center justify-center relative z-0 rounded-full text-white bg-white/10 overflow-hidden">
+  <input
+    type="color"
+    id="accent"
+    name="accent"
+    value="#990066"
+    class="rounded-full size-16 cursor-pointer absolute left-1/2 top-1/2 -translate-1/2
+            focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2
+            data-checked:ring data-checked:inset-ring-white/10 data-checked:bg-primary data-checked:text-white data-checked:ring-transparent"
+  />
+</div>
+
+<script is:inline>
+  // Update --color-primary when the color picker changes
+  (function () {
+    const input = document.getElementById("accent");
+    if (!input) return;
+    const root = document.documentElement;
+
+    function apply(val) {
+      if (!val) return;
+      root.style.setProperty("--color-primary", val);
+      // Ensure accent theme class is applied so accent:* variants activate
+      if (!root.classList.contains('accent')) {
+        root.classList.add('accent');
+      }
+    }
+
+    input.addEventListener("input", () => apply(input.value));
+    input.addEventListener("change", () => apply(input.value));
+  })();
+</script>
