@@ -3,7 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-magenta: #906;
+  --color-primary: #00809D;
+  /* #906; */
   --color-gray-base: #000;
   --color-gray-darker: #333;
   --color-gray-dark: #393939;

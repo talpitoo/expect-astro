@@ -16,7 +16,7 @@
   height: 100%;
 
   figure {
-    @apply bg-magenta/50 block absolute;
+    @apply bg-primary/50 block absolute;
 
     backface-visibility: hidden;
   }

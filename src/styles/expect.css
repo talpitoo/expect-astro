@@ -342,7 +342,7 @@ main section h2 {
 }
 
 .portfolio-next:before {
-  @apply text-magenta block size-[60px];
+  @apply text-primary block size-[60px];
 
   opacity: 0.9;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -422,7 +422,7 @@ main section h2 {
 .start {
   @apply max-md:py-20 px-0;
 
-  background: var(--color-magenta) url("/img/solar-system.png?ver=28082025")
+  background: var(--color-primary) url("/img/solar-system-transparent.png?ver=28082025")
     no-repeat top center;
   background-size: 1600px 440px;
 }
@@ -456,7 +456,7 @@ main section h2 {
 .start .btn-default:hover,
 .start .btn-default:active,
 .start .btn-default:focus {
-  @apply text-magenta bg-white border-white;
+  @apply text-primary bg-white border-white;
 
   transition: all 200ms ease 0s;
 }
@@ -680,7 +680,6 @@ blockquote {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
@@ -693,9 +692,6 @@ blockquote {
   font-size: 16px;
   line-height: 1.5;
   border-radius: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -706,7 +702,8 @@ blockquote {
 }
 
 .btn-primary {
-  color: #906;
+  @apply text-primary;
+
   background-color: #fff;
   border-color: #fff;
 }

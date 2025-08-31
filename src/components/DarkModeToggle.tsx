@@ -136,7 +136,7 @@ export default function DarkModeToggle() {
             aria-label={theme.name}
             className="rounded-full p-1.5 *:size-7 cursor-pointer transition-all 
             focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2
-            data-checked:ring data-checked:inset-ring-white/10 data-checked:bg-magenta data-checked:text-white data-checked:ring-transparent"
+            data-checked:ring data-checked:inset-ring-white/10 data-checked:bg-primary data-checked:text-white data-checked:ring-transparent"
           >
             {theme.icon}
           </Radio>
