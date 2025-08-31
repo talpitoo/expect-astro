@@ -229,7 +229,7 @@ const portfolioItems = [
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
-          <div class="md:col-span-4 px-[15px] lg:pr-0">
+          <div class="md:col-span-4 px-[15px]">
             <h1>Featured work</h1>
             <ul class="list-unstyled portfolio-descriptions">
               {
@@ -264,12 +264,7 @@ const portfolioItems = [
             <!-- max-w-[calc(100vw-55px)] sm:max-w-none TODO -->
             <div class="nexus10 overflow-hidden">
               <div class="screen-tablet">
-                <!-- <img
-                  src="img/portfolio-tablet.jpg?ver=28082025"
-                  srcset="img/portfolio-tablet@2x.jpg?ver=28082025 2x"
-                  alt="Portfolio on a tablet"
-                  class="portfolio-tablet"
-                /> -->
+                <!-- TODO: vertical swiper https://swiperjs.com/demos#vertical -->
                 <div class="portfolio-tablet flex flex-col">
                   {
                     portfolioItems.map((item) => (
@@ -284,12 +279,7 @@ const portfolioItems = [
               </div>
               <div class="nexus5">
                 <div class="screen-smartphone">
-                  <!-- <img
-                    src="img/portfolio-smartphone.jpg?ver=28082025"
-                    srcset="img/portfolio-smartphone@2x.jpg?ver=28082025 2x"
-                    alt="Portfolio on a smartphone"
-                    class="portfolio-smartphone max-w-none"
-                  /> -->
+                  <!-- TODO: horizontal swiper thumbs-gallery https://swiperjs.com/demos#thumbs-gallery -->
                   <div class="portfolio-smartphone max-w-none flex">
                     {
                       portfolioItems.map((item) => (
@@ -309,5 +299,7 @@ const portfolioItems = [
       </div>
     </div>
   </div>
+  <!-- TODO: swiper navigation here https://swiperjs.com/demos#navigation -->
   <button class="portfolio-next" type="button">Next portfolio item</button>
+  <!-- TODO: common swiper pagination progress here https://swiperjs.com/demos#pagination-progress -->
 </section>
