@@ -1,6 +1,7 @@
 <section
-  class="stars bg-[url('/img/moon-surface.png?ver=28082025')] bg-bottom bg-no-repeat bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px]"
+  class="stars relative"
 >
+<div data-parallax-factor="0.1" class="moon-surface parallax-layer absolute inset-0 bg-[url('/img/moon-surface.png?ver=28082025')] bg-bottom bg-no-repeat bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px]"></div>
   <div class="container-bootstrap relative">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -16,7 +17,8 @@
         </p>
         <a
           id="monolith"
-          class="monolith-container block text-primary focus-visible:outline-0"
+          class="monolith-container parallax-layer block text-primary focus-visible:outline-0"
+          data-parallax-factor="0.4"
           href="https://www.youtube.com/watch?v=ou6JNQwPWE0"
           rel="noopener noreferrer"
         >
@@ -31,11 +33,16 @@
         </a>
       </div>
     </div>
-    <div class="moonlanders"></div>
+    <div class="moonlanders -mb-1 parallax-layer" data-parallax-factor="0.7" data-parallax-max-y="0"></div>
   </div>
 </section>
 
 <style>
+  /* Parallax base (only applied when JS enhances) */
+  .parallax-layer {
+    will-change: transform;
+  }
+
   .moonlanders {
     background: transparent url("/img/moonlanders.png?ver=28082025") top left
       no-repeat;
@@ -153,3 +160,78 @@
     }
   }
 </style>
+
+<script is:inline>
+  // Generic mouse-move parallax for any .parallax-layer in the section.
+  // Each layer can define: data-parallax-factor (0..1+), optional data-parallax-max-x / -max-y.
+  (function () {
+    const section = document.querySelector('section.stars');
+    if (!section) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const layers = Array.from(section.querySelectorAll('.parallax-layer'));
+    if (!layers.length) return;
+
+    // Ensure defaults & cache base transforms (if pre-existing).
+    layers.forEach(el => {
+      if (!el.dataset.parallaxFactor) el.dataset.parallaxFactor = '0.5';
+      if (!el.dataset.parallaxMaxX) el.dataset.parallaxMaxX = '30';
+      if (!el.dataset.parallaxMaxY) el.dataset.parallaxMaxY = '20';
+      el.dataset._baseTransform = getComputedStyle(el).transform === 'none' ? '' : getComputedStyle(el).transform;
+    });
+
+    let inView = false;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.target === section) inView = e.isIntersecting; });
+    }, { threshold: 0 });
+    io.observe(section);
+
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    const ease = 0.08;
+    let rafId = 0;
+
+    function animate() {
+      const dx = targetX - currentX;
+      const dy = targetY - currentY;
+      if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+        currentX += dx * ease;
+        currentY += dy * ease;
+        applyTransforms(currentX, currentY);
+        rafId = requestAnimationFrame(animate);
+      } else {
+        currentX = targetX; currentY = targetY;
+        applyTransforms(currentX, currentY);
+        rafId = 0;
+      }
+    }
+
+    function applyTransforms(nx, ny) {
+      layers.forEach(el => {
+        const f = parseFloat(el.dataset.parallaxFactor || '0');
+        const maxX = parseFloat(el.dataset.parallaxMaxX || '30');
+        const maxY = parseFloat(el.dataset.parallaxMaxY || '20');
+        const base = el.dataset._baseTransform || '';
+        const tx = (nx * maxX * f).toFixed(2);
+        const ty = (ny * maxY * f).toFixed(2);
+        el.style.transform = `${base} translate3d(${tx}px, ${ty}px, 0)`.trim();
+      });
+    }
+
+    function onPointerMove(ev) {
+      if (!inView) return;
+      const rect = section.getBoundingClientRect();
+      const xNorm = (ev.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+      const yNorm = (ev.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+      targetX = Math.max(-1, Math.min(1, xNorm));
+      targetY = Math.max(-1, Math.min(1, yNorm));
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { targetX = 0; targetY = 0; if (!rafId) rafId = requestAnimationFrame(animate); }
+    });
+  })();
+</script>
