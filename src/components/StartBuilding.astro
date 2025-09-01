@@ -1,6 +1,10 @@
-<section class="start text-center">
+<section class="start text-center max-md:py-20 px-0">
   <div class="container-bootstrap">
-    <h1 class="font-sans font-light leading-[1.1] text-[46px] text-white mb-20 normal-case">Start building your website now.</h1>
+    <h1
+      class="font-sans font-light leading-[1.1] text-[46px] text-white mb-20 normal-case"
+    >
+      Start building your website now.
+    </h1>
     <a
       onclick="trackOutboundLink('mailto:mounttain@gmail.com'); return false;"
       href="mailto:mounttain@gmail.com"
@@ -55,3 +59,62 @@
     </a>
   </div>
 </section>
+
+<style>
+  .start {
+    background: var(--color-primary)
+      url("/img/solar-system-transparent.png?ver=28082025") no-repeat top center;
+    background-size: 1600px 440px;
+  }
+
+  .start .btn {
+    font-size: 18px; /* ~18px */
+    line-height: 26px;
+    margin: auto 20px;
+  }
+
+  @media (max-width: 480px) {
+    .start .btn {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  .start .btn-default {
+    transition: all 200ms ease 0s;
+  }
+
+  .start .btn-default:hover,
+  .start .btn-default:active,
+  .start .btn-default:focus {
+    transition: all 200ms ease 0s;
+  }
+
+  .start .btn-primary svg {
+    vertical-align: middle;
+  }
+
+  .start .btn-primary,
+  .start .btn-primary:hover,
+  .start .btn-primary:active,
+  .start .btn-primary:focus {
+    background-color: white;
+    border-color: white;
+    transition: all 200ms ease 0s;
+  }
+
+  @media (max-width: 480px) {
+    .start .btn-primary,
+    .start .btn-primary:hover,
+    .start .btn-primary:active,
+    .start .btn-primary:focus {
+      display: flex;
+      margin: 0;
+    }
+  }
+
+  .start .btn-primary:hover,
+  .start .btn-primary:focus {
+    transform: scale(1.1);
+  }
+</style>

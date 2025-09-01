@@ -2,12 +2,12 @@
 const services = [
   {
     icon: "astronaut",
-    title: '<del>PSD</del><ins>design</ins> 2 HTML',
+    title: "<del>PSD</del><ins>design</ins> 2 HTML",
     description: `<a href="#portfolio" class="text-primary">Bring your unique design to life by making it interactive and
             outstanding. Be it a parallax HTML5 website, responsive Wordpress
             theme or your custom
             <abbr title="Content management system">CMS</abbr> we make sure your
-            idea talks cross-browser on any device.</a>`
+            idea talks cross-browser on any device.</a>`,
   },
   {
     icon: "jetsons",
@@ -20,34 +20,62 @@ const services = [
             Schema.org. Following these rules from the start you get built in
             <abbr title="Search engine optimization">SEO</abbr>, good
             <abbr title="User experience">UX</abbr>, quality code and neat
-            <abbr title="User interface">UI</abbr> for free.`
+            <abbr title="User interface">UI</abbr> for free.`,
   },
   {
     icon: "ufo",
     title: "Speed optimization",
     description: `Don't allow your website to slow down making your visitors leave and
             search engines to downrate your content. We are building it from the
-            beginning with performance in mind. Lazy loading, fast coding.`
-  }
+            beginning with performance in mind. Lazy loading, fast coding.`,
+  },
 ];
 ---
 
 <section class="beyond">
-  <h1 class="font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-center md:-mt-[50px]">Frontend <span class="text-primary">& beyond</span></h1>
-  <p class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]">
+  <h1
+    class="font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-center md:-mt-[50px]"
+  >
+    Frontend <span class="text-primary">& beyond</span>
+  </h1>
+  <p
+    class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]"
+  >
     Show your PSD and we'll show you the future.
   </p>
   <div class="grid md:grid-cols-12 -mx-[15px]">
     <div class="md:col-span-10 md:col-start-2 px-[15px]">
       <div class="grid md:grid-cols-12 -mx-[15px]">
-        {services.map((service) => (
-          <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
-            <i>{service.icon}</i>
-            <h2 class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]" set:html={service.title}></h2>
-            <p class="mb-10" set:html={service.description}></p>
-          </div>
-        ))}
+        {
+          services.map((service) => (
+            <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
+              <i>{service.icon}</i>
+              <h2
+                class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]"
+                set:html={service.title}
+              />
+              <p class="mb-10" set:html={service.description} />
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @media (min-width: 1200px) {
+    .beyond .sm:col-span-4 {
+      padding: 0 40px;
+    }
+  }
+
+  .beyond i {
+    opacity: 0.5;
+    margin: 50px auto 20px;
+    display: block;
+    font-size: 66px;
+    line-height: 1;
+    text-align: center;
+  }
+</style>

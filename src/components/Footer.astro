@@ -3,27 +3,27 @@ const socialLinks = [
   {
     url: "https://talpitoo.com/",
     icon: "tt",
-    classes: "text-primary! animate-pulse"
+    classes: "text-primary! animate-pulse",
   },
   {
     url: "https://twitter.com/talpitoo",
     icon: "twitter",
-    classes: ""
+    classes: "",
   },
   {
     url: "https://instagram.com/talpitoo",
-    icon: "instagram", 
-    classes: ""
+    icon: "instagram",
+    classes: "",
   },
   {
     url: "https://github.com/talpitoo",
     icon: "github",
-    classes: ""
-  }
+    classes: "",
+  },
 ];
 ---
 
-<footer>
+<footer class="text-gray bg-gray-darker px-0 py-[50px]">
   <div class="container-bootstrap">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -38,16 +38,17 @@ const socialLinks = [
             </p>
             <p id="footnote" class="target:bg-primary/10 mb-[15px]">
               <sup>1</sup>
-              <span class="text-gray-light">us/our/we</span> refers to myself, my alter
-              ego and I, the
+              <span class="text-gray-light">us/our/we</span> refers to myself, my
+              alter ego and I, the
               <abbr title="Chief executive officer" class="text-gray-light"
                 >CEO</abbr
               >,
               <abbr title="Chief technology officer" class="text-gray-light"
                 >CTO</abbr
               > and
-              <abbr title="Obsessive–compulsive disorder" class="text-gray-light"
-                >OCD</abbr
+              <abbr
+                title="Obsessive–compulsive disorder"
+                class="text-gray-light">OCD</abbr
               > of Expect.
             </p>
             <p>
@@ -66,22 +67,30 @@ const socialLinks = [
             </p>
           </div>
           <div class="lg:col-span-4 px-[15px]">
-            <a href="#monolith" class="logo-footer float-right">
-              <i class="text-gray-light block m-auto text-[78px] leading-none">et</i>
-              <span class="text-center text-gray-light">Expect us.</span>
+            <a
+              href="#monolith"
+              class="inline-flex flex-col items-center justify-center size-[150px] bg-gray-dark align-middle rounded-full -mt-[70px] relative float-right hover:transition-all hover:ease-in-out hover:duration-200 hover:transform hover:-rotate-5 hover:scale-120 md:max-lg:-mt-[50px] max-md:float-none max-md:mt-[30px]"
+            >
+              <i class="text-gray-light block text-[78px] leading-none">et</i>
+              <span
+                class="h-5 leading-5 m-0 text-sm italic block text-center text-gray-light"
+                >Expect us.</span
+              >
             </a>
             <ul class="list-unstyled list-inline list-social float-right">
-              {socialLinks.map((link) => (
-                <li>
+              {
+                socialLinks.map((link) => (
+                  <li>
                     <a
-                    onclick={`trackOutboundLink('${link.url}'); return false;`}
-                    href={link.url}
-                    class={`${link.classes}`}
-                  >
-                    <i>{link.icon}</i>
-                  </a>
-                </li>
-              ))}
+                      onclick={`trackOutboundLink('${link.url}'); return false;`}
+                      href={link.url}
+                      class={`${link.classes}`}
+                    >
+                      <i>{link.icon}</i>
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
@@ -97,3 +106,58 @@ const socialLinks = [
     </div>
   </div>
 </footer>
+
+<style>
+  footer a,
+  footer a:hover,
+  footer a:active,
+  footer a:focus {
+    color: var(--color-gray-light);
+    transition: all 200ms ease 0s;
+  }
+
+  .list-social {
+    clear: both;
+    margin-top: 30px;
+  }
+
+  .list-social li {
+    display: inline-block;
+  }
+
+  .list-social a {
+    color: var(--color-gray);
+    font-size: 20px;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+  }
+
+  .list-social a:hover,
+  .list-social a:focus {
+    transform: scale(1.3);
+  }
+
+  .list-social > li {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: 40px;
+  }
+
+  @media (max-width: 767px) {
+    .list-social {
+      margin-top: 10px;
+    }
+  }
+
+  .list-inline {
+    margin-left: -5px;
+  }
+
+  .list-inline,
+  .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+</style>

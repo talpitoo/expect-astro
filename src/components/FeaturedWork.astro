@@ -336,11 +336,16 @@ const portfolioItems = [
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
 
-<section class="featured dreamers-inc pb-0!" id="portfolio">
+<section
+  class="featured dreamers-inc bg-gray-lighter dark:bg-gray-dark overflow-hidden relative pb-0!"
+  id="portfolio"
+>
   <!-- Progress bar - using Swiper's built-in pagination -->
   <div class="swiper-pagination absolute top-0 left-0 w-full h-1 z-10"></div>
 
-  <div class="container-bootstrap">
+  <div
+    class="container-bootstrap relative min-h-[500px] md:max-lg:min-h-[610px]"
+  >
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
@@ -393,7 +398,7 @@ const portfolioItems = [
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}
                         href={item.link.url}
-                        class="text-primary text-big dark:mix-blend-plus-lighter"
+                        class="text-primary text-lg font-light dark:mix-blend-plus-lighter"
                         rel="noopener noreferrer"
                       >
                         {item.link.text}
@@ -658,5 +663,84 @@ const portfolioItems = [
 
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     background: var(--color-primary) !important;
+  }
+
+  .nexus10,
+  .nexus5 {
+    width: 800px;
+    height: 600px;
+    background-size: 100% 100%;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .nexus10 {
+    background: url("/img/nexus10.png?ver=28082025") center center no-repeat;
+    background-size: 100% 100%;
+    right: -300px;
+    top: -40px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .nexus10 {
+      right: -450px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nexus10 {
+      position: static;
+      margin: 20px 0;
+    }
+  }
+
+  .nexus5 {
+    background: url("/img/nexus5.png?ver=28082025") center center no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .screen-tablet {
+    transform: rotateZ(0deg);
+    position: absolute;
+    overflow: hidden;
+    width: 607px;
+    height: 379px;
+    top: 87px;
+    left: 114px;
+  }
+
+  .portfolio-tablet {
+    width: 607px;
+    height: 2274px;
+    transform: rotateZ(0deg);
+    transition: all 500ms ease 0s;
+  }
+
+  .screen-smartphone {
+    transform: rotateZ(0deg);
+    position: absolute;
+    overflow: hidden;
+    width: 178px;
+    height: 316px;
+    top: 216px;
+    left: 27px;
+  }
+
+  .portfolio-smartphone {
+    width: 1068px;
+    height: 316px;
+    transform: rotateZ(0deg);
+    transition: all 500ms ease 0s;
+  }
+
+  .portfolio-descriptions > li {
+    transition: all 500ms ease 0s;
+  }
+
+  blockquote {
+    border: none;
+    padding: 0;
+    font-style: italic;
+    font-size: inherit;
   }
 </style>

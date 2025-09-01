@@ -1,8 +1,12 @@
 <section class="intermission">
-  <div class="container-bootstrap">
+  <div class="container-bootstrap relative min-h-[300px]">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
-        <h1 class="font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-white">Inter<wbr />mission</h1>
+        <h1
+          class="font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-white"
+        >
+          Inter<wbr />mission
+        </h1>
         <p class="mb-3 text-white">
           Read our <a
             onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
@@ -23,3 +27,86 @@
     </div>
   </div>
 </section>
+
+<style>
+  .intermission {
+    background-color: black;
+    overflow: hidden;
+    cursor:
+      url("/img/eva-pod-cursor64x64.png?ver=28082025") 32 32,
+      crosshair;
+  }
+
+  .animation-placeholder a,
+  .animation-placeholder a:active,
+  .animation-placeholder a:focus,
+  .animation-placeholder a:hover {
+    color: white;
+  }
+
+  /* Dr. Frank Poole */
+  .animation-placeholder {
+    font-size: 30px;
+    cursor: pointer;
+
+    a {
+      &,
+      &:active,
+      &:focus,
+      &:hover {
+        color: white;
+        border-radius: 100%;
+        outline-offset: 10px;
+      }
+    }
+  }
+
+  .animation-spin {
+    animation: spinZ 4s infinite linear;
+    position: absolute;
+    right: 100px;
+    bottom: 50px;
+    color: white;
+    font-size: inherit;
+    transform: translateZ(0deg);
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  .animation-flyoff {
+    animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0);
+    transform: translateZ(0deg);
+  }
+
+  @keyframes spinX {
+    0% {
+      transform: rotateX(0deg);
+    }
+
+    100% {
+      transform: rotateX(180deg);
+    }
+  }
+
+  @keyframes spinZ {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes enlarge {
+    0% {
+      font-size: 30px;
+    }
+
+    100% {
+      font-size: 3000px;
+    }
+  }
+</style>

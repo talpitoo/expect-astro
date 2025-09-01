@@ -11,14 +11,14 @@ import DarkModeToggle from "./DarkModeToggle";
   <img
     src="img/stanley-kubrick-2001-space-odyssey-low-quality.jpg?ver=28082025"
     alt="2001: A Space Odyssey"
-    class="space-odyssey"
+    class="space-odyssey absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
     fetchpriority="high"
   />
-  <div class="linear-gradient"></div>
+  <div id="linear-gradient" class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"></div>
   <img
     src="img/stanley-kubrick-2001-space-odyssey-mask.png?ver=28082025"
     alt="2001: A Space Odyssey"
-    class="space-odyssey-mask hidden accent:block"
+    class="space-odyssey-mask hidden accent:block absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
     fetchpriority="high"
   />
   <img
@@ -78,17 +78,6 @@ import DarkModeToggle from "./DarkModeToggle";
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-  }
-
-  header .space-odyssey,
-  header .space-odyssey-mask {
-    /* TODO */
-    /* @apply absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto; */
-  }
-
-  header .linear-gradient {
-    /* TODO */
-    /* @apply bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue; */
   }
 
   header q {

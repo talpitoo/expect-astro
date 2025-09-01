@@ -43,9 +43,7 @@
 @layer base {
   html,
   body {
-    @apply overflow-x-hidden;
-
-    scroll-behavior: smooth;
+    @apply overflow-x-hidden scroll-smooth;
   }
 
   body {
@@ -58,9 +56,36 @@
   .swiper-button:focus-visible {
     @apply outline-dashed! outline-2 outline-offset-2;
   }
+
+  .container-bootstrap {
+    @apply mx-auto px-10 md:w-[750px] md:px-[15px] min-[992px]:w-[970px] xl:w-[1170px] max-md:px-10;
+  }
+
+  main section {
+    @apply py-[100px] max-md:py-10 px-0;
+  }
 }
 
 @layer components {
+  .btn {
+    @apply border border-transparent px-3 py-1.5 inline-flex items-center justify-center gap-2 text-center whitespace-nowrap align-middle cursor-pointer;
+
+    touch-action: manipulation;
+    user-select: none;
+  }
+
+  .btn-default {
+    @apply text-white bg-transparent border-white hover:bg-white hover:text-primary;
+  }
+
+  .btn-primary {
+    @apply text-primary bg-white border-white;
+  }
+
+  .btn-lg {
+    @apply px-[50px] py-[18px] text-xl leading-tight;
+  }
+
   .badge {
     @apply inline-flex items-center rounded-full px-2 py-1 text-sm font-medium inset-ring inset-ring-gray-light;
   }
@@ -68,6 +93,3 @@
 
 @import "./fonts.css";
 @import "./expecticons.css";
-@import "./above-the-fold.css";
-@import "./expect.css";
-@import "./animations.css";
