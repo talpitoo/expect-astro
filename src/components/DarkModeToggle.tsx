@@ -127,8 +127,9 @@ export default function DarkModeToggle() {
     <RadioGroup
       value={selected}
       onChange={handleChange}
-      className="relative z-0 flex flex-col gap-0.5 rounded-full p-0.5 text-white bg-white/10"
+      className="flex flex-col gap-0.5 rounded-full p-1 text-white bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 shadow"
     >
+      {/* bg-primary-0 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border-4 border-white/5 */}
       {themes.map((theme) => (
         <Field key={theme.id} className="flex">
           <Radio

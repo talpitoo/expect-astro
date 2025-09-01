@@ -28,6 +28,48 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
+
+  --animate-spin_right: spin_right 5s linear infinite;
+  --animate-spin_right_fast: spin_right 4s linear infinite;
+  --animate-spin_left: spin_left 5s linear infinite;
+
+  --animate-rotating-border: rotating-border 4s linear infinite;
+}
+
+@keyframes spin_right {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin_left {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotating-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
 }
 
 :root {
@@ -88,6 +130,22 @@
 
   .badge {
     @apply inline-flex items-center rounded-full px-2 py-1 text-sm font-medium inset-ring inset-ring-gray-light;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-border-rotating {
+    border: 1px solid transparent;
+    background: linear-gradient(45deg,black,var(--color-gray-dark) 50%,black) padding-box, 
+    conic-gradient(from var(--border-angle), theme('colors.slate.600 / 48%') 80%, theme('colors.indigo.500') 86%, theme('colors.indigo.300') 90%, theme('colors.indigo.500') 94%, theme('colors.slate.600 / 48%')) border-box;
+  }
+
+  .bg-primary-border-rotating {
+    /* NOTE: kudos to https://cruip.com/animated-gradient-borders-with-tailwind-css/ and https://ibelick.com/blog/create-animated-gradient-borders-with-css */
+    /* NOTE: for no sharp edges add one more color stop, e.g. conic-gradient(from var(--border-angle), white, var(--color-primary), white) border-box; */
+    border-color: transparent;
+    background: linear-gradient(var(--color-primary),var(--color-primary)) padding-box, 
+    conic-gradient(from var(--border-angle), white, var(--color-primary)) border-box;
   }
 }
 

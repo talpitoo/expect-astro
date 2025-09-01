@@ -14,12 +14,18 @@ import DarkModeToggle from "./DarkModeToggle";
     class="space-odyssey absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
     fetchpriority="high"
   />
-  <div id="linear-gradient" class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"></div>
+  <div
+    id="linear-gradient"
+    class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"
+  >
+  </div>
   <img
     src="img/stanley-kubrick-2001-space-odyssey-mask.png?ver=28082025"
     alt="2001: A Space Odyssey"
     class="space-odyssey-mask hidden accent:block absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
-    fetchpriority="high"
+    loading="lazy"
+    fetchpriority="auto"
+    decoding="async"
   />
   <img
     src="img/logo-expect.png?ver=28082025"
@@ -27,6 +33,7 @@ import DarkModeToggle from "./DarkModeToggle";
     width="300"
     height="150"
     class="logo"
+    fetchpriority="high"
   />
   <div class="stripe">
     <h1
@@ -45,7 +52,11 @@ import DarkModeToggle from "./DarkModeToggle";
   </div>
   <div class="absolute bottom-4 right-4 z-50 flex flex-col gap-4">
     <DarkModeToggle client:load />
-    <AccentColorPicker client:load />
+    <div
+      class="flex gap-0.5 rounded-full p-1 text-white bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 shadow"
+    >
+      <AccentColorPicker client:load />
+    </div>
   </div>
 </header>
 
