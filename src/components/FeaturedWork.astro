@@ -1,11 +1,14 @@
 ---
-// import 'swiper/css'; // TODO debug specificity
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+
 
 const portfolioItems = [
   {
     id: "dreamers-inc",
     title: "Dreamers Inc.",
-    content: `<blockquote class="mb-6">
+    content: `<blockquote class="mb-6 italic">
                   <p class="mb-3">
                     You may say that I'm a dreamer
                     <br /> but I'm not the only one
@@ -421,12 +424,6 @@ const portfolioItems = [
 ];
 ---
 
-<!-- Import Swiper CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
 <section
   class="featured dreamers-inc bg-gray-lighter dark:bg-gray-dark overflow-hidden relative pb-0!"
   id="portfolio"
@@ -452,14 +449,14 @@ const portfolioItems = [
                 class="swiper-navigation absolute top-0 right-0 md:right-auto md:-left-20 inline-flex items-center justify-center gap-4 leading-none"
               >
                 <button
-                  class="swiper-button swiper-button-prev size-auto! font-serif! text-[90px] bg-transparent border-none"
+                  class="swiper-button swiper-button-prev font-serif text-[90px] text-primary"
                   type="button"
                   aria-label="Previous portfolio item"
                 >
                   ‹
                 </button>
                 <button
-                  class="swiper-button swiper-button-next size-auto! font-serif! text-[90px] bg-transparent border-none"
+                  class="swiper-button swiper-button-next font-serif text-[90px] text-primary"
                   type="button"
                   aria-label="Next portfolio item"
                 >
@@ -472,7 +469,7 @@ const portfolioItems = [
             >
               {
                 portfolioItems.map((item) => (
-                  <li data-id={item.id}>
+                  <li data-id={item.id} class="starting:opacity-0 transition-opacity">
                     <h2
                       class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case"
                       set:html={item.title}
@@ -588,7 +585,7 @@ const portfolioItems = [
           <div
             data-id={item.id}
             data-hash={item.id}
-            class="swiper-slide cursor-pointer opacity-25 hover:opacity-75 transition-opacity"
+            class="swiper-slide cursor-pointer opacity-25 dark:opacity-25 hover:opacity-75"
           >
             <img
               src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
@@ -652,6 +649,7 @@ const portfolioItems = [
       direction: "horizontal",
       loop: true,
       spaceBetween: 0,
+      mousewheel: true,
       // hashNavigation: {
       //   watchState: true,
       // },
@@ -680,7 +678,7 @@ const portfolioItems = [
       direction: "vertical",
       loop: true,
       spaceBetween: 0,
-      mousewheel: true, // Enable mouse wheel scrolling
+      mousewheel: true,
       touchEventsTarget: "container", // Enable touch events
       // hashNavigation: {
       //   watchState: true,
@@ -690,7 +688,7 @@ const portfolioItems = [
       },
     });
 
-    // Sync swipers using controller (simpler approach)
+    // Sync swipers using controller
     tabletSwiper.controller.control = smartphoneSwiper;
     smartphoneSwiper.controller.control = tabletSwiper;
 
@@ -717,7 +715,9 @@ const portfolioItems = [
 <style>
   .portfolio-thumbs-swiper .swiper-slide-thumb-active {
     opacity: 1;
-    border: 4px solid var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary) inset !important;
+    outline: 4px solid var(--color-primary);
+    outline-offset: -4px;
     filter: none;
   }
 
@@ -731,29 +731,6 @@ const portfolioItems = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  /* Custom navigation buttons */
-  .swiper-navigation .swiper-button-prev,
-  .swiper-navigation .swiper-button-next {
-    position: static;
-    margin: 0;
-    width: 48px;
-    height: 48px;
-  }
-
-  .swiper-navigation .swiper-button-prev:after,
-  .swiper-navigation .swiper-button-next:after {
-    display: none;
-  }
-
-  /* Style Swiper's built-in progress bar */
-  .swiper-pagination-progressbar {
-    background: rgba(156, 163, 175, 0.2); /* bg-gray-400/20 */
-  }
-
-  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: var(--color-primary) !important;
   }
 
   .nexus10,
@@ -804,7 +781,6 @@ const portfolioItems = [
     width: 607px;
     height: 2274px;
     transform: rotateZ(0deg);
-    transition: all 500ms ease 0s;
   }
 
   .screen-smartphone {
@@ -821,17 +797,5 @@ const portfolioItems = [
     width: 1068px;
     height: 316px;
     transform: rotateZ(0deg);
-    transition: all 500ms ease 0s;
-  }
-
-  .portfolio-descriptions > li {
-    transition: all 500ms ease 0s;
-  }
-
-  blockquote {
-    border: none;
-    padding: 0;
-    font-style: italic;
-    font-size: inherit;
   }
 </style>
