@@ -16,7 +16,10 @@ const portfolioItems = [
                 <p class="mb-3">The best client you can work with!</p>`,
     skills: [
       { name: "Bootstrap", url: "https://getbootstrap.com/" },
-      { name: "Photoshop", url: "https://www.adobe.com/products/photoshop.html" },
+      {
+        name: "Photoshop",
+        url: "https://www.adobe.com/products/photoshop.html",
+      },
       { name: "favicon design", url: "#" },
     ],
     link: {
@@ -339,9 +342,15 @@ const portfolioItems = [
         <div class="grid md:grid-cols-12 -mx-[15px]">
           <div class="md:col-span-4 px-[15px] xl:pr-0">
             <div class="relative">
-              <h1 class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px] mt-0">Featured work</h1>
+              <h1
+                class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px] mt-0"
+              >
+                Featured work
+              </h1>
               <!-- Navigation -->
-              <span class="swiper-navigation absolute top-0 right-0 md:right-auto md:-left-20 inline-flex items-center justify-center gap-4 leading-none">
+              <span
+                class="swiper-navigation absolute top-0 right-0 md:right-auto md:-left-20 inline-flex items-center justify-center gap-4 leading-none"
+              >
                 <button
                   class="swiper-button swiper-button-prev size-auto! font-serif! text-[90px] bg-transparent border-none"
                   type="button"
@@ -358,11 +367,16 @@ const portfolioItems = [
                 </button>
               </span>
             </div>
-            <ul class="list-unstyled portfolio-descriptions max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px]">
+            <ul
+              class="list-unstyled portfolio-descriptions max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px]"
+            >
               {
                 portfolioItems.map((item) => (
                   <li data-id={item.id}>
-                    <h2 class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case" set:html={item.title} />
+                    <h2
+                      class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case"
+                      set:html={item.title}
+                    />
                     <Fragment set:html={item.content} />
                     {item.skills && item.skills.length > 0 && (
                       <ul class="my-6 dark:opacity-50">
@@ -396,7 +410,11 @@ const portfolioItems = [
                   <div class="swiper-wrapper">
                     {
                       portfolioItems.map((item) => (
-                        <div data-id={item.id} data-hash={item.id} class="swiper-slide">
+                        <div
+                          data-id={item.id}
+                          data-hash={item.id}
+                          class="swiper-slide"
+                        >
                           <img
                             src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
                             alt={item.title}
@@ -411,11 +429,17 @@ const portfolioItems = [
               <div class="nexus5 pointer-events-none">
                 <div class="screen-smartphone">
                   <!-- Horizontal swiper for smartphone -->
-                  <div class="swiper portfolio-smartphone-swiper pointer-events-auto">
+                  <div
+                    class="swiper portfolio-smartphone-swiper pointer-events-auto"
+                  >
                     <div class="swiper-wrapper">
                       {
                         portfolioItems.map((item) => (
-                          <div data-id={item.id} data-hash={item.id} class="swiper-slide">
+                          <div
+                            data-id={item.id}
+                            data-hash={item.id}
+                            class="swiper-slide"
+                          >
                             <img
                               src={`img/portfolio/${item.id}-356x632.png?ver=28082025`}
                               alt={item.title}
@@ -460,7 +484,11 @@ const portfolioItems = [
     <div class="swiper-wrapper">
       {
         portfolioItems.map((item) => (
-          <div data-id={item.id} data-hash={item.id} class="swiper-slide cursor-pointer opacity-50 hover:opacity-75 transition-opacity">
+          <div
+            data-id={item.id}
+            data-hash={item.id}
+            class="swiper-slide cursor-pointer opacity-25 hover:opacity-75 transition-opacity"
+          >
             <img
               src={`img/portfolio/${item.id}-1214x758.png?ver=28082025`}
               alt={item.title}
@@ -483,9 +511,9 @@ const portfolioItems = [
     // Show portfolio description by matching data-id (robust against loop/index quirks)
     function showDescriptionById(id) {
       if (!id) return;
-      const items = document.querySelectorAll('.portfolio-descriptions > li');
-      items.forEach(li => {
-        li.style.display = (li.dataset.id === id) ? 'block' : 'none';
+      const items = document.querySelectorAll(".portfolio-descriptions > li");
+      items.forEach((li) => {
+        li.style.display = li.dataset.id === id ? "block" : "none";
       });
     }
 
@@ -540,7 +568,7 @@ const portfolioItems = [
       on: {
         slideChange: function () {
           const active = this.slides[this.activeIndex];
-          const id = active && active.getAttribute('data-id');
+          const id = active && active.getAttribute("data-id");
           showDescriptionById(id);
         },
       },
@@ -570,15 +598,15 @@ const portfolioItems = [
       showDescriptionById(portfolioItems[0].id);
     } else {
       // Fallback: show first li if any
-      const firstLi = document.querySelector('.portfolio-descriptions li');
-      if (firstLi) firstLi.style.display = 'block';
+      const firstLi = document.querySelector(".portfolio-descriptions li");
+      if (firstLi) firstLi.style.display = "block";
     }
 
     // Add keyboard navigation
     document.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      if (e.key === "ArrowLeft") {
         smartphoneSwiper.slidePrev();
-      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      } else if (e.key === "ArrowRight") {
         smartphoneSwiper.slideNext();
       }
     });
@@ -588,6 +616,8 @@ const portfolioItems = [
 <style>
   .portfolio-thumbs-swiper .swiper-slide-thumb-active {
     opacity: 1;
+    border: 4px solid var(--color-primary);
+    filter: none;
   }
 
   .portfolio-tablet-swiper,
