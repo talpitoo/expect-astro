@@ -29,7 +29,11 @@ import DarkModeToggle from "./DarkModeToggle";
     class="logo"
   />
   <div class="stripe">
-    <h1 class="font-sans font-bold not-italic text-[65px] mt-0 mb-2.5 leading-[1.1] max-md:text-[50px] max-sm:text-[32px]">Web development</h1>
+    <h1
+      class="font-sans font-bold not-italic text-[65px] mt-0 mb-2.5 leading-[1.1] max-md:text-[50px] max-sm:text-[32px]"
+    >
+      Web development
+    </h1>
     <q cite="https://www.imdb.com/title/tt0062622/quotes"
       >I'm sorry Dave, I'm afraid I can't do that</q
     >
@@ -39,3 +43,93 @@ import DarkModeToggle from "./DarkModeToggle";
     <AccentColorPicker client:load />
   </div>
 </header>
+
+<style>
+  .logo {
+    margin: 15px 0 0 -32px;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 767px) {
+    .logo {
+      margin: 0 0 0 -52px;
+      vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .logo {
+      margin: 0 0 0 -62px;
+      vertical-align: middle;
+    }
+  }
+
+  header {
+    background-color: var(--color-gray);
+    color: white;
+    padding: 0 47px 100px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header .space-odyssey,
+  header .space-odyssey-mask {
+    /* TODO */
+    /* @apply absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto; */
+  }
+
+  header .linear-gradient {
+    /* TODO */
+    /* @apply bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue; */
+  }
+
+  header q {
+    font-style: italic;
+    font-size: 25px; /* ~25px */
+  }
+
+  @media (max-width: 767px) {
+    header q {
+      font-size: 20px; /* ~20px */
+    }
+  }
+
+  @media (max-width: 320px) {
+    header q {
+      font-size: 18px; /* ~18px */
+    }
+  }
+
+  header .stripe {
+    margin-top: 250px;
+    border-left: 15px solid rgba(255, 255, 255, 0.2);
+    margin-left: -47px;
+    padding: 20px 20px 20px 47px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 767px) {
+    header .stripe {
+      margin-top: 15px;
+      padding: 15px 20px 15px 42px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    header .stripe {
+      padding: 15px 20px 15px 32px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    header {
+      padding: 0 47px 47px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+</style>

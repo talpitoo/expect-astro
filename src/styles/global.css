@@ -47,7 +47,7 @@
   }
 
   body {
-    @apply text-gray-darker dark:text-white dark:bg-[#111];
+    @apply text-gray-darker dark:text-white dark:bg-[#111] font-sans text-base leading-normal m-0;
   }
 
   a:focus-visible,
@@ -60,7 +60,7 @@
 
 @layer components {
   .badge {
-    @apply inline-flex items-center rounded-full px-2 py-1 text-sm font-medium inset-ring inset-ring-gray-light mb-1;
+    @apply inline-flex items-center rounded-full px-2 py-1 text-sm font-medium inset-ring inset-ring-gray-light;
   }
 }
 
