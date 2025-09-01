@@ -282,14 +282,6 @@ footer a:focus {
   position: relative;
 }
 
-.logo-footer i {
-  display: block;
-  margin: auto;
-  font-size: 78px;
-  line-height: 78px;
-  @apply text-gray-light;
-}
-
 .logo-footer:hover {
   transition: all 200ms ease 0s;
   transform: rotate(-5deg) scale(1.2);

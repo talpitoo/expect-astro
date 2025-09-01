@@ -3,17 +3,16 @@ const services = [
   {
     icon: "astronaut",
     title: '<del>PSD</del><ins>design</ins> 2 HTML',
-    description: `Bring your unique design to life by making it interactive and
+    description: `<a href="#portfolio" class="text-primary">Bring your unique design to life by making it interactive and
             outstanding. Be it a parallax HTML5 website, responsive Wordpress
             theme or your custom
             <abbr title="Content management system">CMS</abbr> we make sure your
-            idea talks cross-browser on any device.`,
-    textColor: "text-primary"
+            idea talks cross-browser on any device.</a>`
   },
   {
     icon: "jetsons",
     title: "Accessibility",
-    description: `We<sup><a href="#footnote">1</a></sup> take care about users with disabilities by staying up
+    description: `We<sup><a href="#footnote" class="text-primary">[1]</a></sup> take care about users with disabilities by staying up
             to date with the latest W3C standards as well as the
             <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, Section
             508,
@@ -21,16 +20,14 @@ const services = [
             Schema.org. Following these rules from the start you get built in
             <abbr title="Search engine optimization">SEO</abbr>, good
             <abbr title="User experience">UX</abbr>, quality code and neat
-            <abbr title="User interface">UI</abbr> for free.`,
-    textColor: ""
+            <abbr title="User interface">UI</abbr> for free.`
   },
   {
     icon: "ufo",
     title: "Speed optimization",
     description: `Don't allow your website to slow down making your visitors leave and
             search engines to downrate your content. We are building it from the
-            beginning with performance in mind. Lazy loading, fast coding.`,
-    textColor: ""
+            beginning with performance in mind. Lazy loading, fast coding.`
   }
 ];
 ---
@@ -47,7 +44,7 @@ const services = [
           <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
             <i>{service.icon}</i>
             <h2 class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]" set:html={service.title}></h2>
-            <p class:list={['mb-10', service.textColor]} set:html={service.description}></p>
+            <p class="mb-10" set:html={service.description}></p>
           </div>
         ))}
       </div>
