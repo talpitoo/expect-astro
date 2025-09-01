@@ -1,10 +1,10 @@
-/* @import "tailwindcss"; */
+@import "tailwindcss";
 
 /* NOTE: manual imports to disable Preflight https://tailwindcss.com/docs/preflight#disabling-preflight */
 /* @layer theme, base, components, utilities; */
-@import "tailwindcss/theme.css" layer(theme);
-/* @import "tailwindcss/preflight.css" layer(base); */
-@import "tailwindcss/utilities.css" layer(utilities) important;
+/* @import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities) important; */
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant accent (&:where(.accent, .accent *));
