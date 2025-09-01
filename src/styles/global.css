@@ -33,7 +33,7 @@
   --animate-spin_right_fast: spin_right 4s linear infinite;
   --animate-spin_left: spin_left 5s linear infinite;
 
-  --animate-rotating-border: rotating-border 4s linear infinite;
+  --animate-rotating-border: rotating-border 10s linear infinite;
 }
 
 @keyframes spin_right {
@@ -117,7 +117,7 @@
   }
 
   .btn-default {
-    @apply text-white bg-transparent border-white hover:bg-white hover:text-primary;
+    @apply text-white bg-transparent border-white hover:border-white! hover:bg-none!;
   }
 
   .btn-primary {
