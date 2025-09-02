@@ -1,5 +1,9 @@
 id: cycls
 title: AI chatbot and landing page
+date: 2024-09-02
+featured: false
+tags: ['eleventy', 'tailwindcss', 'postcss', 'svg-sprite', 'ai']
+status: published
 content: |
   <p class="mb-3">
     A lightweight, production‑oriented static landing page for <strong>Cycls</strong>, built with

@@ -1,5 +1,9 @@
 id: upwork
 title: Upwork Global Inc.
+date: 2019-08-10
+featured: true
+tags: ['vue', 'bootstrap', 'ui-library', 'wcag', 'enterprise', 'design-tokens']
+status: published
 content: |
   <p class="mb-3">oDesk is now Upwork.</p>
   <p class="mb-3">

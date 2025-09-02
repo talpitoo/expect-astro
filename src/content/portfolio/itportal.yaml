@@ -1,5 +1,9 @@
 id: itportal
 title: Theme adaptation for SaaS company
+date: 2023-01-20
+featured: false
+tags: ['eleventy', 'bootstrap', 'nunjucks', 'swiper', 'performance', 'accessibility']
+status: published
 content: |
   <p class="mb-3">
     Reverse-engineering a purchased static theme into marketing & docs 

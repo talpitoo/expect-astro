@@ -1,5 +1,9 @@
 id: justplaysnake
 title: HTML5 Snake Game
+date: 2022-07-12
+featured: false
+tags: ['nextjs', 'react', 'typescript', 'canvas', 'game-development']
+status: published
 content: |
   <p class="mb-3">
     A TypeScript + React (Next.js 12) single‑page style game exported as a static site and deployed to AWS S3/CloudFront. 

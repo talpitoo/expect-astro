@@ -1,5 +1,9 @@
 id: dafed
 title: Conference speech
+date: 2020-09-10
+featured: false
+tags: ['wcag', 'accessibility', 'ux', 'performance', 'speaking', 'conference']
+status: published
 content: |
   <p class="mb-3">
     I gave a talk at a conference for designers and front-end

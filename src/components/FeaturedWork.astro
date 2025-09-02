@@ -3,10 +3,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import 'swiper/css/navigation';
 
+// OLD/SIMPLE: Load all portfolio items from individual YAML files - clean like the blog example!
+// import { getCollection } from 'astro:content';
+// const portfolioEntries = await getCollection('portfolio');
+// const portfolioItems = portfolioEntries.map((entry: any) => entry.data);
+
+// Load and sort portfolio items - featured first, then by date (newest first)
 import { getCollection } from 'astro:content';
-// Load all portfolio items from individual YAML files - clean like the blog example!
-const portfolioEntries = await getCollection('portfolio');
-const portfolioItems = portfolioEntries.map((entry: any) => entry.data);
+const portfolioEntries = await getCollection('portfolio', ({ data }) => {
+  return data.status === 'published'; // Only published items
+});
+
+const portfolioItems = portfolioEntries
+  .map(entry => entry.data)
+  .sort((a, b) => {
+    // Featured items first
+    if (a.featured !== b.featured) {
+      return b.featured ? 1 : -1;
+    }
+    // Then by date (newest first)
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 ---
 
 <section

@@ -1,5 +1,9 @@
 id: tilt
 title: Analytics dashboard with custom Markdown blocks
+date: 2024-11-20
+featured: true
+tags: ['nextjs', 'shadcn-ui', 'tailwindcss', 'recharts', 'typescript', 'markdown']
+status: published
 content: |
   <p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
   </p>

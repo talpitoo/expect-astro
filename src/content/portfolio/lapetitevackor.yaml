@@ -1,5 +1,9 @@
 id: lapetitevackor
 title: A customized Tumblr theme
+date: 2018-10-15
+featured: false
+tags: ['tumblr', 'custom-pagination', 'photography', 'theme-customization']
+status: published
 content: |
   <p class="mb-3">
     Custom Tumblr theme based on <a

@@ -1,5 +1,9 @@
 id: dreamingsheep
 title: An online journal for your dreams and beyond
+date: 2023-09-15
+featured: true
+tags: ['nextjs', 'blitzjs', 'mui', 'tailwindcss', 'prisma', 'postgresql', 'docker']
+status: published
 content: |
   <p class="mb-3">It is an online dream journal where you can log and analyze your dreams. Find connections in your dream patterns like mood, theme, recall, sleep cycle, repeating symbols and others.
   </p>

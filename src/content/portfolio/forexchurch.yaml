@@ -1,5 +1,9 @@
 id: forexchurch
 title: Forex broker comparison & research platform
+date: 2024-05-18
+featured: false
+tags: ['nextjs', 'react', 'typescript', 'tailwindcss', 'data-visualization']
+status: published
 content: |
   <p class="mb-3">
     converting a React website into a static HTML website using 11ty/Bootstrap/Alpine.js/Axios

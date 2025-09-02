@@ -1,5 +1,9 @@
 id: szerencsedhogyoreganyadnakszolitottal
 title: An AI chatbot for fun / Minimal static AI-ish chatbot page
+date: 2024-06-30
+featured: false
+tags: ['html5', 'vanilla-js', 'css', 'ai-simulation', 'no-framework']
+status: published
 content: |
   <p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
   </p>

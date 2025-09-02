@@ -2,6 +2,10 @@ id: novalite
 title: |
   Responsive website<br />
   for an outsourcing company
+date: 2018-06-20
+featured: false
+tags: ['bootstrap', 'svg-animations', 'accessibility', 'progressive-enhancement', 'performance']
+status: published
 content: |
   <p class="mb-3">
     A website with SVG animations and highest accessibility

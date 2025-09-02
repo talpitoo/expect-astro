@@ -15,6 +15,11 @@ const portfolio = defineCollection({
       url: z.string(),
       text: z.string(),
     }),
+    // New fields for sorting and filtering
+    date: z.date(),                                          // For chronological sorting
+    featured: z.boolean().default(false),                    // Highlight important items
+    tags: z.array(z.string()).default([]),                   // Categories/technologies (can mirror skills)
+    status: z.enum(['published', 'draft']).default('published'), // Visibility control
   })
 });
 

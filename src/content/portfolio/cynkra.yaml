@@ -1,5 +1,9 @@
 id: cynkra
 title: Website and custom blog for a team of data scientists
+date: 2025-04-01
+featured: true
+tags: ['jekyll', 'tailwindcss', 'gsap', 'canvas', 'swiper', 'wcag', 'seo']
+status: published
 content: |
   <p class="mb-3">Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
       onclick="trackOutboundLink('https://www.jonas.studio/'); return false;"

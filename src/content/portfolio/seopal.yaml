@@ -1,5 +1,9 @@
 id: seopal
 title: SEOpal Marketing Microsite
+date: 2024-03-10
+featured: false
+tags: ['eleventy', 'tailwindcss', 'nunjucks', 'webpack', 'netlify-forms']
+status: published
 content: |
   <p class="mb-3">From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
   </p>

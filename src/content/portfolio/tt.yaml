@@ -1,5 +1,9 @@
 id: tt
 title: A personal photography blog
+date: 2019-12-05
+featured: false
+tags: ['wordpress', 'bootstrap', 'exif', 'photography', 'custom-theme']
+status: published
 content: |
   <p class="mb-3">
     Responsive Wordpress theme with preserved IPTC/EXIF data, SEO

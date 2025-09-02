@@ -1,5 +1,9 @@
 id: dreamers-inc
 title: Dreamers Inc.
+date: 2020-03-15
+featured: true
+tags: ['web-design', 'bootstrap', 'photoshop', 'jquery', 'favicon']
+status: published
 content: |
   <blockquote class="mb-6 italic">
     <p class="mb-3">

@@ -1,5 +1,9 @@
 id: hellmut-monz
 title: A static site generator and UI library
+date: 2024-08-15
+featured: false
+tags: ['eleventy', 'tailwindcss', 'flowbite', 'gsap', 'swiper', 'nunjucks']
+status: published
 content: |
   <p class="mb-3">Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
   </p>
