@@ -1,8 +1,7 @@
 ---
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 // import 'swiper/css/navigation';
-
 
 const portfolioItems = [
   {
@@ -24,6 +23,7 @@ const portfolioItems = [
         url: "https://www.adobe.com/products/photoshop.html",
       },
       { name: "favicon design", url: "#" },
+      { name: "jQuery", url: "#" },
     ],
     link: {
       url: "https://thedreamers.us/",
@@ -46,6 +46,13 @@ const portfolioItems = [
       { name: "WCAG", url: "#" },
       { name: "animation system", url: "#" },
       { name: "UI library", url: "#" },
+      { name: "icon library", url: "#" },
+      { name: "Jenkins", url: "#" },
+      { name: "Design Tokens / Theming", url: "#" },
+      { name: "Scoped style injection", url: "#" },
+      { name: "VuePress (custom theme)", url: "https://vuepress.vuejs.org/" },
+      { name: "JIRA", url: "#todo" },
+      { name: "Page prototypes, 404 pages", url: "#todo" },
     ],
     link: {
       url: "https://upwork.com/",
@@ -68,9 +75,25 @@ const portfolioItems = [
                   The website works even with javascript disabled!
                 </p>`,
     skills: [
-      { name: "Bootstrap", url: "https://getbootstrap.com/" },
-      { name: "SVG animations", url: "#todo" },
+      { name: "Bootstrap 2.3.2", url: "https://getbootstrap.com/" },
+      { name: "SVG animations/Google Swiffy exports", url: "#todo" },
       { name: "load speed optimization", url: "#todo" },
+      { name: "Progressive enhancement / no-JS fallback", url: "#" },
+      {
+        name: "Google WebFont Loader",
+        url: "https://github.com/typekit/webfontloader",
+      },
+      { name: "Schema.org microdata", url: "https://schema.org/" },
+      { name: "Accessible fallbacks (noscript)", url: "#" },
+      { name: "Inline critical CSS strategy", url: "#" },
+
+      { name: "semantic microdata", url: "#todo" },
+      { name: "jQuery", url: "#todo" },
+      { name: "humans.txt", url: "#todo" },
+      {
+        name: "graceful degradation (works with JavaScript disabled)",
+        url: "#todo",
+      },
     ],
     link: {
       url: "https://talpitoo.com/novalite/",
@@ -88,7 +111,15 @@ const portfolioItems = [
     skills: [
       { name: "Bootstrap", url: "https://getbootstrap.com/" },
       { name: "WordPress", url: "#todo" },
+      { name: "Custom theme design", url: "#" },
       { name: "EXIF", url: "#todo" },
+      { name: "Critical CSS inlining + async CSS", url: "#" },
+      { name: "Domain sharding (images)", url: "#" },
+      { name: "Noscript fallback", url: "#" },
+      {
+        name: "Web App Manifest",
+        url: "https://developer.mozilla.org/docs/Web/Manifest",
+      },
     ],
     link: {
       url: "https://tothtamas.tt/",
@@ -163,8 +194,31 @@ const portfolioItems = [
       { name: "TailwindCSS", url: "https://tailwindcss.com/" },
       { name: "BlitzJS", url: "https://blitzjs.com/" },
       { name: "Prisma", url: "https://www.prisma.io/" },
-      { name: "Postgres", url: "https://www.postgresql.org/" },
+      { name: "PostgreSQL", url: "https://www.postgresql.org/" },
       { name: "AWS S3", url: "https://aws.amazon.com/s3/" },
+      { name: "Docker", url: "https://www.docker.com/" },
+      { name: "PDF export", url: "#todo" },
+      { name: "BlitzJS (on Next.js 13.4.5)", url: "https://blitzjs.com/" },
+      { name: "Next.js (pages router)", url: "https://nextjs.org/" },
+      { name: "TypeScript 5", url: "https://www.typescriptlang.org/" },
+      { name: "Prisma ORM", url: "https://www.prisma.io/" },
+      { name: "PostgreSQL", url: "https://www.postgresql.org/" },
+      { name: "Material UI (MUI)", url: "https://mui.com/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      {
+        name: "Google Charts (react-google-charts)",
+        url: "https://developers.google.com/chart",
+      },
+      { name: "AWS S3", url: "https://aws.amazon.com/s3/" },
+      { name: "reCAPTCHA v3", url: "https://www.google.com/recaptcha/" },
+      { name: "NestJS microservice (external)", url: "https://nestjs.com/" },
+      { name: "Gmail SMTP", url: "https://support.google.com/mail/" },
+      { name: "Docker / docker-compose", url: "https://www.docker.com/" },
+      { name: "Vagrant + VirtualBox", url: "https://www.vagrantup.com/" },
+      { name: "Husky", url: "https://typicode.github.io/husky/" },
+      { name: "lint-staged", url: "https://github.com/okonet/lint-staged" },
+      { name: "Yarn", url: "https://yarnpkg.com/" },
+      { name: "Release tagging (SemVer)", url: "https://semver.org/" },
     ],
     link: {
       url: "https://dreamingsheep.net/",
@@ -182,6 +236,29 @@ const portfolioItems = [
       { name: "Flowbite", url: "https://flowbite.com/" },
       { name: "GSAP", url: "https://greensock.com/gsap/" },
       { name: "Swiper", url: "https://swiperjs.com/" },
+      { name: "SVG sprite via gulp", url: "https://swiperjs.com/" },
+
+      {
+        name: "Nunjucks templating",
+        url: "https://mozilla.github.io/nunjucks/",
+      },
+      { name: "GSAP + ScrollTrigger", url: "https://greensock.com/gsap/" },
+      { name: "Flowbite (UI components)", url: "https://flowbite.com/" },
+      { name: "Gulp (SVG sprite only)", url: "https://gulpjs.com/" },
+      {
+        name: "SVG Sprite generation",
+        url: "https://github.com/svg-sprite/svg-sprite",
+      },
+      {
+        name: "PWA Manifest / browserconfig",
+        url: "https://developer.mozilla.org/docs/Web/Manifest",
+      },
+      {
+        name: "Accessibility (WCAG awareness)",
+        url: "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      },
+      { name: "Custom design tokens (variables.css)", url: "#" },
+      { name: "Sitemap generation (Nunjucks template)", url: "#" },
     ],
     link: {
       url: "http://keyphilosophy.com/",
@@ -208,30 +285,56 @@ const portfolioItems = [
     </p>`,
     skills: [
       { name: "Eleventy (11ty)", url: "https://www.11ty.dev/" },
-      { name: "Nunjucks Templating", url: "https://mozilla.github.io/nunjucks/" },
+      {
+        name: "Nunjucks Templating",
+        url: "https://mozilla.github.io/nunjucks/",
+      },
       { name: "Bootstrap", url: "https://getbootstrap.com/" },
       { name: "Swiper", url: "https://swiperjs.com/" },
       { name: "WOW.js + animate.css", url: "https://wowjs.uk/" },
       { name: "Font Awesome / Flaticon", url: "#" },
-      { name: "Eleventy Collections", url: "https://www.11ty.dev/docs/collections/" },
+      {
+        name: "Eleventy Collections",
+        url: "https://www.11ty.dev/docs/collections/",
+      },
       { name: "Performance Optimizations", url: "#" },
       { name: "Sitemap & SEO Basics", url: "#" },
-      { name: "Modular Navigation System", url: "#" }
+      { name: "Modular Navigation System", url: "#" },
     ],
     link: {
       url: "https://www.itportal.com/",
-      text: "itportal.com"
-    }
+      text: "itportal.com",
+    },
   },
   {
     id: "seopal",
-    title: "SEOpal: Eleventy (11ty) + TailwindCSS",
+    title: "SEOpal Marketing Microsite",
     content: `<p class="mb-3">From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
-                </p>`,
+                </p><p class="mb-3">
+        Static marketing site built with Eleventy (Nunjucks) + TailwindCSS, minimal client JS, JSON‑driven content blocks, SVG sprite pipeline, Netlify form handling, and lightweight analytics.
+      </p><p class="mb-3">
+        Notables: dual pipeline (Webpack + PostCSS) plus a <code>gulp</code> task only for SVG spriting; deliberate breakpoint remapping (<code>2xl</code> shrunk to 1280px; custom <code>3xl</code>); optional Tailwind Preflight toggle; data‑driven tiles; URL‑aware theming (gradient swap & inverse navbar on /resellers); custom keyframe & JS gradient animations.
+      </p>`,
     skills: [
-      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
       { name: "Eleventy (11ty)", url: "https://www.11ty.dev/" },
-      { name: "form integration", url: "#todo" },
+      { name: "Nunjucks", url: "https://mozilla.github.io/nunjucks/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      {
+        name: "Tailwind Typography",
+        url: "https://github.com/tailwindlabs/tailwindcss-typography",
+      },
+
+      { name: "PostCSS", url: "https://postcss.org/" },
+      { name: "Webpack 5", url: "https://webpack.js.org/" },
+      { name: "Gulp (SVG sprite)", url: "https://gulpjs.com/" },
+      {
+        name: "Netlify Forms + reCAPTCHA",
+        url: "https://docs.netlify.com/forms/setup/",
+      },
+      {
+        name: "Clip Path Shapes",
+        url: "https://developer.mozilla.org/docs/Web/CSS/clip-path",
+      },
     ],
     link: {
       url: "https://seopal.io/",
@@ -240,15 +343,38 @@ const portfolioItems = [
   },
   {
     id: "tilt",
-    title: "A dashboard with custom markdown rendering",
+    title: "Analytics dashboard with custom Markdown blocks",
     content: `<p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
-                </p>`,
+                </p><p class="mb-3">
+      A Next.js App Router project featuring a custom JSON-in-Markdown block rendering
+      engine, themed data visualizations, and a component‑driven internal UI system.
+      Emphasis on semantic structure, theming via CSS variables, and extensible chart + prose
+      composition.
+    </p>`,
     skills: [
       { name: "NextJS", url: "https://nextjs.org/" },
       { name: "TailwindCSS", url: "https://tailwindcss.com/" },
       { name: "shadcn/ui", url: "https://ui.shadcn.com/" },
       { name: "Recharts", url: "https://recharts.org/" },
       { name: "markdown", url: "https://www.markdownguide.org/" },
+      { name: "Design Tokens & Gradients", url: "#" },
+
+      { name: "TypeScript", url: "https://www.typescriptlang.org/" },
+      {
+        name: "TailwindCSS + Typography plugin",
+        url: "https://tailwindcss.com/",
+      },
+      { name: "shadcn/ui primitives", url: "https://ui.shadcn.com/" },
+      { name: "Recharts (custom theming)", url: "https://recharts.org/" },
+      {
+        name: "react-markdown",
+        url: "https://github.com/remarkjs/react-markdown",
+      },
+      { name: "remark-gfm", url: "https://github.com/remarkjs/remark-gfm" },
+      { name: "highlight.js (dynamic theme)", url: "https://highlightjs.org/" },
+      { name: "Lucide Icons", url: "https://lucide.dev/" },
+      { name: "CSS Custom Properties / Theming", url: "#" },
+      { name: ":has() / advanced selectors", url: "#" },
     ],
     link: {
       url: "https://tilt-drab.vercel.app/",
@@ -257,14 +383,33 @@ const portfolioItems = [
   },
   {
     id: "szerencsedhogyoreganyadnakszolitottal",
-    title: "An AI chatbot for fun",
+    title: "An AI chatbot for fun / Minimal static AI-ish chatbot page",
     content: `<p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
-                </p>`,
+                </p><p class="mb-3">
+        A zero‑build, single <code>index.html</code> implementation: pure HTML5, inline CSS, and a few lines of vanilla JS to simulate an "AI" chatbot with canned randomized replies and a special first response. No bundler, no framework, no dependencies.
+      </p>`,
     skills: [
-      { name: "NextJS", url: "https://nextjs.org/" },
-      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
-      { name: "shadcn/ui", url: "https://ui.shadcn.com/" },
-      { name: "Recharts", url: "https://recharts.org/" },
+      {
+        name: "HTML5",
+        url: "https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5",
+      },
+      {
+        name: "CSS (inline)",
+        url: "https://developer.mozilla.org/docs/Web/CSS",
+      },
+      {
+        name: "Vanilla JavaScript (DOM)",
+        url: "https://developer.mozilla.org/docs/Web/API/Document_Object_Model",
+      },
+      {
+        name: "Google Analytics (gtag.js)",
+        url: "https://developers.google.com/gtagjs",
+      },
+      { name: "Open Graph Meta", url: "https://ogp.me/" },
+      {
+        name: "Accessibility (sr-only utility)",
+        url: "https://www.a11yproject.com/posts/how-to-hide-content/",
+      },
     ],
     link: {
       url: "https://szerencsedhogyoreganyadnakszolitottal.hu/",
@@ -293,21 +438,42 @@ const portfolioItems = [
       { name: "PostCSS", url: "https://postcss.org/" },
       { name: "Autoprefixer", url: "https://github.com/postcss/autoprefixer" },
       { name: "SVG Sprite", url: "https://github.com/svg-sprite/svg-sprite" },
-      { name: "PWA Manifest", url: "https://developer.mozilla.org/docs/Web/Manifest" },
-      { name: "Accessibility", url: "#" }
+      {
+        name: "PWA Manifest",
+        url: "https://developer.mozilla.org/docs/Web/Manifest",
+      },
+      { name: "Accessibility", url: "#" },
     ],
     link: {
       url: "https://cycls.com/",
-      text: "cycls.com"
-    }
+      text: "cycls.com",
+    },
   },
   {
     id: "justplaysnake",
-    title: "Online snake",
-    content: `<p class="mb-3">HTML5 game (React)</p>`,
+    title: "HTML5 Snake Game",
+    content: `<p class="mb-3">
+        A TypeScript + React (Next.js 12) single‑page style game exported as a static site and deployed to AWS S3/CloudFront. 
+        Real‑time gameplay rendered on an HTML5 <code>&lt;canvas&gt;</code> with a custom frame throttling hook controlled by dynamic FPS (speed increases as you eat apples).
+      </p>`,
     skills: [
-      { name: "React", url: "https://reactjs.org/" },
       { name: "Photoshop", url: "#todo" },
+      { name: "snake GIF animation", url: "#todo" },
+      { name: "Next.js 12 (static export)", url: "https://nextjs.org/" },
+      { name: "React 17", url: "https://reactjs.org/" },
+      { name: "TypeScript (strict)", url: "https://www.typescriptlang.org/" },
+      {
+        name: "Emotion CSS-in-JS",
+        url: "https://emotion.sh/docs/@emotion/css",
+      },
+      {
+        name: "HTML5 Canvas",
+        url: "https://developer.mozilla.org/docs/Web/API/Canvas_API",
+      },
+      {
+        name: "CSS Custom Properties",
+        url: "https://developer.mozilla.org/docs/Web/CSS/--*",
+      },
     ],
     link: {
       url: "https://justplaysnake.com/",
@@ -315,27 +481,30 @@ const portfolioItems = [
     },
   },
   {
-    id: 'forexchurch',
-    title: 'Forex broker comparison & research platform',
+    id: "forexchurch",
+    title: "Forex broker comparison & research platform",
     content: `<p class="mb-3">
                   converting a React website into a static HTML website using 11ty/Bootstrap/Alpine.js/Axios
                 </p><p class="mb-3">
       A Next.js + React + TypeScript application for researching and comparing Forex brokers (with synchronized sliders, radar & bar charts). It provides structured broker reviews, live market tools (spreads, swaps, market hours & holidays), education resources, and multi-step guided broker selection.
     </p>`,
     skills: [
-      { name: 'Next.js (SSR / dynamic import)', url: 'https://nextjs.org/' },
-      { name: 'React', url: 'https://react.dev/' },
-      { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
-      { name: 'TailwindCSS', url: 'https://tailwindcss.com/' },
-      { name: 'Headless UI (Disclosure / Tab)', url: 'https://headlessui.com/' },
-      { name: 'Swiper', url: 'https://swiperjs.com/' },
-      { name: 'Data visualization (custom charts)', url: '#' },
-      { name: 'scroll-spy', url: '#' }
+      { name: "Next.js (SSR / dynamic import)", url: "https://nextjs.org/" },
+      { name: "React", url: "https://react.dev/" },
+      { name: "TypeScript", url: "https://www.typescriptlang.org/" },
+      { name: "TailwindCSS", url: "https://tailwindcss.com/" },
+      {
+        name: "Headless UI (Disclosure / Tab)",
+        url: "https://headlessui.com/",
+      },
+      { name: "Swiper", url: "https://swiperjs.com/" },
+      { name: "Data visualization (custom charts)", url: "#" },
+      { name: "scroll-spy", url: "#" },
     ],
     link: {
-      url: 'https://forexchurch-tau.vercel.app/',
-      text: 'forexchurch-tau.vercel.app'
-    }
+      url: "https://forexchurch-tau.vercel.app/",
+      text: "forexchurch-tau.vercel.app",
+    },
   },
   // {
   //   id: 'simmentalerbier',
@@ -366,18 +535,22 @@ const portfolioItems = [
                   developers about accessibility, user experience and
                   performance. If you are interested in <abbr
                     title="Web Content Accessibility Guidelines">WCAG</abbr
-                  > 2.0, <abbr title="Accessible Rich Internet Applications"
+                  > 2.x, <abbr title="Accessible Rich Internet Applications"
                     >WAI-ARIA</abbr
-                  > or Schema.org, check out the slides and the video at
+                  > or Schema.org, check out the slides and the video at...
                 </p>`,
     skills: [
-      { name: "Bootstrap", url: "https://getbootstrap.com/" },
-      { name: "skill #2", url: "#todo" },
-      { name: "skill #3", url: "#todo" },
+      { name: "conference speech", url: "#todo" },
+      { name: "WCAG", url: "#todo" },
+      { name: "WAI-ARIA", url: "#todo" },
+      { name: "Schema.org", url: "#todo" },
+      { name: "UX", url: "#todo" },
+      { name: "performance optimization", url: "#todo" },
+      { name: "accessibility", url: "#todo" },
     ],
     link: {
       url: "https://dafed.org/",
-      text: "dafed.org",
+      text: "...dafed.org",
     },
   },
 ];
@@ -428,7 +601,10 @@ const portfolioItems = [
             >
               {
                 portfolioItems.map((item) => (
-                  <li data-id={item.id} class="starting:opacity-0 transition-opacity">
+                  <li
+                    data-id={item.id}
+                    class="starting:opacity-0 transition-opacity"
+                  >
                     <h2
                       class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case"
                       set:html={item.title}
