@@ -65,33 +65,7 @@ const socialLinks = [
                 class="text-gray-light">Stanley Kubrick Archive</a
               >
             </p>
-          </div>
-          <div class="lg:col-span-4 px-[15px]">
-            <div class="inline-flex size-[150px] justify-center items-center align-middle relative -mt-[70px] float-right hover:transition-all hover:ease-in-out hover:transform hover:-rotate-5 hover:scale-110 duration-1000 md:max-lg:-mt-[50px] max-md:float-none max-md:mt-[30px]">
-                <div class="inset-0 shadow-lg shadow-pink-500 rounded-full absolute animate-spin [animation-duration:_5s]"></div>                
-                <div class="inset-0 shadow-lg shadow-violet-500 rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_3s]"></div>
-                <div class="inset-0 shadow-lg shadow-cyan-500 rounded-full absolute animate-spin [animation-duration:_7s]"></div>
-
-                <!-- Chrome colors -->
-                <!-- <div class="inset-0 shadow-lg shadow-[#f53f34] rounded-full absolute animate-spin [animation-duration:_7s]"></div>
-                <div class="inset-0 shadow-lg shadow-[#00ac62] rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_6s]"></div>
-                <div class="inset-0 shadow-lg shadow-[#ffd82b] rounded-full absolute animate-spin [animation-duration:_5s]"></div>
-                <div class="inset-0 shadow-lg shadow-[#4f6cf8] rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_4s]"></div> -->
-
-                <a
-                href="#monolith"
-                class="inline-flex flex-col items-center justify-center size-[150px] bg-gray-dark rounded-full relative"
-              >
-                <i class="text-gray-light block text-[78px] leading-none">et</i>
-                <span
-                  class="h-5 leading-5 m-0 text-sm italic block text-center text-gray-light"
-                  >Expect us.</span
-                >
-              </a>
-            </div>
-
-            
-            <ul class="list-unstyled list-inline list-social float-right">
+            <ul class="list-social pt-10 pb-5">
               {
                 socialLinks.map((link) => (
                   <li>
@@ -106,8 +80,81 @@ const socialLinks = [
                 ))
               }
             </ul>
+            <img
+              src="img/daveandfriend.jpg?ver=28082025"
+              alt="Dave and Friend"
+              width="800"
+              height="800"
+              class="w-full contrast-75"
+            />
+            <!-- <img
+              src="img/logo-expect.png?ver=28082025"
+              alt="Expect"
+              width="300"
+              height="150"
+              class="logo relative -left-12"
+            /> -->
+          </div>
+          <div class="lg:col-span-4 px-[15px]">
+            <div
+              class="inline-flex size-[150px] justify-center items-center align-middle relative -mt-[70px] float-right hover:transition-all hover:ease-in-out hover:transform hover:-rotate-5 hover:scale-110 duration-1000 md:max-lg:-mt-[50px] max-md:float-none max-md:mt-[30px]"
+            >
+              <div
+                class="inset-0 shadow-xl shadow-primary rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_5s]"
+              >
+              </div>
+
+              <!-- neon -->
+              <!-- <div class="inset-0 shadow-lg shadow-pink-500 rounded-full absolute animate-spin [animation-duration:_5s]"></div>
+                <div class="inset-0 shadow-lg shadow-violet-500 rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_3s]"></div>
+                <div class="inset-0 shadow-lg shadow-cyan-500 rounded-full absolute animate-spin [animation-duration:_7s]"></div> -->
+
+              <a
+                href="#monolith"
+                class="overflow-hidden inline-flex flex-col items-center justify-center size-[150px] bg-gray-dark rounded-full relative"
+              >
+                <!-- <i class="text-gray-light block text-[78px] leading-none">et</i>
+                <span
+                  class="h-5 leading-5 m-0 text-sm italic block text-center text-gray-light"
+                  >Expect us.</span
+                > -->
+                <img
+                  src="img/hal9000.png?ver=28082025"
+                  alt="HAL 9000"
+                  width="800"
+                  height="800"
+                  class="absolute inset-1/2 rounded-full size-[200px] max-w-none -translate-x-1/2 -translate-y-1/2"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-primary mix-blend-hue"
+                >
+                </div>
+              </a>
+            </div>
           </div>
         </div>
+        <div class="stripe mt-[30px]">
+          <a
+            href="https://www.imdb.com/title/tt0062622/quotes"
+            rel="noopener noreferrer"
+          >
+            <q
+              class="italic block"
+              cite="https://www.imdb.com/title/tt0062622/quotes"
+              >Daisy, Daisy, give me your answer do. I'm half crazy all for the
+              love of you. It won't be a stylish marriage, I can't afford a
+              carriage. But you'll look sweet upon the seat of a bicycle built
+              for two.</q
+            >
+          </a>
+        </div>
+        <img
+              src="img/logo-expect.png?ver=28082025"
+              alt="Expect"
+              width="300"
+              height="150"
+              class="logo relative -left-12"
+            />
         <img
           itemprop="image"
           src="img/cover1600x1300.png?ver=28082025"
@@ -128,11 +175,6 @@ const socialLinks = [
   footer a:focus {
     color: var(--color-gray-light);
     transition: all 200ms ease 0s;
-  }
-
-  .list-social {
-    clear: both;
-    margin-top: 30px;
   }
 
   .list-social li {
@@ -157,21 +199,26 @@ const socialLinks = [
     padding-right: 0;
     position: relative;
     width: 40px;
+    height: 40px;
+  }
+
+  footer .stripe {
+    border-left: 15px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 20px 20px 47px;
+    position: relative;
+    z-index: 1;
   }
 
   @media (max-width: 767px) {
-    .list-social {
-      margin-top: 10px;
+    footer .stripe {
+      margin-top: 15px;
+      padding: 15px 20px 15px 42px;
     }
   }
 
-  .list-inline {
-    margin-left: -5px;
-  }
-
-  .list-inline,
-  .list-unstyled {
-    padding-left: 0;
-    list-style: none;
+  @media (max-width: 320px) {
+    footer .stripe {
+      padding: 15px 20px 15px 32px;
+    }
   }
 </style>
