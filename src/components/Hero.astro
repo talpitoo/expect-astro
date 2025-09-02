@@ -32,7 +32,7 @@ import DarkModeToggle from "./DarkModeToggle";
     alt="Expect"
     width="300"
     height="150"
-    class="logo"
+    class="relative z-10 mt-[15px] -ml-11 md:-ml-10"
     fetchpriority="high"
   />
   <div class="stripe">
@@ -61,31 +61,10 @@ import DarkModeToggle from "./DarkModeToggle";
 </header>
 
 <style>
-  .logo {
-    margin: 15px 0 0 -32px;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
-  }
-
-  @media (max-width: 767px) {
-    .logo {
-      margin: 0 0 0 -52px;
-      vertical-align: middle;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .logo {
-      margin: 0 0 0 -62px;
-      vertical-align: middle;
-    }
-  }
-
   header {
     background-color: var(--color-gray);
     color: white;
-    padding: 0 47px 100px;
+    padding: 0 var(--spacing-header) 100px;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
@@ -111,8 +90,8 @@ import DarkModeToggle from "./DarkModeToggle";
   header .stripe {
     margin-top: 250px;
     border-left: 15px solid rgba(255, 255, 255, 0.2);
-    margin-left: -47px;
-    padding: 20px 20px 20px 47px;
+    margin-left: calc(var(--spacing-header) * -1);
+    padding: 20px 20px 20px var(--spacing-header);
     position: relative;
     z-index: 1;
   }
@@ -132,7 +111,7 @@ import DarkModeToggle from "./DarkModeToggle";
 
   @media (max-width: 767px) {
     header {
-      padding: 0 47px 47px;
+      padding: 0 var(--spacing-header) var(--spacing-header);
       overflow: hidden;
       text-overflow: ellipsis;
     }

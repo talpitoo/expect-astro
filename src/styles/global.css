@@ -29,6 +29,10 @@
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
 
+  --spacing-header: 47px;
+  --spacing-hal9000: 100px;
+  --spacing-hal9000-lg: 150px;
+
   --animate-rotating-border: rotating-border 10s linear infinite;
 
   @keyframes rotating-border {
@@ -46,8 +50,11 @@
 
 :root {
   --swiper-pagination-color: var(--color-primary);
-  --swiper-theme-color: var(--color-primary);
-  --swiper-navigation-color: var(--color-primary);
+  --swiper-pagination-progressbar-bg-color: rgba(127, 127, 127, 0.05);
+}
+
+.dark {
+  --swiper-pagination-progressbar-bg-color: rgba(127, 127, 127, 0.15);
 }
 
 .accent {

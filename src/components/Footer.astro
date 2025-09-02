@@ -23,11 +23,11 @@ const socialLinks = [
 ];
 ---
 
-<footer class="text-gray bg-gray-darker px-0 py-[50px]">
+<footer class="text-gray bg-gray-darker pt-header pb-0 relative">
   <div class="container-bootstrap">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
-        <div class="lg:grid lg:grid-cols-12 -mx-[15px]">
+        <div class="lg:grid lg:grid-cols-12 -mx-[15px] relative">
           <div class="lg:col-span-8 px-[15px]">
             <p class="mb-[30px]">
               &copy; <a
@@ -59,13 +59,13 @@ const socialLinks = [
               >
             </p>
             <p>
-              Header image by <a
-                onclick="trackOutboundLink('https://en.wikipedia.org/wiki/Stanley_Kubrick_Archive'); return false;"
-                href="https://en.wikipedia.org/wiki/Stanley_Kubrick_Archive"
-                class="text-gray-light">Stanley Kubrick Archive</a
+              Inspired by <a
+                onclick="trackOutboundLink('https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey'); return false;"
+                href="https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey"
+                class="text-gray-light">2001: A Space Odyssey (1968)</a
               >
             </p>
-            <ul class="list-social pt-10 pb-5">
+            <ul class="list-social pt-10 pb-5 -ml-2.5">
               {
                 socialLinks.map((link) => (
                   <li>
@@ -81,11 +81,11 @@ const socialLinks = [
               }
             </ul>
             <img
-              src="img/daveandfriend.jpg?ver=28082025"
-              alt="Dave and Friend"
-              width="800"
-              height="800"
-              class="w-full contrast-75"
+              src="img/Gary-Lockwood-talks-to-Keir-Dullea-in-a-scene-from-the-film-2001-A-Space-Odyssey-1968.jpg?ver=28082025"
+              alt="Gary Lockwood talks to Keir Dullea in a scene from the film '2001: A Space Odyssey', 1968. (Photo by Metro-Goldwyn-Mayer/Getty Images).jpg"
+              width="1920"
+              height="872"
+              class="lg:w-2/3 contrast-75"
             />
             <!-- <img
               src="img/logo-expect.png?ver=28082025"
@@ -97,7 +97,7 @@ const socialLinks = [
           </div>
           <div class="lg:col-span-4 px-[15px]">
             <div
-              class="inline-flex size-[150px] justify-center items-center align-middle relative -mt-[70px] float-right hover:transition-all hover:ease-in-out hover:transform hover:-rotate-5 hover:scale-110 duration-1000 md:max-lg:-mt-[50px] max-md:float-none max-md:mt-[30px]"
+              class="mt-[40px] lg:mt-0 lg:absolute lg:top-0 lg:right-0 mx-auto flex size-hal9000 lg:size-hal9000-lg justify-center items-center align-middle relative hover:transition-all hover:ease-in-out hover:transform hover:-rotate-5 hover:scale-110 duration-1000"
             >
               <div
                 class="inset-0 shadow-xl shadow-primary rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_5s]"
@@ -111,29 +111,82 @@ const socialLinks = [
 
               <a
                 href="#monolith"
-                class="overflow-hidden inline-flex flex-col items-center justify-center size-[150px] bg-gray-dark rounded-full relative"
+                class="overflow-hidden flex flex-col items-center justify-center size-hal9000 lg:size-hal9000-lg bg-gray-dark rounded-full relative"
               >
+                <!-- NOTE: "Expect us." -->
                 <!-- <i class="text-gray-light block text-[78px] leading-none">et</i>
                 <span
                   class="h-5 leading-5 m-0 text-sm italic block text-center text-gray-light"
                   >Expect us.</span
                 > -->
+
+                <!-- NOTE: HAL 9000 photo -->
                 <img
-                  src="img/hal9000.png?ver=28082025"
-                  alt="HAL 9000"
-                  width="800"
-                  height="800"
-                  class="absolute inset-1/2 rounded-full size-[200px] max-w-none -translate-x-1/2 -translate-y-1/2"
+                  src="img/hal9000-by-todd-hamilton-crop.png?ver=28082025"
+                  alt="HAL 9000 by Todd Hamilton, https://toddham.com/"
+                  width="980"
+                  height="980"
+                  class="brightness-110 contrast-85 absolute inset-1/2 rounded-full size-full max-w-none -translate-x-1/2 -translate-y-1/2"
                 />
                 <div
                   class="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-primary mix-blend-hue"
                 >
                 </div>
+
+                <!-- NOTE: HAL 9000 icon -->
+                <!-- <svg
+                  version="1.0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="512"
+                  height="512"
+                  viewBox="0 0 512.000000 512.000000"
+                  preserveAspectRatio="xMidYMid meet"
+                  class="text-black bg-gray-light absolute inset-1/2 rounded-full size-[152px] max-w-none -translate-x-1/2 -translate-y-1/2"
+                >
+                  <g
+                    transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="currentColor"
+                    stroke="none"
+                  >
+                    <path
+                      d="M2243 5105 c-409 -53 -760 -183 -1103 -410 -631 -416 -1042 -1089
+-1130 -1846 -17 -141 -8 -549 14 -679 99 -581 341 -1050 742 -1440 213 -207
+416 -352 659 -470 243 -119 450 -185 720 -232 178 -31 628 -33 800 -5 582 97
+1062 346 1460 759 362 375 591 824 682 1338 31 176 43 520 24 702 -60 567
+-315 1113 -711 1522 -236 244 -515 438 -815 567 -240 103 -470 165 -722 194
+-155 18 -477 18 -620 0z m497 -355 c418 -38 809 -188 1148 -443 125 -93 328
+-296 420 -420 545 -729 595 -1710 124 -2471 -263 -425 -655 -746 -1123 -920
+-324 -120 -723 -160 -1076 -107 -706 106 -1324 557 -1638 1196 -162 328 -227
+609 -229 985 -1 221 13 329 70 549 122 470 403 889 800 1192 423 323 980 485
+1504 439z"
+                    ></path>
+                    <path
+                      d="M2415 4454 c-16 -2 -70 -9 -120 -15 -239 -28 -512 -126 -733 -261
+-169 -103 -390 -302 -515 -465 -259 -337 -399 -772 -384 -1198 11 -304 75
+-563 202 -814 232 -461 674 -828 1163 -965 679 -191 1386 -7 1877 488 282 283
+454 616 527 1016 27 149 30 443 5 599 -90 563 -391 1023 -872 1334 -195 125
+-460 224 -705 262 -93 15 -386 28 -445 19z m-98 -368 c27 -23 28 -29 31 -123
+4 -95 3 -101 -22 -130 -19 -23 -42 -35 -93 -47 -90 -23 -223 -78 -304 -127
+-99 -59 -123 -56 -209 29 -73 71 -87 101 -71 145 23 61 301 202 501 256 101
+27 133 26 167 -3z m742 -25 c100 -34 250 -104 333 -156 100 -63 97 -116 -10
+-217 -78 -74 -96 -75 -229 -9 -54 27 -140 64 -191 81 -67 24 -99 41 -118 63
+-24 29 -26 36 -22 130 3 95 4 100 32 124 36 31 74 28 205 -16z m823 -636 c68
+-90 183 -344 195 -432 12 -88 -23 -113 -157 -113 -84 0 -91 2 -119 28 -17 16
+-42 62 -62 112 -18 47 -46 108 -61 135 -54 93 -70 135 -63 164 7 31 118 146
+155 159 40 15 72 -1 112 -53z m-2524 41 c15 -8 51 -39 80 -68 82 -84 81 -104
+-5 -259 -11 -19 -35 -72 -53 -119 -19 -50 -45 -96 -61 -112 -28 -26 -35 -28
+-120 -28 -94 0 -141 14 -153 45 -20 53 19 184 105 351 98 190 137 227 207 190z
+m1318 -630 c111 -52 173 -140 182 -258 8 -120 -48 -222 -159 -283 -48 -27 -63
+-30 -139 -30 -73 0 -92 4 -136 27 -243 127 -207 478 56 559 54 16 143 10 196
+-15z"
+                    ></path>
+                  </g>
+                </svg> -->
               </a>
             </div>
           </div>
         </div>
-        <div class="stripe mt-[30px]">
+        <!-- <div class="stripe mt-[30px]">
           <a
             href="https://www.imdb.com/title/tt0062622/quotes"
             rel="noopener noreferrer"
@@ -147,14 +200,15 @@ const socialLinks = [
               for two.</q
             >
           </a>
-        </div>
+        </div> -->
         <img
-              src="img/logo-expect.png?ver=28082025"
-              alt="Expect"
-              width="300"
-              height="150"
-              class="logo relative -left-12"
-            />
+          src="img/logo-expect.png?ver=28082025"
+          alt="Expect"
+          width="300"
+          height="150"
+          class="mx-auto sm:-ml-14"
+        />
+        <!--  -mb-14 TODO causing overflow issues -->
         <img
           itemprop="image"
           src="img/cover1600x1300.png?ver=28082025"
@@ -202,9 +256,9 @@ const socialLinks = [
     height: 40px;
   }
 
-  footer .stripe {
+  /* footer .stripe {
     border-left: 15px solid rgba(255, 255, 255, 0.2);
-    padding: 20px 20px 20px 47px;
+    padding: 20px 20px 20px var(--spacing-header);
     position: relative;
     z-index: 1;
   }
@@ -220,5 +274,5 @@ const socialLinks = [
     footer .stripe {
       padding: 15px 20px 15px 32px;
     }
-  }
+  } */
 </style>
