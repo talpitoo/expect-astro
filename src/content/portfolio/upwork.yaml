@@ -1,0 +1,38 @@
+id: upwork
+title: Upwork Global Inc.
+content: |
+  <p class="mb-3">oDesk is now Upwork.</p>
+  <p class="mb-3">
+    Freelance marketplaces <em>Elance</em> and <em>oDesk</em> are now
+    rebranded and merged together under the new name - Upwork. It was
+    (and still is) exciting experience to be a part of the team which
+    made it happen.
+  </p>
+skills:
+  - name: Bootstrap
+    url: https://getbootstrap.com/
+  - name: Vue.js
+    url: https://vuejs.org/
+  - name: WCAG
+    url: "#"
+  - name: animation system
+    url: "#"
+  - name: UI library
+    url: "#"
+  - name: icon library
+    url: "#"
+  - name: Jenkins
+    url: "#"
+  - name: Design Tokens / Theming
+    url: "#"
+  - name: Scoped style injection
+    url: "#"
+  - name: VuePress (custom theme)
+    url: https://vuepress.vuejs.org/
+  - name: JIRA
+    url: "#todo"
+  - name: Page prototypes, 404 pages
+    url: "#todo"
+link:
+  url: https://upwork.com/
+  text: upwork.com

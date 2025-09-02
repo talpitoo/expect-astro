@@ -1,0 +1,62 @@
+id: dreamingsheep
+title: An online journal for your dreams and beyond
+content: |
+  <p class="mb-3">It is an online dream journal where you can log and analyze your dreams. Find connections in your dream patterns like mood, theme, recall, sleep cycle, repeating symbols and others.
+  </p>
+  <p class="sr-only">Tech stack:</p>
+skills:
+  - name: MUI
+    url: https://mui.com/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: BlitzJS
+    url: https://blitzjs.com/
+  - name: Prisma
+    url: https://www.prisma.io/
+  - name: PostgreSQL
+    url: https://www.postgresql.org/
+  - name: AWS S3
+    url: https://aws.amazon.com/s3/
+  - name: Docker
+    url: https://www.docker.com/
+  - name: PDF export
+    url: "#todo"
+  - name: BlitzJS (on Next.js 13.4.5)
+    url: https://blitzjs.com/
+  - name: Next.js (pages router)
+    url: https://nextjs.org/
+  - name: TypeScript 5
+    url: https://www.typescriptlang.org/
+  - name: Prisma ORM
+    url: https://www.prisma.io/
+  - name: PostgreSQL
+    url: https://www.postgresql.org/
+  - name: Material UI (MUI)
+    url: https://mui.com/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: Google Charts (react-google-charts)
+    url: https://developers.google.com/chart
+  - name: AWS S3
+    url: https://aws.amazon.com/s3/
+  - name: reCAPTCHA v3
+    url: https://www.google.com/recaptcha/
+  - name: NestJS microservice (external)
+    url: https://nestjs.com/
+  - name: Gmail SMTP
+    url: https://support.google.com/mail/
+  - name: Docker / docker-compose
+    url: https://www.docker.com/
+  - name: Vagrant + VirtualBox
+    url: https://www.vagrantup.com/
+  - name: Husky
+    url: https://typicode.github.io/husky/
+  - name: lint-staged
+    url: https://github.com/okonet/lint-staged
+  - name: Yarn
+    url: https://yarnpkg.com/
+  - name: Release tagging (SemVer)
+    url: https://semver.org/
+link:
+  url: https://dreamingsheep.net/
+  text: dreamingsheep.net

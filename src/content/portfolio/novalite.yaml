@@ -1,0 +1,44 @@
+id: novalite
+title: |
+  Responsive website<br />
+  for an outsourcing company
+content: |
+  <p class="mb-3">
+    A website with SVG animations and highest accessibility
+    standards. PSD by <a
+      onclick="trackOutboundLink('https://heavyform.com/'); return false;"
+      href="https://heavyform.com/"
+      rel="noopener noreferrer" 
+      class="text-primary dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
+    >. Optimized with handcrafted lazy loading, Google PageSpeed
+    Insights, YSlow, Web Developer Checklist and HTML CodeSniffer.
+    The website works even with javascript disabled!
+  </p>
+skills:
+  - name: Bootstrap 2.3.2
+    url: https://getbootstrap.com/
+  - name: SVG animations/Google Swiffy exports
+    url: "#todo"
+  - name: load speed optimization
+    url: "#todo"
+  - name: Progressive enhancement / no-JS fallback
+    url: "#"
+  - name: Google WebFont Loader
+    url: https://github.com/typekit/webfontloader
+  - name: Schema.org microdata
+    url: https://schema.org/
+  - name: Accessible fallbacks (noscript)
+    url: "#"
+  - name: Inline critical CSS strategy
+    url: "#"
+  - name: semantic microdata
+    url: "#todo"
+  - name: jQuery
+    url: "#todo"
+  - name: humans.txt
+    url: "#todo"
+  - name: graceful degradation (works with JavaScript disabled)
+    url: "#todo"
+link:
+  url: https://talpitoo.com/novalite/
+  text: novalite.rs

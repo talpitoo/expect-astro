@@ -1,0 +1,33 @@
+id: seopal
+title: SEOpal Marketing Microsite
+content: |
+  <p class="mb-3">From Figma to '11ty' static site with TailwindCSS and hand crafted CSS animations.
+  </p>
+  <p class="mb-3">
+    Static marketing site built with Eleventy (Nunjucks) + TailwindCSS, minimal client JS, JSON‑driven content blocks, SVG sprite pipeline, Netlify form handling, and lightweight analytics.
+  </p>
+  <p class="mb-3">
+    Notables: dual pipeline (Webpack + PostCSS) plus a <code>gulp</code> task only for SVG spriting; deliberate breakpoint remapping (<code>2xl</code> shrunk to 1280px; custom <code>3xl</code>); optional Tailwind Preflight toggle; data‑driven tiles; URL‑aware theming (gradient swap & inverse navbar on /resellers); custom keyframe & JS gradient animations.
+  </p>
+skills:
+  - name: Eleventy (11ty)
+    url: https://www.11ty.dev/
+  - name: Nunjucks
+    url: https://mozilla.github.io/nunjucks/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: Tailwind Typography
+    url: https://github.com/tailwindlabs/tailwindcss-typography
+  - name: PostCSS
+    url: https://postcss.org/
+  - name: Webpack 5
+    url: https://webpack.js.org/
+  - name: Gulp (SVG sprite)
+    url: https://gulpjs.com/
+  - name: Netlify Forms + reCAPTCHA
+    url: https://docs.netlify.com/forms/setup/
+  - name: Clip Path Shapes
+    url: https://developer.mozilla.org/docs/Web/CSS/clip-path
+link:
+  url: https://seopal.io/
+  text: seopal.io

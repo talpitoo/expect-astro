@@ -1,0 +1,29 @@
+id: forexchurch
+title: Forex broker comparison & research platform
+content: |
+  <p class="mb-3">
+    converting a React website into a static HTML website using 11ty/Bootstrap/Alpine.js/Axios
+  </p>
+  <p class="mb-3">
+    A Next.js + React + TypeScript application for researching and comparing Forex brokers (with synchronized sliders, radar & bar charts). It provides structured broker reviews, live market tools (spreads, swaps, market hours & holidays), education resources, and multi-step guided broker selection.
+  </p>
+skills:
+  - name: Next.js (SSR / dynamic import)
+    url: https://nextjs.org/
+  - name: React
+    url: https://react.dev/
+  - name: TypeScript
+    url: https://www.typescriptlang.org/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: Headless UI (Disclosure / Tab)
+    url: https://headlessui.com/
+  - name: Swiper
+    url: https://swiperjs.com/
+  - name: Data visualization (custom charts)
+    url: "#"
+  - name: scroll-spy
+    url: "#"
+link:
+  url: https://forexchurch-tau.vercel.app/
+  text: forexchurch-tau.vercel.app

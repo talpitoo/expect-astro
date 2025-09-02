@@ -3,13 +3,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import 'swiper/css/navigation';
 
-import fs from 'fs';
-import yaml from 'js-yaml';
-import path from 'path';
-
-const portfolioYamlPath = path.join(process.cwd(), 'src/data/portfolioItems.yaml');
-const portfolioYaml = fs.readFileSync(portfolioYamlPath, 'utf8');
-const portfolioItems = yaml.load(portfolioYaml) as any[];
+import { getCollection } from 'astro:content';
+// Load all portfolio items from individual YAML files - clean like the blog example!
+const portfolioEntries = await getCollection('portfolio');
+const portfolioItems = portfolioEntries.map((entry: any) => entry.data);
 ---
 
 <section
@@ -56,7 +53,7 @@ const portfolioItems = yaml.load(portfolioYaml) as any[];
               class="list-unstyled portfolio-descriptions max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px]"
             >
               {
-                portfolioItems.map((item) => (
+                portfolioItems.map((item: any) => (
                   <li
                     data-id={item.id}
                     class="starting:opacity-0 transition-opacity"
@@ -98,7 +95,7 @@ const portfolioItems = yaml.load(portfolioYaml) as any[];
                 <div class="swiper portfolio-tablet-swiper">
                   <div class="swiper-wrapper">
                     {
-                      portfolioItems.map((item) => (
+                      portfolioItems.map((item: any) => (
                         <div
                           data-id={item.id}
                           data-hash={item.id}
@@ -123,7 +120,7 @@ const portfolioItems = yaml.load(portfolioYaml) as any[];
                   >
                     <div class="swiper-wrapper">
                       {
-                        portfolioItems.map((item) => (
+                        portfolioItems.map((item: any) => (
                           <div
                             data-id={item.id}
                             data-hash={item.id}
@@ -172,7 +169,7 @@ const portfolioItems = yaml.load(portfolioYaml) as any[];
   <div class="swiper portfolio-thumbs-swiper mt-20 w-full">
     <div class="swiper-wrapper">
       {
-        portfolioItems.map((item) => (
+  portfolioItems.map((item: any) => (
           <div
             data-id={item.id}
             data-hash={item.id}

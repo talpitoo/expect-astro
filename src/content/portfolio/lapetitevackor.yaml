@@ -1,0 +1,23 @@
+id: lapetitevackor
+title: A customized Tumblr theme
+content: |
+  <p class="mb-3">
+    Custom Tumblr theme based on <a
+      onclick="trackOutboundLink('https://www.tumblr.com/theme/37310'); return false;"
+      href="https://www.tumblr.com/theme/37310"
+      rel="noopener noreferrer" 
+      class="text-primary dark:mix-blend-plus-lighter">Optica</a
+    > by <em>Kristoffer.</em> with fine tuned social sharing rules.
+    But enough with the technical details already, here, Vackor is
+    the star!
+  </p>
+skills:
+  - name: Tumblr
+    url: https://getbootstrap.com/
+  - name: custom pagination
+    url: "#todo"
+  - name: photography
+    url: "#todo"
+link:
+  url: https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/
+  text: lapetitevackor.tumblr.com

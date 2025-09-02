@@ -1,0 +1,30 @@
+id: dafed
+title: Conference speech
+content: |
+  <p class="mb-3">
+    I gave a talk at a conference for designers and front-end
+    developers about accessibility, user experience and
+    performance. If you are interested in <abbr
+      title="Web Content Accessibility Guidelines">WCAG</abbr
+    > 2.x, <abbr title="Accessible Rich Internet Applications"
+      >WAI-ARIA</abbr
+    > or Schema.org, check out the slides and the video at...
+  </p>
+skills:
+  - name: conference speech
+    url: "#todo"
+  - name: WCAG
+    url: "#todo"
+  - name: WAI-ARIA
+    url: "#todo"
+  - name: Schema.org
+    url: "#todo"
+  - name: UX
+    url: "#todo"
+  - name: performance optimization
+    url: "#todo"
+  - name: accessibility
+    url: "#todo"
+link:
+  url: https://dafed.org/
+  text: "...dafed.org"

@@ -1,0 +1,31 @@
+id: cynkra
+title: Website and custom blog for a team of data scientists
+content: |
+  <p class="mb-3">Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer <a
+      onclick="trackOutboundLink('https://www.jonas.studio/'); return false;"
+      href="https://www.jonas.studio/"
+      rel="noopener noreferrer" 
+      class="text-primary dark:mix-blend-plus-lighter">Jonas Goldstein</a>. Translated a Bauhaus- and ASCII-inspired design vision into a functional, minimalist, and visually refined site — significantly lighter and faster.
+  </p>
+skills:
+  - name: Jekyll
+    url: https://jekyllrb.com/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: <canvas>
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+  - name: GSAP
+    url: https://greensock.com/gsap/
+  - name: Swiper
+    url: https://swiperjs.com/
+  - name: WCAG
+    url: https://www.w3.org/WAI/standards-guidelines/wcag/
+  - name: SEO
+    url: https://moz.com/beginners-guide-to-seo
+  - name: i18n
+    url: https://www.w3.org/International/questions/qa-i18n
+  - name: LCP
+    url: https://web.dev/articles/optimize-lcp
+link:
+  url: https://cynkra.com/blog/2025-04-01-launch/
+  text: cynkra.com

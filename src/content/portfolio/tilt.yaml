@@ -1,0 +1,47 @@
+id: tilt
+title: Analytics dashboard with custom Markdown blocks
+content: |
+  <p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
+  </p>
+  <p class="mb-3">
+    A Next.js App Router project featuring a custom JSON-in-Markdown block rendering
+    engine, themed data visualizations, and a component‑driven internal UI system.
+    Emphasis on semantic structure, theming via CSS variables, and extensible chart + prose
+    composition.
+  </p>
+skills:
+  - name: NextJS
+    url: https://nextjs.org/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: shadcn/ui
+    url: https://ui.shadcn.com/
+  - name: Recharts
+    url: https://recharts.org/
+  - name: markdown
+    url: https://www.markdownguide.org/
+  - name: Design Tokens & Gradients
+    url: "#"
+  - name: TypeScript
+    url: https://www.typescriptlang.org/
+  - name: TailwindCSS + Typography plugin
+    url: https://tailwindcss.com/
+  - name: shadcn/ui primitives
+    url: https://ui.shadcn.com/
+  - name: Recharts (custom theming)
+    url: https://recharts.org/
+  - name: react-markdown
+    url: https://github.com/remarkjs/react-markdown
+  - name: remark-gfm
+    url: https://github.com/remarkjs/remark-gfm
+  - name: highlight.js (dynamic theme)
+    url: https://highlightjs.org/
+  - name: Lucide Icons
+    url: https://lucide.dev/
+  - name: CSS Custom Properties / Theming
+    url: "#"
+  - name: ":has() / advanced selectors"
+    url: "#"
+link:
+  url: https://tilt-drab.vercel.app/
+  text: tilt-drab.vercel.app
