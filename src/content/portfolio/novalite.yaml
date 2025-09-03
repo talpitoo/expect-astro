@@ -1,6 +1,6 @@
 id: novalite
 title: |
-  Responsive website<br />
+  Responsive website<br class="hidden lg:inline" />
   for an outsourcing company
 date: 2018-06-20
 featured: false

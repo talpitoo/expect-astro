@@ -299,7 +299,7 @@ export const portfolioItems = [
         composition.
       </p>`,
     skills: [
-      { name: "NextJS", url: "https://nextjs.org/" },
+      { name: "Next.js", url: "https://nextjs.org/" },
       { name: "TailwindCSS", url: "https://tailwindcss.com/" },
       { name: "shadcn/ui", url: "https://ui.shadcn.com/" },
       { name: "Recharts", url: "https://recharts.org/" },

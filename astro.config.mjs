@@ -7,6 +7,13 @@ import react from "@astrojs/react";
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+
+    // Watch for changes in content (e.g. .yml) files
+    server: {
+      watch: {
+        ignored: ['!**/src/content/**/*.{yaml,yml,md,mdx}']
+      }
+    }
   },
 
   devToolbar: {

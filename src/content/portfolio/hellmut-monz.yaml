@@ -1,11 +1,11 @@
 id: hellmut-monz
-title: A static site generator and UI library
+title: Blog, courses and UI library
 date: 2024-08-15
 featured: false
 tags: ['eleventy', 'tailwindcss', 'flowbite', 'gsap', 'swiper', 'nunjucks']
 status: published
 content: |
-  <p class="mb-3">Custom tailored grid system; cqi [container query units]; cap height typography; both the spacing and the typography aligns with the grid, both horizontally and vertically; custom image gallery; search functionality; SVG sprite generation; sitemap, meta tags, og:images, favicons, SEO, WCAG accessibility ...and more fine details.
+  <p class="mb-3">Custom-tailored grid system with CQI (container query units) and cap-height typography, ensuring both spacing and text align perfectly with the grid horizontally and vertically. Includes a custom image gallery, search functionality, SVG sprite generation, sitemap, meta tags, OG images, favicons, SEO, WCAG accessibility, and many other fine details.
   </p>
 skills:
   - name: Eleventy (11ty)
@@ -18,26 +18,10 @@ skills:
     url: https://greensock.com/gsap/
   - name: Swiper
     url: https://swiperjs.com/
-  - name: SVG sprite via gulp
-    url: https://swiperjs.com/
-  - name: Nunjucks templating
-    url: https://mozilla.github.io/nunjucks/
-  - name: GSAP + ScrollTrigger
-    url: https://greensock.com/gsap/
-  - name: Flowbite (UI components)
-    url: https://flowbite.com/
-  - name: Gulp (SVG sprite only)
-    url: https://gulpjs.com/
-  - name: SVG Sprite generation
-    url: https://github.com/svg-sprite/svg-sprite
-  - name: PWA Manifest / browserconfig
-    url: https://developer.mozilla.org/docs/Web/Manifest
-  - name: Accessibility (WCAG awareness)
-    url: https://www.w3.org/WAI/standards-guidelines/wcag/
-  - name: Custom design tokens (variables.css)
+  - name: SVG sprite
     url: "#"
-  - name: Sitemap generation (Nunjucks template)
-    url: "#"
+  - name: WCAG
+    url: https://www.w3.org/WAI/WCAG21/quickref/
 link:
   url: http://keyphilosophy.com/
   text: keyphilosophy.com

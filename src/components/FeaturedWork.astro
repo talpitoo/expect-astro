@@ -34,12 +34,13 @@ const portfolioItems = portfolioEntries
   <div class="swiper-pagination absolute top-0 left-0 w-full h-1 z-10"></div>
 
   <div
-    class="container-bootstrap relative min-h-[500px] md:max-lg:min-h-[610px]"
+    class="container-bootstrap relative"
   >
+  <!-- TODO: min-h-[550px] md:min-h-[625px] -->
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
-          <div class="md:col-span-4 px-[15px] xl:pr-0">
+          <div class="md:col-span-5 lg:col-span-4 px-[15px] lg:pr-0 min-h-[550px] md:min-h-[625px]">
             <div class="relative">
               <h1
                 class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px] mt-0"
@@ -67,8 +68,9 @@ const portfolioItems = portfolioEntries
               </span>
             </div>
             <ul
-              class="list-unstyled portfolio-descriptions max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px]"
+              class="list-unstyled portfolio-descriptions"
             >
+            <!-- TODO: max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px] -->
               {
                 portfolioItems.map((item: any) => (
                   <li
@@ -80,6 +82,7 @@ const portfolioItems = portfolioEntries
                       set:html={item.title}
                     />
                     <Fragment set:html={item.content} />
+                    <p class="sr-only">Tech stack:</p>
                     {item.skills && item.skills.length > 0 && (
                       <ul class="my-6 dark:opacity-50">
                         {item.skills.map((skill: any) => (
@@ -87,7 +90,7 @@ const portfolioItems = portfolioEntries
                         ))}
                       </ul>
                     )}
-                    <p class="mb-3">
+                    <p>
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}
                         href={item.link.url}
@@ -103,7 +106,7 @@ const portfolioItems = portfolioEntries
             </ul>
           </div>
           <div
-            class="md:col-span-8 relative max-w-[calc(100vw-55px)] md:max-w-none"
+            class="md:col-span-7 lg:col-span-8 relative max-w-[calc(100vw-55px)] md:max-w-none"
           >
             <!-- max-w-[calc(100vw-55px)] sm:max-w-none TODO -->
             <div class="nexus10 overflow-hidden">

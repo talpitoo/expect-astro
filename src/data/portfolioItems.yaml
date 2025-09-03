@@ -386,7 +386,7 @@
       composition.
     </p>
   skills:
-    - name: NextJS
+    - name: Next.js
       url: https://nextjs.org/
     - name: TailwindCSS
       url: https://tailwindcss.com/

@@ -6,32 +6,16 @@ tags: ['eleventy', 'tailwindcss', 'postcss', 'svg-sprite', 'ai']
 status: published
 content: |
   <p class="mb-3">
-    A lightweight, production‑oriented static landing page for <strong>Cycls</strong>, built with
-    Eleventy (11ty) and TailwindCSS using a custom <code>tw-</code> prefix to avoid classname
-    collisions. Styles are delivered via the Tailwind Play CDN with an inlined runtime config,
-    trading full JIT build control for extreme simplicity and fast iteration (see inlined
-    config + utility layers).
+    A lightweight static landing page built with Eleventy (11ty) and TailwindCSS, using a custom <code>tw-</code> prefix to avoid classname collisions. Styles are delivered via the Tailwind Play CDN with an inlined runtime config, trading full JIT build control for extreme simplicity and rapid iteration.
   </p>
-  <p class="mb-3">
-    Highlights:
-  </p>
-  <ul class="mb-3 list-disc ms-6">
-    <li>Custom Tailwind prefix (<code>tw-</code>) + layered utility abstractions (e.g. <code>.cycls-container</code>).</li>
-  </ul>
 skills:
   - name: Eleventy (11ty)
     url: https://www.11ty.dev/
   - name: TailwindCSS (CDN config)
     url: https://tailwindcss.com/
-  - name: PostCSS
-    url: https://postcss.org/
-  - name: Autoprefixer
-    url: https://github.com/postcss/autoprefixer
   - name: SVG Sprite
     url: https://github.com/svg-sprite/svg-sprite
-  - name: PWA Manifest
-    url: https://developer.mozilla.org/docs/Web/Manifest
-  - name: Accessibility
+  - name: AI chatbot
     url: "#"
 link:
   url: https://cycls.com/

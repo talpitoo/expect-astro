@@ -222,7 +222,7 @@
     "title": "Analytics dashboard with custom Markdown blocks",
     "content": "<p class=\"mb-3\">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.\n      </p>\n      <p class=\"mb-3\">\n        A Next.js App Router project featuring a custom JSON-in-Markdown block rendering\n        engine, themed data visualizations, and a component‑driven internal UI system.\n        Emphasis on semantic structure, theming via CSS variables, and extensible chart + prose\n        composition.\n      </p>",
     "skills": [
-      { "name": "NextJS", "url": "https://nextjs.org/" },
+      { "name": "Next.js", "url": "https://nextjs.org/" },
       { "name": "TailwindCSS", "url": "https://tailwindcss.com/" },
       { "name": "shadcn/ui", "url": "https://ui.shadcn.com/" },
       { "name": "Recharts", "url": "https://recharts.org/" },
