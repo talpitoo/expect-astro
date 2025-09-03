@@ -6,40 +6,25 @@ tags: ['eleventy', 'bootstrap', 'nunjucks', 'swiper', 'performance', 'accessibil
 status: published
 content: |
   <p class="mb-3">
-    Reverse-engineering a purchased static theme into marketing & docs 
-    website with SEO and accessibility optimization, load speed 
-    improvements, and search widget API integration. Microanimations, 
-    adaptive dark/light-themed favicons and efficient font loading. 
-    SVG animations by <a
+    Reverse-engineered a purchased static theme into a marketing and docs website with SEO and accessibility optimizations, performance improvements, and a search widget API integration. Includes microanimations, adaptive dark/light favicons, and SVG animations by <a
     onclick="trackOutboundLink('https://heavyform.com/'); return false;"
     href="https://heavyform.com/"
     rel="noopener noreferrer" 
     class="text-primary dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
     >.
   </p>
-  <p class="mb-3">
-    Accessibility & performance considerations: deferred JS loading, critical stylesheet preload, print+onload CSS loading pattern for non‑critical vendors, semantic sectioning, and collection-driven sitemap generation.
-  </p>
 skills:
   - name: Eleventy (11ty)
     url: https://www.11ty.dev/
-  - name: Nunjucks Templating
-    url: https://mozilla.github.io/nunjucks/
   - name: Bootstrap
     url: https://getbootstrap.com/
   - name: Swiper
     url: https://swiperjs.com/
-  - name: WOW.js + animate.css
+  - name: SEO
+    url: "#"
+  - name: WOW.js
     url: https://wowjs.uk/
-  - name: Font Awesome / Flaticon
-    url: "#"
-  - name: Eleventy Collections
-    url: https://www.11ty.dev/docs/collections/
-  - name: Performance Optimizations
-    url: "#"
-  - name: Sitemap & SEO Basics
-    url: "#"
-  - name: Modular Navigation System
+  - name: Performance optimization
     url: "#"
 link:
   url: https://www.itportal.com/

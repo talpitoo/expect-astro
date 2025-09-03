@@ -1,48 +1,30 @@
 id: novalite
 title: |
-  Responsive website<br class="hidden lg:inline" />
-  for an outsourcing company
+  Animated Storytelling Website
 date: 2018-06-20
 featured: false
 tags: ['bootstrap', 'svg-animations', 'accessibility', 'progressive-enhancement', 'performance']
 status: published
 content: |
   <p class="mb-3">
-    A website with SVG animations and highest accessibility
-    standards. PSD by <a
+    Responsive website with SVG animations and top-tier accessibility. Optimized with handcrafted lazy loading and passes Google PageSpeed, YSlow, and HTML CodeSniffer checks. Fully functional even with JavaScript disabled. PSD and animations by <a
       onclick="trackOutboundLink('https://heavyform.com/'); return false;"
       href="https://heavyform.com/"
       rel="noopener noreferrer" 
       class="text-primary dark:mix-blend-plus-lighter">Heavyform&#174; Creative Agency</a
-    >. Optimized with handcrafted lazy loading, Google PageSpeed
-    Insights, YSlow, Web Developer Checklist and HTML CodeSniffer.
-    The website works even with javascript disabled!
+    >.
   </p>
 skills:
-  - name: Bootstrap 2.3.2
+  - name: Bootstrap
     url: https://getbootstrap.com/
-  - name: SVG animations/Google Swiffy exports
-    url: "#todo"
-  - name: load speed optimization
-    url: "#todo"
-  - name: Progressive enhancement / no-JS fallback
-    url: "#"
-  - name: Google WebFont Loader
-    url: https://github.com/typekit/webfontloader
-  - name: Schema.org microdata
-    url: https://schema.org/
-  - name: Accessible fallbacks (noscript)
-    url: "#"
-  - name: Inline critical CSS strategy
-    url: "#"
-  - name: semantic microdata
-    url: "#todo"
   - name: jQuery
     url: "#todo"
-  - name: humans.txt
+  - name: WCAG
+    url: "#"
+  - name: SVG animation scenes
     url: "#todo"
-  - name: graceful degradation (works with JavaScript disabled)
-    url: "#todo"
+  - name: Progressive enhancement
+    url: "#"
 link:
   url: https://talpitoo.com/novalite/
   text: novalite.rs

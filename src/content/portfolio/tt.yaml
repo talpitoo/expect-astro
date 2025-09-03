@@ -21,12 +21,6 @@ skills:
     url: "#todo"
   - name: Critical CSS inlining + async CSS
     url: "#"
-  - name: Domain sharding (images)
-    url: "#"
-  - name: Noscript fallback
-    url: "#"
-  - name: Web App Manifest
-    url: https://developer.mozilla.org/docs/Web/Manifest
 link:
   url: https://tothtamas.tt/
   text: tothtamas.tt

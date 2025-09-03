@@ -5,7 +5,7 @@ featured: false
 tags: ['eleventy', 'tailwindcss', 'flowbite', 'gsap', 'swiper', 'nunjucks']
 status: published
 content: |
-  <p class="mb-3">Custom-tailored grid system with CQI (container query units) and cap-height typography, ensuring both spacing and text align perfectly with the grid horizontally and vertically. Includes a custom image gallery, search functionality, SVG sprite generation, sitemap, meta tags, OG images, favicons, SEO, WCAG accessibility, and many other fine details.
+  <p class="mb-3">Custom-tailored grid system with CQI (container query units) and cap-height typography, ensuring both spacing and text align perfectly with the grid, not only horizontally but vertically as well. Includes a custom image gallery, search functionality, and many other fine details.
   </p>
 skills:
   - name: Eleventy (11ty)

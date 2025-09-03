@@ -6,26 +6,19 @@ tags: ['nextjs', 'react', 'typescript', 'canvas', 'game-development']
 status: published
 content: |
   <p class="mb-3">
-    A TypeScript + React (Next.js 12) single‑page style game exported as a static site and deployed to AWS S3/CloudFront. 
-    Real‑time gameplay rendered on an HTML5 <code>&lt;canvas&gt;</code> with a custom frame throttling hook controlled by dynamic FPS (speed increases as you eat apples).
+    A collaboration with a backend developer on the game logic, while I sliced the designs into HTML/CSS and refined the HTML5 <code>&lt;canvas&gt;</code> rendering. Built as a React single-page game.
   </p>
 skills:
   - name: Photoshop
     url: "#todo"
   - name: snake GIF animation
     url: "#todo"
-  - name: Next.js 12 (static export)
-    url: https://nextjs.org/
-  - name: React 17
+  - name: React
     url: https://reactjs.org/
-  - name: TypeScript (strict)
-    url: https://www.typescriptlang.org/
   - name: Emotion CSS-in-JS
     url: https://emotion.sh/docs/@emotion/css
   - name: HTML5 Canvas
     url: https://developer.mozilla.org/docs/Web/API/Canvas_API
-  - name: CSS Custom Properties
-    url: https://developer.mozilla.org/docs/Web/CSS/--*
 link:
   url: https://justplaysnake.com/
   text: justplaysnake.com
