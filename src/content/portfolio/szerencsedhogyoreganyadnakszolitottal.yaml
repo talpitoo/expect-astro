@@ -1,28 +1,20 @@
 id: szerencsedhogyoreganyadnakszolitottal
-title: An AI chatbot for fun / Minimal static AI-ish chatbot page
+title: An AI-ish chatbot for fun
 date: 2024-06-30
 featured: false
 tags: ['html5', 'vanilla-js', 'css', 'ai-simulation', 'no-framework']
 status: published
 content: |
-  <p class="mb-3">A Next.js project using shadcn/ui as the UI lib, TailwindCSS for styling, and code highlighting via highlight.js. Markdown support with custom code blocks.
-  </p>
   <p class="mb-3">
-    A zero‑build, single <code>index.html</code> implementation: pure HTML5, inline CSS, and a few lines of vanilla JS to simulate an "AI" chatbot with canned randomized replies and a special first response. No bundler, no framework, no dependencies.
+    A zero‑build, single <code>index.html</code> implementation: pure HTML5, inline CSS, and a few lines of vanilla JS to simulate an "AI" chatbot with canned randomized replies. No bundler, no framework, no dependencies.
   </p>
 skills:
   - name: HTML5
     url: https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5
   - name: CSS (inline)
     url: https://developer.mozilla.org/docs/Web/CSS
-  - name: Vanilla JavaScript (DOM)
+  - name: Vanilla JavaScript
     url: https://developer.mozilla.org/docs/Web/API/Document_Object_Model
-  - name: Google Analytics (gtag.js)
-    url: https://developers.google.com/gtagjs
-  - name: Open Graph Meta
-    url: https://ogp.me/
-  - name: Accessibility (sr-only utility)
-    url: https://www.a11yproject.com/posts/how-to-hide-content/
 link:
   url: https://szerencsedhogyoreganyadnakszolitottal.hu/
   text: szerencsedhogyoreganyadnakszolitottal.hu
