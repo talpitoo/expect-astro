@@ -42,26 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // parallax header
-  if (!isMobile()) {
-    const spaceOdyssey = document.querySelector(".space-odyssey");
-    const spaceOdysseyMask = document.querySelector(".space-odyssey-mask");
-    const factor = 1.5;
-
-    function updateParallax() {
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-      const offset = parseInt(y / factor);
-      if (spaceOdyssey)
-        spaceOdyssey.style.transform = `translateY(${offset}px)`;
-      if (spaceOdysseyMask)
-        spaceOdysseyMask.style.transform = `translateY(${offset}px)`;
-    }
-
-    window.addEventListener("load", updateParallax);
-    window.addEventListener("resize", updateParallax);
-    window.addEventListener("scroll", updateParallax);
-  }
-
   // ex portfolio
   // if (
   //   typeof ga !== "undefined" &&

@@ -116,4 +116,60 @@ import DarkModeToggle from "./DarkModeToggle";
       text-overflow: ellipsis;
     }
   }
+
+  .space-odyssey,
+  .space-odyssey-mask {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 </style>
+
+<script>
+  // Cross-browser parallax that works on desktop and mobile
+  function initParallax() {
+    const spaceOdyssey = document.querySelector(".space-odyssey") as HTMLElement;
+    const spaceOdysseyMask = document.querySelector(".space-odyssey-mask") as HTMLElement;
+    const factor = 1.5;
+
+    if (!spaceOdyssey && !spaceOdysseyMask) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const scrollY =
+        window.pageYOffset || document.documentElement.scrollTop || 0;
+      const offset = Math.floor(scrollY / factor);
+
+      if (spaceOdyssey) {
+        spaceOdyssey.style.transform = `translate3d(0, calc(${offset}px), 0)`;
+      }
+      if (spaceOdysseyMask) {
+        spaceOdysseyMask.style.transform = `translate3d(0, calc(${offset}px), 0)`;
+      }
+
+      ticking = false;
+    }
+
+    function requestParallaxUpdate() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    // Initial call
+    updateParallax();
+
+    // Event listeners with passive scrolling
+    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+    window.addEventListener("resize", updateParallax);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initParallax);
+  } else {
+    initParallax();
+  }
+</script>
