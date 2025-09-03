@@ -17,6 +17,8 @@ content: |
 skills:
   - name: conference speech
     url: "#todo"
+  - name: accessibility
+    url: "#todo"
   - name: WCAG
     url: "#todo"
   - name: WAI-ARIA
@@ -26,8 +28,6 @@ skills:
   - name: UX
     url: "#todo"
   - name: performance optimization
-    url: "#todo"
-  - name: accessibility
     url: "#todo"
 link:
   url: https://dafed.org/

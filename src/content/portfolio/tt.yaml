@@ -15,11 +15,13 @@ skills:
     url: https://getbootstrap.com/
   - name: WordPress
     url: "#todo"
-  - name: Custom theme design
-    url: "#"
   - name: EXIF
     url: "#todo"
-  - name: Critical CSS inlining + async CSS
+  - name: photography
+    url: "#todo"
+  - name: Custom theme design
+    url: "#"
+  - name: Critical + async CSS
     url: "#"
 link:
   url: https://tothtamas.tt/
