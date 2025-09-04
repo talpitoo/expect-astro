@@ -96,11 +96,10 @@ const portfolioItems = portfolioEntries
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}
                         href={item.link.url}
-                        class="hyphens-auto xl:hyphens-none text-primary text-lg font-light dark:mix-blend-plus-lighter"
+                        class="text-primary text-lg font-light dark:mix-blend-plus-lighter"
                         rel="noopener noreferrer"
-                      >
-                        {item.link.text}
-                      </a>
+                        set:html={item.link.text}
+                      />
                     </p>
                   </li>
                 ))
