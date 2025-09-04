@@ -3,19 +3,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   // helpers
   // mobile detection
-  function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-  }
+  // function isMobile() {
+  //   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //     navigator.userAgent
+  //   );
+  // }
 
   // trigger things if scrolled into view
-  function isScrolledIntoView(element) {
-    const rect = element.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-    return rect.top <= windowHeight && rect.bottom >= 0;
-  }
+  // function isScrolledIntoView(element) {
+  //   const rect = element.getBoundingClientRect();
+  //   const windowHeight =
+  //     window.innerHeight || document.documentElement.clientHeight;
+  //   return rect.top <= windowHeight && rect.bottom >= 0;
+  // }
 
   // Dr. Frank Poole
   const animationPlaceholder = document.querySelector(".animation-placeholder");

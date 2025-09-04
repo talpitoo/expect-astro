@@ -20,11 +20,11 @@ import DarkModeToggle from "./DarkModeToggle.astro";
   >
   </div>
   <img
-    src="img/stanley-kubrick-2001-space-odyssey-mask.png?ver=28082025"
+    src="img/stanley-kubrick-2001-space-odyssey-mask.webp?ver=28082025"
     alt="2001: A Space Odyssey"
     class="space-odyssey-mask hidden accent:block absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
     loading="lazy"
-    fetchpriority="auto"
+    fetchpriority="low"
     decoding="async"
   />
   <img
@@ -117,11 +117,17 @@ import DarkModeToggle from "./DarkModeToggle.astro";
     }
   }
 
+  header,
+  header h1,
+  header q,
+  header .stripe,
+  header .linear-gradient,
+  header img,
   .space-odyssey,
   .space-odyssey-mask {
     will-change: transform;
     transform: translateZ(0);
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
   }
 </style>
 
@@ -163,7 +169,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 
     // Event listeners with passive scrolling
     window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", updateParallax);
+    window.addEventListener("resize", updateParallax, { passive: true });
   }
 
   // Initialize when DOM is ready
