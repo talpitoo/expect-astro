@@ -1,4 +1,4 @@
-import { RadioGroup, Radio, Field, Label } from "@headlessui/react";
+import { RadioGroup, Radio, Field } from "@headlessui/react";
 import { useState, useEffect } from "react";
 
 const themes = [
@@ -141,7 +141,6 @@ export default function DarkModeToggle() {
           >
             {theme.icon}
           </Radio>
-          <Label className="sr-only">{theme.name}</Label>
         </Field>
       ))}
     </RadioGroup>

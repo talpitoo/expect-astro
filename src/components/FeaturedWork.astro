@@ -42,11 +42,11 @@ const portfolioItems = portfolioEntries
         <div class="grid md:grid-cols-12 -mx-[15px]">
           <div class="md:col-span-5 lg:col-span-4 px-[15px] lg:pr-0 min-h-[625px] xl:min-h-[550px]">
             <div class="relative">
-              <h1
+              <h2
                 class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px] mt-0"
               >
                 Featured<br />work
-              </h1>
+              </h2>
               <!-- Navigation -->
               <span
                 class="swiper-navigation absolute top-0 right-0 md:right-auto md:-left-20 inline-flex items-center justify-center gap-4 leading-none"
@@ -77,7 +77,7 @@ const portfolioItems = portfolioEntries
                     data-id={item.id}
                     class="starting:opacity-0 transition-opacity"
                   >
-                    <h2
+                    <h3
                       class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case"
                       set:html={item.title}
                     />

@@ -1,11 +1,15 @@
-<div class="has-[:focus-visible]:outline-dashed has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 size-11 flex items-center justify-center relative z-0 rounded-full text-white bg-white/10 overflow-hidden">
+<div
+  class="has-[:focus-visible]:outline-dashed has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 size-11 flex items-center justify-center relative z-0 rounded-full text-white bg-white/10 overflow-hidden"
+>
   <input
     type="color"
     id="accent"
     name="accent"
     value="#990066"
+    aria-label="Choose accent color"
     class="rounded-full size-11 cursor-pointer absolute left-0 top-0 scale-150"
   />
+  <label for="accent" class="sr-only">Accent color</label>
 </div>
 
 <script is:inline>
@@ -19,8 +23,8 @@
       if (!val) return;
       root.style.setProperty("--color-primary", val);
       // Ensure accent theme class is applied so accent:* variants activate
-      if (!root.classList.contains('accent')) {
-        root.classList.add('accent');
+      if (!root.classList.contains("accent")) {
+        root.classList.add("accent");
       }
     }
 

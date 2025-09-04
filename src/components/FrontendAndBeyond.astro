@@ -33,11 +33,11 @@ const services = [
 ---
 
 <section class="beyond">
-  <h1
+  <h2
     class="font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-center md:-mt-[50px]"
   >
     Frontend <span class="text-primary">& beyond</span>
-  </h1>
+  </h2>
   <p
     class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]"
   >
@@ -50,7 +50,7 @@ const services = [
           services.map((service) => (
             <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
               <i>{service.icon}</i>
-              <h2
+              <h3
                 class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]"
                 set:html={service.title}
               />
