@@ -1,8 +1,10 @@
-<section
-  class="stars relative"
->
-<div class="moon-surface absolute inset-0 bg-[url('../img/moon-surface.webp?ver=28082025')] bg-bottom bg-no-repeat bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px]"></div>
-  <!-- data-parallax-factor="0.1" data-parallax-max-y="0" parallax-layer -->
+<section class="stars relative">
+  <div
+    class="moon-surface absolute inset-0 bg-[url('../img/moon-surface.webp?ver=28082025')] bg-bottom bg-no-repeat bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px]"
+  >
+    <!-- data-parallax-factor="5" data-parallax-factor-y="2" parallax-layer -->
+  </div>
+
   <div class="container-bootstrap relative">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -12,37 +14,51 @@
           It's full of stars
         </h2>
         <p class="mb-3">
-          Expect extraordinary taste, subtle details and sophisticated code.
-          <br>
+          Expect extraordinary taste, subtle details and sophisticated code.<br
+          />
           <a href="#monolith" class="text-primary">Expect the unexpected.</a>
         </p>
+
         <a
           id="monolith"
           class="monolith-container parallax-layer block text-primary focus-visible:outline-0"
-          data-parallax-factor="2.0"
+          data-parallax-factor="21"
           href="https://www.youtube.com/watch?v=ou6JNQwPWE0"
           rel="noopener noreferrer"
         >
           <div class="monolith show-front">
-            <figure class="front bg-primary/50 block absolute outline-offset-0"></figure>
-            <figure class="back bg-primary/50 block absolute outline-offset-0"></figure>
-            <figure class="right bg-primary/50 block absolute outline-offset-0"></figure>
-            <figure class="left bg-primary/50 block absolute outline-offset-0"></figure>
-            <figure class="top bg-primary/50 block absolute outline-offset-0"></figure>
-            <figure class="bottom bg-primary/50 block absolute outline-offset-0"></figure>
+            <figure class="front bg-primary/50 block absolute outline-offset-0">
+            </figure>
+            <figure class="back bg-primary/50 block absolute outline-offset-0">
+            </figure>
+            <figure class="right bg-primary/50 block absolute outline-offset-0">
+            </figure>
+            <figure class="left bg-primary/50 block absolute outline-offset-0">
+            </figure>
+            <figure class="top bg-primary/50 block absolute outline-offset-0">
+            </figure>
+            <figure
+              class="bottom bg-primary/50 block absolute outline-offset-0"
+            >
+            </figure>
           </div>
           <span class="sr-only">Monolith</span>
         </a>
+
+        <div class="moonlanders -mb-px">
+          <!-- data-parallax-factor="25" data-parallax-factor-y="15" parallax-layer -->
+        </div>
       </div>
     </div>
-    <div class="moonlanders -mb-px"></div>
   </div>
 </section>
 
 <style>
-  /* Parallax base (only applied when JS enhances) */
+  /* Parallax targets (keep) */
   .parallax-layer {
     will-change: transform;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
 
   .moonlanders {
@@ -155,90 +171,92 @@
     .bottom {
       transform: rotateX(-90deg) translateZ(135px);
     }
+  }
 
-    /* .no-csstransforms3d & {
-      .back,
-      .right,
-      .left,
-      .top,
-      .bottom {
-        display: none;
-      }
-    } */
+  @keyframes spinX {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
   }
 </style>
 
 <script is:inline>
-  // Generic mouse-move parallax for any .parallax-layer in the section.
-  // Each layer can define: data-parallax-factor (0..1+), optional data-parallax-max-x / -max-y.
+  /* Parallax JS unchanged (ensures we append transforms without nuking spin) */
   (function () {
-    const section = document.querySelector('section.stars');
-    if (!section) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
+    const root = document.querySelector("section.stars");
+    if (!root) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const layers = Array.from(section.querySelectorAll('.parallax-layer'));
+    const layers = Array.from(root.querySelectorAll(".parallax-layer"));
     if (!layers.length) return;
 
-    // Ensure defaults & cache base transforms (if pre-existing).
-    layers.forEach(el => {
-      if (!el.dataset.parallaxFactor) el.dataset.parallaxFactor = '0.5';
-      if (!el.dataset.parallaxMaxX) el.dataset.parallaxMaxX = '30';
-      if (!el.dataset.parallaxMaxY) el.dataset.parallaxMaxY = '20';
-      el.dataset._baseTransform = getComputedStyle(el).transform === 'none' ? '' : getComputedStyle(el).transform;
-    });
+    const layerData = layers.map((el) => ({
+      el,
+      base: getComputedStyle(el).transform || "none",
+      fx: parseFloat(el.getAttribute("data-parallax-factor") || "0"),
+      fy: parseFloat(
+        el.getAttribute("data-parallax-factor-y") ||
+          el.getAttribute("data-parallax-factor") ||
+          "0"
+      ),
+    }));
 
-    let inView = false;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.target === section) inView = e.isIntersecting; });
-    }, { threshold: 0 });
-    io.observe(section);
-
-    let targetX = 0, targetY = 0;
-    let currentX = 0, currentY = 0;
+    let tx = 0,
+      ty = 0;
+    let cx = 0,
+      cy = 0;
+    let raf = 0;
     const ease = 0.08;
-    let rafId = 0;
 
-    function animate() {
-      const dx = targetX - currentX;
-      const dy = targetY - currentY;
-      if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
-        currentX += dx * ease;
-        currentY += dy * ease;
-        applyTransforms(currentX, currentY);
-        rafId = requestAnimationFrame(animate);
-      } else {
-        currentX = targetX; currentY = targetY;
-        applyTransforms(currentX, currentY);
-        rafId = 0;
-      }
-    }
-
-    function applyTransforms(nx, ny) {
-      layers.forEach(el => {
-        const f = parseFloat(el.dataset.parallaxFactor || '0');
-        const maxX = parseFloat(el.dataset.parallaxMaxX || '30');
-        const maxY = parseFloat(el.dataset.parallaxMaxY || '20');
-        const base = el.dataset._baseTransform || '';
-        const tx = (nx * maxX * f).toFixed(2);
-        const ty = (ny * maxY * f).toFixed(2);
-        el.style.transform = `${base} translate3d(${tx}px, ${ty}px, 0)`.trim();
+    function apply() {
+      layerData.forEach((d) => {
+        const base = d.base === "none" ? "" : d.base;
+        d.el.style.transform = `${base} translate3d(${(cx * d.fx).toFixed(2)}px, ${(cy * d.fy).toFixed(2)}px, 0)`;
       });
     }
 
-    function onPointerMove(ev) {
-      if (!inView) return;
-      const rect = section.getBoundingClientRect();
-      const xNorm = (ev.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-      const yNorm = (ev.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-      targetX = Math.max(-1, Math.min(1, xNorm));
-      targetY = Math.max(-1, Math.min(1, yNorm));
-      if (!rafId) rafId = requestAnimationFrame(animate);
+    function step() {
+      const dx = tx - cx;
+      const dy = ty - cy;
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        cx += dx * ease;
+        cy += dy * ease;
+        apply();
+        raf = requestAnimationFrame(step);
+      } else {
+        cx = tx;
+        cy = ty;
+        apply();
+        raf = 0;
+      }
     }
 
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) { targetX = 0; targetY = 0; if (!rafId) rafId = requestAnimationFrame(animate); }
-    });
+    function pointerMove(e) {
+      const rect = root.getBoundingClientRect();
+      const nx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+      const ny = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+      tx = Math.max(-1, Math.min(1, nx));
+      ty = Math.max(-1, Math.min(1, ny));
+      if (!raf) raf = requestAnimationFrame(step);
+    }
+
+    // NOTE: keep parallax even on mobile
+    // if (matchMedia("(pointer:fine)").matches) {
+      window.addEventListener("pointermove", pointerMove, { passive: true });
+    // } else {
+    //   let t = 0;
+    //   (function drift() {
+    //     tx = Math.sin(t) * 0.4;
+    //     ty = Math.cos(t * 0.6) * 0.3;
+    //     if (!raf) raf = requestAnimationFrame(step);
+    //     t += 0.01;
+    //     requestAnimationFrame(drift);
+    //   })();
+    // }
+
+    apply();
   })();
 </script>
