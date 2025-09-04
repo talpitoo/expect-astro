@@ -23,6 +23,8 @@ skills:
     url: "#"
   - name: critical + async CSS
     url: "#"
+  - name: GitHub Actions
+    url: https://docs.github.com/en/actions
 link:
   url: https://tothtamas.tt/
   text: tothtamas.tt

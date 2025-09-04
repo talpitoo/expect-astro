@@ -9,13 +9,13 @@ import "swiper/css/pagination";
 // const portfolioItems = portfolioEntries.map((entry: any) => entry.data);
 
 // Load and sort portfolio items - featured first, then by date (newest first)
-import { getCollection } from 'astro:content';
-const portfolioEntries = await getCollection('portfolio', ({ data }) => {
-  return data.status === 'published'; // Only published items
+import { getCollection } from "astro:content";
+const portfolioEntries = await getCollection("portfolio", ({ data }) => {
+  return data.status === "published"; // Only published items
 });
 
 const portfolioItems = portfolioEntries
-  .map(entry => entry.data)
+  .map((entry) => entry.data)
   .sort((a, b) => {
     // Featured items first
     if (a.featured !== b.featured) {
@@ -33,19 +33,18 @@ const portfolioItems = portfolioEntries
   <!-- Progress bar - using Swiper's built-in pagination -->
   <div class="swiper-pagination absolute top-0 left-0 w-full h-1 z-10"></div>
 
-  <div
-    class="container-bootstrap relative"
-  >
-  <!-- TODO: min-h-[550px] md:min-h-[625px] -->
+  <div class="container-bootstrap relative">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
         <div class="grid md:grid-cols-12 -mx-[15px]">
-          <div class="md:col-span-5 lg:col-span-4 px-[15px] md:pr-0 min-h-[625px] xl:min-h-[550px]">
+          <div
+            class="md:col-span-5 lg:col-span-4 px-[15px] md:pr-0 min-h-[760px] sm:min-h-[625px] xl:min-h-[550px]"
+          >
             <div class="relative">
               <h2
                 class="font-serif font-light leading-[1.1] mb-3 uppercase text-[46px] mt-0"
               >
-                Featured<br>work
+                Featured<br />work
               </h2>
               <!-- Navigation -->
               <span
@@ -67,10 +66,8 @@ const portfolioItems = portfolioEntries
                 </button>
               </span>
             </div>
-            <ul
-              class="list-unstyled portfolio-descriptions"
-            >
-            <!-- TODO: max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px] -->
+            <ul class="list-unstyled portfolio-descriptions">
+              <!-- TODO: max-[320px]:min-h-[400px] max-sm:min-h-[320px] max-md:min-h-[220px] -->
               {
                 portfolioItems.map((item: any) => (
                   <li
@@ -80,6 +77,11 @@ const portfolioItems = portfolioEntries
                     <h3
                       class="font-sans font-light leading-[1.1] text-lg mb-[30px] normal-case"
                       set:html={item.title}
+                    />
+                    <img
+                      src={`img/portfolio/${item.id}-1214x758.webp?ver=28082025`}
+                      alt={item.title}
+                      class="w-full h-auto mb-3 sm:hidden"
                     />
                     <Fragment set:html={item.content} />
                     <p class="sr-only">Tech stack:</p>
@@ -189,7 +191,7 @@ const portfolioItems = portfolioEntries
   <div class="swiper portfolio-thumbs-swiper mt-20 w-full">
     <div class="swiper-wrapper">
       {
-  portfolioItems.map((item: any) => (
+        portfolioItems.map((item: any) => (
           <div
             data-id={item.id}
             data-hash={item.id}
