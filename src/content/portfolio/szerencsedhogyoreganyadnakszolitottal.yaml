@@ -13,8 +13,10 @@ skills:
     url: https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5
   - name: CSS (inline)
     url: https://developer.mozilla.org/docs/Web/CSS
-  - name: Vanilla JavaScript
+  - name: vanilla JavaScript
     url: https://developer.mozilla.org/docs/Web/API/Document_Object_Model
+  - name: pixel art
+    url: "#"
 link:
   url: https://szerencsedhogyoreganyadnakszolitottal.hu/
   text: szerencsedhogyoreganyadnakszolitottal.hu

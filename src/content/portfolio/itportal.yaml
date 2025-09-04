@@ -20,11 +20,11 @@ skills:
     url: https://getbootstrap.com/
   - name: Swiper
     url: https://swiperjs.com/
-  - name: SEO
-    url: "#"
   - name: WOW.js
     url: https://wowjs.uk/
-  - name: Performance optimization
+  - name: performance optimization
+    url: "#"
+  - name: SEO
     url: "#"
 link:
   url: https://www.itportal.com/

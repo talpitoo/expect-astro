@@ -1,25 +1,22 @@
 id: seopal
-title: SEOpal Marketing Microsite
+title: SEOpal marketing microsite
 date: 2024-03-10
 featured: false
 tags: ['eleventy', 'tailwindcss', 'nunjucks', 'webpack', 'netlify-forms']
 status: published
 content: |
-  <p class="mb-3">A marketing site taken from Figma to an 11ty static build with TailwindCSS, hand-crafted CSS animations, an SVG sprite pipeline, and Netlify form integration.
+  <p class="mb-3">A marketing site taken from Figma to an Eleventy (11ty) static build 
+  with TailwindCSS, hand-crafted CSS animations, an SVG sprite pipeline, and Netlify form integration.
   </p>
 skills:
   - name: Eleventy (11ty)
     url: https://www.11ty.dev/
   - name: TailwindCSS
     url: https://tailwindcss.com/
-  - name: Tailwind Typography
-    url: https://github.com/tailwindlabs/tailwindcss-typography
-  - name: Gulp (SVG sprite)
+  - name: SVG sprite
     url: https://gulpjs.com/
-  - name: Netlify Forms + reCAPTCHA
+  - name: Netlify Forms
     url: https://docs.netlify.com/forms/setup/
-  - name: Clip Path Shapes
-    url: https://developer.mozilla.org/docs/Web/CSS/clip-path
 link:
   url: https://seopal.io/
   text: seopal.io

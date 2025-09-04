@@ -1,23 +1,25 @@
 id: justplaysnake
-title: HTML5 Snake Game
+title: HTML5 snake game<br />for Dreamers Inc.
 date: 2022-07-12
 featured: false
 tags: ['nextjs', 'react', 'typescript', 'canvas', 'game-development']
 status: published
 content: |
   <p class="mb-3">
-    A collaboration with a backend developer on the game logic, while I sliced the designs into HTML/CSS and refined the HTML5 <code>&lt;canvas&gt;</code> rendering. Built as a React single-page game.
+    Collaborated with a backend developer who handled the game logic while I focused 
+    on slicing designs into HTML/CSS and refining the HTML5 <code>&lt;canvas&gt;</code> rendering. 
+    Built as a React single-page game.
   </p>
 skills:
   - name: Photoshop
     url: "#todo"
-  - name: snake GIF animation
+  - name: GIF animation
     url: "#todo"
   - name: React
     url: https://reactjs.org/
   - name: Emotion CSS-in-JS
     url: https://emotion.sh/docs/@emotion/css
-  - name: HTML5 Canvas
+  - name: <canvas>
     url: https://developer.mozilla.org/docs/Web/API/Canvas_API
 link:
   url: https://justplaysnake.com/

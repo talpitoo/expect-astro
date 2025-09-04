@@ -1,6 +1,6 @@
 id: novalite
 title: |
-  Animated Storytelling Website
+  Animated storytelling website
 date: 2018-06-20
 featured: false
 tags: ['bootstrap', 'svg-animations', 'accessibility', 'progressive-enhancement', 'performance']
@@ -23,7 +23,7 @@ skills:
     url: "#"
   - name: SVG animation scenes
     url: "#todo"
-  - name: Progressive enhancement
+  - name: progressive enhancement
     url: "#"
 link:
   url: https://talpitoo.com/novalite/

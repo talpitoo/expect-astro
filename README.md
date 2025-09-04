@@ -1,12 +1,21 @@
-# Astro Starter Kit: Basics
+# [Expect Web Development](https://talpitoo.com/expect-agency/)
+
+Template for my [Expect Web Development](https://talpitoo.com/expect-agency/) website, 2025 facelift and revamp in [Astro](https://astro.build/).
+
+![Expect Web Development](https://talpitoo.com/expect-agency/img/cover1200x630.png "Expect Web Development")
+
+## 📲 Debugging localhost on phone
+
+1. Find your local IP address, e.g. on Linux by running `hostname -I`. This will display the IP address, typically something like `192.168.x.x`.
+2. Run `npm run dev -- --host --port 4321` then open http://192.168.x.x:4321 in your phone's browser.
+
+## 🧑‍🚀 Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
+## 📦 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 

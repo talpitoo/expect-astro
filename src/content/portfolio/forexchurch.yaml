@@ -1,5 +1,5 @@
 id: forexchurch
-title: Forex broker comparison & research platform
+title: Forex broker comparison<br />& research platform
 date: 2024-05-18
 featured: false
 tags: ['nextjs', 'react', 'typescript', 'tailwindcss', 'data-visualization']
@@ -13,8 +13,10 @@ skills:
     url: https://nextjs.org/
   - name: TailwindCSS
     url: https://tailwindcss.com/
-  - name: Headless UI
-    url: https://headlessui.com/
+  - name: Alpine.js
+    url: https://alpinejs.dev/
+  - name: Axios
+    url: https://axios-http.com/
   - name: Swiper
     url: https://swiperjs.com/
   - name: Chart.js
