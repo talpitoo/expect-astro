@@ -1,6 +1,6 @@
 id: tilt
 title: |
-  Analytics dashboard<br class="hidden lg:inline" />
+  Analytics dashboard<br class="hidden lg:inline">
   with custom Markdown blocks
 date: 2024-11-20
 featured: true

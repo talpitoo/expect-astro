@@ -1,5 +1,5 @@
 id: justplaysnake
-title: HTML5 snake game<br />for Dreamers Inc.
+title: HTML5 snake game<br>for Dreamers Inc.
 date: 2022-07-12
 featured: false
 tags: ['nextjs', 'react', 'typescript', 'canvas', 'game-development']

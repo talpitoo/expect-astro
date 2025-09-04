@@ -1,5 +1,5 @@
 id: dreamingsheep
-title: An online journal for your dreams<br />and beyond
+title: An online journal for your dreams<br>and beyond
 date: 2023-09-15
 featured: true
 tags: ['nextjs', 'blitzjs', 'mui', 'tailwindcss', 'prisma', 'postgresql', 'docker']
