@@ -21,7 +21,8 @@
         <a
           class="aspect-square size-11 flex items-center justify-center"
           onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
-          href="https://cv.tothtamas.tt/"><i class="overflow-visible!">poole</i></a
+          href="https://cv.tothtamas.tt/"
+          ><i class="overflow-visible!">poole</i></a
         >
       </div>
     </div>
@@ -110,3 +111,34 @@
     }
   }
 </style>
+
+<script is:inline>
+  (function () {
+    // Dr. Frank Poole
+    const animationPlaceholder = document.querySelector(
+      ".animation-placeholder"
+    );
+    if (animationPlaceholder) {
+      animationPlaceholder.addEventListener("click", function () {
+        this.classList.add("animation-flyoff");
+        setTimeout(function () {
+          console.debug(
+            "setTimeout branch executed for Dr. Frank Poole animation"
+          );
+          const placeholder = document.querySelector(".animation-placeholder");
+          if (placeholder) {
+            placeholder.classList.remove("animation-flyoff");
+            placeholder.style.display = "none";
+          }
+        }, 1982);
+        if (
+          typeof ga !== "undefined" &&
+          ga.hasOwnProperty("loaded") &&
+          ga.loaded === true
+        ) {
+          ga("send", "event", "button", "click", "Dr. Frank Poole");
+        }
+      });
+    }
+  })();
+</script>
