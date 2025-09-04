@@ -1,4 +1,4 @@
-# [Expect Web Development](https://talpitoo.com/expect-agency/)
+# Expect Web Development
 
 Template for my [Expect Web Development](https://talpitoo.com/expect-agency/) website, 2025 facelift and revamp in [Astro](https://astro.build/).
 
