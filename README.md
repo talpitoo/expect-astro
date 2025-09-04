@@ -2,7 +2,7 @@
 
 Template for my [Expect Web Development](https://talpitoo.com/expect-agency/) website, 2025 facelift and revamp in [Astro](https://astro.build/).
 
-![Expect Web Development](https://talpitoo.com/expect-agency/img/cover1200x630.png "Expect Web Development")
+![Expect Web Development](https://talpitoo.com/expect-agency/img/cover-accent1200x630.png "Expect Web Development")
 
 ## 📲 Debugging localhost on phone
 
