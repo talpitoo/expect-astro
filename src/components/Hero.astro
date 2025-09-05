@@ -14,10 +14,12 @@ import Awwwards from "./Awwwards.astro";
     alt="2001: A Space Odyssey"
     class="space-odyssey absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
     fetchpriority="high"
+    data-speed="0.7"
   />
   <div
     id="linear-gradient"
     class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"
+    data-speed="0.7"
   >
   </div>
   <img
@@ -27,6 +29,7 @@ import Awwwards from "./Awwwards.astro";
     loading="lazy"
     fetchpriority="low"
     decoding="async"
+    data-speed="0.7"
   />
   <img
     src="img/logo-expect.png?ver=28082025"
@@ -35,8 +38,9 @@ import Awwwards from "./Awwwards.astro";
     height="150"
     class="relative z-10 mt-[15px] -ml-11 md:-ml-10"
     fetchpriority="high"
+    data-speed="1.1"
   />
-  <div class="stripe">
+  <div class="stripe" data-speed="1.1">
     <h1
       class="font-sans font-bold not-italic text-[65px] mt-0 mb-2.5 leading-[1.1] max-md:text-[50px] max-sm:text-[32px]"
     >
@@ -133,7 +137,7 @@ import Awwwards from "./Awwwards.astro";
   }
 </style>
 
-<script>
+<!-- <script>
   // Cross-browser parallax that works on desktop and mobile
   function initParallax() {
     const spaceOdyssey = document.querySelector(".space-odyssey") as HTMLElement;
@@ -180,4 +184,4 @@ import Awwwards from "./Awwwards.astro";
   } else {
     initParallax();
   }
-</script>
+</script> -->
