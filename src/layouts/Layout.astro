@@ -49,6 +49,16 @@ import Footer from "../components/Footer.astro";
         ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
         effects: true,
       });
+
+      gsap.set(".cursor-follower", { xPercent: -50, yPercent: -50 });
+
+      let xTo = gsap.quickTo(".cursor-follower", "x", { duration: 0.6, ease: "power3" }),
+        yTo = gsap.quickTo(".cursor-follower", "y", { duration: 0.6, ease: "power3" });
+
+      window.addEventListener("mousemove", (e) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      });
     </script>
   </body>
 </html>

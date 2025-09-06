@@ -1,4 +1,4 @@
-<section class="intermission" id="intermission">
+<section class="bg-black cursor-all-scroll relative overflow-hidden" id="intermission">
   <div class="cursor-follower" id="cursorFollower">
     <img src="img/eva-pod-cursor64x64.png?ver=28082025" alt="Eva Pod Cursor" />
   </div>
@@ -33,27 +33,14 @@
 </section>
 
 <style>
-  .intermission {
-    background-color: black;
-    overflow: hidden;
-    /* cursor:
-      url("../img/eva-pod-cursor64x64.png?ver=28082025") 32 32,
-      crosshair; */
-
-    @apply cursor-all-scroll;
-  }
-
   .cursor-follower {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 9999;
     width: 64px;
     height: 64px;
     transition: opacity 0.5s;
-    will-change: transform;
-    opacity: 0;
   }
 
   .cursor-follower img {
@@ -64,7 +51,7 @@
 
   /* Hide cursor follower when hovering over grabbing cursor elements */
   a:hover ~ .cursor-follower,
-  .intermission:has(a:hover) .cursor-follower {
+  #intermission:has(a:hover) .cursor-follower {
     opacity: 0 !important;
   }
 
@@ -141,108 +128,28 @@
 </style>
 
 <script is:inline>
-  (function () {
-    // Smooth following without bounce - high damping, low stiffness
-    const spring = { damping: 0.15, stiffness: 0.008, restDelta: 0.001 };
-    
-    // Cursor follower with spring physics
-    class SpringFollower {
-      constructor(element, container) {
-        this.element = element;
-        this.container = container;
-        this.currentX = 0;
-        this.currentY = 0;
-        this.targetX = 0;
-        this.targetY = 0;
-        this.velocityX = 0;
-        this.velocityY = 0;
-        this.isInContainer = false;
-        
-        this.bindEvents();
-        this.animate();
-      }
-      
-      bindEvents() {
-        // Only track mouse when inside the intermission section
-        this.container.addEventListener('mouseenter', () => {
-          this.isInContainer = true;
-          this.element.style.opacity = '1';
-        });
-        
-        this.container.addEventListener('mouseleave', () => {
-          this.isInContainer = false;
-          this.element.style.opacity = '0';
-        });
-        
-        document.addEventListener('mousemove', (e) => {
-          if (this.isInContainer) {
-            this.targetX = e.clientX - 32; // Center the 64px image
-            this.targetY = e.clientY - 32;
-          }
-        });
-      }
-      
-      animate() {
-        if (this.isInContainer) {
-          // Smooth following physics - no bounce, just gradual approach
-          const deltaX = this.targetX - this.currentX;
-          const deltaY = this.targetY - this.currentY;
-          
-          // Apply very weak spring force for slow approach
-          const forceX = deltaX * spring.stiffness;
-          const forceY = deltaY * spring.stiffness;
-          
-          // Apply strong damping to prevent any oscillation
-          this.velocityX += forceX;
-          this.velocityY += forceY;
-          this.velocityX *= (1 - spring.damping);
-          this.velocityY *= (1 - spring.damping);
-          
-          // Update position
-          this.currentX += this.velocityX;
-          this.currentY += this.velocityY;
-          
-          // Apply transform
-          this.element.style.transform = `translate3d(${this.currentX}px, ${this.currentY}px, 0)`;
+  // Dr. Frank Poole
+  const animationPlaceholder = document.querySelector(".animation-placeholder");
+  if (animationPlaceholder) {
+    animationPlaceholder.addEventListener("click", function () {
+      this.classList.add("animation-flyoff");
+      setTimeout(function () {
+        console.debug(
+          "setTimeout branch executed for Dr. Frank Poole animation"
+        );
+        const placeholder = document.querySelector(".animation-placeholder");
+        if (placeholder) {
+          placeholder.classList.remove("animation-flyoff");
+          placeholder.style.display = "none";
         }
-        
-        // Continue animation
-        requestAnimationFrame(() => this.animate());
+      }, 1982);
+      if (
+        typeof ga !== "undefined" &&
+        ga.hasOwnProperty("loaded") &&
+        ga.loaded === true
+      ) {
+        ga("send", "event", "button", "click", "Dr. Frank Poole");
       }
-    }
-    
-    // Initialize cursor follower
-    const cursorFollower = document.getElementById('cursorFollower');
-    const intermissionSection = document.getElementById('intermission');
-    if (cursorFollower && intermissionSection) {
-      new SpringFollower(cursorFollower, intermissionSection);
-    }
-
-    // Dr. Frank Poole
-    const animationPlaceholder = document.querySelector(
-      ".animation-placeholder"
-    );
-    if (animationPlaceholder) {
-      animationPlaceholder.addEventListener("click", function () {
-        this.classList.add("animation-flyoff");
-        setTimeout(function () {
-          console.debug(
-            "setTimeout branch executed for Dr. Frank Poole animation"
-          );
-          const placeholder = document.querySelector(".animation-placeholder");
-          if (placeholder) {
-            placeholder.classList.remove("animation-flyoff");
-            placeholder.style.display = "none";
-          }
-        }, 1982);
-        if (
-          typeof ga !== "undefined" &&
-          ga.hasOwnProperty("loaded") &&
-          ga.loaded === true
-        ) {
-          ga("send", "event", "button", "click", "Dr. Frank Poole");
-        }
-      });
-    }
-  })();
+    });
+  }
 </script>
