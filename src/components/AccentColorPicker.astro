@@ -15,11 +15,11 @@
 <script>
   // Update --color-primary when the color picker changes
   (function () {
-    const input = document.getElementById("accent");
+    const input = document.getElementById("accent") as HTMLInputElement | null;
     if (!input) return;
     const root = document.documentElement;
 
-    function apply(val) {
+    function apply(val: string) {
       if (!val) return;
       root.style.setProperty("--color-primary", val);
       // Ensure accent theme class is applied so accent:* variants activate

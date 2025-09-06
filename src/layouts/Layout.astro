@@ -44,9 +44,9 @@ import Footer from "../components/Footer.astro";
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
       // Make GSAP available globally
-      window.gsap = gsap;
-      window.ScrollTrigger = ScrollTrigger;
-      window.ScrollSmoother = ScrollSmoother;
+      (window as any).gsap = gsap;
+      (window as any).ScrollTrigger = ScrollTrigger;
+      (window as any).ScrollSmoother = ScrollSmoother;
 
       // Initialize ScrollSmoother
       const smoother = ScrollSmoother.create({
