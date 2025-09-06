@@ -1,7 +1,4 @@
-<section
-  class="bg-black cursor-all-scroll overflow-hidden"
-  id="intermission"
->
+<section class="bg-black cursor-all-scroll overflow-hidden" id="intermission">
   <div class="container-bootstrap relative min-h-[300px]">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -46,6 +43,15 @@
     width: 64px;
     height: 64px;
     transition: opacity 0.5s;
+  }
+
+  @media (hover: none),
+    (any-hover: none),
+    (pointer: coarse),
+    (any-pointer: coarse) {
+    .cursor-follower {
+      display: none !important;
+    }
   }
 
   /* Hide cursor follower when hovering over grabbing cursor elements */
@@ -156,6 +162,10 @@
 <script is:inline>
   // Wait for GSAP to be ready
   function initCursorFollower() {
+    const canHover = window.matchMedia("(any-hover: hover)").matches;
+    const hasFinePointer = window.matchMedia("(any-pointer: fine)").matches;
+    if (!(canHover && hasFinePointer)) return;
+
     if (!window.gsap) return;
 
     const { gsap } = window;
