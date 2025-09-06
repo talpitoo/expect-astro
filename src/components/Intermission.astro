@@ -1,7 +1,7 @@
-<section class="bg-black cursor-all-scroll relative overflow-hidden" id="intermission">
-  <div class="cursor-follower" id="cursorFollower">
-    <img src="img/eva-pod-cursor64x64.png?ver=28082025" alt="Eva Pod Cursor" />
-  </div>
+<section
+  class="bg-black cursor-all-scroll relative overflow-hidden"
+  id="intermission"
+>
   <div class="container-bootstrap relative min-h-[300px]">
     <div class="grid md:grid-cols-12 -mx-[15px]">
       <div class="md:col-span-10 md:col-start-2 px-[15px]">
@@ -10,13 +10,20 @@
         >
           Inter<wbr />mission
         </h2>
-        <p class="mb-3 text-white">
+        <p class="mb-6 text-white">
           Read our <a
             onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
             href="https://cv.tothtamas.tt/"
             class="text-primary">freelancing manifesto</a
           > to see if we're a match.
         </p>
+        <div class="cursor-follower" id="cursorFollower">
+          <img
+            src="img/eva-pod-cursor64x64.png?ver=28082025"
+            alt="Eva Pod Cursor"
+            class="w-full h-full object-contain"
+          />
+        </div>
       </div>
     </div>
     <div class="animation-placeholder">
@@ -34,19 +41,10 @@
 
 <style>
   .cursor-follower {
-    position: absolute;
-    top: 0;
-    left: 0;
     pointer-events: none;
     width: 64px;
     height: 64px;
     transition: opacity 0.5s;
-  }
-
-  .cursor-follower img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
   }
 
   /* Hide cursor follower when hovering over grabbing cursor elements */
@@ -151,5 +149,47 @@
         ga("send", "event", "button", "click", "Dr. Frank Poole");
       }
     });
+  }
+</script>
+
+<script is:inline>
+  // Wait for GSAP to be ready
+  function initCursorFollower() {
+    if (!window.gsap) return;
+
+    const { gsap } = window;
+    const intermissionSection = document.getElementById("intermission");
+
+    if (!intermissionSection) return;
+
+    // gsap.set(".cursor-follower", { xPercent: -50, yPercent: -50 });
+
+    let xTo = gsap.quickTo(".cursor-follower", "x", {
+        duration: 0.6,
+        ease: "power3",
+      }),
+      yTo = gsap.quickTo(".cursor-follower", "y", {
+        duration: 0.6,
+        ease: "power3",
+      });
+
+    // Simply scope the mousemove to the intermission section only
+    intermissionSection.addEventListener("mousemove", (e) => {
+      // Get the section's bounding box to calculate relative coordinates
+      const rect = intermissionSection.getBoundingClientRect();
+      const relativeX = e.clientX - rect.left;
+      const relativeY = e.clientY - rect.top;
+
+      xTo(relativeX);
+      yTo(relativeY);
+    });
+  }
+
+  // Listen for GSAP ready event
+  document.addEventListener("gsap:ready", initCursorFollower);
+
+  // Fallback if GSAP is already loaded
+  if (window.gsap) {
+    initCursorFollower();
   }
 </script>
