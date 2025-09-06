@@ -41,6 +41,7 @@
 
 <style>
   .cursor-follower {
+    position: absolute;
     pointer-events: none;
     width: 64px;
     height: 64px;
@@ -162,26 +163,47 @@
 
     if (!intermissionSection) return;
 
-    // gsap.set(".cursor-follower", { xPercent: -50, yPercent: -50 });
+    // Use the element directly and center via xPercent/yPercent (no CSS changes)
+    const follower = document.getElementById("cursorFollower");
+    if (!follower) return;
 
-    let xTo = gsap.quickTo(".cursor-follower", "x", {
-        duration: 0.6,
-        ease: "power3",
-      }),
-      yTo = gsap.quickTo(".cursor-follower", "y", {
-        duration: 0.6,
-        ease: "power3",
-      });
+    // Ensure consistent positioning model independent of initial static position
+    gsap.set(follower, {
+      position: "absolute",
+      left: 0,
+      top: 0,
+      xPercent: -50,
+      yPercent: -50,
+    });
 
-    // Simply scope the mousemove to the intermission section only
+    // Coordinates must be relative to the same containing block the absolute element uses
+    const getContainerRect = () => {
+      const container =
+        /** @type {HTMLElement|null} */ (follower.offsetParent) ||
+        intermissionSection;
+      return container.getBoundingClientRect();
+    };
+
+    // Smooth lag while moving
+    const xTo = gsap.quickTo(follower, "x", {
+      duration: 0.6,
+      ease: "power1.out",
+    });
+    const yTo = gsap.quickTo(follower, "y", {
+      duration: 0.6,
+      ease: "power1.out",
+    });
+
+    // Track mouse only inside the intermission section
     intermissionSection.addEventListener("mousemove", (e) => {
-      // Get the section's bounding box to calculate relative coordinates
-      const rect = intermissionSection.getBoundingClientRect();
-      const relativeX = e.clientX - rect.left;
-      const relativeY = e.clientY - rect.top;
+      const rect = getContainerRect();
+      // With xPercent/yPercent = -50, x/y should be the raw cursor position in the container's coordinate space
+      const targetX = e.clientX - rect.left;
+      const targetY = e.clientY - rect.top;
 
-      xTo(relativeX);
-      yTo(relativeY);
+      // Lag follow
+      xTo(targetX);
+      yTo(targetY);
     });
   }
 
