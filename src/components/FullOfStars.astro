@@ -1,4 +1,4 @@
-<section class="stars relative">
+<section class="relative overflow-hidden" id="stars">
   <div
     class="moon-surface absolute inset-0 bg-[url('../img/moon-surface.webp?ver=28082025')] bg-bottom bg-no-repeat bg-[length:100%_auto] max-md:bg-[length:140%_auto] 2xl:bg-[center_300px]"
   >
@@ -45,7 +45,7 @@
           <span class="sr-only">Monolith</span>
         </a>
 
-        <div class="moonlanders -mb-px" data-speed="clamp(1.03)">
+        <div class="moonlanders -mb-4" data-speed="clamp(1.03)">
           <!-- data-parallax-factor="25" data-parallax-factor-y="15" parallax-layer -->
         </div>
       </div>
@@ -186,7 +186,7 @@
 <script is:inline>
   /* Parallax JS unchanged (ensures we append transforms without nuking spin) */
   (function () {
-    const root = document.querySelector("section.stars");
+    const root = document.querySelector("#stars");
     if (!root) return;
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
