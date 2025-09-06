@@ -9,28 +9,27 @@ import Awwwards from "./Awwwards.astro";
 ---
 
 <header id="top">
-  <img
-    src="img/stanley-kubrick-2001-space-odyssey-low-quality.jpg?ver=28082025"
-    alt="2001: A Space Odyssey"
-    class="space-odyssey absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
-    fetchpriority="high"
-    data-speed="0.7"
-  />
-  <div
-    id="linear-gradient"
-    class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"
-    data-speed="0.7"
-  >
+  <div class="absolute inset-0 w-full h-full" data-speed="clamp(0.7)">
+    <img
+      src="img/stanley-kubrick-2001-space-odyssey-low-quality.jpg?ver=28082025"
+      alt="2001: A Space Odyssey"
+      class="absolute inset-0 w-full h-full xl:aspect-[1920/865] object-cover xl:object-bottom"
+      fetchpriority="high"
+    />
+    <div
+      id="linear-gradient"
+      class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent accent:bg-gradient-to-r accent:from-primary accent:to-primary accent:mix-blend-hue"
+    >
+    </div>
+    <img
+      src="img/stanley-kubrick-2001-space-odyssey-mask.webp?ver=28082025"
+      alt="2001: A Space Odyssey"
+      class="hidden accent:block absolute inset-0 w-full h-full xl:aspect-[1920/865] object-cover xl:object-bottom"
+      loading="lazy"
+      fetchpriority="low"
+      decoding="async"
+    />
   </div>
-  <img
-    src="img/stanley-kubrick-2001-space-odyssey-mask.webp?ver=28082025"
-    alt="2001: A Space Odyssey"
-    class="space-odyssey-mask hidden accent:block absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-cover min-[1500px]:w-full min-[1500px]:h-auto"
-    loading="lazy"
-    fetchpriority="low"
-    decoding="async"
-    data-speed="0.7"
-  />
   <img
     src="img/logo-expect.png?ver=28082025"
     alt="Expect"
@@ -38,9 +37,9 @@ import Awwwards from "./Awwwards.astro";
     height="150"
     class="relative z-10 mt-[15px] -ml-11 md:-ml-10"
     fetchpriority="high"
-    data-speed="1.1"
+    x-data-lag="0.5"
   />
-  <div class="stripe" data-speed="1.1">
+  <div class="stripe" x-data-lag="0.5">
     <h1
       class="font-sans font-bold not-italic text-[65px] mt-0 mb-2.5 leading-[1.1] max-md:text-[50px] max-sm:text-[32px]"
     >
@@ -55,7 +54,10 @@ import Awwwards from "./Awwwards.astro";
       >
     </a>
   </div>
-  <div class="absolute bottom-4 right-4 z-50 flex flex-col gap-4">
+  <div
+    class="absolute bottom-4 right-4 z-50 flex flex-col gap-4"
+    x-data-lag="0.5"
+  >
     <DarkModeToggle />
     <div
       class="flex gap-0.5 rounded-full p-1 text-white bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 shadow"
@@ -122,66 +124,4 @@ import Awwwards from "./Awwwards.astro";
       text-overflow: ellipsis;
     }
   }
-
-  header,
-  header h1,
-  header q,
-  header .stripe,
-  header .linear-gradient,
-  header img,
-  .space-odyssey,
-  .space-odyssey-mask {
-    will-change: transform;
-    transform: translateZ(0);
-    /* backface-visibility: hidden; */
-  }
 </style>
-
-<!-- <script>
-  // Cross-browser parallax that works on desktop and mobile
-  function initParallax() {
-    const spaceOdyssey = document.querySelector(".space-odyssey") as HTMLElement;
-    const spaceOdysseyMask = document.querySelector(".space-odyssey-mask") as HTMLElement;
-    const factor = 1.5;
-
-    if (!spaceOdyssey && !spaceOdysseyMask) return;
-
-    let ticking = false;
-
-    function updateParallax() {
-      const scrollY =
-        window.pageYOffset || document.documentElement.scrollTop || 0;
-      const offset = Math.floor(scrollY / factor);
-
-      if (spaceOdyssey) {
-        spaceOdyssey.style.transform = `translate3d(0, calc(${offset}px), 0)`;
-      }
-      if (spaceOdysseyMask) {
-        spaceOdysseyMask.style.transform = `translate3d(0, calc(${offset}px), 0)`;
-      }
-
-      ticking = false;
-    }
-
-    function requestParallaxUpdate() {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }
-
-    // Initial call
-    updateParallax();
-
-    // Event listeners with passive scrolling
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", updateParallax, { passive: true });
-  }
-
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initParallax);
-  } else {
-    initParallax();
-  }
-</script> -->
