@@ -13,7 +13,7 @@ import Awwwards from "./Awwwards.astro";
     <img
       src="img/stanley-kubrick-2001-space-odyssey-low-quality.jpg?ver=28082025"
       alt="2001: A Space Odyssey"
-      class="absolute inset-0 w-full h-full xl:aspect-[1920/865] object-cover xl:object-bottom"
+      class="absolute inset-0 w-full h-full object-top object-cover"
       fetchpriority="high"
     />
     <div
@@ -24,7 +24,7 @@ import Awwwards from "./Awwwards.astro";
     <img
       src="img/stanley-kubrick-2001-space-odyssey-mask.webp?ver=28082025"
       alt="2001: A Space Odyssey"
-      class="hidden accent:block absolute inset-0 w-full h-full xl:aspect-[1920/865] object-cover xl:object-bottom"
+      class="hidden accent:block absolute inset-0 w-full h-full object-top object-cover"
       loading="lazy"
       fetchpriority="low"
       decoding="async"
@@ -37,9 +37,8 @@ import Awwwards from "./Awwwards.astro";
     height="150"
     class="relative z-10 mt-[15px] -ml-11 md:-ml-10"
     fetchpriority="high"
-    x-data-lag="0.5"
   />
-  <div class="stripe" x-data-lag="0.5">
+  <div class="stripe">
     <h1
       class="font-sans font-bold not-italic text-[65px] mt-0 mb-2.5 leading-[1.1] max-md:text-[50px] max-sm:text-[32px]"
     >
@@ -56,7 +55,6 @@ import Awwwards from "./Awwwards.astro";
   </div>
   <div
     class="absolute bottom-4 right-4 z-50 flex flex-col gap-4"
-    x-data-lag="0.5"
   >
     <DarkModeToggle />
     <div
