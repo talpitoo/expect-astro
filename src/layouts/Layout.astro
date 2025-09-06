@@ -13,24 +13,51 @@ import Footer from "../components/Footer.astro";
   </head>
   <!-- TODO: check itemptype for other pages -->
   <body itemscope itemtype="http://schema.org/WebPage">
-    <noscript>
-      <div
-        style="color: #8B7D4A; background-color: #FAFBF8; padding: 10px;"
-      >
-        ⚠️ <strong>Warning!</strong> For a better experience, enable JavaScript in
-        your browser.
-      </div>
-    </noscript>
-    <!--[if lt IE 11]>
+    <div id="smooth-content">
+      <noscript>
         <div style="color: #8B7D4A; background-color: #FAFBF8; padding: 10px;">
-          ⚠️ <strong>Warning!</strong> You are using an <strong style="text-decoration: underline;  text-underline-offset: 2px; text-decoration-thickness: 2px;">outdated</strong> browser. Please <strong><a href="https://browsehappy.com/">upgrade your browser</a></strong> to improve your experience.
+          ⚠️ <strong>Warning!</strong> For a better experience, enable JavaScript
+          in your browser.
         </div>
-    <![endif]-->
-    <ScriptGA />
-    <Hero />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+      </noscript>
+      <!--[if lt IE 11]>
+            <div style="color: #8B7D4A; background-color: #FAFBF8; padding: 10px;">
+              ⚠️ <strong>Warning!</strong> You are using an <strong style="text-decoration: underline;  text-underline-offset: 2px; text-decoration-thickness: 2px;">outdated</strong> browser. Please <strong><a href="https://browsehappy.com/">upgrade your browser</a></strong> to improve your experience.
+            </div>
+        <![endif]-->
+      <ScriptGA />
+
+      <Hero />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { ScrollSmoother } from "gsap/ScrollSmoother";
+
+      // Register plugins globally
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+      // Make GSAP available globally
+      (window as any).gsap = gsap;
+      (window as any).ScrollTrigger = ScrollTrigger;
+      (window as any).ScrollSmoother = ScrollSmoother;
+
+      // Initialize ScrollSmoother
+      const smoother = ScrollSmoother.create({
+        content: "#smooth-content",
+        smooth: 2,
+        normalizeScroll: true,
+        ignoreMobileResize: true,
+        effects: true,
+      });
+
+      // Dispatch ready event for components
+      document.dispatchEvent(new CustomEvent('gsap:ready'));
+    </script>
   </body>
 </html>
