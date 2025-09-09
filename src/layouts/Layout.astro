@@ -39,16 +39,16 @@ import Footer from "../components/Footer.astro";
       import { gsap } from "gsap";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
       import { ScrollSmoother } from "gsap/ScrollSmoother";
-      // import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+      import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
       // Register plugins globally
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-      // DrawSVGPlugin
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
 
       // Make GSAP available globally
       (window as any).gsap = gsap;
       (window as any).ScrollTrigger = ScrollTrigger;
       (window as any).ScrollSmoother = ScrollSmoother;
+      (window as any).DrawSVGPlugin = DrawSVGPlugin;
 
       // Initialize ScrollSmoother
       const smoother = ScrollSmoother.create({
@@ -60,11 +60,7 @@ import Footer from "../components/Footer.astro";
       });
 
       // Dispatch ready event for components
-      document.dispatchEvent(new CustomEvent('gsap:ready'));
-
-      // TODO
-      //draws all elements with the "draw-me" class applied 
-      // gsap.from("#ampersand", {duration:1,drawSVG: 0});
+      document.dispatchEvent(new CustomEvent("gsap:ready"));
     </script>
   </body>
 </html>
