@@ -4,6 +4,7 @@ import IconAstronaut from "./icons/IconAstronaut.astro";
 import IconJetsons from "./icons/IconJetsons.astro";
 import IconUfo from "./icons/IconUfo.astro";
 import IconHal9000 from "./icons/IconHal9000.astro";
+import IconHal9000Box from "./icons/IconHal9000Box.astro";
 import IconMonolith from "./icons/IconMonolith.astro";
 import IconLaika from "./icons/IconLaika.astro";
 import IconHelmet2001 from "./icons/IconHelmet2001.astro";
@@ -15,7 +16,7 @@ const services = [
   {
     icon: "helmet2001profile",
     title: "Design 2 HTML",
-    description: `<a href="#portfolio" class="text-primary">I am a UI developer with i++ years of experience — the glue between frontend, backend, and design. Not from an arts academy, but instinct tells me when a color palette is off or a space is missing between words. My core competency lies in the fine details.</a>`,
+    description: `<span class="text-primary">I am a UI developer with i++ years of experience — the glue between frontend, backend, and design. Not from an arts academy, but instinct tells me when a color palette is off or a space is missing between words. My core competency lies in the fine details.</span>`,
   },
   {
     icon: "evapodprofile",
@@ -30,17 +31,17 @@ Schema.org. Following these rules from the start ensures built-in
   {
     icon: "ufo",
     title: "Speed optimization",
-    description: `Performance is carefully fine-tuned — Core Web Vitals like LCP and CLS, async & defer, critical above-the-fold CSS, and seamless FOUT/FOIT/FOFT handling. Lazy loading, blazing-fast coding.`,
-  },
-  {
-    icon: "hal9000",
-    title: "AI",
-    description: `I can handle Git from the command line or SSH into a remote server, but I’m most confident with my AI copilot HAL 9000 — boosting speed, filling gaps, and streamlining my workflow.`,
+    description: `Performance is carefully fine-tuned — Core Web Vitals like LCP and CLS, async & defer, critical above-the-fold CSS, and seamless FOUT/FOIT/FOFT handling. Lazy loading, fast coding.`,
   },
   {
     icon: "monolith",
     title: "Consultation",
     description: `Overwhelmed by front-end details? I spot UI bottlenecks and tackle questions like ‘Are custom-looking checkboxes necessary?’, ‘How to ensure keyboard accessibility?’, or ‘Pixel-perfect vs. generic?’ — keeping the big picture in focus.`,
+  },
+  {
+    icon: "hal9000box",
+    title: "AI",
+    description: `I can handle Git from the command line or SSH into a remote server, but I’m most confident with my AI copilot HAL 9000 — boosting speed, filling gaps, and streamlining my workflow.`,
   },
   {
     icon: "laika",
@@ -72,6 +73,7 @@ Schema.org. Following these rules from the start ensures built-in
               {service.icon === "jetsons" && <IconJetsons class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "ufo" && <IconUfo class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "hal9000" &&  <IconHal9000 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
+              {service.icon === "hal9000box" &&  <IconHal9000Box class="mx-auto opacity-50 mt-[6px] mb-5 size-[120px]" />}
               {service.icon === "monolith" &&  <IconMonolith class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "laika" &&  <IconLaika class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "helmet2001" &&  <IconHelmet2001 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
