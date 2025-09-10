@@ -8,6 +8,8 @@ import IconMonolith from "./icons/IconMonolith.astro";
 import IconLaika from "./icons/IconLaika.astro";
 import IconHelmet2001 from "./icons/IconHelmet2001.astro";
 import IconHelmet2001Profile from "./icons/IconHelmet2001Profile.astro";
+import IconEvaPod from "./icons/IconEvaPod.astro";
+import IconEvaPodProfile from "./icons/IconEvaPodProfile.astro";
 
 const services = [
   {
@@ -16,7 +18,7 @@ const services = [
     description: `<a href="#portfolio" class="text-primary">I am a UI developer with i++ years of experience — the glue between frontend, backend, and design. Not from an arts academy, but instinct tells me when a color palette is off or a space is missing between words. My core competency lies in the fine details.</a>`,
   },
   {
-    icon: "jetsons",
+    icon: "evapodprofile",
     title: "Accessibility",
     description: `Web accessibility is ensured by staying up to date with the latest W3C standards, including <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, Section
 508, <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr>, and
@@ -74,6 +76,8 @@ Schema.org. Following these rules from the start ensures built-in
               {service.icon === "laika" &&  <IconLaika class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "helmet2001" &&  <IconHelmet2001 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               {service.icon === "helmet2001profile" &&  <IconHelmet2001Profile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
+              {service.icon === "evapod" &&  <IconEvaPod class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
+              {service.icon === "evapodprofile" &&  <IconEvaPodProfile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
               <h3
                 class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]"
                 set:html={service.title}
