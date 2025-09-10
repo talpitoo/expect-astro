@@ -1,3 +1,7 @@
+---
+import IconPoole from "./icons/IconPoole.astro";
+---
+
 <section class="bg-black cursor-all-scroll overflow-hidden" id="intermission">
   <div class="container-bootstrap relative min-h-[300px]">
     <div class="grid md:grid-cols-12 -mx-[15px]">
@@ -24,13 +28,16 @@
       </div>
     </div>
     <div class="animation-placeholder">
-      <div class="animation-spin">
+      <div
+        class="animation-spin absolute right-[100px] bottom-[50px] text-white"
+      >
         <a
-          class="aspect-square size-11 flex items-center justify-center cursor-grabbing"
+          class="aspect-square size-12 flex items-center justify-center cursor-grabbing"
           onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
           href="https://cv.tothtamas.tt/"
-          ><i class="overflow-visible!">poole</i></a
         >
+          <IconPoole class="overflow-visible! size-12" />
+        </a>
       </div>
     </div>
   </div>
@@ -69,9 +76,6 @@
 
   /* Dr. Frank Poole */
   .animation-placeholder {
-    font-size: 30px;
-    cursor: pointer;
-
     a {
       &,
       &:active,
@@ -86,19 +90,10 @@
 
   .animation-spin {
     animation: spinZ 4s infinite linear;
-    position: absolute;
-    right: 100px;
-    bottom: 50px;
-    color: white;
-    font-size: inherit;
-
-    span {
-      display: inline-block;
-    }
   }
 
-  .animation-flyoff {
-    animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0);
+  .animation-flyoff a {
+    animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0) forwards;
   }
 
   @keyframes spinX {
@@ -123,11 +118,11 @@
 
   @keyframes enlarge {
     0% {
-      font-size: 30px;
+      transform: scale(1);
     }
 
     100% {
-      font-size: 3000px;
+      transform: scale(62.5);
     }
   }
 </style>

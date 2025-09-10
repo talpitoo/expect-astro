@@ -1,4 +1,7 @@
 ---
+import IconTt from "./icons/IconTt.astro";
+import IconGithub from "./icons/IconGithub.astro";
+
 const socialLinks = [
   {
     url: "https://talpitoo.com/",
@@ -82,7 +85,8 @@ const socialLinks = [
                       href={link.url}
                       class={`${link.classes}`}
                     >
-                      <i>{link.icon}</i>
+                      {link.icon === "tt" && <IconTt class="size-[28px]" />}
+                      {link.icon === "github" && <IconGithub class="size-[28px]" />}
                     </a>
                   </li>
                 ))
