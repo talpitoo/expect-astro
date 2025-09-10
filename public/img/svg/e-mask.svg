@@ -1,0 +1,10 @@
+<svg width="14" height="32" viewBox="0 0 14 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="14" height="32" fill="#1E1E1E"/>
+<g id="e 1">
+<path id="Vector" d="M12.352 24.384L12.16 25.6H3.136L3.2 20.8L3.136 9.75999H12.16L12.288 9.95199L12.128 11.168L8.192 11.072H4.736L4.704 16.768L7.968 16.8L10.784 16.736L10.88 16.928L10.752 18.176L7.84 18.112L4.672 18.144V20.672L4.704 24.288H7.968L12.192 24.224L12.352 24.384Z" fill="black"/>
+<path id="Vector 3" d="M4 9.5V26" stroke="#FF0000" stroke-width="2"/>
+<path id="Vector 4" d="M4 10.5H12.5" stroke="#FF0000" stroke-width="2"/>
+<path id="Vector 5" d="M4 17.5H11.5" stroke="#FF0000" stroke-width="2"/>
+<path id="Vector 6" d="M4 25H13" stroke="#FF0000" stroke-width="2"/>
+</g>
+</svg>
