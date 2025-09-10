@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Tamás Tóth, frontend architect, @talpitoo
+    Tamás Tóth, front-end architect, @talpitoo
 
 # THANKS
 
