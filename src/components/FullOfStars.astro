@@ -59,6 +59,17 @@
       </div>
     </div>
   </div>
+
+  <div class="flex items-center gap-2.5 opacity-50 absolute top-7 right-10 rotate-270 origin-top-right">
+    <input
+      type="checkbox"
+      id="reducedMotionToggle"
+      class="accent-primary"
+      name="reducedMotionToggle"
+      value="false"
+    />
+    <label for="reducedMotionToggle" class="text-sm font-mono">prefers-reduced-motion</label>
+  </div>
 </section>
 
 <style>
@@ -191,11 +202,11 @@
 <script is:inline>
   /* Parallax JS unchanged (ensures we append transforms without nuking spin) */
   (function () {
-    const root = document.querySelector("#stars");
-    if (!root) return;
+    const sectionRoot = document.querySelector("#stars");
+    if (!sectionRoot) return;
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const layers = Array.from(root.querySelectorAll(".parallax-layer"));
+    const layers = Array.from(sectionRoot.querySelectorAll(".parallax-layer"));
     if (!layers.length) return;
 
     const layerData = layers.map((el) => ({
@@ -240,7 +251,7 @@
     }
 
     function pointerMove(e) {
-      const rect = root.getBoundingClientRect();
+      const rect = sectionRoot.getBoundingClientRect();
       const nx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
       const ny = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
       tx = Math.max(-1, Math.min(1, nx));

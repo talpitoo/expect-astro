@@ -50,14 +50,53 @@ import Footer from "../components/Footer.astro";
       (window as any).ScrollSmoother = ScrollSmoother;
       (window as any).DrawSVGPlugin = DrawSVGPlugin;
 
-      // Initialize ScrollSmoother
-      const smoother = ScrollSmoother.create({
-        content: "#smooth-content",
-        smooth: 2,
-        // normalizeScroll: true, // NOTE: causes 'pull to refresh' to not work on mobile
-        ignoreMobileResize: true,
-        effects: true,
-      });
+      // prefers-reduced-motion support
+      let reduceMotionCB = document.querySelector("#reducedMotionToggle");
+      reduceMotionCB.checked = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      reduceMotionCB.addEventListener("change", gsap.matchMediaRefresh); // force all matchMedia() stuff to revert and re-run
+
+      let mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
+          noPreference: `(prefers-reduced-motion: no-preference)`
+        },
+        (context) => {
+          let { noPreference, prefersReducedMotion } = context.conditions;
+          let reduceMotion = reduceMotionCB.checked; // if we weren't using a checkbox, we could just add another condition above: "(prefers-reduced-motion: reduce)"
+          // let tl = gsap.timeline({
+          //   scrollTrigger: {
+          //     trigger: ".gray",
+          //     scrub: 1,
+          //     end: "200%",
+          //     pin: true,
+          //   },
+          // });
+          // tl.to(".box", {
+          //   scale: reduceMotion ? 1.1 : 2,
+          // });
+
+          // Initialize ScrollSmoother only if reduced motion is not preferred
+          if (!reduceMotion && noPreference) {
+            const smoother = ScrollSmoother.create({
+              content: "#smooth-content",
+              smooth: 2,
+              // normalizeScroll: true, // NOTE: causes 'pull to refresh' to not work on mobile
+              ignoreMobileResize: true,
+              effects: true,
+            });
+            console.debug('GSAP ScrollSmoother was initiated.');
+          } else {
+            console.debug('prefers-reduced-motion');
+          }
+
+          // optionally return a cleanup function
+          // return () => console.debug("cleanup");
+        }
+      );
 
       // Dispatch ready event for components
       document.dispatchEvent(new CustomEvent("gsap:ready"));
