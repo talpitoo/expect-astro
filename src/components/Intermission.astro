@@ -92,6 +92,16 @@ import IconPoole from "./icons/IconPoole.astro";
     animation: spinZ 4s infinite linear;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .animation-spin {
+      animation-duration: 20s; /* Much slower for reduced motion */
+    }
+  }
+
+  :global(.prefers-reduced-motion) .animation-spin {
+    animation-duration: 20s; /* Much slower for reduced motion */
+  }
+
   .animation-flyoff a {
     animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0) forwards;
   }

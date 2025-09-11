@@ -193,6 +193,16 @@
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .monolith {
+      animation: none; /* disabled for reduced motion */
+    }
+  }
+
+  :global(.prefers-reduced-motion) .monolith {
+    animation: none; /* disabled for reduced motion */
+  }
+
   @keyframes spinX {
     from {
       transform: rotateX(0deg) rotateY(0deg);

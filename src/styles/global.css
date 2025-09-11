@@ -17,7 +17,7 @@
   --color-gray: #666;
   --color-gray-light: #ccc;
   --color-gray-lighter: #ececec;
-  --color-scrollbar-track: #f1f1f1;
+  --color-scrollbar-track: transparent;
 
   --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -56,7 +56,6 @@
 
 .dark {
   --swiper-pagination-progressbar-bg-color: rgba(127, 127, 127, 0.15);
-  --color-scrollbar-track: #010101;
 }
 
 .accent {
