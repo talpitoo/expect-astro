@@ -92,18 +92,20 @@ import IconPoole from "./icons/IconPoole.astro";
     animation: spinZ 4s infinite linear;
   }
 
+  .animation-flyoff a {
+    animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0) forwards;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .animation-spin {
+    .animation-spin,
+    .animation-flyoff a {
       animation-duration: 20s; /* Much slower for reduced motion */
     }
   }
 
-  :global(.prefers-reduced-motion) .animation-spin {
+  :global(.prefers-reduced-motion) .animation-spin,
+  :global(.prefers-reduced-motion) .animation-flyoff a {
     animation-duration: 20s; /* Much slower for reduced motion */
-  }
-
-  .animation-flyoff a {
-    animation: enlarge 2s 1 cubic-bezier(1, 0, 1, 0) forwards;
   }
 
   @keyframes spinX {
@@ -222,7 +224,7 @@ import IconPoole from "./icons/IconPoole.astro";
           });
 
           // Track mouse only inside the intermission section
-          intermissionSection.addEventListener("mousemove", (e) => {
+          function pointerMove(e) {
             const rect = getContainerRect();
             // With xPercent/yPercent = -50, x/y should be the raw cursor position in the container's coordinate space
             const targetX = e.clientX - rect.left;
@@ -231,9 +233,18 @@ import IconPoole from "./icons/IconPoole.astro";
             // Lag follow
             xTo(targetX);
             yTo(targetY);
-          });
+          }
+
+          intermissionSection.addEventListener("mousemove", pointerMove);
           console.debug("GSAP cursor follower was initiated.");
+
+          // Return cleanup function
+          return () => {
+            intermissionSection.removeEventListener("mousemove", pointerMove);
+            console.debug("GSAP cursor follower cleaned up.");
+          };
         } else {
+          // Reduced motion - hide cursor follower and clean up
           console.debug("prefers-reduced-motion (for GSAP cursor follower)");
         }
 

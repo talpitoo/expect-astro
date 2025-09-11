@@ -39,16 +39,10 @@ const socialLinks = [
                 href="https://talpitoo.com/"
                 class="text-gray-light">Tóth Tamás</a
               >, the
-              <abbr title="Chief executive officer" class=""
-                >CEO</abbr
-              >,
-              <abbr title="Chief technology officer" class=""
-                >CTO</abbr
-              > and
-              <abbr
-                title="Obsessive–compulsive disorder"
-                class="">OCD</abbr
-              > of Expect. <a
+              <abbr title="Chief executive officer" class="">CEO</abbr>,
+              <abbr title="Chief technology officer" class="">CTO</abbr> and
+              <abbr title="Obsessive–compulsive disorder" class="">OCD</abbr> of
+              Expect. <a
                 onclick="trackOutboundLink('https://talpitoo.com/expect-agency/2014/'); return false;"
                 href="https://talpitoo.com/expect-agency/2014/"
                 class="text-gray-light">2014</a
@@ -87,7 +81,9 @@ const socialLinks = [
                       class={`${link.classes}`}
                     >
                       {link.icon === "tt" && <IconTt class="size-[28px]" />}
-                      {link.icon === "github" && <IconGithub class="size-[28px]" />}
+                      {link.icon === "github" && (
+                        <IconGithub class="size-[28px]" />
+                      )}
                     </a>
                   </li>
                 ))
@@ -106,12 +102,13 @@ const socialLinks = [
               class="mt-[40px] lg:mt-0 lg:absolute lg:top-0 lg:right-0 mx-auto flex size-hal9000 lg:size-hal9000-lg justify-center items-center align-middle relative hover:transition-all hover:ease-in-out hover:transform hover:-rotate-5 hover:scale-110 duration-1000"
             >
               <div
-                class="inset-0 shadow-xl shadow-primary rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_5s]"
+                data-hal-shadow
+                class="inset-0 shadow-xl shadow-primary rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_5s] motion-reduce:[animation-duration:_20s]"
               >
               </div>
 
               <!-- neon -->
-              <!-- <div class="inset-0 shadow-lg shadow-pink-500 rounded-full absolute animate-spin [animation-duration:_5s]"></div>
+              <!-- <div class="inset-0 shadow-lg shadow-pink-500 rounded-full absolute animate-spin [animation-duration:_5s] motion-reduce:[animation-duration:_20s]"></div>
                 <div class="inset-0 shadow-lg shadow-violet-500 rounded-full absolute animate-spin scale-x-[-1] [animation-duration:_3s]"></div>
                 <div class="inset-0 shadow-lg shadow-cyan-500 rounded-full absolute animate-spin [animation-duration:_7s]"></div> -->
 
@@ -267,23 +264,7 @@ m1318 -630 c111 -52 173 -140 182 -258 8 -120 -48 -222 -159 -283 -48 -27 -63
     height: 40px;
   }
 
-  /* footer .stripe {
-    border-left: 15px solid rgba(255, 255, 255, 0.2);
-    padding: 20px 20px 20px var(--spacing-header);
-    position: relative;
-    z-index: 1;
+  :global(.prefers-reduced-motion) [data-hal-shadow] {
+    animation-duration: 20s; /* Much slower for reduced motion */
   }
-
-  @media (max-width: 767px) {
-    footer .stripe {
-      margin-top: 15px;
-      padding: 15px 20px 15px 42px;
-    }
-  }
-
-  @media (max-width: 320px) {
-    footer .stripe {
-      padding: 15px 20px 15px 32px;
-    }
-  } */
 </style>

@@ -9,7 +9,7 @@
     <a
       onclick="trackOutboundLink('mailto:mounttain@gmail.com'); return false;"
       href="mailto:mounttain@gmail.com"
-      class="btn btn-default btn-lg animate-rotating-border bg-primary-border-rotating">Drop a line</a
+      class="btn btn-default btn-lg animate-rotating-border motion-reduce:animate-none bg-primary-border-rotating">Drop a line</a
     >
     <a
       onclick="trackOutboundLink('https://www.upwork.com/fl/talpitoo'); return false;"
@@ -117,5 +117,9 @@
   .start .btn-primary:hover,
   .start .btn-primary:focus {
     transform: scale(1.1);
+  }
+
+  :global(.prefers-reduced-motion) .btn-default {
+    animation-duration: 100s; /* Much slower for reduced motion */
   }
 </style>
