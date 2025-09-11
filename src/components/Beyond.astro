@@ -212,68 +212,96 @@ import SvgDMask from "./SvgDMask.astro";
 
     const { gsap } = window;
 
-    // Trace SVG animation
-    let tl = gsap.timeline({ defaults: { duration: 0.6, ease: "none" } });
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 5 }) // -1 = infinite repeats
-      .from("#trace2 path", { drawSVG: 0, duration: 0.6 })
-      .from("#trace1 path", { drawSVG: 0, duration: 0.6, stagger: 0.05 }, "-=0.5")
-      .from("#trace3 path", { drawSVG: 0, duration: 0.6, stagger: 0.05 }, "-=0.4")
-      .from(
-        "#trace-b2 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-b1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-e1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-e2 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-e3 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-e4 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-y1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-y2 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-o1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-n1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      )
-      .from(
-        "#trace-d1 path",
-        { drawSVG: 0, duration: 0.6, stagger: 0.05 },
-        "-=0.5"
-      );
+    window.gsapMatchMedia.add(
+      {
+        prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
+        noPreference: `(prefers-reduced-motion: no-preference)`,
+      },
+      (context) => {
+        let { noPreference, prefersReducedMotion } = context.conditions;
+        let reduceMotion = reduceMotionCB.checked; // if we weren't using a checkbox, we could just add another condition above: "(prefers-reduced-motion: reduce)"
+
+        // Initialize DrawSVGPlugin only if reduced motion is not preferred
+        if (!reduceMotion && noPreference) {
+          // Trace SVG animation
+          let tl = gsap.timeline({ defaults: { duration: 0.6, ease: "none" } });
+          gsap
+            .timeline({ repeat: -1, repeatDelay: 5 }) // -1 = infinite repeats
+            .from("#trace2 path", { drawSVG: 0, duration: 0.6 })
+            .from(
+              "#trace1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace3 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.4"
+            )
+            .from(
+              "#trace-b2 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-b1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-e1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-e2 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-e3 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-e4 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-y1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-y2 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-o1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-n1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            )
+            .from(
+              "#trace-d1 path",
+              { drawSVG: 0, duration: 0.6, stagger: 0.05 },
+              "-=0.5"
+            );
+          console.debug("GSAP DrawSVGPlugin was initiated.");
+        } else {
+          console.debug("prefers-reduced-motion (for GSAP DrawSVGPlugin)");
+        }
+
+        // optionally return a cleanup function
+        // return () => console.debug("cleanup");
+      }
+    );
   }
 
   // Listen for GSAP ready event

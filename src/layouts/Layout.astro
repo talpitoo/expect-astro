@@ -44,12 +44,6 @@ import Footer from "../components/Footer.astro";
       // Register plugins globally
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
 
-      // Make GSAP available globally
-      (window as any).gsap = gsap;
-      (window as any).ScrollTrigger = ScrollTrigger;
-      (window as any).ScrollSmoother = ScrollSmoother;
-      (window as any).DrawSVGPlugin = DrawSVGPlugin;
-
       // prefers-reduced-motion support
       let reduceMotionCB = document.querySelector("#reducedMotionToggle");
       reduceMotionCB.checked = window.matchMedia(
@@ -57,9 +51,17 @@ import Footer from "../components/Footer.astro";
       ).matches;
       reduceMotionCB.addEventListener("change", gsap.matchMediaRefresh); // force all matchMedia() stuff to revert and re-run
 
-      let mm = gsap.matchMedia();
+      let gsapMatchMedia = gsap.matchMedia();
 
-      mm.add(
+      // Make GSAP available globally
+      (window as any).gsap = gsap;
+      (window as any).ScrollTrigger = ScrollTrigger;
+      (window as any).ScrollSmoother = ScrollSmoother;
+      (window as any).DrawSVGPlugin = DrawSVGPlugin;
+      (window as any).gsapMatchMedia = gsapMatchMedia;
+      (window as any).reduceMotionCB = reduceMotionCB;
+
+      gsapMatchMedia.add(
         {
           prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
           noPreference: `(prefers-reduced-motion: no-preference)`
@@ -90,7 +92,7 @@ import Footer from "../components/Footer.astro";
             });
             console.debug('GSAP ScrollSmoother was initiated.');
           } else {
-            console.debug('prefers-reduced-motion');
+            console.debug('prefers-reduced-motion (for GSAP ScrollSmoother)');
           }
 
           // optionally return a cleanup function

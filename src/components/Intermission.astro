@@ -157,59 +157,80 @@ import IconPoole from "./icons/IconPoole.astro";
 <script is:inline>
   // Wait for GSAP to be ready
   function initCursorFollower() {
-    const canHover = window.matchMedia("(any-hover: hover)").matches;
-    const hasFinePointer = window.matchMedia("(any-pointer: fine)").matches;
-    if (!(canHover && hasFinePointer)) return;
+    window.gsapMatchMedia.add(
+      {
+        prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
+        noPreference: `(prefers-reduced-motion: no-preference)`,
+        canHover: `(any-hover: hover)`,
+        hasFinePointer: `(any-pointer: fine)`,
+      },
+      (context) => {
+        let { noPreference, prefersReducedMotion, canHover, hasFinePointer } =
+          context.conditions;
+        let reduceMotion = window.reduceMotionCB?.checked || false;
 
-    if (!window.gsap) return;
+        // Initialize cursor follower only if reduced motion is not preferred
+        if (!reduceMotion && noPreference) {
+          if (!(canHover && hasFinePointer)) return;
 
-    const { gsap } = window;
-    const intermissionSection = document.getElementById("intermission");
+          if (!window.gsap) return;
 
-    if (!intermissionSection) return;
+          const { gsap } = window;
+          const intermissionSection = document.getElementById("intermission");
 
-    // Use the element directly and center via xPercent/yPercent (no CSS changes)
-    const follower = document.getElementById("cursorFollower");
-    if (!follower) return;
+          if (!intermissionSection) return;
 
-    // Ensure consistent positioning model independent of initial static position
-    gsap.set(follower, {
-      position: "absolute",
-      left: 0,
-      top: 0,
-      xPercent: -50,
-      yPercent: -50,
-    });
+          // Use the element directly and center via xPercent/yPercent (no CSS changes)
+          const follower = document.getElementById("cursorFollower");
+          if (!follower) return;
 
-    // Coordinates must be relative to the same containing block the absolute element uses
-    const getContainerRect = () => {
-      const container =
-        /** @type {HTMLElement|null} */ (follower.offsetParent) ||
-        intermissionSection;
-      return container.getBoundingClientRect();
-    };
+          // Ensure consistent positioning model independent of initial static position
+          gsap.set(follower, {
+            position: "absolute",
+            left: 0,
+            top: 0,
+            xPercent: -50,
+            yPercent: -50,
+          });
 
-    // Smooth lag while moving
-    const xTo = gsap.quickTo(follower, "x", {
-      duration: 0.6,
-      ease: "power1.out",
-    });
-    const yTo = gsap.quickTo(follower, "y", {
-      duration: 0.6,
-      ease: "power1.out",
-    });
+          // Coordinates must be relative to the same containing block the absolute element uses
+          const getContainerRect = () => {
+            const container =
+              /** @type {HTMLElement|null} */ (follower.offsetParent) ||
+              intermissionSection;
+            return container.getBoundingClientRect();
+          };
 
-    // Track mouse only inside the intermission section
-    intermissionSection.addEventListener("mousemove", (e) => {
-      const rect = getContainerRect();
-      // With xPercent/yPercent = -50, x/y should be the raw cursor position in the container's coordinate space
-      const targetX = e.clientX - rect.left;
-      const targetY = e.clientY - rect.top;
+          // Smooth lag while moving
+          const xTo = gsap.quickTo(follower, "x", {
+            duration: 0.6,
+            ease: "power1.out",
+          });
+          const yTo = gsap.quickTo(follower, "y", {
+            duration: 0.6,
+            ease: "power1.out",
+          });
 
-      // Lag follow
-      xTo(targetX);
-      yTo(targetY);
-    });
+          // Track mouse only inside the intermission section
+          intermissionSection.addEventListener("mousemove", (e) => {
+            const rect = getContainerRect();
+            // With xPercent/yPercent = -50, x/y should be the raw cursor position in the container's coordinate space
+            const targetX = e.clientX - rect.left;
+            const targetY = e.clientY - rect.top;
+
+            // Lag follow
+            xTo(targetX);
+            yTo(targetY);
+          });
+          console.debug("GSAP cursor follower was initiated.");
+        } else {
+          console.debug("prefers-reduced-motion (for GSAP cursor follower)");
+        }
+
+        // optionally return a cleanup function
+        // return () => console.debug("cleanup");
+      }
+    );
   }
 
   // Listen for GSAP ready event
