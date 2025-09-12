@@ -22,7 +22,7 @@
         <a
           id="monolith"
           class="monolith-container parallax-layer block text-primary focus-visible:outline-0"
-          data-parallax-factor="21"
+          data-parallax-factor="111"
           href="https://www.youtube.com/watch?v=ou6JNQwPWE0"
           rel="noopener noreferrer"
         >
@@ -239,74 +239,39 @@
           );
           if (!layers.length) return;
 
-          const layerData = layers.map((el) => ({
-            el,
-            base: getComputedStyle(el).transform || "none",
-            fx: parseFloat(el.getAttribute("data-parallax-factor") || "0"),
-            fy: parseFloat(
-              el.getAttribute("data-parallax-factor-y") ||
-                el.getAttribute("data-parallax-factor") ||
-                "0"
-            ),
-          }));
+          if (!window.gsap) return;
+          const { gsap } = window;
 
-          let tx = 0,
-            ty = 0;
-          let cx = 0,
-            cy = 0;
-          let raf = 0;
-          const ease = 0.08;
+          function parallaxIt(e, target, movement) {
+            const rect = sectionRoot.getBoundingClientRect();
+            const relX = e.clientX - rect.left;
+            const relY = e.clientY - rect.top;
 
-          function apply() {
-            layerData.forEach((d) => {
-              const base = d.base === "none" ? "" : d.base;
-              d.el.style.transform = `${base} translate3d(${(cx * d.fx).toFixed(2)}px, ${(cy * d.fy).toFixed(2)}px, 0)`;
+            gsap.to(target, {
+              duration: 1,
+              x: (relX - rect.width / 2) / rect.width * movement,
+              y: (relY - rect.height / 2) / rect.height * movement,
+              ease: "power2.out"
             });
           }
 
-          function step() {
-            const dx = tx - cx;
-            const dy = ty - cy;
-            if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-              cx += dx * ease;
-              cy += dy * ease;
-              apply();
-              raf = requestAnimationFrame(step);
-            } else {
-              cx = tx;
-              cy = ty;
-              apply();
-              raf = 0;
-            }
-          }
-
           function pointerMove(e) {
-            const rect = sectionRoot.getBoundingClientRect();
-            const nx =
-              (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-            const ny =
-              (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-            tx = Math.max(-1, Math.min(1, nx));
-            ty = Math.max(-1, Math.min(1, ny));
-            if (!raf) raf = requestAnimationFrame(step);
+            layers.forEach(layer => {
+              const fx = parseFloat(layer.getAttribute("data-parallax-factor") || "0");
+              parallaxIt(e, layer, fx);
+            });
           }
 
-          // NOTE: parallax for mouse, drifting otherwise
-          window.addEventListener("pointermove", pointerMove, {
+          sectionRoot.addEventListener("pointermove", pointerMove, {
             passive: true,
           });
 
-          apply();
-          console.debug("parallax initiated.");
+          console.debug("GSAP parallax initiated.");
 
           // Return cleanup function
           return () => {
-            window.removeEventListener("pointermove", pointerMove);
-            if (raf) {
-              cancelAnimationFrame(raf);
-              raf = 0;
-            }
-            console.debug("parallax cleaned up.");
+            sectionRoot.removeEventListener("pointermove", pointerMove);
+            console.debug("GSAP parallax cleaned up.");
           };
         } else {
           // Reduced motion - no animation at all
