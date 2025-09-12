@@ -188,6 +188,20 @@ import IconPoole from "./icons/IconPoole.astro";
           if (!window.gsap) return;
 
           const { gsap } = window;
+
+          // NOTE: optional pin syntax
+          // let st = window.ScrollTrigger.create({
+          //   trigger: "#intermission",
+          //   pin: "[data-pin]",
+          //   start: 'top top', // when the top of the trigger hits the top of the viewport
+          //   // end: "bottom-=100 top",
+          //   // pinSpacing: false, // If the pin duration (distance between start and end) is smaller than the trigger’s height, ScrollTrigger will extend the pin to cover the full height, unless you tell it otherwise.
+          //   // end: () => "bottom-=" + 100 + " top", // dynamically offset
+          //   endTrigger: "[data-pin]",
+          //   end: "bottom top-=140", // Ends 140px before the section's bottom reaches viewport top
+          //   // markers: true
+          // });
+
           const intermissionSection = document.getElementById("intermission");
 
           if (!intermissionSection) return;
