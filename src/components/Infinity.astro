@@ -6,7 +6,7 @@ import evaPod from "./icons/eva-pod.svg";
 <section id="infinity"
   class="infinity text-center min-h-screen px-0 overflow-hidden relative"
 >
-  <div class="absolute inset-10 top-1/6 flex flex-wrap gap-4">
+  <div class="absolute inset-0 starfield-container">
     <BrandLogos />
   </div>
   <img
@@ -28,6 +28,15 @@ import evaPod from "./icons/eva-pod.svg";
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+  }
+
+  /* Starfield positioning */
+  .starfield-container :global(img) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    pointer-events: none;
   }
 </style>
 
@@ -70,6 +79,52 @@ import evaPod from "./icons/eva-pod.svg";
               }
             );
             console.debug("EVA pod initiated.");
+          }
+
+          // GSAP: starfield animation using brand logos
+          const starfieldContainer = document.querySelector(".starfield-container");
+          const logos = starfieldContainer ? Array.from(starfieldContainer.querySelectorAll("img")) : [];
+
+          if (logos.length > 0) {
+            logos.forEach((logo, index) => {
+              // Random initial position at center
+              gsap.set(logo, {
+                x: 0,
+                y: 0,
+                scale: 0.05 + Math.random() * 0.1, // Random small scale
+              });
+
+              // Calculate random direction for starfield movement
+              const angle = (index / logos.length) * Math.PI * 2 + Math.random() * 0.5; // Spread evenly with some randomness
+              const distance = 300 + Math.random() * 800; // Random distance
+              const endX = Math.cos(angle) * distance;
+              const endY = Math.sin(angle) * distance;
+
+              // Create infinite starfield animation
+              const timelineStarfield = gsap.timeline({ repeat: -1 });
+              
+              timelineStarfield.fromTo(logo, 
+                {
+                  x: 0,
+                  y: 0,
+                  scale: 0.05,
+                },
+                {
+                  x: endX,
+                  y: endY,
+                  scale: 0.3 + Math.random() * 2.5,
+                  duration: 3 + Math.random() * 4, // 3-7 seconds
+                  ease: "expo.out",
+                  delay: Math.random() * 2 // Stagger start times
+                }
+              )
+              .to(logo, {
+                opacity: 0,
+                ease: "power2.in"
+              });
+            });
+
+            console.debug("Starfield animation initiated.");
           }
 
           // Return cleanup function

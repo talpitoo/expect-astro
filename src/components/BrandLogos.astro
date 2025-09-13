@@ -525,12 +525,12 @@ const logos = [
   logos
     .map((logo) => (
       <img
-        data-speed={logo.speed}
         src={`${logo.src}?ver=28082025`}
         alt={logo.name}
         class={logo.class}
         aria-hidden="true"
       />
+      // data-speed={logo.speed}
     ))
     .reverse()
 }
