@@ -3,20 +3,21 @@ import BrandLogos from "./BrandLogos.astro";
 import evaPod from "./icons/eva-pod.svg";
 ---
 
-<section
+<section id="infinity"
   class="infinity text-center min-h-screen px-0 overflow-hidden relative"
 >
   <div class="absolute inset-10 top-1/6 flex flex-wrap gap-4">
     <BrandLogos />
   </div>
   <img
-    data-speed="0.5"
+    id="eva-pod"
     src={evaPod.src}
     alt="Eva pod"
     class="size-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
     width="80"
     height="80"
   />
+  <!-- data-speed="0.5" -->
 
   <div class="container-bootstrap relative z-10"></div>
 </section>
@@ -29,3 +30,70 @@ import evaPod from "./icons/eva-pod.svg";
     background-size: cover;
   }
 </style>
+
+<script is:inline>
+  // Wait for GSAP to be ready
+  function initGsapInfinity() {
+    window.gsapMatchMedia.add(
+      {
+        prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
+        noPreference: `(prefers-reduced-motion: no-preference)`,
+      },
+      (context) => {
+        let { noPreference, prefersReducedMotion } = context.conditions;
+        let reduceMotion = window.reduceMotionCB?.checked || false;
+        const infinitySection = document.getElementById("infinity");
+        if (!infinitySection) return;
+
+        // Initialize GSAP only if reduced motion is not preferred
+        if (!reduceMotion && noPreference) {
+          if (!window.gsap) return;
+          const { gsap } = window;
+
+          // GSAP: EVA pod zoom in
+          const evaPod = document.getElementById("eva-pod");
+
+          if (evaPod) {
+            gsap.fromTo(
+              evaPod,
+              { scale: 10 }, // Start very zoomed in (500%)
+              {
+                scale: 0.1, // Scale down to normal size
+                // ease: "slow.out",
+                scrollTrigger: {
+                  trigger: evaPod,
+                  start: "top bottom", // When div's top reaches viewport bottom
+                  end: "bottom top", // When div's bottom reaches viewport top
+                  scrub: 1, // Smooth animation tied to scroll
+                  // markers: true // Remove in production
+                },
+              }
+            );
+            console.debug("EVA pod initiated.");
+          }
+
+          // Return cleanup function
+          return () => {
+            console.debug("GSAP EVA pod cleaned up.");
+          };
+        } else {
+          // Reduced motion - hide EVA pod and clean up
+          console.debug("prefers-reduced-motion (for GSAP EVA pod)");
+        }
+
+        // optionally return a cleanup function
+        // return () => console.debug("cleanup");
+      }
+    );
+  }
+
+  // Listen for GSAP ready event
+  document.addEventListener("gsap:ready", () => {
+    initGsapInfinity();
+  });
+
+  // Fallback if GSAP is already loaded
+  if (window.gsap) {
+    initGsapInfinity();
+  }
+</script>
