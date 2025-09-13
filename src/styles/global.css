@@ -99,11 +99,11 @@
   }
 
   .btn-default {
-    @apply text-white bg-transparent border-white hover:border-white! hover:bg-none!;
+    @apply text-white bg-transparent border-white hover:border-white! hover:bg-primary! hover:shadow-xl;
   }
 
   .btn-primary {
-    @apply text-primary bg-white border-white;
+    @apply text-primary bg-white border-white  hover:shadow-xl;
   }
 
   .btn-lg {

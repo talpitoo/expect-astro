@@ -1,28 +1,193 @@
-<img data-speed="2" src="img/logos/atlassian-color.svg?ver=28082025" alt="Atlassian" class="logo-smart" />
-<img data-speed="1.2" src="img/logos/aws-color.svg?ver=28082025" alt="AWS" class="logo-smart" />
-<img data-speed="1.3" src="img/logos/adobe-photoshop-cc-color.svg?ver=28082025" alt="Adobe Photoshop CC" class="logo-smart" />
-<img data-speed="1.05" src="img/logos/11ty.svg?ver=28082025" alt="11ty" class="logo-smart" />
-<img data-speed="1.5" src="img/logos/alpine-color.svg?ver=28082025" alt="Alpine.js" class="logo-smart" />
-<img data-speed="1.05" src="img/logos/tailwindcss-logotype-color.svg?ver=28082025" alt="TailwindCSS" class="logo-smart" />
-<img data-speed="1.025" src="img/logos/bootstrap-color.svg?ver=28082025" alt="Bootstrap" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/jekyll-black.svg?ver=28082025" alt="Jekyll" class="logo-smart invert" />
-<img data-speed="1.8" src="img/logos/astro-color.svg?ver=28082025" alt="Astro" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/blitz.svg?ver=28082025" alt="Blitz" class="logo-smart invert" />
-<img data-speed="1.4" src="img/logos/github-copilot.svg?ver=28082025" alt="GitHub Copilot" class="logo-smart invert" />
-<img data-speed="1.2" src="img/logos/chartjs-wordmark-color.svg?ver=28082025" alt="Chart.js" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/ChatGPT.svg?ver=28082025" alt="ChatGPT" class="logo-smart invert" />
-<img data-speed="1.2" src="img/logos/CSS3-color.svg?ver=28082025" alt="CSS3" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/docker-logo-color.svg?ver=28082025" alt="Docker" class="logo-smart" />
-<img data-speed="1.2" src="img/logos/Figma-color.svg?ver=28082025" alt="Figma" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/flowbite-color.svg?ver=28082025" alt="Flowbite" class="logo-smart" />
-<img data-speed="1" src="img/logos/github-full.svg" alt="GitHub" class="logo-smart invert" />
-<img data-speed="1.4" src="img/logos/gitlab-color.svg?ver=28082025" alt="GitLab" class="logo-smart" />
-<img data-speed="1.4" src="img/logos/gmail-color.svg?ver=28082025" alt="Gmail" class="logo-smart" />
-<img data-speed="1.1" src="img/logos/gsap-white.svg" alt="GSAP" class="logo-smart" />
-<img data-speed="1.2" src="img/logos/HTML5-color.svg" alt="HTML5" class="logo-smart" />
-<img data-speed="1.5" src="img/logos/highlight.js.png" alt="highlight.js" class="logo-smart" />
-<img data-speed="1.3" src="img/logos/vscode-color.svg?ver=28082025" alt="VSCode" class="logo-smart" />
-<img data-speed="1.3" src="img/logos/Recaptcha-color.svg?ver=28082025" alt="reCAPTCHA" class="logo-smart" />
+---
+const logos = [
+  // 11ty
+  { name: "11ty", src: "img/logos/11ty-mark.svg", type: "mark", speed: 1.05, class: "logo-smart" },
+  
+  // Adobe
+  { name: "Adobe Photoshop CC", src: "img/logos/adobe-photoshop-cc-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Alpine.js
+  { name: "Alpine.js", src: "img/logos/alpine-color.svg", type: "logo", speed: 1.5, class: "logo-smart" },
+  
+  // Astro
+  { name: "Astro", src: "img/logos/astro-color.svg", type: "logo", speed: 1.8, class: "logo-smart" },
+  
+  // Atlassian
+  { name: "Atlassian", src: "img/logos/atlassian-color.svg", type: "logo", speed: 2, class: "logo-smart" },
+//   { name: "Atlassian", src: "img/logos/atlassian-mark-color.svg", type: "mark", speed: 1.9, class: "logo-smart" },
+  
+  // AWS
+  { name: "AWS", src: "img/logos/aws-mark-color.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+  
+  // Blitz.js
+//   { name: "Blitz.js", src: "img/logos/blitzjs.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+  
+  // Bootstrap
+  { name: "Bootstrap", src: "img/logos/bootstrap-mark-color.svg", type: "mark", speed: 1.025, class: "logo-smart" },
+  
+  // Chart.js
+  { name: "Chart.js", src: "img/logos/chartjs-color.svg", type: "logo", speed: 1.2, class: "logo-smart" },
+//   { name: "Chart.js", src: "img/logos/chartjs-mark-color.svg", type: "mark", speed: 1.15, class: "logo-smart" },
+  
+  // ChatGPT
+  { name: "ChatGPT", src: "img/logos/chat-gpt-mark.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // CSS3
+  { name: "CSS3", src: "img/logos/css3-mark-color.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+//   { name: "CSS", src: "img/logos/css-mark-color.svg", type: "mark", speed: 1.1, class: "logo-smart" },
+  
+  // Docker
+  { name: "Docker", src: "img/logos/docker-color.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+//   { name: "Docker", src: "img/logos/docker-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Emotion
+  { name: "Emotion", src: "img/logos/emotion-mark-color.png", type: "mark", speed: 1.6, class: "logo-smart" },
+  
+  // Figma
+//   { name: "Figma", src: "img/logos/figma-color.svg", type: "logo", speed: 1.2, class: "logo-smart" },
+  { name: "Figma", src: "img/logos/figma-mark-color.svg", type: "mark", speed: 1.1, class: "logo-smart" },
+  
+  // Flowbite
+  { name: "Flowbite", src: "img/logos/flowbite-color.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+//   { name: "Flowbite", src: "img/logos/flowbite-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // GitHub
+  { name: "GitHub", src: "img/logos/github.svg", type: "logo", speed: 1, class: "logo-smart" },
+
+  // GitHub Copilot
+  { name: "GitHub Copilot", src: "img/logos/github-copilot.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+  
+  // GitLab
+  { name: "GitLab", src: "img/logos/gitlab-color.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+//   { name: "GitLab", src: "img/logos/gitlab-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Gmail
+  { name: "Gmail", src: "img/logos/gmail-mark-color.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // GSAP
+  { name: "GSAP", src: "img/logos/gsap.svg", type: "logo", speed: 1.1, class: "logo-smart" },
+  
+  // Highlight.js
+  { name: "highlight.js", src: "img/logos/highlightjs-mark-color.png", type: "mark", speed: 1.5, class: "logo-smart" },
+  
+  // HTML5
+  { name: "HTML5", src: "img/logos/html5-mark-color.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+  
+  // Jekyll
+  { name: "Jekyll", src: "img/logos/jekyll.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+  
+  // Jira
+  { name: "Jira", src: "img/logos/jira-color.svg", type: "logo", speed: 1.6, class: "logo-smart" },
+  
+  // jQuery
+  { name: "jQuery", src: "img/logos/jquery.svg", type: "logo", speed: 0.9, class: "logo-smart" },
+  
+  // LCP
+  { name: "LCP", src: "img/logos/lcp-color.svg", type: "logo", speed: 1.7, class: "logo-smart" },
+  
+  // Material-UI
+  { name: "Material-UI", src: "img/logos/mui-color.svg", type: "logo", speed: 1.5, class: "logo-smart" },
+//   { name: "Material-UI", src: "img/logos/mui-mark-color.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // NestJS
+  { name: "NestJS", src: "img/logos/nestjs-mark-color.svg", type: "mark", speed: 1.8, class: "logo-smart" },
+  
+  // Next.js
+  { name: "Next.js", src: "img/logos/nextjs.svg", type: "logo", speed: 1.6, class: "logo-smart" },
+  { name: "Next.js", src: "img/logos/nextjs-mark-color.svg", type: "mark", speed: 1.5, class: "logo-smart" },
+  
+  // Node.js
+  { name: "Node.js", src: "img/logos/nodejs.svg", type: "logo", speed: 1.3, class: "logo-smart" },
+  
+  // Nuxt
+  { name: "Nuxt", src: "img/logos/nuxt-color.svg", type: "logo", speed: 1.7, class: "logo-smart" },
+  
+  // OAuth
+  { name: "OAuth", src: "img/logos/oauth-mark-color.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+  
+  // PostgreSQL
+  { name: "PostgreSQL", src: "img/logos/postgresql-mark-color.png", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // Prisma
+  { name: "Prisma", src: "img/logos/prisma.svg", type: "logo", speed: 1.8, class: "logo-smart" },
+  
+  // React
+  { name: "React", src: "img/logos/react-color.svg", type: "logo", speed: 1.6, class: "logo-smart" },
+//   { name: "React", src: "img/logos/react-mark-color.svg", type: "mark", speed: 1.5, class: "logo-smart" },
+  
+  // reCAPTCHA
+  { name: "reCAPTCHA", src: "img/logos/recaptcha-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Recharts
+  { name: "Recharts", src: "img/logos/recharts-mark.png", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // Sass
+  { name: "Sass", src: "img/logos/sass-mark-color.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+  
+  // Schema.org
+  { name: "Schema.org", src: "img/logos/schema-org-color.svg", type: "logo", speed: 1.5, class: "logo-smart" },
+  
+  // SEO
+  { name: "SEO", src: "img/logos/seo-color.png", type: "logo", speed: 1.3, class: "logo-smart" },
+  
+  // shadcn/ui
+  { name: "shadcn/ui", src: "img/logos/shadcn-mark.svg", type: "mark", speed: 1.7, class: "logo-smart" },
+  
+  // Shopify
+  { name: "Shopify", src: "img/logos/shopify-color.svg", type: "logo", speed: 1.4, class: "logo-smart" },
+//   { name: "Shopify", src: "img/logos/shopify-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Slack
+  { name: "Slack", src: "img/logos/slack-color.png", type: "logo", speed: 1.6, class: "logo-smart" },
+//   { name: "Slack", src: "img/logos/slack-mark-color.svg", type: "mark", speed: 1.5, class: "logo-smart" },
+  
+  // SVG
+  { name: "SVG", src: "img/logos/svg-mark-color.svg", type: "mark", speed: 1.1, class: "logo-smart" },
+  
+  // Swiper
+  { name: "Swiper", src: "img/logos/swiper-mark-color.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // TailwindCSS
+  { name: "TailwindCSS", src: "img/logos/tailwindcss-color.svg", type: "logo", speed: 1.05, class: "logo-smart" },
+//   { name: "TailwindCSS", src: "img/logos/tailwindcss-mark-color.svg", type: "mark", speed: 1.0, class: "logo-smart" },
+  
+  // Tumblr
+  { name: "Tumblr", src: "img/logos/tumblr-color.png", type: "logo", speed: 1.8, class: "logo-smart" },
+//   { name: "Tumblr", src: "img/logos/tumblr-mark-color.png", type: "mark", speed: 1.7, class: "logo-smart" },
+  
+  // Vercel
+  { name: "Vercel", src: "img/logos/vercel.svg", type: "logo", speed: 1.3, class: "logo-smart" },
+//   { name: "Vercel", src: "img/logos/vercel-mark.svg", type: "mark", speed: 1.2, class: "logo-smart" },
+  
+  // VSCode
+  { name: "VSCode", src: "img/logos/vscode-mark-color.svg", type: "mark", speed: 1.3, class: "logo-smart" },
+  
+  // Vue.js
+  { name: "Vue.js", src: "img/logos/vuejs-mark-color.svg", type: "mark", speed: 1.6, class: "logo-smart" },
+  
+  // W3C
+  { name: "W3C", src: "img/logos/w3c-mark-color.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // WCAG
+  { name: "WCAG 2.1 AAA", src: "img/logos/wcag2aaa-color.svg", type: "logo", speed: 1.5, class: "logo-smart" },
+  
+  // WooCommerce
+  { name: "WooCommerce", src: "img/logos/woo-mark-color.svg", type: "mark", speed: 1.4, class: "logo-smart" },
+  
+  // WordPress
+  { name: "WordPress", src: "img/logos/wordpress.png", type: "logo", speed: 1.2, class: "logo-smart" }
+];
+
+---
+
+{logos.map(logo => (
+  <img
+    data-speed={logo.speed}
+    src={`${logo.src}?ver=28082025`}
+    alt={logo.name}
+    class={logo.class}
+  />
+))}
 
 <style>
   .logo-smart {
