@@ -97,6 +97,30 @@ import Footer from "../components/Footer.astro";
               ignoreMobileResize: true,
               effects: true,
             });
+
+            // Add scroll snap to #intermission section
+            // let snapTimeout: any;
+            // ScrollTrigger.create({
+            //   trigger: "#intermission",
+            //   start: "top bottom-=100",
+            //   end: "top top+100", 
+            //   onUpdate: (self) => {
+            //     clearTimeout(snapTimeout);
+            //     snapTimeout = setTimeout(() => {
+            //       const intermission = document.getElementById("intermission");
+            //       if (intermission) {
+            //         const rect = intermission.getBoundingClientRect();
+            //         // If close to top (within 100px), snap to exact top
+            //         if (Math.abs(rect.top) < 100) {
+            //           smoother.scrollTo("#intermission", true, "top top");
+            //           console.debug("Snapped to #intermission");
+            //         }
+            //       }
+            //     }, 150); // Delay to avoid constant snapping during scroll
+            //   },
+            //   markers: true
+            // });
+
             console.debug('GSAP ScrollSmoother was initiated.');
           } else {
             console.debug('prefers-reduced-motion (for GSAP ScrollSmoother)');
