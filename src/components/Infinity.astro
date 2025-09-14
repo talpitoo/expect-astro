@@ -42,15 +42,19 @@ import evaPod from "./icons/eva-pod.svg";
 </style>
 
 <script is:inline>
+  let breakPointMd = 768;
+
   // Wait for GSAP to be ready
   function initGsapInfinity() {
     window.gsapMatchMedia.add(
       {
         prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
         noPreference: `(prefers-reduced-motion: no-preference)`,
+        isDesktop: `(min-width: ${breakPointMd}px)`,
+        isMobile: `(max-width: ${breakPointMd - 1}px)`,
       },
       (context) => {
-        let { noPreference, prefersReducedMotion } = context.conditions;
+        let { noPreference, prefersReducedMotion, isDesktop, isMobile } = context.conditions;
         let reduceMotion = window.reduceMotionCB?.checked || false;
         const infinitySection = document.getElementById("infinity");
         if (!infinitySection) return;
@@ -68,7 +72,7 @@ import evaPod from "./icons/eva-pod.svg";
               evaPod,
               {
                 scale: 10,
-                opacity: 0.01
+                opacity: 0.01,
               }, // Start very zoomed in (500%)
               {
                 scale: 0.1, // Scale down to normal size
@@ -110,7 +114,7 @@ import evaPod from "./icons/eva-pod.svg";
               const angle =
                 (index / logos.length) * Math.PI * 2 + Math.random() * 0.5; // Spread evenly with some randomness
               // const distance = 300 + Math.random() * 800; // Random distance
-              const distance = 300 + Math.random() * 1100; // Random distance
+              const distance = 300 + Math.random() * (isDesktop ? 1100 : 100); // Random distance desktop/mobile
               const endX = Math.cos(angle) * distance;
               const endY = Math.sin(angle) * distance;
 
