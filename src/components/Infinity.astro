@@ -72,17 +72,17 @@ import evaPod from "./icons/eva-pod.svg";
               evaPod,
               {
                 scale: 10,
-                opacity: 0.01,
+                opacity: 0,
               }, // Start very zoomed in (500%)
               {
                 scale: 0.1, // Scale down to normal size
                 opacity: 1,
-                ease: "expo.out",
+                ease: "power1.out",
                 scrollTrigger: {
                   trigger: infinitySection,
                   start: "top top", // When infinity section's top reaches viewport top
                   end: "+=100%", // Pin for the full height of the viewport
-                  scrub: 2, // Smooth animation tied to scroll
+                  scrub: 1, // Smooth animation tied to scroll
                   pin: infinitySection, // Pin the entire infinity section
                   // markers: true // Remove in production
                 },
@@ -125,6 +125,11 @@ import evaPod from "./icons/eva-pod.svg";
 
               // Create infinite starfield animation
               const timelineStarfield = gsap.timeline({ repeat: -1 });
+              const moveDuration = 5 + Math.random() * 4; // 5-9 seconds
+              const restartOffset = moveDuration * 0.5; // Start next cycle when 50% through current movement
+              
+              // Spread initial delays evenly across the restart cycle to avoid initial blast
+              const initialDelay = (index / logos.length) * restartOffset;
 
               timelineStarfield
                 .fromTo(
@@ -138,14 +143,16 @@ import evaPod from "./icons/eva-pod.svg";
                     x: endX,
                     y: endY,
                     scale: 2 + Math.random() * 2.5,
-                    duration: 9 + Math.random() * 4,
+                    duration: moveDuration,
                     ease: "cubic-bezier(0, 0, 0, 1)",
-                    delay: Math.random() * 2, // Stagger start times
+                    delay: initialDelay, // Evenly distributed delays based on index
                   }
                 )
-                .to(logo, {
-                  opacity: 0,
-                  ease: "power2.in",
+                .set(logo, {
+                  x: 0,
+                  y: 0,
+                  scale: 0.05,
+                  delay: -restartOffset, // Negative delay creates overlap for continuous effect
                 });
             });
 
