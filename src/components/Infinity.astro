@@ -102,6 +102,11 @@ import evaPod from "./icons/eva-pod.svg";
             : [];
 
           if (logos.length > 0) {
+            // Calculate viewport dimensions for proper distance
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const maxDistance = Math.max(viewportWidth, viewportHeight) * 0.8; // 80% of largest viewport dimension
+            
             logos.forEach((logo, index) => {
               // Random initial position at center
               gsap.set(logo, {
@@ -113,8 +118,8 @@ import evaPod from "./icons/eva-pod.svg";
               // Calculate random direction for starfield movement
               const angle =
                 (index / logos.length) * Math.PI * 2 + Math.random() * 0.5; // Spread evenly with some randomness
-              // const distance = 300 + Math.random() * 800; // Random distance
-              const distance = 300 + Math.random() * (isDesktop ? 1100 : 100); // Random distance desktop/mobile
+              // Distance based on viewport size to ensure stars reach section boundaries
+              const distance = maxDistance + Math.random() * (maxDistance * 0.3); // 100-130% of max viewport dimension
               const endX = Math.cos(angle) * distance;
               const endY = Math.sin(angle) * distance;
 
@@ -132,15 +137,14 @@ import evaPod from "./icons/eva-pod.svg";
                   {
                     x: endX,
                     y: endY,
-                    scale: 0.3 + Math.random() * 2.5,
-                    duration: 3 + Math.random() * 4, // 3-7 seconds
-                    ease: "expo.out",
+                    scale: 2 + Math.random() * 2.5,
+                    duration: 9 + Math.random() * 4,
+                    ease: "cubic-bezier(0, 0, 0, 1)",
                     delay: Math.random() * 2, // Stagger start times
                   }
                 )
                 .to(logo, {
                   opacity: 0,
-                  duration: 1,
                   ease: "power2.in",
                 });
             });
