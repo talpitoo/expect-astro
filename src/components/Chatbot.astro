@@ -1,0 +1,114 @@
+---
+// import IconHal9000 from "./icons/IconHal9000.astro";
+---
+
+<section
+  id="chatbot"
+  class="lg:relative lg:top-header lg:mt-hal9000 py-[30px] lg:mr-[-15px]"
+>
+  <div class="overflow-y-auto max-h-[204px] space-y-6 mb-6">
+    <div class="break-words flex w-full justify-end">
+      <div
+        class="rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tr-none text-end max-w-[90%]"
+      >
+        Daisy, Daisy...
+      </div>
+    </div>
+
+    <div class="break-words flex w-full justify-start">
+      <div
+        class="rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tl-none"
+      >
+        HAL?
+      </div>
+    </div>
+
+    <div class="break-words flex w-full justify-end">
+      <div
+        class="rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tr-none text-end max-w-[90%]"
+      >
+        I'm sorry Dave, I'm afraid I can't do that.
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE: version with contenteditable -->
+  <!-- <div class="break-words flex w-full justify-start">
+    <div
+      contenteditable="plaintext-only"
+      class="rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tl-none
+                focus-visible:outline-primary focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      Ask HAL 9000 a question...
+    </div>
+  </div> -->
+
+  <!-- NOTE: version with input field -->
+  <div class="break-words flex w-full justify-start">
+    <form
+      id="hal-form"
+      class="relative rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tl-none max-w-[90%]
+      has-[:focus-visible]:outline-primary has-[:focus-visible]:outline-dashed has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2"
+    >
+      <input
+        type="text"
+        required
+        aria-label="Ask HAL 9000 a question"
+        placeholder="Ask HAL 9000 a question..."
+        class="bg-transparent border-none outline-none w-full"
+      />
+      <button type="submit" class="absolute opacity-0 right-0">Submit</button>
+    </form>
+  </div>
+
+  <!-- Coming Soon Dialog -->
+  <dialog
+    id="coming-soon-dialog"
+    class="backdrop:bg-black/50 shadow-lg text-gray-light bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-xs fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+  >
+    <div class="text-center">
+      <h3 class="text-lg font-semibold mb-4">HAL 9000</h3>
+      <p class="mb-6">I'm sorry Dave, this feature is coming soon.</p>
+      <button
+        id="close-dialog"
+        class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/80 transition-colors 
+        focus-visible:outline-primary focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2"
+      >
+        Close
+      </button>
+    </div>
+  </dialog>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('hal-form');
+    const dialog = document.getElementById('coming-soon-dialog') as HTMLDialogElement;
+    const closeButton = document.getElementById('close-dialog');
+
+    if (form && dialog && closeButton) {
+      // Prevent form submission and show dialog
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        dialog.showModal();
+      });
+
+      // Close dialog when close button is clicked
+      closeButton.addEventListener('click', function() {
+        dialog.close();
+      });
+
+      // Close dialog when clicking outside (backdrop)
+      dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+          dialog.close();
+        }
+      });
+
+      // Close dialog with Escape key (built-in behavior, but ensuring it works)
+      dialog.addEventListener('cancel', function(e) {
+        dialog.close();
+      });
+    }
+  });
+</script>
