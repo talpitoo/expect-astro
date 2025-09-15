@@ -15,6 +15,9 @@ const portfolio = defineCollection({
       url: z.string(),
       text: z.string(),
     }),
+    github: z.object({
+      url: z.string(),
+    }).optional(),
     // New fields for sorting and filtering
     date: z.date(),                                          // For chronological sorting
     featured: z.boolean().default(false),                    // Highlight important items

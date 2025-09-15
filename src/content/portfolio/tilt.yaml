@@ -26,3 +26,5 @@ skills:
 link:
   url: https://tilt-drab.vercel.app/
   text: tilt-drab.vercel.app
+github:
+  url: https://github.com/talpitoo/tilt-nextjs-shadcn-tailwindcss

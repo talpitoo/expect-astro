@@ -1,4 +1,6 @@
 ---
+import IconGithub from "./icons/IconGithub.astro";
+import IconExternal from "./icons/IconExternal.astro";
 import "swiper/css";
 import "swiper/css/pagination";
 // import 'swiper/css/navigation';
@@ -98,10 +100,24 @@ const portfolioItems = portfolioEntries
                       <a
                         onclick={`trackOutboundLink('${item.link.url}'); return false;`}
                         href={item.link.url}
-                        class="text-primary text-lg font-light dark:mix-blend-plus-lighter"
+                        class="text-primary font-normal text-lg dark:mix-blend-plus-lighter"
                         rel="noopener noreferrer"
-                        set:html={item.link.text}
-                      />
+                      >
+                        <span set:html={item.link.text} />
+                        <IconExternal class="inline size-4 shrink-0" />
+                      </a>
+
+                      {item.github?.url && (
+                        <a
+                          onclick={`trackOutboundLink('${item.github.url}'); return false;`}
+                          href={item.github.url}
+                          class="text-primary font-normal text-lg dark:mix-blend-plus-lighter"
+                          rel="noopener noreferrer"
+                        >
+                          <span class="sr-only">View on GitHub</span>
+                          <IconGithub class="inline size-5 ml-4" />
+                        </a>
+                      )}
                     </p>
                   </li>
                 ))
