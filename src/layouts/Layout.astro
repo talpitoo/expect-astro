@@ -98,6 +98,16 @@ import Footer from "../components/Footer.astro";
               effects: true,
             });
 
+            // smooth scroll to anchor links
+            gsap.utils.toArray("[data-href-anchor]").forEach(function (button, i) {
+              button.addEventListener("click", (e) => {
+                e.preventDefault();
+                var id = e.target.getAttribute("href");
+                console.debug(id);
+                smoother.scrollTo(id, true, "top top");
+              });
+            });
+
             // Add scroll snap to #intermission section
             // let snapTimeout: any;
             // ScrollTrigger.create({

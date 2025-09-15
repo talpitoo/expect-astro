@@ -120,8 +120,9 @@ const socialLinks = [
                 <div class="inset-0 shadow-lg shadow-cyan-500 rounded-full absolute animate-spin [animation-duration:_7s]"></div> -->
 
               <a
+                data-href-chatbot
                 href="#hal-9000"
-                class="overflow-hidden flex flex-col items-center justify-center size-hal9000 lg:size-hal9000-lg bg-gray-dark rounded-full relative 
+                class="overflow-hidden flex flex-col items-center justify-center size-hal9000 lg:size-hal9000-lg bg-gray-dark rounded-full relative
                 focus-visible:outline-primary"
               >
                 <!-- NOTE: "Expect us." -->
@@ -216,14 +217,18 @@ m1318 -630 c111 -52 173 -140 182 -258 8 -120 -48 -222 -159 -283 -48 -27 -63
           </a>
         </div> -->
         <div class="text-center lg:text-left">
-        <a href="#top" class="inline-block mx-auto lg:-ml-14">
-          <img
-            src="img/logo-expect.png?ver=28082025"
-            alt="Expect"
-            width="300"
-            height="150"
-          />
-        </a>
+          <a
+            data-href-anchor
+            href="#top"
+            class="inline-block mx-auto lg:-ml-14"
+          >
+            <img
+              src="img/logo-expect.png?ver=28082025"
+              alt="Expect"
+              width="300"
+              height="150"
+            />
+          </a>
         </div>
         <!--  -mb-14 TODO causing overflow issues -->
         <img
@@ -280,3 +285,17 @@ m1318 -630 c111 -52 173 -140 182 -258 8 -120 -48 -222 -159 -283 -48 -27 -63
     animation-duration: 20s; /* Much slower for reduced motion */
   }
 </style>
+
+<script>
+  // Handle chatbot link focusing
+  const chatbotButton = document.querySelector("[data-href-chatbot]");
+  if (chatbotButton) {
+    chatbotButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      var targetElement = document.querySelector("#hal-9000");
+      if (targetElement && targetElement instanceof HTMLElement) {
+        targetElement.focus();
+      }
+    });
+  }
+</script>
