@@ -19,12 +19,11 @@
           <a href="#monolith" class="text-primary">Expect the unexpected.</a>
         </p>
 
-        <a
+        <button
           id="monolith"
+          type="button"
           class="monolith-container parallax-layer block text-primary focus-visible:outline-0"
           data-parallax-factor="77"
-          href="https://www.youtube.com/watch?v=ou6JNQwPWE0"
-          rel="noopener noreferrer"
         >
           <div class="monolith show-front">
             <figure class="front bg-primary/50 block absolute outline-offset-0">
@@ -43,7 +42,7 @@
             </figure>
           </div>
           <span class="sr-only">Monolith</span>
-        </a>
+        </Button>
 
         <div class="moonlanders -mb-px">
           <img
@@ -74,6 +73,27 @@
       >prefers-reduced-motion</label
     >
   </div>
+
+  <!-- Youtube embed dialog -->
+  <dialog
+    id="youtube-embed-dialog"
+    class="backdrop:bg-black/50 shadow-lg text-gray-light bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 rounded-lg p-6 w-full max-w-[calc(100vw-80px)] md:w-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+  >
+    <div class="text-center">
+      <h3 class="sr-only text-lg font-semibold mb-4">2001: A Space Odyssey "Star Gate" sequence</h3>
+      <div class="mb-6">
+        <iframe class="w-full aspect-video focus-visible:outline-none" src="https://www.youtube-nocookie.com/embed/ou6JNQwPWE0?si=MK4ivLTGBCYXH5G5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- width="560" height="315" -->
+      </div>
+      <button
+        id="close-dialog-youtube-embed"
+        class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/80 transition-colors
+        focus-visible:outline-primary focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2"
+      >
+        Close
+      </button>
+    </div>
+  </dialog>
 </section>
 
 <style>
@@ -291,4 +311,38 @@
   if (window.gsap) {
     initParallax();
   }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dialogYoutubeEmbed = document.getElementById(
+      "youtube-embed-dialog"
+    ) as HTMLDialogElement;
+    const closeButtonYoutubeEmbed = document.getElementById("close-dialog-youtube-embed");
+    const showButtonYoutubeEmbed = document.getElementById("monolith");
+
+    if (showButtonYoutubeEmbed && dialogYoutubeEmbed && closeButtonYoutubeEmbed) {
+      // "Show the dialog" button opens the dialog modally
+    showButtonYoutubeEmbed.addEventListener("click", () => {
+      dialogYoutubeEmbed.showModal();
+    });
+
+      // Close dialogYoutubeEmbed when close button is clicked
+      closeButtonYoutubeEmbed.addEventListener("click", function () {
+        dialogYoutubeEmbed.close();
+      });
+
+      // Close dialogYoutubeEmbed when clicking outside (backdrop)
+      dialogYoutubeEmbed.addEventListener("click", function (e) {
+        if (e.target === dialogYoutubeEmbed) {
+          dialogYoutubeEmbed.close();
+        }
+      });
+
+      // Close dialogYoutubeEmbed with Escape key (built-in behavior, but ensuring it works)
+      dialogYoutubeEmbed.addEventListener("cancel", function (e) {
+        dialogYoutubeEmbed.close();
+      });
+    }
+  });
 </script>

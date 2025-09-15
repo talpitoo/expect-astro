@@ -75,7 +75,7 @@
   }
 
   a:focus-visible,
-  a:focus-visible figure,
+  button:focus-visible figure,
   .portfolio-next:focus-visible:before,
   .swiper-button:focus-visible {
     @apply outline-inherit outline-dashed! outline-2 outline-offset-2;
