@@ -26,7 +26,7 @@ import IconPoole from "./icons/IconPoole.astro";
         </h2>
         <p class="mb-6 text-white">
           Read my <a
-            onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
+            id="show-dialog-cv"
             href="https://cv.tothtamas.tt/"
             class="text-primary">freelancing manifesto</a
           > to see if we're a match.
@@ -46,7 +46,7 @@ import IconPoole from "./icons/IconPoole.astro";
       >
         <a
           class="aspect-square size-12 flex items-center justify-center cursor-grabbing"
-          onclick="trackOutboundLinkWithDelay('https://cv.tothtamas.tt/'); return false;"
+          id="show-dialog-cv-with-delay"
           href="https://cv.tothtamas.tt/"
         >
           <IconPoole class="overflow-visible! size-12" />
@@ -54,6 +54,33 @@ import IconPoole from "./icons/IconPoole.astro";
       </div>
     </div>
   </div>
+
+  <!-- CV dialog -->
+  <dialog
+    id="cv-dialog"
+    class="backdrop:bg-black/50 shadow-lg text-gray-light bg-white bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 rounded-lg p-6 w-full max-w-[calc(100vw-80px)] md:w-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+  >
+    <div class="text-center">
+      <h3 class="text-gray-darker text-lg font-semibold mb-4">https://cv.tothtamas.tt/</h3>
+      <div class="mb-6 dark:text-white">
+        <iframe
+          class="w-full aspect-video focus-visible:outline-none"
+          src="https://cv.tothtamas.tt/"
+          title="A freelancing manifesTTo"
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          sandbox="allow-same-origin allow-scripts"
+          allowfullscreen></iframe>
+      </div>
+      <button
+        id="close-dialog-cv"
+        class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/80 transition-colors
+        focus-visible:outline-primary focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-2"
+      >
+        Close
+      </button>
+    </div>
+  </dialog>
 </section>
 
 <style>
@@ -297,4 +324,53 @@ import IconPoole from "./icons/IconPoole.astro";
   if (window.gsap) {
     initGsapIntermission();
   }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dialogCv = document.getElementById("cv-dialog") as HTMLDialogElement;
+    const closeButtonCv = document.getElementById("close-dialog-cv");
+    const showButtonCv = document.getElementById("show-dialog-cv");
+    const showButtonCvWithDelay = document.getElementById(
+      "show-dialog-cv-with-delay"
+    );
+    const poole = document.querySelector(".animation-placeholder");
+    const pooleVisible = poole?.style.display !== "none";
+
+    if (showButtonCvWithDelay && showButtonCv && dialogCv && closeButtonCv) {
+      // "Show the dialog" button opens the dialog modally
+      showButtonCv.addEventListener("click", (e) => {
+        e.preventDefault();
+        dialogCv.showModal();
+      });
+
+      // show the CV dialog with delay, after Poole flies off
+      showButtonCvWithDelay.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        if (pooleVisible) {
+          poole.classList.add("animation-flyoff");
+          setTimeout(function () {
+            poole.classList.remove("animation-flyoff");
+            poole.style.display = "none";
+            dialogCv.showModal();
+          }, 1982);
+        } else {
+          dialogCv.showModal();
+        }
+      });
+
+      // Close dialogCv when close button is clicked
+      closeButtonCv.addEventListener("click", function () {
+        dialogCv.close();
+      });
+
+      // Close dialogCv when clicking outside (backdrop)
+      dialogCv.addEventListener("click", function (e) {
+        if (e.target === dialogCv) {
+          dialogCv.close();
+        }
+      });
+    }
+  });
 </script>

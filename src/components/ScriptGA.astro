@@ -42,23 +42,4 @@
       document.location = url;
     }
   };
-
-  // track outbound link with delay
-  function trackOutboundLinkWithDelay(url) {
-    var pooleVisible =
-      document.querySelector(".animation-placeholder").style.display !== "none";
-    if (pooleVisible) {
-      document
-        .querySelector(".animation-placeholder")
-        .classList.add("animation-flyoff");
-      setTimeout(function () {
-        var element = document.querySelector(".animation-placeholder");
-        element.classList.remove("animation-flyoff");
-        element.style.display = "none";
-        trackOutboundLink(url);
-      }, 1982);
-    } else {
-      trackOutboundLink(url);
-    }
-  }
 </script>
