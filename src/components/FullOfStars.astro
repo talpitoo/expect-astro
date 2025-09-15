@@ -19,9 +19,9 @@
           <a href="#monolith" class="text-primary">Expect the unexpected.</a>
         </p>
 
-        <button
+        <a
           id="monolith"
-          type="button"
+          href="https://www.youtube.com/watch?v=ou6JNQwPWE0"
           class="monolith-container parallax-layer block text-primary focus-visible:outline-0"
           data-parallax-factor="77"
         >
@@ -42,7 +42,7 @@
             </figure>
           </div>
           <span class="sr-only">Monolith</span>
-        </Button>
+        </a>
 
         <div class="moonlanders -mb-px">
           <img
@@ -323,9 +323,10 @@
 
     if (showButtonYoutubeEmbed && dialogYoutubeEmbed && closeButtonYoutubeEmbed) {
       // "Show the dialog" button opens the dialog modally
-    showButtonYoutubeEmbed.addEventListener("click", () => {
-      dialogYoutubeEmbed.showModal();
-    });
+      showButtonYoutubeEmbed.addEventListener("click", (e) => {
+        e.preventDefault();
+        dialogYoutubeEmbed.showModal();
+      });
 
       // Close dialogYoutubeEmbed when close button is clicked
       closeButtonYoutubeEmbed.addEventListener("click", function () {
@@ -337,11 +338,6 @@
         if (e.target === dialogYoutubeEmbed) {
           dialogYoutubeEmbed.close();
         }
-      });
-
-      // Close dialogYoutubeEmbed with Escape key (built-in behavior, but ensuring it works)
-      dialogYoutubeEmbed.addEventListener("cancel", function (e) {
-        dialogYoutubeEmbed.close();
       });
     }
   });

@@ -4,7 +4,7 @@
 
 <section
   id="chatbot"
-  class="relative lg:top-header lg:mt-hal9000 py-[30px] lg:mr-[-15px]"
+  class="relative lg:top-header lg:mt-hal9000 py-[30px] mx-auto lg:mr-[-15px] max-w-[310px] lg:max-w-none"
 >
   <div class="overflow-y-auto max-h-[204px] space-y-6 mb-6">
     <div class="break-words flex w-full justify-end">
@@ -111,11 +111,6 @@
         if (e.target === dialog) {
           dialog.close();
         }
-      });
-
-      // Close dialog with Escape key (built-in behavior, but ensuring it works)
-      dialog.addEventListener("cancel", function (e) {
-        dialog.close();
       });
     }
   });

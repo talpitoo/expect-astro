@@ -52,9 +52,10 @@ import evaPod from "./icons/eva-pod.svg";
         noPreference: `(prefers-reduced-motion: no-preference)`,
         isDesktop: `(min-width: ${breakPointMd}px)`,
         isMobile: `(max-width: ${breakPointMd - 1}px)`,
+        hasFinePointer: `(any-pointer: fine)`,
       },
       (context) => {
-        let { noPreference, prefersReducedMotion, isDesktop, isMobile } = context.conditions;
+        let { noPreference, prefersReducedMotion, isDesktop, isMobile, hasFinePointer } = context.conditions;
         let reduceMotion = window.reduceMotionCB?.checked || false;
         const infinitySection = document.getElementById("infinity");
         if (!infinitySection) return;
@@ -73,9 +74,9 @@ import evaPod from "./icons/eva-pod.svg";
               {
                 scale: 10,
                 opacity: 0,
-              }, // Start very zoomed in (500%)
+              }, // Start very zoomed in (1000%)
               {
-                scale: 0.1, // Scale down to normal size
+                scale: 0.1, // Scale down to small size
                 opacity: 1,
                 ease: "power1.out",
                 scrollTrigger: {
@@ -83,13 +84,13 @@ import evaPod from "./icons/eva-pod.svg";
                   start: "top top", // When infinity section's top reaches viewport top
                   end: "+=100%", // Pin for the full height of the viewport
                   scrub: 1, // Smooth animation tied to scroll
-                  pin: infinitySection, // Pin the entire infinity section
+                  pin: hasFinePointer && isDesktop ? infinitySection : false, // Pin only for desktop with fine pointer
                   // markers: true // Remove in production
                 },
               }
             );
             console.debug(
-              "EVA pod animation initiated with infinity section pinning."
+              `EVA pod animation initiated${hasFinePointer && isDesktop ? ' with infinity section pinning' : ' without pinning'}.`
             );
           }
 
