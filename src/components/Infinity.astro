@@ -42,16 +42,14 @@ import evaPod from "./icons/eva-pod.svg";
 </style>
 
 <script is:inline>
-  let breakPointMd = 768;
-
   // Wait for GSAP to be ready
   function initGsapInfinity() {
     window.gsapMatchMedia.add(
       {
         prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
         noPreference: `(prefers-reduced-motion: no-preference)`,
-        isDesktop: `(min-width: ${breakPointMd}px)`,
-        isMobile: `(max-width: ${breakPointMd - 1}px)`,
+        isDesktop: `(min-width: ${window.breakPointMd}px)`,
+        isMobile: `(max-width: ${window.breakPointMd - 1}px)`,
         hasFinePointer: `(any-pointer: fine)`,
       },
       (context) => {

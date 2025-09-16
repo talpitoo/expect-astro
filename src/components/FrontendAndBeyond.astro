@@ -17,6 +17,7 @@ const services = [
     icon: "helmet2001profile",
     title: "Design 2 HTML",
     description: `<span class="text-primary">I am a <abbr title="User interface">UI</abbr> developer with i++ years of experience — the glue between front-end, backend, and design. Not from an arts academy, but instinct tells me when a color palette is off or a space is missing between words. My core competency lies in the fine details.</span>`,
+    order: "xmd:order-0",
   },
   {
     icon: "evapodprofile",
@@ -27,31 +28,36 @@ Schema.org. Following these rules from the start ensures built-in
 <abbr title="Search engine optimization">SEO</abbr>, smooth
 <abbr title="User experience">UX</abbr>, quality code, and neat
 <abbr title="User interface">UI</abbr> out of the box.`,
+    order: "service-block xmd:order-1",
   },
   {
     icon: "ufo",
     title: "Speed optimization",
     description: `Performance is carefully fine-tuned. Core Web Vitals like <abbr title="Largest contentful paint">LCP</abbr> and <abbr title="Cumulative layout shift">CLS</abbr>, async & defer, critical above-the-fold CSS, and seamless <abbr title="Flash of unstyled text">FOUT</abbr>/<abbr title="Flash of invisible text">FOIT</abbr>/<abbr title="Flash of faux text">FOFT</abbr> handling. Lazy loading, fast coding.`,
+    order: "service-block xmd:order-2",
   },
   {
     icon: "monolith",
     title: "Consultation",
-    description: `Overwhelmed by front-end details? I spot UI bottlenecks and tackle questions like ‘Are custom-looking checkboxes necessary?’, ‘How to ensure keyboard accessibility?’, or ‘Pixel-perfect vs. generic?’ — keeping the big picture in focus.`,
+    description: `Overwhelmed by front-end details? I spot UI bottlenecks and tackle questions like ‘Are custom-looking checkblocks necessary?’, ‘How to ensure keyboard accessibility?’, or ‘Pixel-perfect vs. generic?’ — keeping the big picture in focus.`,
+    order: "xmd:order-3",
   },
   {
     icon: "hal9000box",
     title: "AI",
     description: `I can handle Git from the command line or <abbr title="Secure shell">SSH</abbr> into a remote server, but I’m most confident with my AI copilot <abbr title="Heuristically Programmed Algorithmic Computer">HAL</abbr> 9000 — boosting productivity, filling gaps, and streamlining my workflow.`,
+    order: "xmd:order-4",
   },
   {
     icon: "laika",
     title: "Paw patrol",
     description: `Brainstorming on four paws. I take long walks with my dogs to avoid burnout and let ideas marinate away from the screen.`,
+    order: "xmd:order-5",
   },
 ];
 ---
 
-<section class="beyond">
+<section id="beyond" class="beyond">
   <h2
     class="sr-only font-serif font-light leading-[1.1] mb-6 uppercase text-[46px] text-center md:-mt-[50px]"
   >
@@ -61,25 +67,51 @@ Schema.org. Following these rules from the start ensures built-in
   <p
     class="text-center text-lg italic mb-3 before:border-t-2 before:border-black dark:before:border-gray before:block before:mx-auto before:my-[35px] before:w-[150px]"
   >
-    Show me yours <sup class="">[design],</sup> I’ll show you mine <sup class="">&lt;code&gt;.</sup>
+    Show me yours <sup class="">[design],</sup> I’ll show you mine <sup class=""
+      >&lt;code&gt;.</sup
+    >
   </p>
   <div class="grid md:grid-cols-12 -mx-[15px]">
     <div class="md:col-span-10 md:col-start-2 px-[15px]">
       <div class="grid md:grid-cols-12 -mx-[15px]">
         {
           services.map((service) => (
-            <div class="md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out">
-              {service.icon === "astronaut" && <IconAstronaut class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "jetsons" && <IconJetsons class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "ufo" && <IconUfo class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "hal9000" &&  <IconHal9000 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "hal9000box" &&  <IconHal9000Box class="mx-auto opacity-50 mt-[6px] mb-5 size-[120px]" />}
-              {service.icon === "monolith" &&  <IconMonolith class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "laika" &&  <IconLaika class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "helmet2001" &&  <IconHelmet2001 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "helmet2001profile" &&  <IconHelmet2001Profile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "evapod" &&  <IconEvaPod class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
-              {service.icon === "evapodprofile" &&  <IconEvaPodProfile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />}
+            <div
+              class={`service-block-${service.icon} ${service.order} md:col-span-4 px-[15px] xl:px-10 hover:scale-110 transition-all duration-200 ease-in-out`}
+            >
+              {service.icon === "astronaut" && (
+                <IconAstronaut class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "jetsons" && (
+                <IconJetsons class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "ufo" && (
+                <IconUfo class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "hal9000" && (
+                <IconHal9000 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "hal9000box" && (
+                <IconHal9000Box class="mx-auto opacity-50 mt-[6px] mb-5 size-[120px]" />
+              )}
+              {service.icon === "monolith" && (
+                <IconMonolith class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "laika" && (
+                <IconLaika class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "helmet2001" && (
+                <IconHelmet2001 class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "helmet2001profile" && (
+                <IconHelmet2001Profile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "evapod" && (
+                <IconEvaPod class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
+              {service.icon === "evapodprofile" && (
+                <IconEvaPodProfile class="mx-auto opacity-50 mt-[50px] mb-5 size-[66px]" />
+              )}
               <h3
                 class="font-serif font-light leading-[1.1] uppercase text-center text-black dark:text-white text-2xl mb-[30px]"
                 set:html={service.title}
@@ -108,4 +140,114 @@ Schema.org. Following these rules from the start ensures built-in
     line-height: 1;
     text-align: center;
   }
+
+  .service-block-evapodprofile {
+    order: 1;
+  }
+
+  .service-block-ufo {
+    order: 2;
+  }
+
+  .reorder.service-block-evapodprofile {
+    order: 2;
+  }
+
+  .reorder.service-block-ufo {
+    order: 1;
+  }
 </style>
+
+<script is:inline>
+  // https://gsap.com/community/forums/topic/40416-animating-flexbox-order-transition-with-gsap-flip/
+  // Wait for GSAP to be ready
+  function initGsapFrontandAndBeyond() {
+    window.gsapMatchMedia.add(
+      {
+        prefersReducedMotion: `(prefers-reduced-motion: reduce)`, // <- when ANY of these are true, the function below gets invoked
+        noPreference: `(prefers-reduced-motion: no-preference)`,
+        isDesktop: `(min-width: ${window.breakPointMd}px)`,
+        isMobile: `(max-width: ${window.breakPointMd - 1}px)`,
+      },
+      (context) => {
+        let { noPreference, prefersReducedMotion, isDesktop, isMobile } =
+          context.conditions;
+        let reduceMotion = window.reduceMotionCB?.checked || false;
+        const beyondSection = document.getElementById("beyond");
+        if (!beyondSection) return;
+
+        // Initialize GSAP only if reduced motion is not preferred
+        if (!reduceMotion && noPreference && isDesktop) {
+          if (!window.gsap || !window.Flip) return;
+          const { gsap, Flip } = window;
+
+          // grab state
+          const blocks = gsap.utils.toArray(".service-block");
+          let state = Flip.getState(blocks);
+          // const state = Flip.getState(blocks, {
+          //   // props: "order", // Track CSS order property changes
+          //   // alternative: absolute: true // or use absolute positioning during animation
+          // });
+
+          // Make DOM or styling changes
+          // switchItUp();
+          blocks[1].classList.toggle("reorder");
+
+          // Animate from the initial state to the end state
+          Flip.from(state, {
+            duration: 0.5,
+            delay: 0.5,
+            ease: "power1.inOut",
+            absolute: true,
+            onComplete: function () {
+              // Because changing order affects multiple elements, you
+              // can't change order until previous animation completes
+              // Doing so will result in wrong positions
+              state = Flip.getState(blocks);
+              blocks[0].classList.toggle("reorder");
+
+              Flip.from(state, {
+                duration: 0.5,
+                delay: 0.5,
+                ease: "power1.inOut",
+                absolute: true,
+              });
+            },
+          });
+
+          // Flip.from(state, {
+          //   duration: 2,
+          //   ease: "power1.inOut",
+          //   // absolute: true, // Use absolute positioning during animation
+          //   scale: true, // Allow scale changes during flip
+          //   simple: true, // Use simpler calculations for better performance
+          // });
+          console.debug("GSAP: Services scramble animation initiated.");
+
+          // Return cleanup function
+          return () => {
+            console.debug("GSAP: Services scramble animation cleaned up.");
+          };
+        } else {
+          // Reduced motion - hide EVA pod and clean up
+          console.debug(
+            "prefers-reduced-motion (for GSAP Services scramble animation)"
+          );
+        }
+
+        // optionally return a cleanup function
+        // return () => console.debug("cleanup");
+      }
+    );
+  }
+
+  // Listen for GSAP ready event
+  document.addEventListener("gsap:ready", () => {
+    initGsapFrontandAndBeyond();
+  });
+
+  // Fallback if GSAP is already loaded
+  if (window.gsap) {
+    initGsapFrontandAndBeyond();
+  }
+</script>

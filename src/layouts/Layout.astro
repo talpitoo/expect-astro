@@ -40,9 +40,10 @@ import Footer from "../components/Footer.astro";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
       import { ScrollSmoother } from "gsap/ScrollSmoother";
       import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+      import { Flip } from "gsap/Flip";
 
       // Register plugins globally
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin, Flip);
 
       // prefers-reduced-motion support
       let reduceMotionCB = document.querySelector("#reducedMotionToggle");
@@ -76,8 +77,10 @@ import Footer from "../components/Footer.astro";
       (window as any).ScrollTrigger = ScrollTrigger;
       (window as any).ScrollSmoother = ScrollSmoother;
       (window as any).DrawSVGPlugin = DrawSVGPlugin;
+      (window as any).Flip = Flip;
       (window as any).gsapMatchMedia = gsapMatchMedia;
       (window as any).reduceMotionCB = reduceMotionCB;
+      (window as any).breakPointMd = 768;
 
       gsapMatchMedia.add(
         {
