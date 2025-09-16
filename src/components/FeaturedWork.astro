@@ -325,13 +325,13 @@ const portfolioItems = portfolioEntries
       },
       freeMode: true,
       watchSlidesProgress: true,
-      loop: true,
+      // loop: true,
     });
 
     // Initialize smartphone swiper (horizontal) FIRST
     const smartphoneSwiper = new Swiper(".portfolio-smartphone-swiper", {
       direction: "horizontal",
-      loop: true,
+      // loop: true,
       spaceBetween: 0,
       // mousewheel: true,
       // hashNavigation: {
@@ -361,7 +361,7 @@ const portfolioItems = portfolioEntries
     // Initialize tablet swiper (vertical) SECOND - now smartphoneSwiper exists
     const tabletSwiper = new Swiper(".portfolio-tablet-swiper", {
       direction: "vertical",
-      loop: true,
+      // loop: true,
       spaceBetween: 0,
       // mousewheel: true,
       touchEventsTarget: "container", // Enable touch events
@@ -372,7 +372,7 @@ const portfolioItems = portfolioEntries
 
     // Initialize descriptions swiper THIRD - now both smartphoneSwiper/tabletSwiper exists
     const descriptionsSwiper = new Swiper(".portfolio-descriptions-swiper", {
-      loop: true,
+      // loop: true,
       spaceBetween: 0,
       effect: window.innerWidth <= 767 ? "slide" : "fade",
       fadeEffect: {
