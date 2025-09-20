@@ -224,45 +224,111 @@ import evaPod from "./icons/eva-pod.svg";
           window.addEventListener("resize", resizeCanvas); // NOTE: will this fire onOrientationChange as well?
           resizeCanvas();
 
+          // Update the Logo class to support proper aspect ratios and GSAP
           class Logo {
-            constructor({ src, speed, size }) {
+            constructor({ src, speed, size, width, height, className }) {
               this.img = new Image();
               this.img.src = src;
               this.speed = speed;
-              this.size = size;
-              this.reset();
-            }
-            reset() {
+
+              // Handle sizing like the DOM version
+              this.img.onload = () => {
+                if (width && height) {
+                  this.width = width;
+                  this.height = height;
+                } else if (height) {
+                  // Set height, calculate width maintaining aspect ratio
+                  this.height = height;
+                  this.width = (this.img.naturalWidth / this.img.naturalHeight) * height;
+                } else if (width) {
+                  // Set width, calculate height maintaining aspect ratio
+                  this.width = width;
+                  this.height = (this.img.naturalHeight / this.img.naturalWidth) * width;
+                } else {
+                  // Fallback to size (square)
+                  this.width = size || 32;
+                  this.height = size || 32;
+                }
+              };
+
+              // GSAP-controlled properties
+              this.x = 0;
+              this.y = 0;
+              this.scale = 0.05;
               this.angle = Math.random() * Math.PI * 2;
-              this.radius = 0;
             }
-            update() {
-              this.radius += this.speed * 2; // tune multiplier for speed
-              const maxRadius = Math.sqrt(
-                canvas.width * canvas.width + canvas.height * canvas.height
-              );
-              if (this.radius > maxRadius) this.reset();
-            }
+
             draw() {
-              const x = canvas.width / 2 + Math.cos(this.angle) * this.radius;
-              const y = canvas.height / 2 + Math.sin(this.angle) * this.radius;
+              if (!this.img.complete) return;
+
+              const centerX = canvas.width / 2;
+              const centerY = canvas.height / 2;
+              const finalX = centerX + this.x;
+              const finalY = centerY + this.y;
+              const finalWidth = this.width * this.scale;
+              const finalHeight = this.height * this.scale;
+
               ctx.drawImage(
                 this.img,
-                x - this.size / 2,
-                y - this.size / 2,
-                this.size,
-                this.size
+                finalX - finalWidth / 2,
+                finalY - finalHeight / 2,
+                finalWidth,
+                finalHeight
               );
             }
           }
 
-          const logoObjs = logos.map((l) => new Logo(l));
+          // Initialize with GSAP but render to canvas
+          // Calculate viewport dimensions for proper distance
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+          const maxDistance = Math.max(viewportWidth, viewportHeight) * 0.8; // 80% of largest viewport dimension
 
+          const logoObjs = logos.map((logoData, index) => {
+            const logo = new Logo(logoData);
+
+            // Use GSAP to animate the logo properties
+            const distance = maxDistance + Math.random() * (maxDistance * 0.3);
+            const endX = Math.cos(logo.angle) * distance;
+            const endY = Math.sin(logo.angle) * distance;
+
+            const timelineStarfield = gsap.timeline({ repeat: -1 });
+            const moveDuration = 5 + Math.random() * 4;
+            const restartOffset = moveDuration * 0.5;
+            const initialDelay = (index / logos.length) * restartOffset;
+
+            timelineStarfield
+              .fromTo(
+                logo, // Animate the logo object properties directly
+                {
+                  x: 0,
+                  y: 0,
+                  scale: 0.05,
+                },
+                {
+                  x: endX,
+                  y: endY,
+                  scale: 2 + Math.random() * 2.5,
+                  duration: moveDuration,
+                  ease: "cubic-bezier(0, 0, 0, 1)", // Keep your beautiful easing!
+                  delay: initialDelay,
+                }
+              )
+              .set(logo, {
+                x: 0,
+                y: 0,
+                scale: 0.05,
+                delay: -restartOffset,
+              });
+
+            return logo;
+          });
+
+          // Animation loop just draws, GSAP handles the animation
           function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (const logo of logoObjs) {
-              logo.update();
-              if (logo.img.complete) logo.draw();
+              logo.draw();
             }
             requestAnimationFrame(animate);
           }
