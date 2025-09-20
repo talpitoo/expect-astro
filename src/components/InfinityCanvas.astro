@@ -1,5 +1,7 @@
 ---
 import evaPod from "./icons/eva-pod.svg";
+// import logosData from "../data/starfield-logos.json";
+import { brandLogos } from "../data/starfield-logos.js";
 ---
 
 <section
@@ -31,7 +33,7 @@ import evaPod from "./icons/eva-pod.svg";
   }
 
   /* Keep your brand-logo sizing if you still want CSS-based scaling */
-  .brand-logo {
+  /* .brand-logo {
     width: auto;
     height: 16px;
   }
@@ -51,119 +53,10 @@ import evaPod from "./icons/eva-pod.svg";
     .brand-mark {
       height: 64px;
     }
-  }
+  } */
 </style>
 
-<script is:inline>
-  const logos = [
-    // 11ty
-    {
-      name: "11ty",
-      src: "img/logos/11ty-mark.svg",
-      type: "mark",
-      speed: 1.05,
-      size: 64,
-    },
-
-    // Adobe
-    {
-      name: "Adobe Photoshop CC",
-      src: "img/logos/adobe-photoshop-cc-mark-color.svg",
-      type: "mark",
-      speed: 1.3,
-      size: 64,
-    },
-
-    // Alpine.js
-    {
-      name: "Alpine.js",
-      src: "img/logos/alpine-color.svg",
-      type: "logo",
-      speed: 1.5,
-      size: 32,
-    },
-
-    // Astro
-    {
-      name: "Astro",
-      src: "img/logos/astro-color.svg",
-      type: "logo",
-      speed: 1.2,
-      size: "brand-logo md:h-14!",
-    },
-
-    // Atlassian
-    {
-      name: "Atlassian",
-      src: "img/logos/atlassian-color.svg",
-      type: "logo",
-      speed: 2,
-      size: 32,
-    },
-    //   { name: "Atlassian", src: "img/logos/atlassian-mark-color.svg", type: "mark", speed: 1.9, size: "brand-mark" },
-
-    // AWS
-    {
-      name: "AWS",
-      src: "img/logos/aws-mark-color.svg",
-      type: "mark",
-      speed: 1.2,
-      size: 64,
-    },
-
-    // Blitz.js
-    //   { name: "Blitz.js", src: "img/logos/blitzjs.svg", type: "logo", speed: 1.4, size: "brand-logo" },
-
-    // Bootstrap
-    {
-      name: "Bootstrap",
-      src: "img/logos/bootstrap-mark-color.svg",
-      type: "mark",
-      speed: 1.025,
-      size: 64,
-    },
-
-    // Chart.js
-    {
-      name: "Chart.js",
-      src: "img/logos/chartjs-color.svg",
-      type: "mark",
-      speed: 1.2,
-      size: 64,
-    },
-    //   { name: "Chart.js", src: "img/logos/chartjs-mark-color.svg", type: "mark", speed: 1.15, size: "brand-mark" },
-
-    // ChatGPT
-    {
-      name: "ChatGPT",
-      src: "img/logos/chat-gpt-mark.svg",
-      type: "mark",
-      speed: 1.4,
-      size: 64,
-    },
-
-    // CSS3
-    {
-      name: "CSS3",
-      src: "img/logos/css3-mark-color.svg",
-      type: "mark",
-      speed: 1.2,
-      size: 64,
-    },
-    //   { name: "CSS", src: "img/logos/css-mark-color.svg", type: "mark", speed: 1.1, size: "brand-mark" },
-
-    // Docker
-    {
-      name: "Docker",
-      src: "img/logos/docker-color.svg",
-      type: "logo",
-      speed: 1.4,
-      size: 32,
-    },
-    //   { name: "Docker", src: "img/logos/docker-mark-color.svg", type: "mark", speed: 1.3, size: "brand-mark" },
-    // … add more
-  ];
-
+<script is:inline define:vars={{ logos: brandLogos }}>
   let breakPointMd = 768;
 
   // Wait for GSAP to be ready
@@ -224,30 +117,48 @@ import evaPod from "./icons/eva-pod.svg";
           window.addEventListener("resize", resizeCanvas); // NOTE: will this fire onOrientationChange as well?
           resizeCanvas();
 
-          // Update the Logo class to support proper aspect ratios and GSAP
+          // Update the Logo class to support responsive sizing
           class Logo {
-            constructor({ src, speed, size, width, height, className }) {
+            constructor({ src, speed, type, width, height, className }) {
               this.img = new Image();
               this.img.src = src;
               this.speed = speed;
+              this.type = type;
+
+              // Responsive sizing multiplier - half size on mobile
+              const sizeMultiplier = isDesktop ? 1 : 0.5;
 
               // Handle sizing like the DOM version
               this.img.onload = () => {
                 if (width && height) {
-                  this.width = width;
-                  this.height = height;
+                  this.width = width * sizeMultiplier;
+                  this.height = height * sizeMultiplier;
                 } else if (height) {
                   // Set height, calculate width maintaining aspect ratio
-                  this.height = height;
-                  this.width = (this.img.naturalWidth / this.img.naturalHeight) * height;
+                  this.height = height * sizeMultiplier;
+                  this.width =
+                    (this.img.naturalWidth / this.img.naturalHeight) * this.height;
                 } else if (width) {
                   // Set width, calculate height maintaining aspect ratio
-                  this.width = width;
-                  this.height = (this.img.naturalHeight / this.img.naturalWidth) * width;
+                  this.width = width * sizeMultiplier;
+                  this.height =
+                    (this.img.naturalHeight / this.img.naturalWidth) * this.width;
                 } else {
-                  // Fallback to size (square)
-                  this.width = size || 32;
-                  this.height = size || 32;
+                  // Fallback based on type - matches your CSS classes
+                  if (this.type === "logo") {
+                    this.height = 32 * sizeMultiplier; // 32px desktop, 16px mobile
+                    this.width =
+                      (this.img.naturalWidth / this.img.naturalHeight) * this.height;
+                  } else if (this.type === "mark") {
+                    this.height = 64 * sizeMultiplier; // 64px desktop, 32px mobile
+                    this.width =
+                      (this.img.naturalWidth / this.img.naturalHeight) * this.height;
+                  } else {
+                    // Default fallback if type is not specified
+                    this.height = 32 * sizeMultiplier; // 32px desktop, 16px mobile
+                    this.width =
+                      (this.img.naturalWidth / this.img.naturalHeight) * this.height;
+                  }
                 }
               };
 
@@ -282,7 +193,7 @@ import evaPod from "./icons/eva-pod.svg";
           // Calculate viewport dimensions for proper distance
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
-          const maxDistance = Math.max(viewportWidth, viewportHeight) * 0.8; // 80% of largest viewport dimension
+          const maxDistance = Math.max(viewportWidth, viewportHeight) * 0.85; // 85% of largest viewport dimension
 
           const logoObjs = logos.map((logoData, index) => {
             const logo = new Logo(logoData);

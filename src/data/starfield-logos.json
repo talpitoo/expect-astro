@@ -1,0 +1,89 @@
+[
+    {
+      "name": "11ty",
+      "src": "img/logos/11ty-mark.svg",
+      "type": "mark",
+      "speed": 1.05,
+      "width": 64
+    },
+
+    {
+      "name": "Adobe Photoshop CC",
+      "src": "img/logos/adobe-photoshop-cc-mark-color.svg",
+      "type": "mark",
+      "speed": 1.3,
+      "height": 64
+    },
+
+    {
+      "name": "Alpine.js",
+      "src": "img/logos/alpine-color.svg",
+      "type": "logo",
+      "speed": 1.5,
+      "height": 32
+    },
+
+    {
+      "name": "Astro",
+      "src": "img/logos/astro-color.svg",
+      "type": "logo",
+      "speed": 1.2,
+      "height": 32
+    },
+
+    {
+      "name": "Atlassian",
+      "src": "img/logos/atlassian-color.svg",
+      "type": "logo",
+      "speed": 2,
+      "height": 32
+    },
+
+    {
+      "name": "AWS",
+      "src": "img/logos/aws-mark-color.svg",
+      "type": "mark",
+      "speed": 1.2,
+      "height": 64
+    },
+
+    {
+      "name": "Bootstrap",
+      "src": "img/logos/bootstrap-mark-color.svg",
+      "type": "mark",
+      "speed": 1.025,
+      "height": 64
+    },
+
+    {
+      "name": "Chart.js",
+      "src": "img/logos/chartjs-color.svg",
+      "type": "mark",
+      "speed": 1.2,
+      "height": 64
+    },
+
+    {
+      "name": "ChatGPT",
+      "src": "img/logos/chat-gpt-mark.svg",
+      "type": "mark",
+      "speed": 1.4,
+      "height": 64
+    },
+
+    {
+      "name": "CSS3",
+      "src": "img/logos/css3-mark-color.svg",
+      "type": "mark",
+      "speed": 1.2,
+      "height": 64
+    },
+
+    {
+      "name": "Docker",
+      "src": "img/logos/docker-color.svg",
+      "type": "logo",
+      "speed": 1.4,
+      "height": 32
+    }
+  ]

@@ -1,0 +1,520 @@
+export const brandLogos = [
+  // 11ty
+  {
+    name: "11ty",
+    src: "img/logos/11ty-mark.svg",
+    type: "mark",
+    speed: 1.05,
+    class: "brand-mark",
+  },
+
+  // Adobe
+  {
+    name: "Adobe Photoshop CC",
+    src: "img/logos/adobe-photoshop-cc-mark-color.svg",
+    type: "mark",
+    speed: 1.3,
+    class: "brand-mark",
+  },
+
+  // Alpine.js
+  {
+    name: "Alpine.js",
+    src: "img/logos/alpine-color.svg",
+    type: "logo",
+    speed: 1.5,
+    class: "brand-logo",
+  },
+
+  // Astro
+  {
+    name: "Astro",
+    src: "img/logos/astro-color.svg",
+    type: "logo",
+    speed: 1.2,
+    class: "brand-logo md:h-14!",
+  },
+
+  // Atlassian
+  {
+    name: "Atlassian",
+    src: "img/logos/atlassian-color.svg",
+    type: "logo",
+    speed: 2,
+    class: "brand-logo",
+  },
+  //   { name: "Atlassian", src: "img/logos/atlassian-mark-color.svg", type: "mark", speed: 1.9, class: "brand-mark" },
+
+  // AWS
+  {
+    name: "AWS",
+    src: "img/logos/aws-mark-color.svg",
+    type: "mark",
+    speed: 1.2,
+    class: "brand-mark",
+  },
+
+  // Blitz.js
+  //   { name: "Blitz.js", src: "img/logos/blitzjs.svg", type: "logo", speed: 1.4, class: "brand-logo" },
+
+  // Bootstrap
+  {
+    name: "Bootstrap",
+    src: "img/logos/bootstrap-mark-color.svg",
+    type: "mark",
+    speed: 1.025,
+    class: "brand-mark",
+  },
+
+  // Chart.js
+  {
+    name: "Chart.js",
+    src: "img/logos/chartjs-color.svg",
+    type: "mark",
+    speed: 1.2,
+    class: "brand-mark",
+  },
+  //   { name: "Chart.js", src: "img/logos/chartjs-mark-color.svg", type: "mark", speed: 1.15, class: "brand-mark" },
+
+  // ChatGPT
+  {
+    name: "ChatGPT",
+    src: "img/logos/chat-gpt-mark.svg",
+    type: "mark",
+    speed: 1.4,
+    class: "brand-mark",
+  },
+
+  // CSS3
+  {
+    name: "CSS3",
+    src: "img/logos/css3-mark-color.svg",
+    type: "mark",
+    speed: 1.2,
+    class: "brand-mark",
+  },
+  //   { name: "CSS", src: "img/logos/css-mark-color.svg", type: "mark", speed: 1.1, class: "brand-mark" },
+
+  // Docker
+  {
+    name: "Docker",
+    src: "img/logos/docker-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo",
+  },
+  //   { name: "Docker", src: "img/logos/docker-mark-color.svg", type: "mark", speed: 1.3, class: "brand-mark" },
+
+  // Emotion
+  {
+    name: "Emotion",
+    src: "img/logos/emotion-mark-color.png",
+    type: "mark",
+    speed: 1.7,
+    class: "brand-mark",
+  },
+
+  // Figma
+  //   { name: "Figma", src: "img/logos/figma-color.svg", type: "logo", speed: 1.2, class: "brand-logo" },
+  {
+    name: "Figma",
+    src: "img/logos/figma-mark-color.svg",
+    type: "mark",
+    speed: 1.1,
+    class: "brand-mark md:h-32!",
+  },
+
+  // Flowbite
+  {
+    name: "Flowbite",
+    src: "img/logos/flowbite-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo",
+  },
+  //   { name: "Flowbite", src: "img/logos/flowbite-mark-color.svg", type: "mark", speed: 1.3, class: "brand-mark" },
+
+  // GitHub
+  {
+    name: "GitHub",
+    src: "img/logos/github.svg",
+    type: "logo",
+    speed: 1.5,
+    class: "brand-logo",
+  },
+
+  // GitHub Copilot
+  {
+    name: "GitHub Copilot",
+    src: "img/logos/github-copilot.svg",
+    type: "logo",
+    speed: 3.1,
+    class: "brand-logo",
+  },
+
+  // GitLab
+  {
+    name: "GitLab",
+    src: "img/logos/gitlab-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo md:h-20!",
+  },
+  //   { name: "GitLab", src: "img/logos/gitlab-mark-color.svg", type: "mark", speed: 1.3, class: "brand-mark" },
+
+  // Gmail
+  {
+    name: "Gmail",
+    src: "img/logos/gmail-mark-color.svg",
+    type: "mark",
+    speed: 1.4,
+    class: "brand-mark",
+  },
+
+  //GraphQL
+  {
+    name: "GraphQL",
+    src: "img/logos/graphql-color.svg",
+    type: "logo",
+    speed: 1.3,
+    class: "brand-logo",
+  },
+
+  // GSAP
+  {
+    name: "GSAP",
+    src: "img/logos/gsap.svg",
+    type: "logo",
+    speed: 1.1,
+    class: "brand-logo",
+  },
+
+  // Highlight.js
+  {
+    name: "highlight.js",
+    src: "img/logos/highlightjs-mark-color.png",
+    type: "mark",
+    speed: 1.5,
+    class: "brand-mark",
+  },
+
+  // HTML5
+  {
+    name: "HTML5",
+    src: "img/logos/html5-mark-color.svg",
+    type: "mark",
+    speed: 1.2,
+    class: "brand-mark",
+  },
+
+  // Jekyll
+  {
+    name: "Jekyll",
+    src: "img/logos/jekyll.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo md:h-20!",
+  },
+
+  // Jira
+  {
+    name: "Jira",
+    src: "img/logos/jira-color.svg",
+    type: "logo",
+    speed: 1.6,
+    class: "brand-logo",
+  },
+
+  // jQuery
+  //   {
+  //     name: "jQuery",
+  //     src: "img/logos/jquery.svg",
+  //     type: "logo",
+  //     speed: 3.2,
+  //     class: "brand-logo",
+  //   },
+
+  // LCP
+  {
+    name: "LCP",
+    src: "img/logos/lcp-color.svg",
+    type: "logo",
+    speed: 1.7,
+    class: "brand-logo md:h-[37.5px]!",
+  },
+
+  // Linux
+  {
+    name: "Linux",
+    src: "img/logos/linux-mark-color.svg",
+    type: "mark",
+    speed: 2.4,
+    class: "brand-mark",
+  },
+
+  // Markdown
+  {
+    name: "Markdown",
+    src: "img/logos/markdown-mark.svg",
+    type: "mark",
+    speed: 2.1,
+    class: "brand-mark md:h-14!",
+  },
+
+  // Material-UI
+  {
+    name: "Material-UI",
+    src: "img/logos/mui-color.svg",
+    type: "logo",
+    speed: 1.5,
+    class: "brand-logo",
+  },
+  //   { name: "Material-UI", src: "img/logos/mui-mark-color.svg", type: "mark", speed: 1.4, class: "brand-mark" },
+
+  // NestJS
+  {
+    name: "NestJS",
+    src: "img/logos/nestjs-mark-color.svg",
+    type: "mark",
+    speed: 1.8,
+    class: "brand-mark",
+  },
+
+  // Next.js
+  {
+    name: "Next.js",
+    src: "img/logos/nextjs.svg",
+    type: "logo",
+    speed: 1.15,
+    class: "brand-logo",
+  },
+  {
+    name: "Next.js",
+    src: "img/logos/nextjs-mark-color.svg",
+    type: "mark",
+    speed: 1.1,
+    class: "brand-mark",
+  },
+
+  // Node.js
+  {
+    name: "Node.js",
+    src: "img/logos/nodejs.svg",
+    type: "logo",
+    speed: 1.8,
+    class: "brand-logo",
+  },
+
+  // Nuxt
+  {
+    name: "Nuxt",
+    src: "img/logos/nuxt-color.svg",
+    type: "logo",
+    speed: 1.3,
+    class: "brand-logo",
+  },
+
+  // OAuth
+  //   { name: "OAuth", src: "img/logos/oauth-mark-color.svg", type: "mark", speed: 1.2, class: "brand-mark" },
+
+  // PostgreSQL
+  {
+    name: "PostgreSQL",
+    src: "img/logos/postgresql-mark-color.png",
+    type: "mark",
+    speed: 1.4,
+    class: "brand-mark",
+  },
+
+  // Prisma
+  {
+    name: "Prisma",
+    src: "img/logos/prisma.svg",
+    type: "logo",
+    speed: 1.8,
+    class: "brand-logo",
+  },
+
+  // React
+  {
+    name: "React",
+    src: "img/logos/react-color.svg",
+    type: "logo",
+    speed: 1.6,
+    class: "brand-logo",
+  },
+  //   { name: "React", src: "img/logos/react-mark-color.svg", type: "mark", speed: 1.5, class: "brand-mark" },
+
+  // reCAPTCHA
+  {
+    name: "reCAPTCHA",
+    src: "img/logos/recaptcha-mark-color.svg",
+    type: "mark",
+    speed: 1.3,
+    class: "brand-mark",
+  },
+
+  // Recharts
+  //   { name: "Recharts", src: "img/logos/recharts-mark.png", type: "mark", speed: 1.4, class: "brand-mark" },
+
+  // Sass
+  {
+    name: "Sass",
+    src: "img/logos/sass-mark-color.svg",
+    type: "mark",
+    speed: 1.2,
+    class: "brand-mark",
+  },
+
+  // Schema.org
+  {
+    name: "Schema.org",
+    src: "img/logos/schema-org-color.svg",
+    type: "logo",
+    speed: 1.5,
+    class: "brand-logo",
+  },
+
+  // SEO
+  //   {
+  //     name: "SEO",
+  //     src: "img/logos/seo-color.png",
+  //     type: "logo",
+  //     speed: 1.3,
+  //     class: "brand-logo",
+  //   },
+
+  // shadcn/ui
+  //   {
+  //     name: "shadcn/ui",
+  //     src: "img/logos/shadcn-mark.svg",
+  //     type: "mark",
+  //     speed: 1.7,
+  //     class: "brand-mark",
+  //   },
+
+  // Shopify
+  {
+    name: "Shopify",
+    src: "img/logos/shopify-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo",
+  },
+  //   { name: "Shopify", src: "img/logos/shopify-mark-color.svg", type: "mark", speed: 1.3, class: "brand-mark" },
+
+  // Slack
+  {
+    name: "Slack",
+    src: "img/logos/slack-color.png",
+    type: "logo",
+    speed: 1.6,
+    class: "brand-logo md:h-14!",
+  },
+  //   { name: "Slack", src: "img/logos/slack-mark-color.svg", type: "mark", speed: 1.5, class: "brand-mark" },
+
+  // SVG
+  //   { name: "SVG", src: "img/logos/svg-mark-color.svg", type: "mark", speed: 1.1, class: "brand-mark" },
+
+  // Swiper
+  {
+    name: "Swiper",
+    src: "img/logos/swiper-mark-color.svg",
+    type: "mark",
+    speed: 1.4,
+    class: "brand-mark",
+  },
+
+  // TailwindCSS
+  {
+    name: "TailwindCSS",
+    src: "img/logos/tailwindcss-color.svg",
+    type: "logo",
+    speed: 1.025,
+    class: "brand-logo",
+  },
+  //   { name: "TailwindCSS", src: "img/logos/tailwindcss-mark-color.svg", type: "mark", speed: 1.05, class: "brand-mark" },
+
+  // Tumblr
+  {
+    name: "Tumblr",
+    src: "img/logos/tumblr-color.png",
+    type: "logo",
+    speed: 1.8,
+    class: "brand-logo",
+  },
+  //   { name: "Tumblr", src: "img/logos/tumblr-mark-color.png", type: "mark", speed: 1.7, class: "brand-mark" },
+
+  // Ubuntu
+  {
+    name: "Ubuntu",
+    src: "img/logos/ubuntu-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo",
+  },
+
+  // Vercel
+  {
+    name: "Vercel",
+    src: "img/logos/vercel.svg",
+    type: "logo",
+    speed: 1.3,
+    class: "brand-logo",
+  },
+  //   { name: "Vercel", src: "img/logos/vercel-mark.svg", type: "mark", speed: 1.2, class: "brand-mark" },
+
+  // VSCode
+  {
+    name: "VSCode",
+    src: "img/logos/vscode-mark-color.svg",
+    type: "mark",
+    speed: 1.205,
+    class: "brand-mark",
+  },
+
+  // Vue.js
+  {
+    name: "Vue.js",
+    src: "img/logos/vuejs-mark-color.svg",
+    type: "mark",
+    speed: 1.6,
+    class: "brand-mark",
+  },
+
+  // W3C
+  {
+    name: "W3C",
+    src: "img/logos/w3c-mark-color.svg",
+    type: "mark",
+    speed: 1.4,
+    class: "brand-mark",
+  },
+
+  // WCAG
+  {
+    name: "WCAG 2.1 AAA",
+    src: "img/logos/wcag2aaa-color.svg",
+    type: "logo",
+    speed: 1.5,
+    class: "brand-logo md:h-[65px]!",
+  },
+
+  // WooCommerce
+  {
+    name: "WooCommerce",
+    src: "img/logos/woo-mark-color.svg",
+    type: "logo",
+    speed: 1.4,
+    class: "brand-logo md:h-5!",
+  },
+
+  // WordPress
+  {
+    name: "WordPress",
+    src: "img/logos/wordpress.png",
+    type: "logo",
+    speed: 1.2,
+    class: "brand-logo md:h-14!",
+  },
+];
