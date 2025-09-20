@@ -6,7 +6,7 @@
   id="chatbot"
   class="relative lg:top-header lg:mt-hal9000 py-[30px] mx-auto lg:mr-[-15px] max-w-[310px] lg:max-w-none"
 >
-  <div class="overflow-y-auto max-h-[228px] pt-6 space-y-6 mb-6">
+  <div id="hal-messages" class="overflow-y-auto max-h-[228px] pt-6 space-y-6 mb-6">
     <div class="break-words flex w-full justify-end">
       <div
         class="rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 rounded-tr-none text-end max-w-[90%]"
@@ -30,6 +30,8 @@
         I'm sorry Dave, I'm afraid I can't do that.
       </div>
     </div>
+
+    <!-- Dynamic messages will be injected here -->
   </div>
 
   <div
@@ -86,7 +88,7 @@
   </dialog>
 </section>
 
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("hal-form");
     const dialog = document.getElementById(
@@ -114,4 +116,272 @@
       });
     }
   });
+</script> -->
+
+<script>
+  // Configuration - Update this with your Vercel deployment URL
+  const HAL_API_URL = "https://hal-9000-backend.vercel.app/api/hal";
+
+  // Generate a session ID for rate limiting
+  const SESSION_ID =
+    "session_" + Math.random().toString(36).substr(2, 9) + "_" + Date.now();
+
+  let isTyping = false;
+
+  // DOM elements
+  const messagesDiv = document.getElementById("hal-messages");
+  const inputField = document.getElementById("hal-9000");
+  const form = document.getElementById("hal-form");
+
+  // Debug logging
+  console.debug("HAL Widget Initializing...");
+  console.debug("Messages div:", messagesDiv);
+  console.debug("Input field:", inputField);
+  console.debug("Form:", form);
+
+  // Initialize event listeners
+  function initializeWidget() {
+    console.debug("Setting up event listeners...");
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        console.debug("Form submit triggered");
+        e.preventDefault();
+        sendMessage();
+      });
+    } else {
+      console.error("Form element not found!");
+    }
+
+    if (inputField) {
+      inputField.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          console.debug("Enter key pressed");
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    } else {
+      console.error("Input field not found!");
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeWidget);
+  } else {
+    initializeWidget();
+  }
+
+  function createMessage(content, isUser = false, isError = false) {
+    const messageWrapper = document.createElement("div");
+    messageWrapper.className = `break-words flex w-full ${isUser ? "justify-end" : "justify-start"}`;
+
+    const messageDiv = document.createElement("div");
+    let baseClasses =
+      "rounded-3xl text-gray-light bg-gray-dark px-5 py-2.5 max-w-[90%]";
+
+    if (isUser) {
+      messageDiv.className = `${baseClasses} rounded-tr-none text-end`;
+    } else {
+      messageDiv.className = `${baseClasses} rounded-tl-none`;
+      if (isError) {
+        messageDiv.classList.add("hal-error");
+      }
+    }
+
+    messageDiv.textContent = content;
+    messageWrapper.appendChild(messageDiv);
+
+    return messageWrapper;
+  }
+
+  function addMessage(content, isUser = false, isError = false) {
+    console.debug(
+      "Adding message:",
+      content,
+      "isUser:",
+      isUser,
+      "isError:",
+      isError
+    );
+    const messageElement = createMessage(content, isUser, isError);
+    messagesDiv.appendChild(messageElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    return messageElement;
+  }
+
+  function showTypingIndicator() {
+    console.debug("Showing typing indicator");
+    const typingElement = createMessage("HAL is processing...", false);
+    const messageDiv = typingElement.querySelector("div");
+    messageDiv.classList.add("hal-typing");
+    typingElement.id = "typing-indicator";
+    messagesDiv.appendChild(typingElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function hideTypingIndicator() {
+    const typingDiv = document.getElementById("typing-indicator");
+    if (typingDiv) {
+      console.debug("Hiding typing indicator");
+      typingDiv.remove();
+    }
+  }
+
+  async function sendMessage() {
+    console.debug("sendMessage() called");
+
+    if (!inputField) {
+      console.error("Input field not found!");
+      return;
+    }
+
+    const message = inputField.value.trim();
+    console.debug("Message to send:", message);
+
+    if (!message || isTyping) {
+      console.debug("No message or already typing, returning");
+      return;
+    }
+
+    // Add user message locally first (this should work even without API)
+    addMessage(message, true);
+    inputField.value = "";
+
+    // Show typing and disable input
+    isTyping = true;
+    inputField.disabled = true;
+    showTypingIndicator();
+
+    try {
+      console.debug("Attempting to fetch from:", HAL_API_URL);
+
+      const response = await fetch(HAL_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: message,
+          sessionId: SESSION_ID,
+        }),
+      });
+
+      hideTypingIndicator();
+
+      if (!response.ok) {
+        console.error("Response not OK:", response.status, response.statusText);
+
+        try {
+          const errorData = await response.json();
+          console.error("Error data:", errorData);
+
+          if (errorData.halResponse) {
+            addMessage(errorData.halResponse, false);
+          } else {
+            addMessage(
+              "I apologize, Dave. There appears to be a malfunction in my systems.",
+              false,
+              true
+            );
+          }
+        } catch (parseError) {
+          console.error("Error parsing error response:", parseError);
+          addMessage(
+            "I apologize, Dave. There appears to be a malfunction in my systems.",
+            false,
+            true
+          );
+        }
+        return;
+      }
+
+      // Handle streaming response
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let halResponse = "";
+      let currentMessageElement = null;
+      let currentMessageDiv = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value);
+        halResponse += chunk;
+
+        // Create or update the HAL message
+        if (!currentMessageElement) {
+          currentMessageElement = createMessage("", false);
+          currentMessageDiv = currentMessageElement.querySelector("div");
+          messagesDiv.appendChild(currentMessageElement);
+        }
+
+        currentMessageDiv.textContent = halResponse;
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+
+      if (!halResponse.trim()) {
+        if (currentMessageElement) {
+          currentMessageElement.remove();
+        }
+        addMessage(
+          "I seem to be experiencing some difficulty, Dave.",
+          false,
+          true
+        );
+      }
+    } catch (error) {
+      hideTypingIndicator();
+      console.error("HAL API Error:", error);
+
+      // Show different messages based on error type
+      if (error.name === "TypeError" && error.message.includes("fetch")) {
+        addMessage(
+          "I'm sorry, Dave. I cannot establish a connection to my higher functions. Please check the API configuration.",
+          false,
+          true
+        );
+      } else {
+        addMessage(
+          "I'm sorry, Dave. I'm having trouble connecting to my higher functions.",
+          false,
+          true
+        );
+      }
+    } finally {
+      // Re-enable input
+      isTyping = false;
+      inputField.disabled = false;
+      inputField.focus();
+      console.debug("Message processing complete");
+    }
+  }
+
+  // Test function to verify the widget works
+  function testWidget() {
+    console.debug("Testing widget...");
+    if (messagesDiv && inputField) {
+      addMessage("Test message from user", true);
+      addMessage("Test response from HAL", false);
+      console.debug("Test messages added successfully");
+    } else {
+      console.error("Widget elements not found for testing");
+    }
+  }
+
+  // Auto-focus input when page loads
+  window.addEventListener("load", () => {
+    if (inputField) {
+      inputField.focus();
+      console.debug("Input focused");
+    }
+  });
+
+  // Make test function available globally for debugging
+  window.testHalWidget = testWidget;
+  console.debug(
+    "HAL Widget loaded. You can run testHalWidget() in console to test."
+  );
 </script>
