@@ -163,7 +163,7 @@
         grecaptcha.ready(function() {
           grecaptcha.execute('6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i', {action: 'submit'}).then(function(token) {
               // Add your logic to submit to your backend server here.
-              sendMessage();
+              sendMessage(token);
           });
         });
       });
@@ -247,7 +247,7 @@
     }
   }
 
-  async function sendMessage() {
+  async function sendMessage(recaptchaToken = null) {
     console.debug("sendMessage() called");
 
     if (!inputField) {
@@ -283,6 +283,7 @@
         body: JSON.stringify({
           message: message,
           sessionId: SESSION_ID,
+          recaptchaToken: recaptchaToken,
         }),
       });
 
