@@ -80,8 +80,8 @@
     > and
     <a class="text-gray-light" href="https://policies.google.com/terms"
       >Terms of Service</a
-    > apply. Inputs are sent to an AI provider to generate replies and not stored — for
-    entertainment only.
+    > apply. Inputs are sent to an AI provider to generate replies and not stored
+    — for entertainment only.
   </p>
 
   <!-- Coming Soon Dialog -->
@@ -149,6 +149,10 @@
     }
   });
 </script> -->
+
+<!-- Import Markdown -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" is:inline></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" is:inline></script> -->
 
 <script>
   // Configuration - Update this with your Vercel deployment URL
@@ -239,7 +243,9 @@
       }
     }
 
-    messageDiv.textContent = content;
+    // messageDiv.textContent = content;
+    // messageDiv.innerHTML = DOMPurify.sanitize(marked.parse(content));
+    messageDiv.innerHTML = simpleMarkdown(content);
     messageWrapper.appendChild(messageDiv);
 
     return messageWrapper;
@@ -368,7 +374,9 @@
           messagesDiv.appendChild(currentMessageElement);
         }
 
-        currentMessageDiv.textContent = halResponse;
+        // currentMessageDiv.textContent = halResponse;
+        // currentMessageDiv.innerHTML = DOMPurify.sanitize(marked.parse(halResponse));
+        currentMessageDiv.innerHTML = simpleMarkdown(halResponse);
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
       }
 
@@ -421,17 +429,42 @@
     }
   }
 
-  // Auto-focus input when page loads
-  // window.addEventListener("load", () => {
-  //   if (inputField) {
-  //     inputField.focus();
-  //     console.debug("Input focused");
-  //   }
-  // });
-
   // Make test function available globally for debugging
   window.testHalWidget = testWidget;
   console.debug(
     "HAL Widget loaded. You can run testHalWidget() in console to test."
   );
+
+  // Manual markdown rendering
+  function simpleMarkdown(md) {
+    let html = md;
+
+    // Escape HTML tags first (basic sanitization)
+    html = html
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Headings (###, ##, #)
+    html = html.replace(/^### (.*$)/gim, "<h3>$1</h3>");
+    html = html.replace(/^## (.*$)/gim, "<h2>$1</h2>");
+    html = html.replace(/^# (.*$)/gim, "<h1>$1</h1>");
+
+    // Bold **text**
+    html = html.replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>");
+
+    // Italic *text*
+    html = html.replace(/\*(.*?)\*/gim, "<em>$1</em>");
+
+    // Links [text](url)
+    html = html.replace(
+      /\[(.*?)\]\((.*?)\)/gim,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline">$1</a>'
+    );
+
+    // Line breaks
+    html = html.replace(/\n/g, "<br>");
+
+    return html.trim();
+  }
 </script>
