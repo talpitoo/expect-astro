@@ -6,7 +6,10 @@
   id="chatbot"
   class="relative lg:top-header lg:mt-hal9000 py-[30px] mx-auto lg:mr-[-15px] max-w-[310px] lg:max-w-none"
 >
-  <div id="hal-messages" class="overflow-y-auto max-h-[228px] pt-6 space-y-6 mb-6">
+  <div
+    id="hal-messages"
+    class="overflow-y-auto max-h-[228px] pt-6 space-y-6 mb-6"
+  >
     <div class="break-words flex w-full justify-end">
       <div
         class="relative rounded-3xl text-gray-light bg-primary/25 px-5 py-2.5 rounded-tr-none text-end max-w-[90%]"
@@ -70,8 +73,19 @@
     </form>
   </div>
 
+  <p class="text-xs mt-4 text-justify">
+    This site is protected by reCAPTCHA and the Google
+    <a class="text-gray-light" href="https://policies.google.com/privacy"
+      >Privacy Policy</a
+    > and
+    <a class="text-gray-light" href="https://policies.google.com/terms"
+      >Terms of Service</a
+    > apply. Inputs are sent to an AI provider to generate replies and not stored — for
+    entertainment only.
+  </p>
+
   <!-- Coming Soon Dialog -->
-  <dialog
+  <!-- <dialog
     id="coming-soon-dialog"
     class="starting:scale-90 starting:opacity-0 transition backdrop:bg-black/50 shadow-lg text-gray-light bg-white/10 bg-clip-border backdrop-filter backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-xs fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
   >
@@ -86,19 +100,23 @@
         Close
       </button>
     </div>
-  </dialog>
+  </dialog> -->
 </section>
 
 <style>
   /* Additional styling for HAL specific elements */
   :global(.hal-typing) {
-      opacity: 0.5;
-      font-style: italic;
+    opacity: 0.5;
+    font-style: italic;
   }
 
   :global(.hal-error) {
-      background-color: rgba(239, 68, 68, 0.1);
-      color: #fca5a5;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+  }
+
+  :global(.grecaptcha-badge) {
+    visibility: hidden;
   }
 </style>
 
@@ -161,11 +179,15 @@
       form.addEventListener("submit", (e) => {
         console.debug("HAL 9000 form submit triggered");
         e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i', {action: 'submit'}).then(function(token) {
+        grecaptcha.ready(function () {
+          grecaptcha
+            .execute("6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i", {
+              action: "submit",
+            })
+            .then(function (token) {
               // Add your logic to submit to your backend server here.
               sendMessage(token);
-          });
+            });
         });
       });
     } else {
@@ -177,11 +199,15 @@
         if (e.key === "Enter") {
           console.debug("Enter key pressed");
           e.preventDefault();
-          grecaptcha.ready(function() {
-            grecaptcha.execute('6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i', {action: 'submit'}).then(function(token) {
+          grecaptcha.ready(function () {
+            grecaptcha
+              .execute("6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i", {
+                action: "submit",
+              })
+              .then(function (token) {
                 // Add your logic to submit to your backend server here.
                 sendMessage(token);
-            });
+              });
           });
         }
       });
@@ -202,8 +228,7 @@
     messageWrapper.className = `break-words flex w-full ${isUser ? "justify-start" : "justify-end"}`;
 
     const messageDiv = document.createElement("div");
-    let baseClasses =
-      "rounded-3xl text-gray-light px-5 py-2.5 max-w-[90%]";
+    let baseClasses = "rounded-3xl text-gray-light px-5 py-2.5 max-w-[90%]";
 
     if (isUser) {
       messageDiv.className = `${baseClasses} rounded-tl-none text-end bg-gray-dark`;
