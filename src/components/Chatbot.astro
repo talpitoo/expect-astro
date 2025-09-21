@@ -176,7 +176,12 @@
         if (e.key === "Enter") {
           console.debug("Enter key pressed");
           e.preventDefault();
-          sendMessage();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('6LeeaNArAAAAABRJhlaN9QqGSkkXrXsEki0-rX2i', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+                sendMessage(token);
+            });
+          });
         }
       });
     } else {
