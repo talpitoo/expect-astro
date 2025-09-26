@@ -1,0 +1,35 @@
+id: expect
+title: |
+  This same website <br class="hidden lg:inline">
+  rebuilt in Astro after 11 years
+date: 2014-09-20
+featured: false
+tags: ['astro', 'tailwindcss', 'gsap', 'scrolltrigger', 'scrollsmoother', 'drawsvg', 'canvas', 'llm', 'a11y', 'wcag', 'seo']
+status: published
+content: |
+  <p class="mb-3">
+    A complete rebuild of my old agency website in Astro, featuring refined GSAP-powered animations: 
+    DrawSVG, icon morphing, parallax, and a custom <code>&lt;canvas&gt;</code> starfield — 
+    all respecting <code>prefers-reduced-motion</code>.  
+    Also includes a HAL&nbsp;9000–themed chatbot powered by OpenAI LLMs.
+  </p>
+skills:
+  - name: Astro
+    url: https://astro.build/
+  - name: TailwindCSS
+    url: https://tailwindcss.com/
+  - name: GSAP
+    url: https://greensock.com/gsap/
+  - name: DrawSVG
+    url: https://gsap.com/docs/v3/Plugins/DrawSVGPlugin/
+  - name: <canvas>
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+  - name: LLM
+    url: https://platform.openai.com/
+  - name: GitHub Actions
+    url: https://docs.github.com/en/actions
+link:
+  url: https://talpitoo.com/expect-agency/
+  text: expect.agency
+github:
+  url: https://github.com/talpitoo/expect-astro
