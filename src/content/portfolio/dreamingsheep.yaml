@@ -5,13 +5,7 @@ featured: true
 tags: ['nextjs', 'blitzjs', 'mui', 'tailwindcss', 'prisma', 'postgresql', 'docker', 'oauth2', 'jwt']
 status: published
 content: |
-  <p class="mb-3">
-    An online dream journal where you can log and analyze your dreams, 
-    find connections in dream patterns and track repeating symbols.
-  </p>
-  <p class="mb-3 italic">
-    Long time no sleep?
-  </p>
+  My own 'startup' where I led the UI while coordinating a backend team, and eventually took over the full maintenance myself.
 skills:
   - name: MUI
     url: https://mui.com/
