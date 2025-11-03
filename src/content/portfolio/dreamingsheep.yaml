@@ -5,7 +5,9 @@ featured: true
 tags: ['nextjs', 'blitzjs', 'mui', 'tailwindcss', 'prisma', 'postgresql', 'docker', 'oauth2', 'jwt']
 status: published
 content: |
-  My own 'startup' where I led the UI while coordinating a backend team, and eventually took over the full maintenance myself.
+  <p class="mb-3">
+    My own 'startup' where I led the UI while coordinating a backend team, and eventually took over the full maintenance myself.
+  </p>
 skills:
   - name: MUI
     url: https://mui.com/
